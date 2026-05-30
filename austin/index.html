@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Austin Short-Term Rental Index — HostBrief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a2027; --ocean:#0e3a44; --teal:#15616d; --sea:#2a9d8f;
+  --sand:#f6efe2; --paper:#fbf7ee; --coral:#e8633f; --gold:#e6b54a;
+  --line:rgba(10,32,39,.12); --muted:#5c6b6e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;
+  border-bottom:1px solid rgba(246,239,226,.15)}
+.brand{font-family:'Fraunces';font-weight:900;font-size:21px;color:var(--sand);letter-spacing:-.01em}
+.brand span{color:var(--coral)}
+.bar .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,239,226,.6)}
+.hero{background:var(--ocean);color:var(--sand);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 85% -10%,rgba(42,157,143,.35),transparent 60%),
+             radial-gradient(90% 70% at -10% 110%,rgba(232,99,63,.22),transparent 55%);}
+.hero::after{content:"";position:absolute;inset:0;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin:64px 0 22px;opacity:0;animation:rise .7s .05s forwards}
+h1{font-family:'Fraunces';font-weight:900;font-size:clamp(40px,7vw,82px);line-height:.96;
+  letter-spacing:-.02em;max-width:14ch}
+h1 .it{font-style:italic;font-weight:500;color:var(--sea)}
+.hero h1 .w{display:inline-block;opacity:0;animation:rise .8s forwards}
+.lede{font-size:clamp(16px,2vw,20px);color:rgba(246,239,226,.82);max-width:48ch;margin:26px 0 8px;
+  opacity:0;animation:rise .7s .55s forwards}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,239,226,.16);
+  border:1px solid rgba(246,239,226,.16);border-radius:14px;overflow:hidden;margin:46px 0 -44px;
+  opacity:0;animation:rise .7s .7s forwards}
+.stat{background:var(--ocean);padding:22px 20px}
+.stat .v{font-family:'Fraunces';font-weight:900;font-size:clamp(26px,3.4vw,38px);color:var(--sand);line-height:1}
+.stat .v small{font-size:.5em;font-weight:600;color:var(--gold)}
+.stat .l{font-size:12.5px;color:rgba(246,239,226,.62);margin-top:9px;letter-spacing:.02em}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+section{padding:96px 0}
+.kick{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);font-weight:700}
+.h2{font-family:'Fraunces';font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.015em;
+  margin:14px 0 10px;line-height:1.02}
+.sub{color:var(--muted);max-width:56ch;font-size:16px}
+.finder{background:var(--ink);color:var(--sand);border-radius:22px;padding:38px;
+  display:grid;grid-template-columns:320px 1fr;gap:38px;margin-top:36px}
+.finder .controls label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 9px}
+.finder select{width:100%;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.22);
+  background:var(--ocean);color:var(--sand);font-family:'Archivo';font-size:16px;font-weight:600;
+  margin-bottom:22px;cursor:pointer;appearance:none}
+.finder .note{font-size:12.5px;color:rgba(246,239,226,.5);line-height:1.55;margin-top:6px}
+.result{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(246,239,226,.14);
+  border-radius:14px;overflow:hidden;align-content:start}
+.cell{background:var(--ink);padding:24px}
+.cell .l{font-size:12px;color:rgba(246,239,226,.6);letter-spacing:.04em}
+.cell .v{font-family:'Fraunces';font-weight:900;font-size:34px;color:var(--sand);margin-top:8px;line-height:1}
+.cell .v small{font-size:.42em;font-weight:600;color:var(--gold);letter-spacing:.02em}
+.cell.hot .v{color:var(--sea)}
+.cell.span{grid-column:1/-1;background:linear-gradient(100deg,#10303a,#0a2027)}
+.empty{grid-column:1/-1;background:var(--ink);padding:40px;text-align:center;color:rgba(246,239,226,.55)}
+.tablewrap{margin-top:34px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:right;padding:15px 18px;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+thead th{background:var(--sand);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--teal);cursor:pointer;user-select:none;font-weight:700}
+thead th:hover{color:var(--coral)}
+thead th.up::after{content:"▲";font-size:8px;margin-left:6px}
+thead th.down::after{content:"▼";font-size:8px;margin-left:6px}
+tbody tr:hover{background:var(--sand)}
+tbody td:first-child{font-weight:700;font-family:'Fraunces'}
+td.big{font-weight:700;color:var(--teal)}
+.rank{color:var(--muted);font-weight:400;font-family:'Archivo';margin-right:10px;font-size:13px}
+.method{background:var(--sand);border-radius:20px;padding:40px;display:grid;
+  grid-template-columns:1.3fr 1fr;gap:40px}
+.method ul{list-style:none;margin-top:8px}
+.method li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:#3a4a4d}
+.method li b{color:var(--ink)}
+.cta{text-align:center;padding:18px 0 0}
+.cta a{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;
+  padding:16px 34px;border-radius:999px;font-size:16px;transition:transform .15s,box-shadow .15s;
+  box-shadow:0 10px 26px rgba(232,99,63,.32)}
+.cta a:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,99,63,.42)}
+footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer b{color:var(--sand)}
+@media(max-width:760px){
+ .statrow{grid-template-columns:repeat(2,1fr)}
+ .finder{grid-template-columns:1fr;padding:26px}
+ .method{grid-template-columns:1fr;padding:28px}
+ th,td{padding:12px 11px;font-size:13.5px}
+ .occ-col{display:none}
+}
+</style>
+</head>
+<body>
+<div class="hero">
+ <div class="wrap">
+  <div class="bar">
+   <div class="brand">Host<span>Brief</span></div>
+   <div class="tag">Austin, TX · STR Index</div>
+  </div>
+  <div class="eyebrow">Free · public data · no signup</div>
+  <h1 id="h1"></h1>
+  <p class="lede">Real nightly rates, occupancy and earnings for 8,077 active Austin listings — so you can see exactly where yours stands before you set a price.</p>
+  <div class="statrow">
+   <div class="stat"><div class="v">$137</div><div class="l">Median nightly rate</div></div>
+   <div class="stat"><div class="v">84<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
+   <div class="stat"><div class="v">$11,984</div><div class="l">Median annual revenue</div></div>
+   <div class="stat"><div class="v">90<small>%</small></div><div class="l">Are entire homes</div></div>
+  </div>
+ </div>
+</div>
+<section>
+ <div class="wrap">
+  <div class="kick">The 30-second check</div>
+  <div class="h2">Find your spot</div>
+  <p class="sub">Pick your ZIP code and size. See what comparable places actually charge, how often they book, and what the top quarter of them pull in a year.</p>
+  <div class="finder">
+   <div class="controls">
+    <label>ZIP code area</label>
+    <select id="sub"></select>
+    <label>Bedrooms</label>
+    <select id="bed"></select>
+    <p class="note">Figures are medians for active <b>entire-home</b> listings in your ZIP code. Occupancy &amp; revenue are estimates from public booking data — directional, not your exact dashboard.</p>
+   </div>
+   <div class="result" id="result"></div>
+  </div>
+ </div>
+</section>
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="kick">The league table</div>
+  <div class="h2">Every ZIP code, ranked</div>
+  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings — occupancy is half the story.</p>
+  <div class="tablewrap">
+   <table id="tbl">
+    <thead><tr>
+     <th data-k="suburb">ZIP code area</th>
+     <th data-k="n">Listings</th>
+     <th data-k="median_price">Nightly</th>
+     <th data-k="median_occ" class="occ-col">Nights/yr</th>
+     <th data-k="median_rev" class="down">Median /yr</th>
+     <th data-k="rev_top25">Top 25% /yr</th>
+    </tr></thead>
+    <tbody id="tb"></tbody>
+   </table>
+  </div>
+ </div>
+</section>
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="method">
+   <div>
+    <div class="kick">Straight about the data</div>
+    <div class="h2" style="font-size:30px">No black box</div>
+    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers — and what they can and can't tell you.</p>
+   </div>
+   <ul>
+    <li><b>Source:</b> Inside Airbnb — public-domain listing data.</li>
+    <li><b>Snapshot:</b> October 2025. Short-term rental pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
+    <li><b>Revenue &amp; occupancy</b> are <b>estimates</b> from a review-based model, not hosts' real dashboards. Good for comparison, not accounting.</li>
+    <li>Listings are grouped by ZIP code — how Austin's rental market is actually discussed.</li>
+    <li><b>Medians, not averages</b> — one ultra-luxury outlier won't skew your area.</li>
+   </ul>
+  </div>
+  <div class="cta">
+   <a href="mailto:waynehavenga71@gmail.com?subject=Benchmark%20my%20Austin%20listing">Want this for your exact listing? →</a>
+  </div>
+ </div>
+</section>
+<footer><div class="wrap">
+ <div>Built by <b>HostBrief</b> · Austin short-term rental intelligence</div>
+ <div>Data: Inside Airbnb (public domain) · October 2025 · Figures are estimates</div>
+</div></footer>
+<script>
+const DATA={"overall":{"total_active":8077,"median_price":137,"median_occ":84,"median_rev":11984,"entire_share":90},"subs":[{"suburb":"ZIP 78736","n":52,"median_price":174,"median_occ":72,"median_rev":20959,"rev_top25":31479},{"suburb":"ZIP 78732","n":46,"median_price":215,"median_occ":60,"median_rev":20577,"rev_top25":31054},{"suburb":"78702 \u00b7 East Austin","n":990,"median_price":177,"median_occ":114,"median_rev":20178,"rev_top25":34717},{"suburb":"78701 \u00b7 Downtown","n":444,"median_price":190,"median_occ":78,"median_rev":17334,"rev_top25":30924},{"suburb":"ZIP 78749","n":50,"median_price":170,"median_occ":93,"median_rev":17005,"rev_top25":34398},{"suburb":"ZIP 78747","n":33,"median_price":198,"median_occ":78,"median_rev":16456,"rev_top25":28392},{"suburb":"ZIP 78754","n":51,"median_price":166,"median_occ":90,"median_rev":16224,"rev_top25":32397},{"suburb":"78746 \u00b7 Westlake","n":96,"median_price":354,"median_occ":42,"median_rev":15960,"rev_top25":38754},{"suburb":"ZIP 78737","n":145,"median_price":250,"median_occ":84,"median_rev":15834,"rev_top25":30756},{"suburb":"78722 \u00b7 Cherrywood","n":130,"median_price":141,"median_occ":102,"median_rev":15585,"rev_top25":27997},{"suburb":"ZIP 78729","n":77,"median_price":150,"median_occ":108,"median_rev":14976,"rev_top25":33300},{"suburb":"ZIP 78734","n":231,"median_price":210,"median_occ":60,"median_rev":14952,"rev_top25":29812},{"suburb":"78703 \u00b7 Clarksville / Tarrytown","n":290,"median_price":146,"median_occ":90,"median_rev":14862,"rev_top25":24948},{"suburb":"ZIP 78738","n":35,"median_price":159,"median_occ":84,"median_rev":14670,"rev_top25":28380},{"suburb":"78759 \u00b7 Northwest / Arboretum","n":65,"median_price":139,"median_occ":120,"median_rev":14544,"rev_top25":32385},{"suburb":"ZIP 78733","n":45,"median_price":243,"median_occ":54,"median_rev":14280,"rev_top25":31122},{"suburb":"78704 \u00b7 South Congress / Zilker","n":1175,"median_price":154,"median_occ":90,"median_rev":13932,"rev_top25":28050},{"suburb":"78721 \u00b7 East Austin","n":253,"median_price":142,"median_occ":102,"median_rev":13104,"rev_top25":25812},{"suburb":"ZIP 78748","n":91,"median_price":163,"median_occ":84,"median_rev":12720,"rev_top25":25467},{"suburb":"78756 \u00b7 Allandale","n":102,"median_price":112,"median_occ":114,"median_rev":12525,"rev_top25":19994},{"suburb":"78731 \u00b7 Northwest Hills","n":53,"median_price":138,"median_occ":60,"median_rev":12384,"rev_top25":24012},{"suburb":"78723 \u00b7 Mueller / Windsor Park","n":232,"median_price":137,"median_occ":72,"median_rev":12060,"rev_top25":23949},{"suburb":"78741 \u00b7 Riverside","n":408,"median_price":118,"median_occ":96,"median_rev":12000,"rev_top25":21762},{"suburb":"78751 \u00b7 Hyde Park","n":219,"median_price":103,"median_occ":114,"median_rev":11562,"rev_top25":21315},{"suburb":"ZIP 78744","n":192,"median_price":139,"median_occ":75,"median_rev":11136,"rev_top25":20553},{"suburb":"ZIP 78727","n":75,"median_price":140,"median_occ":78,"median_rev":11016,"rev_top25":21798},{"suburb":"ZIP 78725","n":40,"median_price":194,"median_occ":55,"median_rev":10995,"rev_top25":18201},{"suburb":"78758 \u00b7 North / Domain","n":243,"median_price":120,"median_occ":102,"median_rev":10800,"rev_top25":20502},{"suburb":"ZIP 78735","n":47,"median_price":76,"median_occ":126,"median_rev":10752,"rev_top25":15444},{"suburb":"78745 \u00b7 South Austin","n":438,"median_price":138,"median_occ":84,"median_rev":10509,"rev_top25":21662},{"suburb":"78757 \u00b7 Crestview","n":149,"median_price":121,"median_occ":102,"median_rev":10032,"rev_top25":19188},{"suburb":"78705 \u00b7 UT / West Campus","n":274,"median_price":102,"median_occ":90,"median_rev":9657,"rev_top25":19867},{"suburb":"ZIP 78724","n":95,"median_price":161,"median_occ":60,"median_rev":9504,"rev_top25":17404},{"suburb":"ZIP 78728","n":52,"median_price":139,"median_occ":68,"median_rev":9105,"rev_top25":17328},{"suburb":"ZIP 78753","n":138,"median_price":103,"median_occ":66,"median_rev":8820,"rev_top25":19226},{"suburb":"ZIP 78750","n":27,"median_price":143,"median_occ":60,"median_rev":7392,"rev_top25":17487},{"suburb":"78752 \u00b7 North Loop","n":130,"median_price":95,"median_occ":60,"median_rev":6696,"rev_top25":17271}],"cohort":{"78701 \u00b7 Downtown":{"0":{"n":44,"price":159,"occ":30,"rev":7467,"rev_top25":24156},"1":{"n":227,"price":174,"occ":78,"rev":13104,"rev_top25":26838},"2":{"n":140,"price":249,"occ":96,"rev":22740,"rev_top25":34627},"3":{"n":15,"price":448,"occ":54,"rev":38388,"rev_top25":43845},"4":{"n":18,"price":545,"occ":48,"rev":24711,"rev_top25":34498}},"78702 \u00b7 East Austin":{"0":{"n":68,"price":93,"occ":126,"rev":13236,"rev_top25":22160},"1":{"n":247,"price":109,"occ":132,"rev":13680,"rev_top25":22669},"2":{"n":244,"price":161,"occ":120,"rev":19170,"rev_top25":33228},"3":{"n":205,"price":228,"occ":108,"rev":25146,"rev_top25":39720},"4":{"n":226,"price":414,"occ":96,"rev":34398,"rev_top25":60724}},"78703 \u00b7 Clarksville / Tarrytown":{"0":{"n":25,"price":131,"occ":126,"rev":15810,"rev_top25":19635},"1":{"n":133,"price":108,"occ":108,"rev":11868,"rev_top25":21060},"2":{"n":64,"price":180,"occ":72,"rev":13971,"rev_top25":22959},"3":{"n":26,"price":228,"occ":87,"rev":23322,"rev_top25":40941},"4":{"n":42,"price":516,"occ":51,"rev":27420,"rev_top25":44517}},"78704 \u00b7 South Congress / Zilker":{"0":{"n":72,"price":98,"occ":131,"rev":11052,"rev_top25":18226},"1":{"n":399,"price":107,"occ":96,"rev":10074,"rev_top25":17514},"2":{"n":339,"price":152,"occ":90,"rev":13910,"rev_top25":25527},"3":{"n":202,"price":260,"occ":78,"rev":21459,"rev_top25":39949},"4":{"n":163,"price":466,"occ":72,"rev":35970,"rev_top25":64320}},"78705 \u00b7 UT / West Campus":{"0":{"n":49,"price":98,"occ":72,"rev":7524,"rev_top25":11880},"1":{"n":136,"price":91,"occ":102,"rev":8802,"rev_top25":17259},"2":{"n":51,"price":125,"occ":96,"rev":15036,"rev_top25":23715},"3":{"n":20,"price":209,"occ":156,"rev":34722,"rev_top25":47613},"4":{"n":18,"price":295,"occ":30,"rev":8460,"rev_top25":34441}},"78717 \u00b7 Northwest":{"4":{"n":10,"price":198,"occ":75,"rev":26019,"rev_top25":36951}},"78721 \u00b7 East Austin":{"0":{"n":17,"price":66,"occ":126,"rev":11592,"rev_top25":16830},"1":{"n":44,"price":88,"occ":129,"rev":9699,"rev_top25":20711},"2":{"n":76,"price":124,"occ":60,"rev":8226,"rev_top25":20681},"3":{"n":57,"price":168,"occ":84,"rev":14790,"rev_top25":26265},"4":{"n":59,"price":239,"occ":120,"rev":25920,"rev_top25":43177}},"78722 \u00b7 Cherrywood":{"1":{"n":45,"price":99,"occ":90,"rev":10680,"rev_top25":21165},"2":{"n":38,"price":155,"occ":108,"rev":16254,"rev_top25":24250},"3":{"n":25,"price":201,"occ":150,"rev":28050,"rev_top25":41184},"4":{"n":14,"price":381,"occ":54,"rev":23376,"rev_top25":59257}},"78723 \u00b7 Mueller / Windsor Park":{"0":{"n":12,"price":80,"occ":69,"rev":6462,"rev_top25":12375},"1":{"n":47,"price":90,"occ":84,"rev":7440,"rev_top25":16792},"2":{"n":58,"price":107,"occ":60,"rev":7200,"rev_top25":15525},"3":{"n":58,"price":176,"occ":69,"rev":13764,"rev_top25":24111},"4":{"n":57,"price":214,"occ":102,"rev":21420,"rev_top25":40290}},"78731 \u00b7 Northwest Hills":{"1":{"n":16,"price":109,"occ":87,"rev":9018,"rev_top25":13162},"3":{"n":17,"price":220,"occ":88,"rev":23760,"rev_top25":33405}},"78741 \u00b7 Riverside":{"1":{"n":105,"price":87,"occ":120,"rev":10320,"rev_top25":14952},"2":{"n":146,"price":113,"occ":90,"rev":10740,"rev_top25":16380},"3":{"n":73,"price":152,"occ":66,"rev":12042,"rev_top25":20124},"4":{"n":78,"price":295,"occ":110,"rev":30780,"rev_top25":46188}},"78745 \u00b7 South Austin":{"1":{"n":89,"price":81,"occ":66,"rev":6708,"rev_top25":12834},"2":{"n":122,"price":117,"occ":84,"rev":10290,"rev_top25":19440},"3":{"n":142,"price":158,"occ":87,"rev":12876,"rev_top25":27018},"4":{"n":76,"price":271,"occ":75,"rev":21033,"rev_top25":45693}},"78746 \u00b7 Westlake":{"1":{"n":15,"price":128,"occ":30,"rev":3150,"rev_top25":16335},"2":{"n":17,"price":177,"occ":56,"rev":11880,"rev_top25":18528},"3":{"n":21,"price":316,"occ":42,"rev":13188,"rev_top25":28728},"4":{"n":40,"price":615,"occ":72,"rev":36672,"rev_top25":76569}},"78751 \u00b7 Hyde Park":{"0":{"n":22,"price":85,"occ":123,"rev":11547,"rev_top25":18742},"1":{"n":118,"price":86,"occ":120,"rev":9531,"rev_top25":16026},"2":{"n":53,"price":123,"occ":126,"rev":16632,"rev_top25":27144},"3":{"n":15,"price":180,"occ":90,"rev":15600,"rev_top25":27462},"4":{"n":11,"price":365,"occ":72,"rev":28152,"rev_top25":29235}},"78752 \u00b7 North Loop":{"0":{"n":30,"price":55,"occ":18,"rev":1248,"rev_top25":1537},"1":{"n":26,"price":78,"occ":105,"rev":6474,"rev_top25":16627},"2":{"n":36,"price":105,"occ":117,"rev":12405,"rev_top25":22001},"3":{"n":28,"price":164,"occ":63,"rev":11135,"rev_top25":21465},"4":{"n":10,"price":251,"occ":93,"rev":24687,"rev_top25":33210}},"78756 \u00b7 Allandale":{"1":{"n":45,"price":93,"occ":114,"rev":10080,"rev_top25":17544},"2":{"n":33,"price":114,"occ":120,"rev":15552,"rev_top25":23715}},"78757 \u00b7 Crestview":{"0":{"n":11,"price":75,"occ":84,"rev":5292,"rev_top25":7398},"1":{"n":55,"price":81,"occ":120,"rev":9024,"rev_top25":17256},"2":{"n":36,"price":118,"occ":84,"rev":11232,"rev_top25":17769},"3":{"n":36,"price":194,"occ":63,"rev":13434,"rev_top25":27453},"4":{"n":11,"price":274,"occ":78,"rev":24948,"rev_top25":50695}},"78758 \u00b7 North / Domain":{"1":{"n":95,"price":97,"occ":102,"rev":8176,"rev_top25":17070},"2":{"n":63,"price":115,"occ":96,"rev":11222,"rev_top25":19380},"3":{"n":44,"price":139,"occ":117,"rev":11838,"rev_top25":26225},"4":{"n":35,"price":219,"occ":114,"rev":23364,"rev_top25":43104}},"78759 \u00b7 Northwest / Arboretum":{"1":{"n":16,"price":91,"occ":71,"rev":7990,"rev_top25":17364},"2":{"n":20,"price":131,"occ":126,"rev":14352,"rev_top25":28560},"3":{"n":16,"price":170,"occ":114,"rev":25968,"rev_top25":35955},"4":{"n":10,"price":214,"occ":195,"rev":48937,"rev_top25":54832}},"ZIP 78724":{"1":{"n":18,"price":118,"occ":48,"rev":4725,"rev_top25":9025},"2":{"n":15,"price":105,"occ":60,"rev":5320,"rev_top25":15228},"3":{"n":32,"price":169,"occ":69,"rev":9462,"rev_top25":16470},"4":{"n":27,"price":207,"occ":72,"rev":12540,"rev_top25":26427}},"ZIP 78725":{"3":{"n":15,"price":186,"occ":60,"rev":10128,"rev_top25":13566},"4":{"n":15,"price":272,"occ":48,"rev":11220,"rev_top25":28458}},"ZIP 78727":{"1":{"n":23,"price":83,"occ":78,"rev":6834,"rev_top25":12150},"2":{"n":15,"price":103,"occ":78,"rev":7756,"rev_top25":19710},"3":{"n":24,"price":153,"occ":75,"rev":12675,"rev_top25":30663},"4":{"n":12,"price":230,"occ":61,"rev":17444,"rev_top25":46180}},"ZIP 78728":{"3":{"n":23,"price":152,"occ":66,"rev":10800,"rev_top25":16752},"4":{"n":11,"price":199,"occ":24,"rev":4536,"rev_top25":26658}},"ZIP 78729":{"2":{"n":13,"price":110,"occ":60,"rev":7260,"rev_top25":21280},"3":{"n":36,"price":142,"occ":66,"rev":9360,"rev_top25":22351},"4":{"n":24,"price":203,"occ":135,"rev":34599,"rev_top25":43472}},"ZIP 78730":{"4":{"n":11,"price":1046,"occ":30,"rev":34896,"rev_top25":82245}},"ZIP 78732":{"2":{"n":10,"price":191,"occ":184,"rev":29962,"rev_top25":43094},"3":{"n":12,"price":177,"occ":78,"rev":19389,"rev_top25":30420},"4":{"n":17,"price":572,"occ":48,"rev":23598,"rev_top25":30888}},"ZIP 78733":{"1":{"n":13,"price":137,"occ":60,"rev":9216,"rev_top25":17472},"3":{"n":14,"price":250,"occ":45,"rev":13512,"rev_top25":20871},"4":{"n":11,"price":1109,"occ":60,"rev":43092,"rev_top25":70536}},"ZIP 78734":{"1":{"n":39,"price":119,"occ":60,"rev":5850,"rev_top25":14874},"2":{"n":53,"price":155,"occ":84,"rev":11016,"rev_top25":21216},"3":{"n":48,"price":250,"occ":57,"rev":16200,"rev_top25":28726},"4":{"n":84,"price":435,"occ":60,"rev":26772,"rev_top25":47673}},"ZIP 78735":{"1":{"n":22,"price":68,"occ":111,"rev":7056,"rev_top25":10651},"2":{"n":10,"price":74,"occ":168,"rev":12684,"rev_top25":15642}},"ZIP 78736":{"1":{"n":13,"price":134,"occ":120,"rev":22695,"rev_top25":30600},"3":{"n":19,"price":178,"occ":66,"rev":16848,"rev_top25":25494},"4":{"n":15,"price":319,"occ":144,"rev":35910,"rev_top25":73290}},"ZIP 78737":{"1":{"n":39,"price":110,"occ":96,"rev":10440,"rev_top25":15885},"2":{"n":23,"price":232,"occ":84,"rev":15606,"rev_top25":21870},"3":{"n":13,"price":228,"occ":84,"rev":21924,"rev_top25":27030},"4":{"n":62,"price":458,"occ":66,"rev":28863,"rev_top25":51960}},"ZIP 78738":{"1":{"n":14,"price":131,"occ":72,"rev":15444,"rev_top25":32379}},"ZIP 78744":{"0":{"n":11,"price":82,"occ":60,"rev":4080,"rev_top25":7944},"1":{"n":44,"price":90,"occ":75,"rev":7755,"rev_top25":15943},"2":{"n":28,"price":90,"occ":111,"rev":9171,"rev_top25":14410},"3":{"n":64,"price":162,"occ":55,"rev":8421,"rev_top25":21087},"4":{"n":45,"price":228,"occ":102,"rev":25806,"rev_top25":39780}},"ZIP 78747":{"3":{"n":13,"price":147,"occ":96,"rev":16456,"rev_top25":26970},"4":{"n":15,"price":245,"occ":102,"rev":22242,"rev_top25":30084}},"ZIP 78748":{"1":{"n":18,"price":97,"occ":81,"rev":9651,"rev_top25":13706},"2":{"n":17,"price":141,"occ":30,"rev":6000,"rev_top25":10248},"3":{"n":38,"price":166,"occ":123,"rev":18111,"rev_top25":30993},"4":{"n":14,"price":275,"occ":108,"rev":25092,"rev_top25":56991}},"ZIP 78749":{"3":{"n":21,"price":179,"occ":96,"rev":16416,"rev_top25":35442},"4":{"n":14,"price":314,"occ":75,"rev":23724,"rev_top25":48386}},"ZIP 78750":{"3":{"n":12,"price":190,"occ":75,"rev":15978,"rev_top25":19237}},"ZIP 78753":{"1":{"n":51,"price":73,"occ":60,"rev":5640,"rev_top25":11580},"2":{"n":36,"price":108,"occ":57,"rev":8010,"rev_top25":14034},"3":{"n":29,"price":155,"occ":60,"rev":14112,"rev_top25":29574},"4":{"n":18,"price":274,"occ":153,"rev":29880,"rev_top25":54756}},"ZIP 78754":{"3":{"n":15,"price":163,"occ":138,"rev":16224,"rev_top25":30645},"4":{"n":31,"price":176,"occ":120,"rev":22500,"rev_top25":35694}}}};
+const CCY="$";
+const fmt=n=>CCY+n.toLocaleString('en-US');
+const bedLabel={0:'Studio',1:'1 bedroom',2:'2 bedrooms',3:'3 bedrooms',4:'4+ bedrooms'};
+const words="What your Austin listing should earn.".split(" ");
+document.getElementById('h1').innerHTML=words.map(w=>{
+  const it=/should|earn/.test(w)?' it':'';
+  return `<span class="w${it}">${w}&nbsp;</span>`;
+}).join("");
+document.querySelectorAll('#h1 .w').forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+'s');
+const subSel=document.getElementById('sub'),bedSel=document.getElementById('bed'),res=document.getElementById('result');
+Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;subSel.appendChild(o);});
+function fillBeds(){
+  const beds=Object.keys(DATA.cohort[subSel.value]).map(Number).sort((a,b)=>a-b);
+  bedSel.innerHTML="";
+  beds.forEach(b=>{const o=document.createElement('option');o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});
+}
+function render(){
+  const c=DATA.cohort[subSel.value]?.[bedSel.value];
+  if(!c){res.innerHTML='<div class="empty">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>';return;}
+  res.innerHTML=`
+   <div class="cell"><div class="l">Median nightly rate</div><div class="v">${fmt(c.price)}</div></div>
+   <div class="cell"><div class="l">Typical nights booked / yr</div><div class="v">${c.occ}<small> nights</small></div></div>
+   <div class="cell"><div class="l">Median annual revenue</div><div class="v">${fmt(c.rev)}</div></div>
+   <div class="cell hot"><div class="l">Top 25% earn</div><div class="v">${fmt(c.rev_top25)}<small> /yr</small></div></div>
+   <div class="cell span"><div class="l">Based on</div><div class="v" style="font-size:22px">${c.n} comparable ${bedLabel[bedSel.value].toLowerCase()} listings</div></div>`;
+}
+subSel.addEventListener('change',()=>{fillBeds();render();});
+bedSel.addEventListener('change',render);
+subSel.value=Object.keys(DATA.cohort).sort()[0];fillBeds();render();
+let rows=[...DATA.subs],sortK='median_rev',dir=-1;
+const tb=document.getElementById('tb');
+function draw(){
+  rows.sort((a,b)=> typeof a[sortK]==='string'? a[sortK].localeCompare(b[sortK])*dir : (a[sortK]-b[sortK])*dir);
+  tb.innerHTML=rows.map((r,i)=>`<tr>
+    <td><span class="rank">${i+1}</span>${r.suburb}</td>
+    <td>${r.n.toLocaleString('en-US')}</td>
+    <td>${fmt(r.median_price)}</td>
+    <td class="occ-col">${r.median_occ}</td>
+    <td class="big">${fmt(r.median_rev)}</td>
+    <td>${fmt(r.rev_top25)}</td></tr>`).join("");
+}
+document.querySelectorAll('#tbl th').forEach(th=>th.addEventListener('click',()=>{
+  const k=th.dataset.k;
+  if(k===sortK)dir=-dir;else{sortK=k;dir=(k==='suburb')?1:-1;}
+  document.querySelectorAll('#tbl th').forEach(x=>x.classList.remove('up','down'));
+  th.classList.add(dir===1?'up':'down');draw();
+}));
+draw();
+</script>
+</body>
+</html>
