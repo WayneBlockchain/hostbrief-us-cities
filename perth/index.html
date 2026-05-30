@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Perth Short-Term Rental Index — HostBrief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a2027; --ocean:#0e3a44; --teal:#15616d; --sea:#2a9d8f;
+  --sand:#f6efe2; --paper:#fbf7ee; --coral:#e8633f; --gold:#e6b54a;
+  --line:rgba(10,32,39,.12); --muted:#5c6b6e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;
+  border-bottom:1px solid rgba(246,239,226,.15)}
+.brand{font-family:'Fraunces';font-weight:900;font-size:21px;color:var(--sand);letter-spacing:-.01em}
+.brand span{color:var(--coral)}
+.bar .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,239,226,.6)}
+.hero{background:var(--ocean);color:var(--sand);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 85% -10%,rgba(42,157,143,.35),transparent 60%),
+             radial-gradient(90% 70% at -10% 110%,rgba(232,99,63,.22),transparent 55%);}
+.hero::after{content:"";position:absolute;inset:0;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin:64px 0 22px;opacity:0;animation:rise .7s .05s forwards}
+h1{font-family:'Fraunces';font-weight:900;font-size:clamp(40px,7vw,82px);line-height:.96;
+  letter-spacing:-.02em;max-width:14ch}
+h1 .it{font-style:italic;font-weight:500;color:var(--sea)}
+.hero h1 .w{display:inline-block;opacity:0;animation:rise .8s forwards}
+.lede{font-size:clamp(16px,2vw,20px);color:rgba(246,239,226,.82);max-width:48ch;margin:26px 0 8px;
+  opacity:0;animation:rise .7s .55s forwards}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,239,226,.16);
+  border:1px solid rgba(246,239,226,.16);border-radius:14px;overflow:hidden;margin:46px 0 -44px;
+  opacity:0;animation:rise .7s .7s forwards}
+.stat{background:var(--ocean);padding:22px 20px}
+.stat .v{font-family:'Fraunces';font-weight:900;font-size:clamp(26px,3.4vw,38px);color:var(--sand);line-height:1}
+.stat .v small{font-size:.5em;font-weight:600;color:var(--gold)}
+.stat .l{font-size:12.5px;color:rgba(246,239,226,.62);margin-top:9px;letter-spacing:.02em}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+section{padding:96px 0}
+.kick{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);font-weight:700}
+.h2{font-family:'Fraunces';font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.015em;
+  margin:14px 0 10px;line-height:1.02}
+.sub{color:var(--muted);max-width:56ch;font-size:16px}
+.finder{background:var(--ink);color:var(--sand);border-radius:22px;padding:38px;
+  display:grid;grid-template-columns:320px 1fr;gap:38px;margin-top:36px}
+.finder .controls label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 9px}
+.finder select{width:100%;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.22);
+  background:var(--ocean);color:var(--sand);font-family:'Archivo';font-size:16px;font-weight:600;
+  margin-bottom:22px;cursor:pointer;appearance:none}
+.finder .note{font-size:12.5px;color:rgba(246,239,226,.5);line-height:1.55;margin-top:6px}
+.result{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(246,239,226,.14);
+  border-radius:14px;overflow:hidden;align-content:start}
+.cell{background:var(--ink);padding:24px}
+.cell .l{font-size:12px;color:rgba(246,239,226,.6);letter-spacing:.04em}
+.cell .v{font-family:'Fraunces';font-weight:900;font-size:34px;color:var(--sand);margin-top:8px;line-height:1}
+.cell .v small{font-size:.42em;font-weight:600;color:var(--gold);letter-spacing:.02em}
+.cell.hot .v{color:var(--sea)}
+.cell.span{grid-column:1/-1;background:linear-gradient(100deg,#10303a,#0a2027)}
+.empty{grid-column:1/-1;background:var(--ink);padding:40px;text-align:center;color:rgba(246,239,226,.55)}
+.tablewrap{margin-top:34px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:right;padding:15px 18px;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+thead th{background:var(--sand);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--teal);cursor:pointer;user-select:none;font-weight:700}
+thead th:hover{color:var(--coral)}
+thead th.up::after{content:"▲";font-size:8px;margin-left:6px}
+thead th.down::after{content:"▼";font-size:8px;margin-left:6px}
+tbody tr:hover{background:var(--sand)}
+tbody td:first-child{font-weight:700;font-family:'Fraunces'}
+td.big{font-weight:700;color:var(--teal)}
+.rank{color:var(--muted);font-weight:400;font-family:'Archivo';margin-right:10px;font-size:13px}
+.method{background:var(--sand);border-radius:20px;padding:40px;display:grid;
+  grid-template-columns:1.3fr 1fr;gap:40px}
+.method ul{list-style:none;margin-top:8px}
+.method li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:#3a4a4d}
+.method li b{color:var(--ink)}
+.cta{text-align:center;padding:18px 0 0}
+.cta a{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;
+  padding:16px 34px;border-radius:999px;font-size:16px;transition:transform .15s,box-shadow .15s;
+  box-shadow:0 10px 26px rgba(232,99,63,.32)}
+.cta a:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,99,63,.42)}
+footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer b{color:var(--sand)}
+@media(max-width:760px){
+ .statrow{grid-template-columns:repeat(2,1fr)}
+ .finder{grid-template-columns:1fr;padding:26px}
+ .method{grid-template-columns:1fr;padding:28px}
+ th,td{padding:12px 11px;font-size:13.5px}
+ .occ-col{display:none}
+}
+</style>
+</head>
+<body>
+<div class="hero">
+ <div class="wrap">
+  <div class="bar">
+   <div class="brand">Host<span>Brief</span></div>
+   <div class="tag">Perth, WA · STR Index</div>
+  </div>
+  <div class="eyebrow">Free · public data · no signup</div>
+  <h1 id="h1"></h1>
+  <p class="lede">Real nightly rates, occupancy and earnings for 4,521 active Perth listings — so you can see exactly where yours stands before you set a price.</p>
+  <div class="statrow">
+   <div class="stat"><div class="v">$198</div><div class="l">Median nightly rate</div></div>
+   <div class="stat"><div class="v">102<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
+   <div class="stat"><div class="v">$18,600</div><div class="l">Median annual revenue</div></div>
+   <div class="stat"><div class="v">77<small>%</small></div><div class="l">Are entire homes</div></div>
+  </div>
+ </div>
+</div>
+<section>
+ <div class="wrap">
+  <div class="kick">The 30-second check</div>
+  <div class="h2">Find your spot</div>
+  <p class="sub">Pick your area and size. See what comparable places actually charge, how often they book, and what the top quarter of them pull in a year.</p>
+  <div class="finder">
+   <div class="controls">
+    <label>Area</label>
+    <select id="sub"></select>
+    <label>Bedrooms</label>
+    <select id="bed"></select>
+    <p class="note">Figures are medians for active <b>entire-home</b> listings in your area. Occupancy &amp; revenue are estimates from public booking data — directional, not your exact dashboard.</p>
+   </div>
+   <div class="result" id="result"></div>
+  </div>
+ </div>
+</section>
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="kick">The league table</div>
+  <div class="h2">Every area, ranked</div>
+  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings — occupancy is half the story.</p>
+  <div class="tablewrap">
+   <table id="tbl">
+    <thead><tr>
+     <th data-k="suburb">Area</th>
+     <th data-k="n">Listings</th>
+     <th data-k="median_price">Nightly</th>
+     <th data-k="median_occ" class="occ-col">Nights/yr</th>
+     <th data-k="median_rev" class="down">Median /yr</th>
+     <th data-k="rev_top25">Top 25% /yr</th>
+    </tr></thead>
+    <tbody id="tb"></tbody>
+   </table>
+  </div>
+ </div>
+</section>
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="method">
+   <div>
+    <div class="kick">Straight about the data</div>
+    <div class="h2" style="font-size:30px">No black box</div>
+    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers — and what they can and can't tell you.</p>
+   </div>
+   <ul>
+    <li><b>Source:</b> Inside Airbnb — public-domain listing data.</li>
+    <li><b>Snapshot:</b> October 2025 · AUD. Short-term rental pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
+    <li><b>Revenue &amp; occupancy</b> are <b>estimates</b> from a review-based model, not hosts' real dashboards. Good for comparison, not accounting.</li>
+    <li>Areas are Perth-metro local government areas; regional WA is filtered out.</li>
+    <li><b>Medians, not averages</b> — one ultra-luxury outlier won't skew your area.</li>
+   </ul>
+  </div>
+  <div class="cta">
+   <a href="mailto:waynehavenga71@gmail.com?subject=Benchmark%20my%20Perth%20listing">Want this for your exact listing? →</a>
+  </div>
+ </div>
+</section>
+<footer><div class="wrap">
+ <div>Built by <b>HostBrief</b> · Perth short-term rental intelligence</div>
+ <div>Data: Inside Airbnb (public domain) · October 2025 · AUD · Figures are estimates</div>
+</div></footer>
+<script>
+const DATA={"overall":{"total_active":4521,"median_price":198,"median_occ":102,"median_rev":18600,"entire_share":77},"subs":[{"suburb":"Cottesloe","n":127,"median_price":298,"median_occ":138,"median_rev":37236,"rev_top25":56622},{"suburb":"Victoria Park","n":106,"median_price":257,"median_occ":116,"median_rev":28318,"rev_top25":48112},{"suburb":"Canning","n":89,"median_price":229,"median_occ":120,"median_rev":27432,"rev_top25":42432},{"suburb":"Mundaring","n":28,"median_price":198,"median_occ":138,"median_rev":27310,"rev_top25":37981},{"suburb":"Bayswater","n":92,"median_price":233,"median_occ":131,"median_rev":27117,"rev_top25":41523},{"suburb":"Fremantle","n":477,"median_price":226,"median_occ":114,"median_rev":25920,"rev_top25":43452},{"suburb":"Stirling","n":496,"median_price":265,"median_occ":96,"median_rev":25542,"rev_top25":42798},{"suburb":"Swan","n":105,"median_price":243,"median_occ":108,"median_rev":25452,"rev_top25":38896},{"suburb":"Subiaco","n":140,"median_price":195,"median_occ":117,"median_rev":25056,"rev_top25":44500},{"suburb":"Perth","n":391,"median_price":237,"median_occ":108,"median_rev":24804,"rev_top25":36153},{"suburb":"Vincent","n":138,"median_price":202,"median_occ":138,"median_rev":24480,"rev_top25":36836},{"suburb":"Kalamunda","n":43,"median_price":224,"median_occ":102,"median_rev":24414,"rev_top25":41586},{"suburb":"South Perth","n":76,"median_price":225,"median_occ":108,"median_rev":21930,"rev_top25":47277},{"suburb":"East Fremantle","n":27,"median_price":197,"median_occ":90,"median_rev":21276,"rev_top25":33795},{"suburb":"Cambridge","n":59,"median_price":202,"median_occ":108,"median_rev":21060,"rev_top25":35145},{"suburb":"Melville","n":126,"median_price":203,"median_occ":111,"median_rev":20844,"rev_top25":36161},{"suburb":"Cockburn","n":137,"median_price":216,"median_occ":108,"median_rev":20700,"rev_top25":37392},{"suburb":"Joondalup","n":229,"median_price":234,"median_occ":96,"median_rev":20604,"rev_top25":33264},{"suburb":"Armadale","n":51,"median_price":207,"median_occ":108,"median_rev":19872,"rev_top25":33124},{"suburb":"Mosman Park","n":38,"median_price":208,"median_occ":84,"median_rev":19338,"rev_top25":41007},{"suburb":"Nedlands","n":27,"median_price":203,"median_occ":72,"median_rev":17010,"rev_top25":29005},{"suburb":"Gosnells","n":64,"median_price":195,"median_occ":75,"median_rev":16980,"rev_top25":28890},{"suburb":"Wanneroo","n":137,"median_price":218,"median_occ":72,"median_rev":16434,"rev_top25":28910},{"suburb":"Rockingham","n":130,"median_price":195,"median_occ":84,"median_rev":15204,"rev_top25":31036},{"suburb":"Belmont","n":90,"median_price":196,"median_occ":84,"median_rev":15120,"rev_top25":31725}],"cohort":{"Armadale":{"2":{"n":10,"price":174,"occ":102,"rev":17388,"rev_top25":27735},"3":{"n":11,"price":205,"occ":48,"rev":13776,"rev_top25":28380},"4":{"n":22,"price":259,"occ":75,"rev":14946,"rev_top25":32643}},"Bayswater":{"1":{"n":19,"price":151,"occ":162,"rev":21840,"rev_top25":32130},"2":{"n":31,"price":193,"occ":132,"rev":28512,"rev_top25":36387},"3":{"n":24,"price":258,"occ":155,"rev":37949,"rev_top25":55972},"4":{"n":17,"price":338,"occ":96,"rev":24192,"rev_top25":46128}},"Belmont":{"1":{"n":34,"price":149,"occ":81,"rev":11718,"rev_top25":14996},"2":{"n":28,"price":217,"occ":75,"rev":16533,"rev_top25":32138},"3":{"n":16,"price":247,"occ":110,"rev":21907,"rev_top25":42435},"4":{"n":11,"price":329,"occ":120,"rev":43200,"rev_top25":52650}},"Cambridge":{"1":{"n":29,"price":143,"occ":144,"rev":19360,"rev_top25":25536},"3":{"n":11,"price":302,"occ":150,"rev":30600,"rev_top25":44502},"4":{"n":10,"price":687,"occ":42,"rev":37212,"rev_top25":48631}},"Canning":{"1":{"n":12,"price":150,"occ":117,"rev":14160,"rev_top25":28486},"2":{"n":17,"price":206,"occ":174,"rev":33666,"rev_top25":40542},"3":{"n":33,"price":255,"occ":78,"rev":19872,"rev_top25":39888},"4":{"n":26,"price":285,"occ":127,"rev":41000,"rev_top25":54814}},"Claremont":{"1":{"n":10,"price":151,"occ":173,"rev":26334,"rev_top25":31150}},"Cockburn":{"1":{"n":40,"price":143,"occ":138,"rev":19098,"rev_top25":32458},"2":{"n":29,"price":213,"occ":80,"rev":12144,"rev_top25":26600},"3":{"n":36,"price":238,"occ":104,"rev":23383,"rev_top25":39960},"4":{"n":28,"price":309,"occ":101,"rev":29094,"rev_top25":53088}},"Cottesloe":{"1":{"n":37,"price":198,"occ":168,"rev":29232,"rev_top25":43362},"2":{"n":54,"price":326,"occ":138,"rev":37737,"rev_top25":57219},"3":{"n":26,"price":460,"occ":117,"rev":50469,"rev_top25":78787}},"East Fremantle":{"1":{"n":14,"price":162,"occ":123,"rev":23028,"rev_top25":34705}},"Fremantle":{"0":{"n":28,"price":173,"occ":75,"rev":13806,"rev_top25":18540},"1":{"n":208,"price":184,"occ":132,"rev":23529,"rev_top25":38760},"2":{"n":146,"price":272,"occ":114,"rev":29205,"rev_top25":49860},"3":{"n":72,"price":339,"occ":119,"rev":35262,"rev_top25":63297},"4":{"n":23,"price":495,"occ":66,"rev":42075,"rev_top25":68586}},"Gosnells":{"1":{"n":14,"price":162,"occ":48,"rev":7791,"rev_top25":14575},"2":{"n":15,"price":177,"occ":108,"rev":25488,"rev_top25":36900},"3":{"n":23,"price":224,"occ":78,"rev":17760,"rev_top25":29094},"4":{"n":11,"price":320,"occ":72,"rev":24120,"rev_top25":45711}},"Joondalup":{"1":{"n":83,"price":162,"occ":120,"rev":16380,"rev_top25":27300},"2":{"n":40,"price":250,"occ":75,"rev":18552,"rev_top25":25374},"3":{"n":50,"price":278,"occ":89,"rev":24336,"rev_top25":35737},"4":{"n":52,"price":427,"occ":68,"rev":32844,"rev_top25":50732}},"Kalamunda":{"1":{"n":19,"price":205,"occ":60,"rev":12300,"rev_top25":23109}},"Melville":{"1":{"n":32,"price":145,"occ":147,"rev":20085,"rev_top25":30010},"2":{"n":47,"price":195,"occ":120,"rev":21600,"rev_top25":37740},"3":{"n":33,"price":281,"occ":72,"rev":18990,"rev_top25":33108},"4":{"n":13,"price":524,"occ":54,"rev":43450,"rev_top25":51120}},"Mosman Park":{"1":{"n":15,"price":169,"occ":84,"rev":12852,"rev_top25":29943},"3":{"n":10,"price":344,"occ":57,"rev":20229,"rev_top25":50091}},"Mundaring":{"1":{"n":12,"price":183,"occ":141,"rev":21330,"rev_top25":30228}},"Perth":{"1":{"n":198,"price":196,"occ":111,"rev":20034,"rev_top25":29805},"2":{"n":159,"price":271,"occ":108,"rev":28050,"rev_top25":42172},"3":{"n":22,"price":405,"occ":102,"rev":36528,"rev_top25":56361}},"Rockingham":{"1":{"n":33,"price":168,"occ":84,"rev":13020,"rev_top25":21252},"2":{"n":42,"price":192,"occ":82,"rev":12780,"rev_top25":42918},"3":{"n":26,"price":238,"occ":99,"rev":21465,"rev_top25":35710},"4":{"n":28,"price":291,"occ":66,"rev":17757,"rev_top25":32354}},"South Perth":{"1":{"n":21,"price":160,"occ":108,"rev":17010,"rev_top25":29835},"2":{"n":33,"price":221,"occ":108,"rev":21780,"rev_top25":49842},"3":{"n":18,"price":282,"occ":92,"rev":35675,"rev_top25":47439}},"Stirling":{"1":{"n":107,"price":170,"occ":114,"rev":21300,"rev_top25":32910},"2":{"n":190,"price":256,"occ":102,"rev":26793,"rev_top25":44512},"3":{"n":134,"price":325,"occ":87,"rev":28460,"rev_top25":47191},"4":{"n":60,"price":471,"occ":42,"rev":32640,"rev_top25":52671}},"Subiaco":{"1":{"n":58,"price":157,"occ":110,"rev":16779,"rev_top25":28561},"2":{"n":47,"price":203,"occ":120,"rev":24912,"rev_top25":45630},"3":{"n":25,"price":316,"occ":144,"rev":50000,"rev_top25":62928}},"Swan":{"1":{"n":22,"price":159,"occ":135,"rev":19992,"rev_top25":31316},"2":{"n":24,"price":202,"occ":105,"rev":16206,"rev_top25":34995},"3":{"n":31,"price":248,"occ":144,"rev":36720,"rev_top25":48067},"4":{"n":28,"price":323,"occ":69,"rev":22290,"rev_top25":36652}},"Victoria Park":{"1":{"n":18,"price":152,"occ":110,"rev":14426,"rev_top25":25488},"2":{"n":27,"price":210,"occ":180,"rev":31008,"rev_top25":49383},"3":{"n":39,"price":297,"occ":108,"rev":31680,"rev_top25":49725},"4":{"n":21,"price":364,"occ":90,"rev":31950,"rev_top25":65160}},"Vincent":{"1":{"n":65,"price":160,"occ":156,"rev":22320,"rev_top25":29835},"2":{"n":41,"price":231,"occ":144,"rev":31730,"rev_top25":48384},"3":{"n":22,"price":350,"occ":68,"rev":22188,"rev_top25":63303}},"Wanneroo":{"1":{"n":34,"price":138,"occ":87,"rev":14439,"rev_top25":25815},"2":{"n":26,"price":187,"occ":70,"rev":12623,"rev_top25":23730},"3":{"n":43,"price":253,"occ":78,"rev":20592,"rev_top25":29868},"4":{"n":32,"price":301,"occ":45,"rev":14475,"rev_top25":28652}}}};
+const CCY="$";
+const fmt=n=>CCY+n.toLocaleString('en-US');
+const bedLabel={0:'Studio',1:'1 bedroom',2:'2 bedrooms',3:'3 bedrooms',4:'4+ bedrooms'};
+const words="What your Perth listing should earn.".split(" ");
+document.getElementById('h1').innerHTML=words.map(w=>{
+  const it=/should|earn/.test(w)?' it':'';
+  return `<span class="w${it}">${w}&nbsp;</span>`;
+}).join("");
+document.querySelectorAll('#h1 .w').forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+'s');
+const subSel=document.getElementById('sub'),bedSel=document.getElementById('bed'),res=document.getElementById('result');
+Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;subSel.appendChild(o);});
+function fillBeds(){
+  const beds=Object.keys(DATA.cohort[subSel.value]).map(Number).sort((a,b)=>a-b);
+  bedSel.innerHTML="";
+  beds.forEach(b=>{const o=document.createElement('option');o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});
+}
+function render(){
+  const c=DATA.cohort[subSel.value]?.[bedSel.value];
+  if(!c){res.innerHTML='<div class="empty">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>';return;}
+  res.innerHTML=`
+   <div class="cell"><div class="l">Median nightly rate</div><div class="v">${fmt(c.price)}</div></div>
+   <div class="cell"><div class="l">Typical nights booked / yr</div><div class="v">${c.occ}<small> nights</small></div></div>
+   <div class="cell"><div class="l">Median annual revenue</div><div class="v">${fmt(c.rev)}</div></div>
+   <div class="cell hot"><div class="l">Top 25% earn</div><div class="v">${fmt(c.rev_top25)}<small> /yr</small></div></div>
+   <div class="cell span"><div class="l">Based on</div><div class="v" style="font-size:22px">${c.n} comparable ${bedLabel[bedSel.value].toLowerCase()} listings</div></div>`;
+}
+subSel.addEventListener('change',()=>{fillBeds();render();});
+bedSel.addEventListener('change',render);
+subSel.value=Object.keys(DATA.cohort).sort()[0];fillBeds();render();
+let rows=[...DATA.subs],sortK='median_rev',dir=-1;
+const tb=document.getElementById('tb');
+function draw(){
+  rows.sort((a,b)=> typeof a[sortK]==='string'? a[sortK].localeCompare(b[sortK])*dir : (a[sortK]-b[sortK])*dir);
+  tb.innerHTML=rows.map((r,i)=>`<tr>
+    <td><span class="rank">${i+1}</span>${r.suburb}</td>
+    <td>${r.n.toLocaleString('en-US')}</td>
+    <td>${fmt(r.median_price)}</td>
+    <td class="occ-col">${r.median_occ}</td>
+    <td class="big">${fmt(r.median_rev)}</td>
+    <td>${fmt(r.rev_top25)}</td></tr>`).join("");
+}
+document.querySelectorAll('#tbl th').forEach(th=>th.addEventListener('click',()=>{
+  const k=th.dataset.k;
+  if(k===sortK)dir=-dir;else{sortK=k;dir=(k==='suburb')?1:-1;}
+  document.querySelectorAll('#tbl th').forEach(x=>x.classList.remove('up','down'));
+  th.classList.add(dir===1?'up':'down');draw();
+}));
+draw();
+</script>
+</body>
+</html>
