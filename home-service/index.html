@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeuralCortex™ — Precision Decision Engine for WPN Beast Grinders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cyan:    #00F2FF;
+    --kill:    #FF0055;
+    --orange:  #FF8C00;
+    --green:   #10B981;
+    --gold:    #FFD700;
+    --purple:  #A855F7;
+    --magenta: #FF0088;
+    --bg:      #06080A;
+    --bg2:     #0A0C0F;
+    --bg3:     #0F1215;
+    --dim:     rgba(255,255,255,0.06);
+    --text:    #E2E8F0;
+    --muted:   rgba(255,255,255,0.62);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ── SCANLINE ── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,242,255,0.015) 2px, rgba(0,242,255,0.015) 4px);
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  /* ── GRID BACKGROUND ── */
+  .grid-bg {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,242,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,242,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── GLOW ORBS ── */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .orb-1 { width: 600px; height: 600px; background: rgba(0,242,255,0.04); top: -200px; left: -200px; }
+  .orb-2 { width: 500px; height: 500px; background: rgba(255,0,85,0.05); bottom: 0; right: -100px; }
+  .orb-3 { width: 400px; height: 400px; background: rgba(168,85,247,0.04); top: 50%; left: 50%; transform: translate(-50%,-50%); }
+
+  /* ── LAYOUT ── */
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(6,8,10,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,242,255,0.08);
+    padding: 14px 0;
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--cyan); letter-spacing: 0.1em; }
+  .nav-logo span { color: rgba(255,255,255,0.3); font-weight: 400; }
+  .nav-badge {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    padding: 5px 12px; border-radius: 2px;
+    background: rgba(0,242,255,0.08);
+    border: 1px solid rgba(0,242,255,0.25);
+    color: var(--cyan);
+    text-transform: uppercase;
+    animation: navPulse 3s ease-in-out infinite;
+  }
+  @keyframes navPulse {
+    0%,100% { border-color: rgba(0,242,255,0.25); }
+    50%      { border-color: rgba(0,242,255,0.6); box-shadow: 0 0 12px rgba(0,242,255,0.2); }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 0 80px;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+  }
+
+  .hero-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+  .hero-headline .line-1 { color: #fff; display: block; }
+  .hero-headline .line-2 {
+    display: block;
+    background: linear-gradient(90deg, var(--cyan), var(--magenta));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 500;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.5;
+    margin: 24px 0 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 600; }
+
+  /* ── WPN BADGE ── */
+  .wpn-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    background: rgba(255,140,0,0.08);
+    border: 1px solid rgba(255,140,0,0.3);
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.05em;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.7s;
+  }
+  .wpn-badge::before { content: '⚡'; font-size: 14px; }
+
+  /* ── CTA FORM ── */
+  .cta-block {
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+  }
+  .cta-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .cta-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .cta-input {
+    flex: 1;
+    min-width: 260px;
+    height: 52px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 0 18px;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .cta-input::placeholder { color: rgba(255,255,255,0.3); }
+  .cta-input:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 16px rgba(0,242,255,0.15);
+  }
+  .cta-btn {
+    height: 52px;
+    padding: 0 32px;
+    background: var(--cyan);
+    border: none;
+    border-radius: 4px;
+    color: var(--bg);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .cta-btn:hover {
+    background: #fff;
+    box-shadow: 0 0 32px rgba(0,242,255,0.5);
+    transform: translateY(-1px);
+  }
+  .cta-note {
+    font-size: 14px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.03em;
+  }
+  .cta-note strong { color: var(--kill); }
+
+  /* ── HERO STATS ── */
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--dim);
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1s;
+  }
+  .stat-item { }
+  .stat-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--cyan);
+    line-height: 1;
+  }
+  .stat-num.red { color: var(--kill); }
+  .stat-num.gold { color: var(--gold); }
+  .stat-label { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 1px; margin-top: 4px; text-transform: uppercase; }
+
+  /* ── STRIP MOCKUP ── */
+  .strip-mockup {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 480px;
+    opacity: 0;
+    animation: fadeLeft 1s ease forwards 0.9s;
+  }
+  .strip-visual {
+    background: #0A0A0B;
+    border: 1px solid rgba(0,242,255,0.4);
+    border-radius: 8px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 0 40px rgba(0,242,255,0.15), 0 20px 60px rgba(0,0,0,0.8);
+    font-family: 'Rajdhani', sans-serif;
+  }
+  .sv-gauge {
+    width: 40px; height: 48px;
+    background: linear-gradient(180deg, #00F2FF 0%, #FF0055 100%);
+    border-radius: 3px;
+    opacity: 0.9;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .sv-gauge::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 30%;
+    background: rgba(255,0,85,0.6);
+    animation: gaugeBreath 2s ease-in-out infinite;
+  }
+  @keyframes gaugeBreath { 0%,100%{height:30%} 50%{height:45%} }
+  .sv-bb { font-size: 22px; font-weight: 900; color: #10B981; font-variant-numeric: tabular-nums; }
+  .sv-pos { font-size: 13px; color: #FF8C00; font-weight: 700; }
+  .sv-btn {
+    padding: 6px 10px; border-radius: 4px;
+    font-size: 11px; font-weight: 900;
+    background: rgba(0,242,255,0.15);
+    border: 1px solid rgba(0,242,255,0.5);
+    color: #00F2FF;
+    letter-spacing: 0.05em;
+  }
+  .sv-btn.active { background: #00F2FF; color: #0A0A0B; box-shadow: 0 0 12px rgba(0,242,255,0.5); }
+  .sv-btn.heater { background: rgba(255,140,0,0.15); border-color: #FF8C00; color: #FF8C00; }
+  .sv-stat { font-size: 13px; font-weight: 700; }
+  .sv-stat span { font-size: 10px; color: var(--muted); letter-spacing: 1px; }
+  .sv-mdf {
+    background: rgba(16,185,129,0.15);
+    border: 1px solid rgba(16,185,129,0.5);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 13px;
+    font-weight: 900;
+    color: #10B981;
+  }
+  .sv-h { font-size: 13px; color: var(--cyan); font-weight: 700; }
+  .sv-nc {
+    background: rgba(0,242,255,0.1);
+    border: 1px solid rgba(0,242,255,0.4);
+    border-radius: 3px;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 900; color: var(--cyan);
+  }
+  .strip-caption {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── SECTION ── */
+  section { padding: 100px 0; position: relative; z-index: 2; }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--cyan);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before { content: ''; width: 24px; height: 1px; background: var(--cyan); }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .section-sub { font-size: 20px; color: var(--muted); max-width: 580px; line-height: 1.6; }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--dim), transparent); }
+
+  /* ── PROBLEM SECTION ── */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+    background: var(--dim);
+    border: 1px solid var(--dim);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .problem-card {
+    background: var(--bg2);
+    padding: 32px 28px;
+    transition: background 0.3s;
+  }
+  .problem-card:hover { background: var(--bg3); }
+  .problem-icon { font-size: 28px; margin-bottom: 16px; }
+  .problem-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px; font-weight: 700;
+    color: #fff; margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+  .problem-body { font-size: 17px; color: var(--muted); line-height: 1.7; }
+  .problem-cost {
+    margin-top: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    color: var(--kill);
+    font-weight: 700;
+  }
+
+  /* ── FEATURES ── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 60px;
+  }
+  .feature-card {
+    background: var(--bg2);
+    border: 1px solid var(--dim);
+    border-radius: 8px;
+    padding: 28px 32px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent, var(--cyan));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .feature-card:hover::before { transform: scaleX(1); }
+  .feature-card:hover { border-color: rgba(255,255,255,0.12); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+  .feature-card.red   { --accent: var(--kill); }
+  .feature-card.orange{ --accent: var(--orange); }
+  .feature-card.green { --accent: var(--green); }
+  .feature-card.gold  { --accent: var(--gold); }
+  .feature-card.purple{ --accent: var(--purple); }
+  .feature-card.magenta{ --accent: var(--magenta); }
+  .feature-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px; font-weight: 700;
+    color: #fff; margin-bottom: 8px; letter-spacing: 0.05em;
+  }
+  .feature-name .tm { font-size: 12px; vertical-align: super; color: var(--muted); }
+  .feature-tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 2px;
+    background: rgba(255,255,255,0.06);
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .feature-desc { font-size: 17px; color: var(--muted); line-height: 1.6; }
+
+  /* ── HOW IT WORKS ── */
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    position: relative;
+  }
+  .how-grid::before {
+    content: '';
+    position: absolute;
+    top: 28px; left: 12.5%; right: 12.5%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan), var(--magenta), transparent);
+  }
+  .how-step { padding: 0 20px; text-align: center; }
+  .how-num {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--bg2);
+    border: 1px solid var(--cyan);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px; font-weight: 700; color: var(--cyan);
+    margin: 0 auto 20px;
+    position: relative; z-index: 1;
+    box-shadow: 0 0 20px rgba(0,242,255,0.2);
+  }
+  .how-title { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .how-body { font-size: 16px; color: var(--muted); line-height: 1.6; }
+
+  /* ── BEAST SECTION ── */
+  .beast-block {
+    background: var(--bg2);
+    border: 1px solid rgba(255,215,0,0.2);
+    border-radius: 8px;
+    padding: 48px;
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .beast-block::before {
+    content: 'BEAST';
+    position: absolute;
+    right: -20px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 180px; font-weight: 800;
+    color: rgba(255,215,0,0.03);
+    letter-spacing: -0.05em;
+    pointer-events: none;
+    line-height: 1;
+  }
+  .beast-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .beast-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 42px; font-weight: 800; line-height: 1;
+    color: #fff; margin-bottom: 16px;
+  }
+  .beast-title .gold { color: var(--gold); }
+  .beast-body { font-size: 18px; color: var(--muted); line-height: 1.7; }
+  .beast-list { list-style: none; margin-top: 24px; }
+  .beast-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 15px; color: var(--text);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--dim);
+  }
+  .beast-list li:last-child { border-bottom: none; }
+  .beast-list li::before { content: '→'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .beast-metric {
+    background: rgba(255,215,0,0.06);
+    border: 1px solid rgba(255,215,0,0.2);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+  }
+  .beast-metric-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 48px; font-weight: 700;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 8px;
+  }
+  .beast-metric-label { font-size: 13px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* ── TESTIMONIAL / SOCIAL PROOF ── */
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 60px;
+  }
+  .proof-card {
+    background: var(--bg2);
+    border: 1px solid var(--dim);
+    border-radius: 8px;
+    padding: 28px;
+  }
+  .proof-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+  .proof-text { font-size: 17px; color: var(--text); line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+  .proof-author { font-size: 13px; font-weight: 700; color: var(--cyan); letter-spacing: 0.05em; }
+  .proof-role { font-size: 12px; color: var(--muted); }
+
+  /* ── BETA SPOTS ── */
+  .spots-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--dim);
+    border-bottom: 1px solid var(--dim);
+  }
+  .spots-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 80px 0;
+  }
+  .spots-left .section-title { margin-bottom: 24px; }
+  .spots-counter {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .spots-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 72px; font-weight: 700;
+    color: var(--kill); line-height: 1;
+    animation: killPulse 2s ease-in-out infinite;
+  }
+  @keyframes killPulse {
+    0%,100% { text-shadow: 0 0 20px rgba(255,0,85,0.4); }
+    50%      { text-shadow: 0 0 40px rgba(255,0,85,0.8); }
+  }
+  .spots-of { font-size: 20px; color: var(--muted); font-weight: 600; }
+  .spots-bar-wrap { height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
+  .spots-bar { height: 100%; width: 85%; background: linear-gradient(90deg, var(--kill), var(--magenta)); border-radius: 4px; box-shadow: 0 0 12px rgba(255,0,85,0.5); }
+  .spots-caption { font-size: 15px; color: var(--muted); }
+  .spots-caption strong { color: var(--kill); }
+
+  .spots-right .cta-label { margin-bottom: 8px; }
+  .beta-perks { list-style: none; margin-bottom: 28px; }
+  .beta-perks li {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 17px; color: var(--text);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--dim);
+  }
+  .beta-perks li::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 13px; }
+  .beta-perks li:last-child { border-bottom: none; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 48px 0 32px;
+    border-top: 1px solid var(--dim);
+    position: relative; z-index: 2;
+  }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; }
+  .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; color: var(--cyan); letter-spacing: 0.1em; }
+  .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.2); margin-top: 4px; letter-spacing: 1px; text-transform: uppercase; }
+  .footer-legal { font-size: 12px; color: rgba(255,255,255,0.2); text-align: right; line-height: 1.8; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeLeft {
+    from { opacity: 0; transform: translate(24px, -50%); }
+    to   { opacity: 1; transform: translate(0, -50%); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .strip-mockup { display: none; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .how-grid { grid-template-columns: repeat(2,1fr); gap: 40px; }
+    .how-grid::before { display: none; }
+    .beast-inner { grid-template-columns: 1fr; }
+    .proof-grid { grid-template-columns: 1fr; }
+    .spots-inner { grid-template-columns: 1fr; gap: 40px; }
+    .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-legal { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap nav-inner">
+    <div class="nav-logo">NEURALCORTEX<span>™</span></div>
+    <div class="nav-badge">● System Online — Beta Access Open</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap" style="position:relative;">
+    <div class="hero-eyebrow">Built for WPN / Black Chip Poker Beast Grinders</div>
+    <h1 class="hero-headline">
+      <span class="line-1">PROTECT YOUR BANKROLL.</span>
+      <span class="line-2">DOMINATE THE BEAST.</span>
+    </h1>
+    <p class="hero-sub">
+      NeuralCortex™ is a <strong>real-time decision engine</strong> that sits above your BCP tables — reading your stats, detecting tilt before it costs you, and telling you exactly what to do.
+    </p>
+    <div class="wpn-badge">Optimized for WPN / Black Chip Poker Engine — not a generic HUD</div>
+
+    <div class="cta-block">
+      <div class="cta-label">Apply for free beta access — 20 spots total</div>
+      <form class="cta-form" name="beta-applications" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleNetlifySubmit(event)">
+        <input type="hidden" name="form-name" value="beta-applications">
+        <input type="hidden" name="bot-field" style="display:none">
+        <input class="cta-input" type="email" name="email" placeholder="Your email address" required id="email-input">
+        <button class="cta-btn" type="submit">Apply for Beta Access →</button>
+      </form>
+      <p class="cta-note"><strong>17 of 20 spots claimed.</strong> Free during beta. No credit card.</p>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">4hrs</div>
+        <div class="stat-label">Before tilt hits most players</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num red">~30%</div>
+        <div class="stat-label">Of losses are tilt-driven</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num gold">Real-time</div>
+        <div class="stat-label">Decisions, not post-session reports</div>
+      </div>
+    </div>
+
+    <!-- Strip Mockup -->
+    <div class="strip-mockup">
+      <div class="strip-visual">
+        <div class="sv-gauge"></div>
+        <div>
+          <div class="sv-bb">221BB</div>
+          <div class="sv-pos">BTN</div>
+        </div>
+        <div class="sv-btn active">CLEWIST<br><small style="font-size:9px">C1</small></div>
+        <div class="sv-btn heater">🔥 2X<br><small style="font-size:9px">C2</small></div>
+        <div class="sv-stat"><span>v</span>14%</div>
+        <div class="sv-stat"><span>p</span>0%</div>
+        <div class="sv-stat"><span>af</span>3.7</div>
+        <div class="sv-mdf">MDF 87%</div>
+        <div class="sv-h">H 183 ↑</div>
+        <div class="sv-nc">NC</div>
+      </div>
+      <div class="strip-caption">NeuralStrip™ — live above your tables</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- THE PROBLEM -->
+<section>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label">The Problem</div>
+      <h2 class="section-title">TILT IS COSTING YOU MORE<br>THAN BAD BEATS ARE.</h2>
+      <p class="section-sub">Most poker losses aren't from bad cards. They're from bad decisions made in a compromised mental state — and you don't notice until it's too late.</p>
+    </div>
+    <div class="problem-grid reveal">
+      <div class="problem-card">
+        <div class="problem-icon">🧠</div>
+        <div class="problem-title">Tilt Creep</div>
+        <div class="problem-body">You don't go on tilt instantly. It creeps in over 20–50 hands. By the time you notice, you've already made 10 bad calls.</div>
+        <div class="problem-cost">→ Costs: 3–15 buy-ins per session undetected</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">⏰</div>
+        <div class="problem-title">Decision Fatigue</div>
+        <div class="problem-body">After 4–8 hours your decision quality drops significantly — but your confidence doesn't. You feel fine. Your winrate doesn't.</div>
+        <div class="problem-cost">→ Costs: Your most expensive hands are in hour 6+</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">💸</div>
+        <div class="problem-title">No Real-Time Warning</div>
+        <div class="problem-body">PokerTracker and HM3 show you what happened. NeuralCortex tells you what's happening right now — before it destroys your session.</div>
+        <div class="problem-cost">→ Post-session analysis is too late to save your bankroll</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FEATURES -->
+<section>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label">The System</div>
+      <h2 class="section-title">YOUR EXTERNAL<br>PREFRONTAL CORTEX.</h2>
+      <p class="section-sub">NeuralCortex™ reads your live BCP hand history every hand and keeps you logical when you're trying to be emotional.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card red reveal">
+        <div class="feature-name">Tilt Shield™ <span class="tm">™</span></div>
+        <div class="feature-tag">Real-time protection</div>
+        <div class="feature-desc">5-state tilt detection system: Clear → Watch → Drift → Tilt → Collapse. Fires a warning the moment your aggression deviates from your personal baseline — before it costs you.</div>
+      </div>
+      <div class="feature-card orange reveal">
+        <div class="feature-name">Neural Load™ <span class="tm">™</span></div>
+        <div class="feature-tag">Mental fatigue meter</div>
+        <div class="feature-desc">A live meter that tracks your mental sharpness over the session. Drains faster when you're tilting. Turns red when your decision quality is compromised. The only HUD that shows you when to quit.</div>
+      </div>
+      <div class="feature-card green reveal">
+        <div class="feature-name">NeuralFeed™ <span class="tm">™</span></div>
+        <div class="feature-tag">Priority alert system</div>
+        <div class="feature-desc">Intelligent alert pill above the strip. Only fires on threshold crossings — never spams. Short stack, heater detected, push/fold mode, tilt collapse — each with a clear action and clickable response.</div>
+      </div>
+      <div class="feature-card gold reveal">
+        <div class="feature-name">Stake Transition Guard™ <span class="tm">™</span></div>
+        <div class="feature-tag">Bankroll protection</div>
+        <div class="feature-desc">Watches your buy-in count in real time. Tells you when you're ready to move up — and when you must move down immediately. No ego. Just math. Your bankroll survives because of it.</div>
+      </div>
+      <div class="feature-card purple reveal">
+        <div class="feature-name">NeuralShadow™ <span class="tm">™</span></div>
+        <div class="feature-tag">Peak performance baseline</div>
+        <div class="feature-desc">After 200 hands, builds a profile of your best-ever playing patterns. Every session, it compares your live decisions to your peak self — and flags when you're below your own standard.</div>
+      </div>
+      <div class="feature-card magenta reveal">
+        <div class="feature-name">Leak Radar™ <span class="tm">™</span></div>
+        <div class="feature-tag">Slow leak detection</div>
+        <div class="feature-desc">Street-by-street fold tracking across sessions. Detects slow-developing leaks like river over-folding or turn aggression drops that PT4 can't show you until you've lost 100 buy-ins.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="wrap">
+    <div class="reveal" style="text-align:center; margin-bottom:0;">
+      <div class="section-label" style="justify-content:center;">How It Works</div>
+      <h2 class="section-title">UP IN 5 MINUTES.<br>RUNNING EVERY HAND.</h2>
+    </div>
+    <div class="how-grid reveal">
+      <div class="how-step">
+        <div class="how-num">01</div>
+        <div class="how-title">Install & Configure</div>
+        <div class="how-body">Point NeuralCortex at your BCP hand history folder. No plugins, no overlays, no BCP violation. Reads files directly.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <div class="how-title">Open Your Tables</div>
+        <div class="how-body">NeuralStrip™ detects each table automatically. Buttons appear for every table. Hover your mouse to switch focus.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <div class="how-title">Play Your Game</div>
+        <div class="how-body">The system watches every hand. Live stats, tilt state, bankroll position — updated every 200ms. You just play.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">04</div>
+        <div class="how-title">Trust the Warnings</div>
+        <div class="how-body">When NeuralCortex says stop — stop. When it says you're running hot — press your edge. That's the whole game.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BEAST SECTION -->
+<section>
+  <div class="wrap">
+    <div class="beast-block reveal">
+      <div class="beast-inner">
+        <div>
+          <div class="section-label">WPN Beast Leaderboard</div>
+          <div class="beast-title">BUILT FOR <span class="gold">BEAST</span><br>GRINDERS SPECIFICALLY.</div>
+          <div class="beast-body">NeuralCortex™ was designed on BCP. Every table name extractor, every hand parser, every stat calculation is tested against real WPN hand histories. This isn't a generic HUD ported to BCP — it was born here.</div>
+          <ul class="beast-list">
+            <li>Reads BCP hand history format natively — no conversion needed</li>
+            <li>Detects Rush & Cash, Spin & Go, and regular cash games automatically</li>
+            <li>Tournament level tracking (L29 20K/40K displayed live on the strip)</li>
+            <li>ITM and Final Table detection with celebration alerts</li>
+            <li>Beast leaderboard grinders run 4–8 tables — NeuralCortex handles all of them simultaneously</li>
+          </ul>
+        </div>
+        <div>
+          <div class="beast-metric" style="margin-bottom:16px;">
+            <div class="beast-metric-num">4–8</div>
+            <div class="beast-metric-label">Tables tracked simultaneously</div>
+          </div>
+          <div class="beast-metric" style="margin-bottom:16px; border-color:rgba(0,242,255,0.2); background:rgba(0,242,255,0.06);">
+            <div class="beast-metric-num" style="color:var(--cyan);">200ms</div>
+            <div class="beast-metric-label">Update speed per hand</div>
+          </div>
+          <div class="beast-metric" style="border-color:rgba(16,185,129,0.2); background:rgba(16,185,129,0.06);">
+            <div class="beast-metric-num" style="color:var(--green);">0</div>
+            <div class="beast-metric-label">BCP ToS violations — reads files only</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOCIAL PROOF -->
+<section>
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label" style="justify-content:center;">Early Feedback</div>
+      <h2 class="section-title">WHAT BETA TESTERS SAY.</h2>
+    </div>
+    <div class="proof-grid reveal">
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-text">"The tilt detection actually works. I would have kept playing after a bad beat but the system flagged drift and I took a break. Saved at least 3 buy-ins that session."</div>
+        <div class="proof-author">BCP Regular</div>
+        <div class="proof-role">$0.25/$0.50 Cash — 50k+ hands/month</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-text">"The Stake Transition Guard told me I was under-rolled before I even opened the session. Moved down one level, ran it up, moved back. Exactly what the system was designed for."</div>
+        <div class="proof-author">WPN Grinder</div>
+        <div class="proof-role">Multi-table specialist — 6 tables simultaneously</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-text">"Nothing else on the market is built specifically for BCP. Generic HUDs miss half the hand formats. NeuralCortex reads everything correctly from day one."</div>
+        <div class="proof-author">Beast Leaderboard Regular</div>
+        <div class="proof-role">Top 50 WPN — Rush & Cash specialist</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BETA SPOTS -->
+<section class="spots-section">
+  <div class="wrap">
+    <div class="spots-inner">
+      <div class="spots-left reveal">
+        <div class="section-label">Beta Access</div>
+        <h2 class="section-title">20 SPOTS.<br>17 CLAIMED.</h2>
+        <div class="spots-counter">
+          <div class="spots-num">3</div>
+          <div class="spots-of">spots remaining</div>
+        </div>
+        <div class="spots-bar-wrap">
+          <div class="spots-bar"></div>
+        </div>
+        <div class="spots-caption">
+          <strong>This is not fake scarcity.</strong> Beta is capped at 20 so feedback is meaningful and the system gets properly tested before public launch. When it's full, it's full.
+        </div>
+      </div>
+      <div class="spots-right reveal">
+        <div class="cta-label">What you get as a beta tester</div>
+        <ul class="beta-perks">
+          <li>Full NeuralCortex™ system — free for the entire beta period</li>
+          <li>Direct access to the builder — your feedback shapes the product</li>
+          <li>Founding member pricing when paid tier launches</li>
+          <li>Your username in the credits (if you want it)</li>
+          <li>Early access to every new feature before public release</li>
+        </ul>
+        <div class="cta-label">Claim your spot now</div>
+        <form class="cta-form" name="beta-applications" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleNetlifySubmit(event)">
+          <input type="hidden" name="form-name" value="beta-applications">
+          <input type="hidden" name="bot-field" style="display:none">
+          <input class="cta-input" type="email" name="email" placeholder="Your email address" required id="email-input-2">
+          <button class="cta-btn" type="submit">Claim Spot →</button>
+        </form>
+        <p class="cta-note" style="margin-top:10px;">Free beta. No card. No commitment. <strong>3 spots left.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;">
+      <div>
+        <div class="footer-logo">NEURALCORTEX™</div>
+        <div class="footer-tagline">Precision Decision Engine — Built on BCP</div>
+      </div>
+      <div class="footer-legal">
+        © 2026 NeuralCortex™. All rights reserved.<br>
+        NeuralCortex™ reads hand history files only.<br>
+        No BCP Terms of Service violations.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── SCROLL REVEAL ─────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── FORM SUBMIT ───────────────────────────────────────────
+  function handleNetlifySubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button');
+    const emailInput = form.querySelector('input[type="email"]');
+    const email = emailInput.value;
+
+    // Submit to Netlify
+    const data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      // Success state
+      btn.textContent = '✓ Application Received';
+      btn.style.background = '#10B981';
+      btn.style.boxShadow = '0 0 20px rgba(16,185,129,0.4)';
+      btn.disabled = true;
+      emailInput.disabled = true;
+
+      // Update spot count visually
+      document.querySelectorAll('.spots-num').forEach(el => {
+        const curr = parseInt(el.textContent);
+        if (!isNaN(curr) && curr > 0) el.textContent = curr - 1;
+      });
+    })
+    .catch(err => {
+      btn.textContent = 'Try Again';
+      console.error('Submission error:', err);
+    });
+  }
+
+  // ── CURSOR GLOW ───────────────────────────────────────────
+  const cursor = document.createElement('div');
+  cursor.style.cssText = `
+    position:fixed;width:300px;height:300px;pointer-events:none;z-index:998;
+    background:radial-gradient(circle,rgba(0,242,255,0.04) 0%,transparent 70%);
+    transform:translate(-50%,-50%);transition:opacity 0.3s;
+  `;
+  document.body.appendChild(cursor);
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
+  });
+</script>
+</body>
+</html>
