@@ -174,9 +174,34 @@ footer b{color:var(--sand)}
     <li><b>Medians, not averages</b> — one ultra-luxury outlier won't skew your area.</li>
    </ul>
   </div>
-  <div class="cta">
-   <a href="mailto:waynehavenga71@gmail.com?subject=Benchmark%20my%20Brisbane%20listing">Want this for your exact listing? →</a>
+  <div class="capture-panel" style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:8px">
+   <div class="kick" style="color:var(--gold)">Free · no catch</div>
+   <div class="h2" style="font-size:30px;color:var(--sand);margin:10px 0 8px">Want a deep-dive on your exact listing?</div>
+   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. I’ll send back a personalised benchmark — how your place compares to similar ones nearby, and where the gap is. No spam, just the breakdown.</p>
+   <form id="capture" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:580px;margin:0 auto">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
+    <input type="url" name="listing" placeholder="Your Airbnb link (optional)" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
+    <input type="hidden" name="city" value="Brisbane">
+    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark →</button>
+    <p id="capmsg" style="flex:1 1 100%;font-size:14px;margin-top:10px;min-height:18px;color:rgba(246,239,226,.7)"></p>
+   </form>
   </div>
+  <script>
+  (function(){
+   var f=document.getElementById('capture'),m=document.getElementById('capmsg');
+   if(!f)return;
+   f.addEventListener('submit',function(e){
+    e.preventDefault();
+    m.style.color='var(--gold)';m.textContent='Sending…';
+    fetch('https://formspree.io/f/mlgvyzgd',{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+     .then(function(r){
+       if(r.ok){f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I’ll send your benchmark soon. ✓';}
+       else{m.style.color='#ff8c66';m.textContent='Something went wrong — email me at waynehavenga71@gmail.com';}
+     })
+     .catch(function(){m.style.color='#ff8c66';m.textContent='Network issue — email me at waynehavenga71@gmail.com';});
+   });
+  })();
+  </script>
  </div>
 </section>
 <footer><div class="wrap">
