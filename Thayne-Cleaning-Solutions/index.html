@@ -26,7 +26,7 @@ body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);
 .bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;
   border-bottom:1px solid rgba(246,239,226,.15);gap:20px}
 .brand-logo{display:flex;align-items:center;background:rgba(246,239,226,.97);padding:10px 22px;border-radius:14px;gap:14px}
-.brand-logo img{height:56px;width:auto;display:block}
+.brand-logo img{height:48px;width:auto;display:block}
 .brand-logo .name{font-family:'Fraunces';font-weight:900;font-size:20px;color:#0a2027;line-height:1.1;letter-spacing:-.01em}
 .bar .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,239,226,.65);text-align:right}
 .hero{background:var(--ocean);color:var(--sand);position:relative;overflow:hidden}
@@ -36,17 +36,30 @@ body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);
 .hero::after{content:"";position:absolute;inset:0;opacity:.05;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 .hero .wrap{position:relative;z-index:1}
+
+/* Hero layout grid - content left, big logo right */
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:center;min-height:560px}
+.hero-content{padding:40px 0}
+.hero-logo-wrap{display:flex;align-items:center;justify-content:center;padding:30px}
+.hero-logo-card{background:rgba(246,239,226,.97);border-radius:24px;padding:48px 40px;
+  box-shadow:0 30px 60px rgba(0,0,0,.25);max-width:420px;width:100%;
+  opacity:0;animation:rise .9s .4s forwards;transform:translateY(20px)}
+.hero-logo-card img{width:100%;height:auto;display:block;max-height:280px;object-fit:contain}
+.hero-logo-card .caption{text-align:center;margin-top:18px;padding-top:18px;border-top:1px solid rgba(10,32,39,.1);
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.hero-logo-card .caption b{color:var(--ink);font-weight:900;font-family:'Fraunces';font-size:14px;letter-spacing:0;text-transform:none;display:block;margin-top:4px}
+
 .eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
-  margin:64px 0 22px;opacity:0;animation:rise .7s .05s forwards}
-h1{font-family:'Fraunces';font-weight:900;font-size:clamp(40px,7vw,82px);line-height:.96;
-  letter-spacing:-.02em;max-width:14ch}
+  margin:24px 0 22px;opacity:0;animation:rise .7s .05s forwards}
+h1{font-family:'Fraunces';font-weight:900;font-size:clamp(36px,5.5vw,68px);line-height:.98;
+  letter-spacing:-.02em}
 h1 .it{font-style:italic;font-weight:500;color:var(--sea)}
 .hero h1 .w{display:inline-block;opacity:0;animation:rise .8s forwards}
-.lede{font-size:clamp(16px,2vw,20px);color:rgba(246,239,226,.82);max-width:48ch;margin:26px 0 8px;
+.lede{font-size:clamp(15px,1.6vw,18px);color:rgba(246,239,226,.82);max-width:48ch;margin:26px 0 8px;
   opacity:0;animation:rise .7s .55s forwards}
 .statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,239,226,.16);
   border:1px solid rgba(246,239,226,.16);border-radius:14px;overflow:hidden;margin:46px 0 -44px;
-  opacity:0;animation:rise .7s .7s forwards}
+  opacity:0;animation:rise .7s .7s forwards;position:relative;z-index:2}
 .stat{background:var(--ocean);padding:22px 20px}
 .stat .v{font-family:'Fraunces';font-weight:900;font-size:clamp(26px,3.4vw,38px);color:var(--sand);line-height:1}
 .stat .v small{font-size:.5em;font-weight:600;color:var(--gold)}
@@ -125,14 +138,21 @@ td.big{font-weight:700;color:var(--teal)}
 footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 footer b{color:var(--sand)}
+@media(max-width:900px){
+ .hero-grid{grid-template-columns:1fr;gap:20px;min-height:auto}
+ .hero-logo-wrap{order:-1;padding:10px}
+ .hero-logo-card{padding:28px 24px;max-width:280px}
+ .hero-logo-card img{max-height:180px}
+ .eyebrow{margin-top:10px}
+}
 @media(max-width:760px){
  .statrow{grid-template-columns:repeat(2,1fr)}
  .finder{grid-template-columns:1fr;padding:26px}
  .method{grid-template-columns:1fr;padding:28px}
  th,td{padding:12px 11px;font-size:13.5px}
  .occ-col{display:none}
- .brand-logo img{height:42px}
- .brand-logo .name{font-size:15px}
+ .brand-logo img{height:38px}
+ .brand-logo .name{font-size:14px}
  .brand-logo{padding:8px 14px;gap:10px}
  .bar .tag{font-size:10.5px}
  .tcc-contact{padding:28px}
@@ -150,9 +170,21 @@ footer b{color:var(--sand)}
    </div>
    <div class="tag">Dallas, TX · STR Index</div>
   </div>
-  <div class="eyebrow">Free · public data · no signup</div>
-  <h1 id="h1"></h1>
-  <p class="lede">How much should you charge for your Dallas Airbnb? See what comparable listings actually earn — real nightly rates, occupancy and annual revenue across 4,097 active Dallas listings, so you can price yours with confidence.</p>
+
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="eyebrow">Free · public data · no signup</div>
+      <h1 id="h1"></h1>
+      <p class="lede">How much should you charge for your Dallas Airbnb? See what comparable listings actually earn — real nightly rates, occupancy and annual revenue across 4,097 active Dallas listings, so you can price yours with confidence.</p>
+    </div>
+    <div class="hero-logo-wrap">
+      <div class="hero-logo-card">
+        <img src="thayne-logo.png" alt="Thayne Cleaning Solutions" onerror="this.parentElement.style.display='none'">
+        <div class="caption">Brought to you by<b>Thayne Cleaning Solutions</b></div>
+      </div>
+    </div>
+  </div>
+
   <div class="statrow">
    <div class="stat"><div class="v">$125</div><div class="l">Median nightly rate</div></div>
    <div class="stat"><div class="v">96<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
@@ -289,55 +321,4 @@ footer b{color:var(--sand)}
  <div>Data: Inside Airbnb (public domain) · November 2025 · Figures are estimates</div>
 </div></footer>
 <script>
-const DATA={"overall":{"total_active":4097,"median_price":125,"median_occ":96,"median_rev":12690,"entire_share":90},"subs":[{"suburb":"West Dallas / Trinity Groves","n":138,"median_price":314,"median_occ":108,"median_rev":32709,"rev_top25":60371},{"suburb":"Knox-Henderson","n":117,"median_price":174,"median_occ":116,"median_rev":20592,"rev_top25":35496},{"suburb":"Design District","n":70,"median_price":130,"median_occ":156,"median_rev":20055,"rev_top25":31556},{"suburb":"The Cedars","n":178,"median_price":166,"median_occ":108,"median_rev":18237,"rev_top25":31492},{"suburb":"Lakewood","n":67,"median_price":168,"median_occ":108,"median_rev":17880,"rev_top25":27552},{"suburb":"Kessler Park","n":107,"median_price":124,"median_occ":102,"median_rev":17112,"rev_top25":27393},{"suburb":"Love Field","n":161,"median_price":138,"median_occ":90,"median_rev":15168,"rev_top25":24258},{"suburb":"Bishop Arts / Oak Cliff","n":362,"median_price":134,"median_occ":99,"median_rev":14988,"rev_top25":27702},{"suburb":"East Dallas","n":35,"median_price":150,"median_occ":84,"median_rev":14840,"rev_top25":27301},{"suburb":"Uptown","n":129,"median_price":159,"median_occ":90,"median_rev":13884,"rev_top25":27612},{"suburb":"North Dallas","n":134,"median_price":113,"median_occ":80,"median_rev":13632,"rev_top25":23604},{"suburb":"Oak Lawn","n":315,"median_price":139,"median_occ":96,"median_rev":13608,"rev_top25":27306},{"suburb":"Lower Greenville","n":540,"median_price":112,"median_occ":111,"median_rev":13230,"rev_top25":24487},{"suburb":"Downtown","n":379,"median_price":124,"median_occ":108,"median_rev":12864,"rev_top25":22476},{"suburb":"Greater Dallas","n":544,"median_price":157,"median_occ":84,"median_rev":12543,"rev_top25":23841},{"suburb":"Deep Ellum","n":226,"median_price":106,"median_occ":90,"median_rev":12069,"rev_top25":21412},{"suburb":"Preston Hollow","n":56,"median_price":128,"median_occ":60,"median_rev":11198,"rev_top25":26151},{"suburb":"Fair Park","n":118,"median_price":165,"median_occ":69,"median_rev":10191,"rev_top25":24990}],"cohort":{"Bishop Arts / Oak Cliff":{"0":{"n":30,"price":98,"occ":99,"rev":9318,"rev_top25":16614},"1":{"n":122,"price":96,"occ":138,"rev":13999,"rev_top25":25084},"2":{"n":80,"price":146,"occ":75,"rev":11880,"rev_top25":28467},"3":{"n":90,"price":212,"occ":87,"rev":18723,"rev_top25":32175},"4":{"n":40,"price":279,"occ":81,"rev":23796,"rev_top25":47572}},"Deep Ellum":{"1":{"n":143,"price":97,"occ":96,"rev":9828,"rev_top25":19284},"2":{"n":51,"price":145,"occ":72,"rev":8880,"rev_top25":22602},"3":{"n":19,"price":220,"occ":72,"rev":15240,"rev_top25":21222}},"Design District":{"0":{"n":12,"price":112,"occ":204,"rev":22176,"rev_top25":25001},"1":{"n":30,"price":127,"occ":129,"rev":18297,"rev_top25":26048},"2":{"n":25,"price":140,"occ":150,"rev":26304,"rev_top25":37230}},"Downtown":{"1":{"n":181,"price":114,"occ":108,"rev":11484,"rev_top25":24384},"2":{"n":147,"price":130,"occ":114,"rev":12852,"rev_top25":20802},"3":{"n":44,"price":176,"occ":102,"rev":16740,"rev_top25":23545}},"East Dallas":{"1":{"n":12,"price":100,"occ":84,"rev":11583,"rev_top25":16533},"3":{"n":11,"price":265,"occ":60,"rev":14840,"rev_top25":22329}},"Fair Park":{"1":{"n":30,"price":99,"occ":57,"rev":5361,"rev_top25":10134},"2":{"n":31,"price":148,"occ":36,"rev":6840,"rev_top25":19188},"3":{"n":38,"price":216,"occ":114,"rev":21834,"rev_top25":33766},"4":{"n":19,"price":218,"occ":144,"rev":23460,"rev_top25":41083}},"Greater Dallas":{"1":{"n":174,"price":76,"occ":105,"rev":8124,"rev_top25":13894},"2":{"n":82,"price":119,"occ":75,"rev":9800,"rev_top25":20850},"3":{"n":133,"price":201,"occ":78,"rev":14196,"rev_top25":30960},"4":{"n":151,"price":309,"occ":72,"rev":24624,"rev_top25":52035}},"Kessler Park":{"1":{"n":49,"price":97,"occ":132,"rev":13080,"rev_top25":22176},"2":{"n":15,"price":148,"occ":84,"rev":17760,"rev_top25":22338},"3":{"n":20,"price":214,"occ":96,"rev":29676,"rev_top25":37834},"4":{"n":19,"price":291,"occ":78,"rev":24984,"rev_top25":47763}},"Knox-Henderson":{"1":{"n":47,"price":105,"occ":120,"rev":15120,"rev_top25":27621},"2":{"n":29,"price":153,"occ":126,"rev":22032,"rev_top25":29325},"3":{"n":23,"price":358,"occ":108,"rev":47256,"rev_top25":98586},"4":{"n":14,"price":558,"occ":63,"rev":37657,"rev_top25":48652}},"Lakewood":{"1":{"n":16,"price":104,"occ":151,"rev":19383,"rev_top25":23463},"2":{"n":23,"price":159,"occ":102,"rev":15120,"rev_top25":24240},"3":{"n":14,"price":261,"occ":75,"rev":21531,"rev_top25":35616},"4":{"n":11,"price":313,"occ":132,"rev":43560,"rev_top25":52003}},"Love Field":{"1":{"n":66,"price":91,"occ":111,"rev":10128,"rev_top25":18958},"2":{"n":43,"price":150,"occ":114,"rev":20526,"rev_top25":29322},"3":{"n":25,"price":257,"occ":60,"rev":16986,"rev_top25":21600},"4":{"n":23,"price":554,"occ":72,"rev":39888,"rev_top25":69960}},"Lower Greenville":{"0":{"n":31,"price":78,"occ":90,"rev":6048,"rev_top25":14139},"1":{"n":284,"price":94,"occ":114,"rev":10701,"rev_top25":18732},"2":{"n":135,"price":191,"occ":132,"rev":20400,"rev_top25":37995},"3":{"n":57,"price":270,"occ":102,"rev":26532,"rev_top25":50436},"4":{"n":33,"price":590,"occ":72,"rev":26760,"rev_top25":106845}},"North Dallas":{"1":{"n":79,"price":103,"occ":102,"rev":8520,"rev_top25":20691},"2":{"n":17,"price":110,"occ":60,"rev":5700,"rev_top25":13872},"3":{"n":18,"price":208,"occ":80,"rev":15380,"rev_top25":34950},"4":{"n":16,"price":425,"occ":60,"rev":22050,"rev_top25":61629}},"Oak Lawn":{"1":{"n":139,"price":101,"occ":108,"rev":9600,"rev_top25":16800},"2":{"n":83,"price":172,"occ":108,"rev":14850,"rev_top25":29877},"3":{"n":65,"price":266,"occ":66,"rev":20700,"rev_top25":42180},"4":{"n":23,"price":471,"occ":84,"rev":37620,"rev_top25":60795}},"Preston Hollow":{"1":{"n":24,"price":89,"occ":57,"rev":5912,"rev_top25":17505},"2":{"n":10,"price":171,"occ":69,"rev":10843,"rev_top25":21598},"3":{"n":11,"price":361,"occ":126,"rev":21588,"rev_top25":53850}},"The Cedars":{"1":{"n":63,"price":104,"occ":96,"rev":10080,"rev_top25":17847},"2":{"n":49,"price":181,"occ":174,"rev":29835,"rev_top25":44115},"3":{"n":53,"price":241,"occ":96,"rev":21516,"rev_top25":38808},"4":{"n":13,"price":279,"occ":138,"rev":23322,"rev_top25":52164}},"Uptown":{"0":{"n":15,"price":111,"occ":120,"rev":10764,"rev_top25":25492},"1":{"n":56,"price":105,"occ":90,"rev":11448,"rev_top25":20072},"2":{"n":23,"price":173,"occ":80,"rev":13200,"rev_top25":28662},"3":{"n":28,"price":249,"occ":114,"rev":29922,"rev_top25":45228}},"West Dallas / Trinity Groves":{"1":{"n":15,"price":94,"occ":36,"rev":2340,"rev_top25":7815},"3":{"n":24,"price":273,"occ":96,"rev":18744,"rev_top25":35025},"4":{"n":90,"price":341,"occ":144,"rev":47940,"rev_top25":68688}}}};
-const CCY="$";
-const fmt=n=>CCY+n.toLocaleString('en-US');
-const bedLabel={0:'Studio',1:'1 bedroom',2:'2 bedrooms',3:'3 bedrooms',4:'4+ bedrooms'};
-const words="What your Dallas listing should earn.".split(" ");
-document.getElementById('h1').innerHTML=words.map(w=>{
-  const it=/should|earn/.test(w)?' it':'';
-  return `<span class="w${it}">${w}&nbsp;</span>`;
-}).join("");
-document.querySelectorAll('#h1 .w').forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+'s');
-const subSel=document.getElementById('sub'),bedSel=document.getElementById('bed'),res=document.getElementById('result');
-Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;subSel.appendChild(o);});
-function fillBeds(){
-  const beds=Object.keys(DATA.cohort[subSel.value]).map(Number).sort((a,b)=>a-b);
-  bedSel.innerHTML="";
-  beds.forEach(b=>{const o=document.createElement('option');o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});
-}
-function render(){
-  const c=DATA.cohort[subSel.value]?.[bedSel.value];
-  if(!c){res.innerHTML='<div class="empty">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>';return;}
-  res.innerHTML=`
-   <div class="cell"><div class="l">Median nightly rate</div><div class="v">${fmt(c.price)}</div></div>
-   <div class="cell"><div class="l">Typical nights booked / yr</div><div class="v">${c.occ}<small> nights</small></div></div>
-   <div class="cell"><div class="l">Median annual revenue</div><div class="v">${fmt(c.rev)}</div></div>
-   <div class="cell hot"><div class="l">Top 25% earn</div><div class="v">${fmt(c.rev_top25)}<small> /yr</small></div></div>
-   <div class="cell span"><div class="l">Based on</div><div class="v" style="font-size:22px">${c.n} comparable ${bedLabel[bedSel.value].toLowerCase()} listings</div></div>`;
-}
-subSel.addEventListener('change',()=>{fillBeds();render();});
-bedSel.addEventListener('change',render);
-subSel.value=Object.keys(DATA.cohort).sort()[0];fillBeds();render();
-let rows=[...DATA.subs],sortK='median_rev',dir=-1;
-const tb=document.getElementById('tb');
-function draw(){
-  rows.sort((a,b)=> typeof a[sortK]==='string'? a[sortK].localeCompare(b[sortK])*dir : (a[sortK]-b[sortK])*dir);
-  tb.innerHTML=rows.map((r,i)=>`<tr>
-    <td><span class="rank">${i+1}</span>${r.suburb}</td>
-    <td>${r.n.toLocaleString('en-US')}</td>
-    <td>${fmt(r.median_price)}</td>
-    <td class="occ-col">${r.median_occ}</td>
-    <td class="big">${fmt(r.median_rev)}</td>
-    <td>${fmt(r.rev_top25)}</td></tr>`).join("");
-}
-document.querySelectorAll('#tbl th').forEach(th=>th.addEventListener('click',()=>{
-  const k=th.dataset.k;
-  if(k===sortK)dir=-dir;else{sortK=k;dir=(k==='suburb')?1:-1;}
-  document.querySelectorAll('#tbl th').forEach(x=>x.classList.remove('up','down'));
-  th.classList.add(dir===1?'up':'down');draw();
-}));
-draw();
-</script>
-</body>
-</html>
+const DATA={"overall":{"total_active":4097,"median_price":125,"median_occ":96,"median_rev":12690,"entire_share":90},"subs":[{"suburb":"West Dallas / Trinity Groves","n":138,"median_price":314,"median_occ":108,"median_rev":32709,"rev_top25":60371},{"suburb":"Knox-Henderson","n":117,"median_price":174,"median_occ":116,"median_rev":20592,"rev_top25":35496},{"suburb":"Design District","n":70,"median_price":130,"median_occ":156,"median_rev":20055,"rev_top25":31556},{"suburb":"The Cedars","n":178,"median_price":166,"median_occ":108,"median_rev":18237,"rev_top25":31492},{"suburb":"Lakewood","n":67,"median_price":168,"median_occ":108,"median_rev":17880,"rev_top25":27552},{"suburb":"Kessler Park","n":107,"median_price":124,"median_occ":102,"median_rev":17112,"rev_top25":27393},{"suburb":"Love Field","n":161,"median_price":138,"median_occ":90,"median_rev":15168,"rev_top25":24258},{"suburb":"Bishop Arts / Oak Cliff","n":362,"median_price":134,"median_occ":99,"median_rev":14988,"rev_top25":27702},{"suburb":"East Dallas","n":35,"median_price":150,"median_occ":84,"median_rev":14840,"rev_top25":27301},{"suburb":"Uptown","n":129,"median_price":159,"median_occ":90,"median_rev":13884,"rev_top25":27612},{"suburb":"North Dallas","n":134,"median_price":113,"median_occ":80,"median_rev":13632,"rev_top25":23604},{"suburb":"Oak Lawn","n":315,"median_price":139,"median_occ":96,"median_rev":13608,"rev_top25":27306},{"suburb":"Lower Greenville","n":540,"median_price":112,"median_occ":111,"median_rev":13230,"rev_top25":24487},{"suburb":"Downtown","n":379,"median_price":124,"median_occ":108,"median_rev":12864,"rev_top25":22476},{"suburb":"Greater Dallas","n":544,"median_price":157,"median_occ":84,"median_rev":12543,"rev_top25":23841},{"suburb":"Deep Ellum","n":226,"median_price":106,"median_occ":90,"median_rev":12069,"rev_top25":21412},{"suburb":"Preston Hollow","n":56,"median_price":128,"median_occ":60,"median_rev":11198,"rev_top25":26151},{"suburb":"Fair Park","n":118,"median_price":165,"median_occ":69,"median_rev":10191,"rev_top25":24990}],"cohort":{"Bishop Arts / Oak Cliff":{"0":{"n":30,"price":98,"occ":99,"rev":9318,"rev_top25":16614},"1":{"n":122,"price":96,"occ":138,"rev":13999,"rev_top25":25084},"2":{"n":80,"price":146,"occ":75,"rev":11880,"rev_top25":28467},"3":{"n":90,"price":212,"occ":87,"rev":18723,"rev_top25":32175},"4":{"n":40,"price":279,"occ":81,"rev":23796,"rev_top25":47572}},"Deep Ellum":{"1":{"n":143,"price":97,"occ":96,"rev":9828,"rev_top25":19284},"2":{"n":51,"price":145,"occ":72,"rev":8880,"rev_top25":22602},"3":{"n":19,"price":220,"occ":72,"rev":15240,"rev_top25":21222}},"Design District":{"0":{"n":12,"price":112,"occ":204,"rev":22176,"rev_top25":25001},"1":{"n":30,"price":127,"occ":129,"rev":18297,"rev_top25":26048},"2":{"n":25,"price":140,"occ":150,"rev":26304,"rev_top25":37230}},"Downtown":{"1":{"n":181,"price":114,"occ":108,"rev":11484,"rev_top25":24384},"2":{"n":147,"price":130,"occ":114,"rev":12852,"rev_top25":20802},"3":{"n":44,"price":176,"occ":102,"rev":16740,"rev_top25":23545}},"East Dallas":{"1":{"n":12,"price":100,"occ":84,"rev":11583,"rev_top25":16533},"3":{"n":11,"price":265,"occ":60,"rev":14840,"rev_top25":22329}},"Fair Park":{"1":{"n":30,"price":99,"occ":57,"rev":5361,"rev_top25":10134},"2":{"n":31,"price":148,"occ":36,"rev":6840,"rev_top25":19188},"3":{"n":38,"price":216,"occ":114,"rev":21834,"rev_top25":33766},"4":{"n":19,"price":218,"occ":144,"rev":23460,"rev_top25":41083}},"Greater Dallas":{"1":{"n":174,"price":76,"occ":105,"rev":8124,"rev_top25":13894},"2":{"n":82,"price":119,"occ":75,"rev":9800,"rev_top25":20850},"3":{"n":133,"price":201,"occ":78,"rev":14196,"rev_top25":30960},"4":{"n":151,"price":309,"occ":72,"rev":24624,"rev_top25":52035}},"Kessler Park":{"1":{"n":49,"price":97,"occ":132,"rev":13080,"rev_top25":22176},"2":{"n":15,"price":148,"occ":84,"rev":17760,"rev_top25":22338},"3":{"n":20,"price":214,"occ":96,"rev":29676,"rev_top25":37834},"4":{"n":19,"price":291,"occ":78,"rev":24984,"rev_top25":47763}},"Knox-Henderson":{"1":{"n":47,"price":105,"occ":120,"rev":15120,"rev_top25":27621},"2":{"n":29,"price":153,"occ":126,"rev":22032,"rev_top25":29325},"3":{"n":23,"price":358,"occ":108,"rev":47256,"rev_top25":98586},"4":{"n":14,"price":558,"occ":63,"rev":37657,"rev_top25":48652}},"Lakewood":{"1":{"n":16,"price":104,"occ":151,"rev":19383,"rev_top25":23463},"2":{"n":23,"price":159,"occ":102,"rev":15120,"rev_top25":24240},"3":{"n":14,"price":261,"occ":75,"rev":21531,"rev_top25":35616},"4":{"n":11,"price":313,"occ":132,"rev":43560,"rev_top25":52003}},"Love Field":{"1":{"n":66,"price":91,"occ":111,"rev":10128,"rev_top25":18958},"2":{"n":43,"price":150,"occ":114,"rev":20526,"rev_top25":29322},"3":{"n":25,"price":257,"occ":60,"rev":16986,"rev_top25":21600},"4":{"n":23,"price":554,"occ":72,"rev":39888,"rev_top25":69960}},"Lower Greenville":{"0":{"n":31,"price":78,"occ":90,"rev":6048,"rev_top25":14139},"1":{"n":284,"price":94,"occ":114,"rev":10701,"rev_top25":18732},"2":{"n":135,"price":191,"occ":132,"rev":20400,"rev_top25":37995},"3":{"n":57,"price":270,"occ":102,"rev":26532,"rev_top25":50436},"4":{"n":33,"price":590,"occ":72,"rev":26760,"rev_top25":106845}},"North Dallas":{"1":{"n":79,"price":103,"occ":102,"rev":8520,"rev_top25":20691},"2":{"n":17,"price":110,"occ":60,"rev":5700,"rev_top25":13872},"3":{"n":18,"price":208,"occ":80,"rev":15380,"rev_top25":34950},"4":{"n":16,"price":425,"occ":60,"rev":22050,"rev_top25":61629}},"Oak Lawn":{"1":{"n":139,"price":101,"occ":108,"rev":9600,"rev_top25":16800},"2":{"n":83,"price":172,"occ":108,"rev":14850,"rev_top25":29877},"3":{"n":65,"price":266,"occ":66,"rev":20700,"rev_top25":42180},"4":{"n":23,"price":471,"occ":84,"rev":37620,"rev_top25":60795}},"Preston Hollow":{"1":{"n":24,"price":89,"occ":57,"rev":5912,"rev_top25":17505},"2":{"n":10,"price":171,"occ":69,"rev":10843,"rev_top25":21598},"3":{"n":11,"price":361,"occ":126,"rev":21588,"rev_top25":53850}},"The 
