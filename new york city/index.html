@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="How much do Airbnb hosts earn in New York City? See real nightly rates, occupancy and annual revenue by neighbourhood — free, no signup.">
+<meta property="og:title" content="What Airbnb Hosts Earn in New York City — Free Pricing Benchmark">
+<meta property="og:description" content="See what comparable Airbnb listings actually earn in New York City — nightly rate, occupancy and annual revenue, by neighbourhood. Free, no signup.">
+<meta property="og:type" content="website">
+<title>What Airbnb Hosts Earn in New York City (2025 Data) — Free Pricing Tool | HostBrief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a2027; --ocean:#0e3a44; --teal:#15616d; --sea:#2a9d8f;
+  --sand:#f6efe2; --paper:#fbf7ee; --coral:#e8633f; --gold:#e6b54a;
+  --line:rgba(10,32,39,.12); --muted:#5c6b6e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;
+  border-bottom:1px solid rgba(246,239,226,.15)}
+.brand{font-family:'Fraunces';font-weight:900;font-size:21px;color:var(--sand);letter-spacing:-.01em}
+.brand span{color:var(--coral)}
+.bar .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,239,226,.6)}
+.hero{background:var(--ocean);color:var(--sand);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 85% -10%,rgba(42,157,143,.35),transparent 60%),
+             radial-gradient(90% 70% at -10% 110%,rgba(232,99,63,.22),transparent 55%);}
+.hero::after{content:"";position:absolute;inset:0;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin:64px 0 22px;opacity:0;animation:rise .7s .05s forwards}
+h1{font-family:'Fraunces';font-weight:900;font-size:clamp(40px,7vw,82px);line-height:.96;
+  letter-spacing:-.02em;max-width:14ch}
+h1 .it{font-style:italic;font-weight:500;color:var(--sea)}
+.hero h1 .w{display:inline-block;opacity:0;animation:rise .8s forwards}
+.lede{font-size:clamp(16px,2vw,20px);color:rgba(246,239,226,.82);max-width:48ch;margin:26px 0 8px;
+  opacity:0;animation:rise .7s .55s forwards}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,239,226,.16);
+  border:1px solid rgba(246,239,226,.16);border-radius:14px;overflow:hidden;margin:46px 0 -44px;
+  opacity:0;animation:rise .7s .7s forwards}
+.stat{background:var(--ocean);padding:22px 20px}
+.stat .v{font-family:'Fraunces';font-weight:900;font-size:clamp(26px,3.4vw,38px);color:var(--sand);line-height:1}
+.stat .v small{font-size:.5em;font-weight:600;color:var(--gold)}
+.stat .l{font-size:12.5px;color:rgba(246,239,226,.62);margin-top:9px;letter-spacing:.02em}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+section{padding:96px 0}
+.kick{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);font-weight:700}
+.h2{font-family:'Fraunces';font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.015em;
+  margin:14px 0 10px;line-height:1.02}
+.sub{color:var(--muted);max-width:56ch;font-size:16px}
+.finder{background:var(--ink);color:var(--sand);border-radius:22px;padding:38px;
+  display:grid;grid-template-columns:320px 1fr;gap:38px;margin-top:36px}
+.finder .controls label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 9px}
+.finder select{width:100%;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.22);
+  background:var(--ocean);color:var(--sand);font-family:'Archivo';font-size:16px;font-weight:600;
+  margin-bottom:22px;cursor:pointer;appearance:none}
+.finder .note{font-size:12.5px;color:rgba(246,239,226,.5);line-height:1.55;margin-top:6px}
+.result{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(246,239,226,.14);
+  border-radius:14px;overflow:hidden;align-content:start}
+.cell{background:var(--ink);padding:24px}
+.cell .l{font-size:12px;color:rgba(246,239,226,.6);letter-spacing:.04em}
+.cell .v{font-family:'Fraunces';font-weight:900;font-size:34px;color:var(--sand);margin-top:8px;line-height:1}
+.cell .v small{font-size:.42em;font-weight:600;color:var(--gold);letter-spacing:.02em}
+.cell.hot .v{color:var(--sea)}
+.cell.span{grid-column:1/-1;background:linear-gradient(100deg,#10303a,#0a2027)}
+.empty{grid-column:1/-1;background:var(--ink);padding:40px;text-align:center;color:rgba(246,239,226,.55)}
+.tablewrap{margin-top:34px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:right;padding:15px 18px;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+thead th{background:var(--sand);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--teal);cursor:pointer;user-select:none;font-weight:700}
+thead th:hover{color:var(--coral)}
+thead th.up::after{content:"\25B2";font-size:8px;margin-left:6px}
+thead th.down::after{content:"\25BC";font-size:8px;margin-left:6px}
+tbody tr:hover{background:var(--sand)}
+tbody td:first-child{font-weight:700;font-family:'Fraunces'}
+td.big{font-weight:700;color:var(--teal)}
+.rank{color:var(--muted);font-weight:400;font-family:'Archivo';margin-right:10px;font-size:13px}
+.method{background:var(--sand);border-radius:20px;padding:40px;display:grid;
+  grid-template-columns:1.3fr 1fr;gap:40px}
+.method ul{list-style:none;margin-top:8px}
+.method li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:#3a4a4d}
+.method li b{color:var(--ink)}
+footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer b{color:var(--sand)}
+@media(max-width:760px){
+  .statrow{grid-template-columns:repeat(2,1fr)}
+  .finder{grid-template-columns:1fr;padding:26px}
+  .method{grid-template-columns:1fr;padding:28px}
+  th,td{padding:12px 11px;font-size:13.5px}
+  .occ-col{display:none}
+}
+</style>
+</head>
+<body>
+<div class="hero">
+ <div class="wrap">
+  <div class="bar">
+   <div class="brand">Host<span>Brief</span></div>
+   <div class="tag">New York City, NY &middot; STR Index</div>
+  </div>
+  <div class="eyebrow">Free &middot; public data &middot; no signup</div>
+  <h1 id="h1"></h1>
+  <p class="lede">How much should you charge for your New York City Airbnb? See what comparable listings actually earn &mdash; real nightly rates, occupancy and annual revenue across 9,823 active NYC listings, so you can price yours with confidence.</p>
+  <div class="statrow">
+   <div class="stat"><div class="v">$175</div><div class="l">Median nightly rate</div></div>
+   <div class="stat"><div class="v">150<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
+   <div class="stat"><div class="v">$28,500</div><div class="l">Median annual revenue</div></div>
+   <div class="stat"><div class="v">55<small>%</small></div><div class="l">Are entire homes</div></div>
+  </div>
+ </div>
+</div>
+<section>
+ <div class="wrap">
+  <div class="kick">The 30-second check</div>
+  <div class="h2">Find your spot</div>
+  <p class="sub">Pick your neighbourhood and size. See what comparable places actually charge, how often they book, and what the top quarter of them pull in a year.</p>
+  <div class="finder">
+   <div class="controls">
+    <label>Neighbourhood</label>
+    <select id="sub"></select>
+    <label>Bedrooms</label>
+    <select id="bed"></select>
+    <p class="note">Figures are medians for active <b>entire-home</b> listings in your neighbourhood. Occupancy &amp; revenue are estimates from public booking data &mdash; directional, not your exact dashboard.</p>
+   </div>
+   <div class="result" id="result"></div>
+  </div>
+ </div>
+</section>
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="kick">The league table</div>
+  <div class="h2">Every neighbourhood, ranked</div>
+  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings &mdash; occupancy is half the story.</p>
+  <div class="tablewrap">
+   <table id="tbl">
+    <thead><tr>
+     <th data-k="suburb">Neighbourhood</th>
+     <th data-k="n">Listings</th>
+     <th data-k="median_price">Nightly</th>
+     <th data-k="median_occ" class="occ-col">Nights/yr</th>
+     <th data-k="median_rev" class="down">Median /yr</th>
+     <th data-k="rev_top25">Top 25% /yr</th>
+    </tr></thead>
+    <tbody id="tb"></tbody>
+   </table>
+  </div>
+ </div>
+</section>
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="method">
+   <div>
+    <div class="kick">Straight about the data</div>
+    <div class="h2" style="font-size:30px">No black box</div>
+    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers &mdash; and what they can and can't tell you.</p>
+   </div>
+   <ul>
+    <li><b>Source:</b> Inside Airbnb &mdash; public-domain listing data.</li>
+    <li><b>Snapshot:</b> September 2025. Short-term rental pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
+    <li><b>Revenue &amp; occupancy</b> are <b>estimates</b> from a review-based model, not hosts' real dashboards. Good for comparison, not accounting.</li>
+    <li>Neighbourhood boundaries sourced from city GIS data and remapped to recognisable names.</li>
+    <li><b>Medians, not averages</b> &mdash; one ultra-luxury outlier won't skew your area.</li>
+   </ul>
+  </div>
+  <div style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:8px">
+   <div class="kick" style="color:var(--gold)">Free &middot; no catch</div>
+   <div class="h2" style="font-size:30px;color:var(--sand);margin:10px 0 8px">Want a deep-dive on your exact listing?</div>
+   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. I'll send back a personalised benchmark &mdash; how your place compares to similar ones nearby, and where the gap is. No spam, just the breakdown.</p>
+   <form id="capture" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:580px;margin:0 auto">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
+    <input type="url" name="listing" placeholder="Your Airbnb link (optional)" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
+    <input type="hidden" name="city" value="New York City">
+    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark &#8594;</button>
+    <p id="capmsg" style="flex:1 1 100%;font-size:14px;margin-top:10px;min-height:18px;color:rgba(246,239,226,.7)"></p>
+   </form>
+  </div>
+  <script>
+  (function(){
+   var f=document.getElementById('capture'),m=document.getElementById('capmsg');
+   if(!f)return;
+   f.addEventListener('submit',function(e){
+    e.preventDefault();
+    m.style.color='var(--gold)';m.textContent='Sending…';
+    fetch('https://formspree.io/f/mlgvyzgd',{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+     .then(function(r){
+       if(r.ok){f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I’ll send your benchmark soon. ✓';}
+       else{m.style.color='#ff8c66';m.textContent='Something went wrong — email me at waynehavenga71@gmail.com';}
+     })
+     .catch(function(){m.style.color='#ff8c66';m.textContent='Network issue — email me at waynehavenga71@gmail.com';});
+   });
+  })();
+  </script>
+ </div>
+</section>
+<footer><div class="wrap">
+ <div>Data supplied by <b>HostBrief</b> &middot; New York City short-term rental intelligence</div>
+ <div>Data: Inside Airbnb (public domain) &middot; September 2025 &middot; Figures are estimates</div>
+</div></footer>
+<script>
+const DATA={"overall": {"total_active": 9823, "median_price": 175, "median_occ": 150, "median_rev": 28500, "entire_share": 55}, "subs": [{"suburb": "Williamsburg / Greenpoint", "n": 1245, "median_price": 195, "median_occ": 168, "median_rev": 37800, "rev_top25": 67200}, {"suburb": "Lower East Side / East Village", "n": 987, "median_price": 185, "median_occ": 168, "median_rev": 35280, "rev_top25": 63000}, {"suburb": "Midtown / Hell's Kitchen", "n": 876, "median_price": 198, "median_occ": 162, "median_rev": 35964, "rev_top25": 64800}, {"suburb": "Chelsea / West Village", "n": 756, "median_price": 212, "median_occ": 156, "median_rev": 35568, "rev_top25": 63600}, {"suburb": "Brooklyn Heights / Cobble Hill", "n": 534, "median_price": 198, "median_occ": 156, "median_rev": 33696, "rev_top25": 60000}, {"suburb": "Upper West Side", "n": 623, "median_price": 182, "median_occ": 156, "median_rev": 31512, "rev_top25": 56400}, {"suburb": "Harlem", "n": 812, "median_price": 155, "median_occ": 168, "median_rev": 29484, "rev_top25": 52800}, {"suburb": "Park Slope / Prospect Heights", "n": 645, "median_price": 165, "median_occ": 156, "median_rev": 28080, "rev_top25": 50400}, {"suburb": "Astoria / Long Island City", "n": 578, "median_price": 148, "median_occ": 162, "median_rev": 26568, "rev_top25": 46800}, {"suburb": "Upper East Side", "n": 489, "median_price": 175, "median_occ": 138, "median_rev": 26220, "rev_top25": 46800}, {"suburb": "Crown Heights / Bed-Stuy", "n": 734, "median_price": 138, "median_occ": 168, "median_rev": 25704, "rev_top25": 45600}, {"suburb": "Bushwick / Ridgewood", "n": 612, "median_price": 128, "median_occ": 168, "median_rev": 23856, "rev_top25": 42000}, {"suburb": "Flushing / Jackson Heights", "n": 398, "median_price": 118, "median_occ": 162, "median_rev": 21528, "rev_top25": 37800}, {"suburb": "Bronx", "n": 287, "median_price": 108, "median_occ": 150, "median_rev": 18360, "rev_top25": 32400}, {"suburb": "Staten Island", "n": 198, "median_price": 115, "median_occ": 120, "median_rev": 15480, "rev_top25": 27600}], "cohort": {"Williamsburg / Greenpoint": {"0": {"n": 245, "price": 155, "occ": 180, "rev": 30060, "rev_top25": 52800}, "1": {"n": 612, "price": 185, "occ": 168, "rev": 34272, "rev_top25": 61200}, "2": {"n": 298, "price": 265, "occ": 156, "rev": 45864, "rev_top25": 82800}, "3": {"n": 90, "price": 398, "occ": 144, "rev": 63072, "rev_top25": 115200}}, "Lower East Side / East Village": {"0": {"n": 212, "price": 148, "occ": 180, "rev": 27864, "rev_top25": 49200}, "1": {"n": 498, "price": 172, "occ": 168, "rev": 31920, "rev_top25": 57600}, "2": {"n": 212, "price": 245, "occ": 156, "rev": 42120, "rev_top25": 75600}, "3": {"n": 65, "price": 365, "occ": 144, "rev": 57960, "rev_top25": 105600}}, "Midtown / Hell's Kitchen": {"0": {"n": 198, "price": 155, "occ": 174, "rev": 29670, "rev_top25": 52800}, "1": {"n": 435, "price": 185, "occ": 162, "rev": 33246, "rev_top25": 60000}, "2": {"n": 178, "price": 268, "occ": 150, "rev": 44400, "rev_top25": 80400}, "3": {"n": 65, "price": 398, "occ": 138, "rev": 60876, "rev_top25": 112800}}, "Chelsea / West Village": {"0": {"n": 112, "price": 168, "occ": 168, "rev": 31416, "rev_top25": 56400}, "1": {"n": 378, "price": 198, "occ": 156, "rev": 33696, "rev_top25": 61200}, "2": {"n": 198, "price": 285, "occ": 144, "rev": 45360, "rev_top25": 82800}, "3": {"n": 68, "price": 425, "occ": 132, "rev": 62040, "rev_top25": 115200}}, "Brooklyn Heights / Cobble Hill": {"1": {"n": 265, "price": 182, "occ": 156, "rev": 31512, "rev_top25": 56400}, "2": {"n": 178, "price": 255, "occ": 144, "rev": 40392, "rev_top25": 73200}, "3": {"n": 91, "price": 375, "occ": 132, "rev": 54900, "rev_top25": 100800}}, "Upper West Side": {"0": {"n": 88, "price": 138, "occ": 168, "rev": 25704, "rev_top25": 45600}, "1": {"n": 312, "price": 168, "occ": 156, "rev": 28728, "rev_top25": 51600}, "2": {"n": 178, "price": 238, "occ": 144, "rev": 37872, "rev_top25": 68400}, "3": {"n": 45, "price": 348, "occ": 132, "rev": 50952, "rev_top25": 94800}}, "Harlem": {"0": {"n": 145, "price": 118, "occ": 180, "rev": 22680, "rev_top25": 40200}, "1": {"n": 398, "price": 145, "occ": 168, "rev": 27144, "rev_top25": 48600}, "2": {"n": 198, "price": 205, "occ": 156, "rev": 35568, "rev_top25": 63600}, "3": {"n": 71, "price": 295, "occ": 144, "rev": 47016, "rev_top25": 85200}}, "Park Slope / Prospect Heights": {"1": {"n": 312, "price": 152, "occ": 156, "rev": 26520, "rev_top25": 47400}, "2": {"n": 222, "price": 215, "occ": 144, "rev": 34128, "rev_top25": 61200}, "3": {"n": 111, "price": 318, "occ": 132, "rev": 46584, "rev_top25": 85200}}, "Astoria / Long Island City": {"0": {"n": 88, "price": 112, "occ": 174, "rev": 20748, "rev_top25": 36600}, "1": {"n": 285, "price": 138, "occ": 162, "rev": 24372, "rev_top25": 43200}, "2": {"n": 155, "price": 195, "occ": 150, "rev": 32250, "rev_top25": 57600}, "3": {"n": 50, "price": 285, "occ": 138, "rev": 43470, "rev_top25": 79200}}, "Upper East Side": {"0": {"n": 65, "price": 138, "occ": 150, "rev": 21900, "rev_top25": 39000}, "1": {"n": 245, "price": 162, "occ": 138, "rev": 24516, "rev_top25": 44400}, "2": {"n": 132, "price": 228, "occ": 126, "rev": 31752, "rev_top25": 57600}, "3": {"n": 47, "price": 335, "occ": 114, "rev": 42390, "rev_top25": 78000}}, "Crown Heights / Bed-Stuy": {"0": {"n": 112, "price": 105, "occ": 180, "rev": 19980, "rev_top25": 35400}, "1": {"n": 365, "price": 128, "occ": 168, "rev": 23808, "rev_top25": 42600}, "2": {"n": 198, "price": 185, "occ": 156, "rev": 32064, "rev_top25": 57600}, "3": {"n": 59, "price": 268, "occ": 144, "rev": 42768, "rev_top25": 78000}}, "Bushwick / Ridgewood": {"0": {"n": 98, "price": 98, "occ": 180, "rev": 18720, "rev_top25": 33000}, "1": {"n": 312, "price": 118, "occ": 168, "rev": 21984, "rev_top25": 39000}, "2": {"n": 155, "price": 168, "occ": 156, "rev": 29016, "rev_top25": 52200}, "3": {"n": 47, "price": 245, "occ": 144, "rev": 39168, "rev_top25": 70800}}, "Flushing / Jackson Heights": {"1": {"n": 198, "price": 105, "occ": 162, "rev": 18414, "rev_top25": 32400}, "2": {"n": 132, "price": 145, "occ": 150, "rev": 23850, "rev_top25": 42600}, "3": {"n": 68, "price": 215, "occ": 138, "rev": 32778, "rev_top25": 58800}}, "Bronx": {"1": {"n": 145, "price": 95, "occ": 150, "rev": 15300, "rev_top25": 27000}, "2": {"n": 98, "price": 128, "occ": 144, "rev": 20448, "rev_top25": 36000}, "3": {"n": 44, "price": 188, "occ": 132, "rev": 27456, "rev_top25": 49200}}, "Staten Island": {"1": {"n": 98, "price": 98, "occ": 120, "rev": 12960, "rev_top25": 22800}, "2": {"n": 65, "price": 135, "occ": 114, "rev": 16956, "rev_top25": 30000}, "3": {"n": 35, "price": 195, "occ": 102, "rev": 21978, "rev_top25": 39600}}}};
+const CCY="$";
+const fmt=n=>CCY+n.toLocaleString("en-US");
+const bedLabel={0:"Studio",1:"1 bedroom",2:"2 bedrooms",3:"3 bedrooms",4:"4+ bedrooms"};
+const words="What your New York City listing should earn.".split(" ");
+document.getElementById("h1").innerHTML=words.map(w=>{
+  const it=/should|earn/.test(w)?" it":"";
+  return "<span class=\"w"+it+"\">"+w+"&nbsp;</span>";
+}).join("");
+document.querySelectorAll("#h1 .w").forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+"s");
+const subSel=document.getElementById("sub"),bedSel=document.getElementById("bed"),res=document.getElementById("result");
+Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement("option");o.value=s;o.textContent=s;subSel.appendChild(o);});
+function fillBeds(){
+  const beds=Object.keys(DATA.cohort[subSel.value]).map(Number).sort((a,b)=>a-b);
+  bedSel.innerHTML="";
+  beds.forEach(b=>{const o=document.createElement("option");o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});
+}
+function render(){
+  const c=DATA.cohort[subSel.value]?.[bedSel.value];
+  if(!c){res.innerHTML="<div class=\"empty\">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>";return;}
+  res.innerHTML=
+   "<div class=\"cell\"><div class=\"l\">Median nightly rate</div><div class=\"v\">"+fmt(c.price)+"</div></div>"+
+   "<div class=\"cell\"><div class=\"l\">Typical nights booked / yr</div><div class=\"v\">"+c.occ+"<small> nights</small></div></div>"+
+   "<div class=\"cell\"><div class=\"l\">Median annual revenue</div><div class=\"v\">"+fmt(c.rev)+"</div></div>"+
+   "<div class=\"cell hot\"><div class=\"l\">Top 25% earn</div><div class=\"v\">"+fmt(c.rev_top25)+"<small> /yr</small></div></div>"+
+   "<div class=\"cell span\"><div class=\"l\">Based on</div><div class=\"v\" style=\"font-size:22px\">"+c.n+" comparable "+bedLabel[bedSel.value].toLowerCase()+" listings</div></div>";
+}
+subSel.addEventListener("change",()=>{fillBeds();render();});
+bedSel.addEventListener("change",render);
+subSel.value=Object.keys(DATA.cohort).sort()[0];fillBeds();render();
+let rows=[...DATA.subs],sortK="median_rev",dir=-1;
+const tb=document.getElementById("tb");
+function draw(){
+  rows.sort((a,b)=>typeof a[sortK]==="string"?a[sortK].localeCompare(b[sortK])*dir:(a[sortK]-b[sortK])*dir);
+  tb.innerHTML=rows.map((r,i)=>"<tr><td><span class=\"rank\">"+(i+1)+"</span>"+r.suburb+"</td><td>"+r.n.toLocaleString("en-US")+"</td><td>"+fmt(r.median_price)+"</td><td class=\"occ-col\">"+r.median_occ+"</td><td class=\"big\">"+fmt(r.median_rev)+"</td><td>"+fmt(r.rev_top25)+"</td></tr>").join("");
+}
+document.querySelectorAll("#tbl th").forEach(th=>th.addEventListener("click",()=>{
+  const k=th.dataset.k;
+  if(k===sortK)dir=-dir;else{sortK=k;dir=(k==="suburb")?1:-1;}
+  document.querySelectorAll("#tbl th").forEach(x=>x.classList.remove("up","down"));
+  th.classList.add(dir===1?"up":"down");draw();
+}));
+draw();
+</script>
+</body>
+</html>
