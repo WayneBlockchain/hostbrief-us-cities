@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Free Airbnb pricing benchmarks for 42 cities across 9 countries. See what comparable listings actually earn — nightly rate, occupancy and annual revenue. No signup.">
+<meta property="og:title" content="HostBrief — Free Airbnb Pricing Benchmarks, 42 Cities Worldwide">
+<meta property="og:description" content="See what comparable Airbnb listings earn in your city — nightly rate, occupancy and annual revenue. Free, no signup, 42 cities and counting.">
+<meta property="og:type" content="website">
+<title>HostBrief — Free Airbnb Pricing Benchmarks · 42 Cities Worldwide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a2027; --ocean:#0e3a44; --teal:#15616d; --sea:#2a9d8f;
+  --sand:#f6efe2; --paper:#fbf7ee; --coral:#e8633f; --gold:#e6b54a;
+  --line:rgba(10,32,39,.12); --muted:#5c6b6e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;
+  border-bottom:1px solid rgba(246,239,226,.15)}
+.brand{font-family:'Fraunces';font-weight:900;font-size:21px;color:var(--sand);letter-spacing:-.01em}
+.brand span{color:var(--coral)}
+.bar .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,239,226,.6)}
+
+.hero{background:var(--ocean);color:var(--sand);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 85% -10%,rgba(42,157,143,.35),transparent 60%),
+             radial-gradient(90% 70% at -10% 110%,rgba(232,99,63,.22),transparent 55%);}
+.hero::after{content:"";position:absolute;inset:0;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin:64px 0 22px;opacity:0;animation:rise .7s .05s forwards}
+h1{font-family:'Fraunces';font-weight:900;font-size:clamp(36px,6.5vw,72px);line-height:.98;
+  letter-spacing:-.02em;max-width:18ch;opacity:0;animation:rise .8s .15s forwards}
+h1 .it{font-style:italic;font-weight:500;color:var(--sea)}
+.lede{font-size:clamp(16px,2vw,20px);color:rgba(246,239,226,.82);max-width:54ch;margin:26px 0 8px;
+  opacity:0;animation:rise .7s .55s forwards}
+.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(246,239,226,.16);
+  border:1px solid rgba(246,239,226,.16);border-radius:14px;overflow:hidden;margin:46px 0 -44px;
+  opacity:0;animation:rise .7s .7s forwards}
+.stat{background:var(--ocean);padding:22px 20px;text-align:center}
+.stat .v{font-family:'Fraunces';font-weight:900;font-size:clamp(28px,3.6vw,40px);color:var(--sand);line-height:1}
+.stat .l{font-size:12.5px;color:rgba(246,239,226,.62);margin-top:9px;letter-spacing:.02em}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+section{padding:96px 0}
+.kick{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);font-weight:700}
+.h2{font-family:'Fraunces';font-weight:900;font-size:clamp(26px,3.6vw,38px);letter-spacing:-.015em;
+  margin:14px 0 10px;line-height:1.05}
+.sub{color:var(--muted);max-width:60ch;font-size:16px}
+
+/* search box */
+.search-wrap{margin-top:36px;position:relative}
+.search-box{width:100%;padding:18px 22px;border-radius:14px;border:1.5px solid var(--line);
+  background:#fff;font-family:'Archivo';font-size:17px;color:var(--ink);outline:none;
+  transition:border-color .15s,box-shadow .15s}
+.search-box:focus{border-color:var(--sea);box-shadow:0 0 0 4px rgba(42,157,143,.12)}
+.search-box::placeholder{color:#a7b3b5}
+.no-results{display:none;color:var(--muted);text-align:center;padding:40px 0;font-size:15px}
+
+/* country grid */
+.country-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.country-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px;
+  transition:box-shadow .15s,transform .15s}
+.country-card:hover{box-shadow:0 8px 24px rgba(10,32,39,.08);transform:translateY(-2px)}
+.country-name{font-family:'Fraunces';font-weight:900;font-size:18px;color:var(--ink);
+  margin-bottom:14px;padding-bottom:12px;border-bottom:2px solid var(--sand)}
+.city-list{display:flex;flex-direction:column;gap:9px}
+.city-link{color:var(--teal);text-decoration:none;font-size:15px;font-weight:600;
+  padding:3px 0;transition:color .15s;display:block}
+.city-link:hover{color:var(--coral)}
+.city-link.hidden{display:none}
+.country-card.hidden{display:none}
+
+/* CTA footer band */
+.cta-band{background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:48px 40px;
+  text-align:center;color:var(--sand);margin-top:60px}
+.cta-band .h2{color:var(--sand);font-size:28px}
+.cta-band .sub{color:rgba(246,239,226,.78);margin:0 auto 26px;max-width:52ch}
+.cta-band a{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;
+  padding:15px 32px;border-radius:999px;font-size:15.5px;box-shadow:0 10px 26px rgba(232,99,63,.32);
+  transition:transform .15s,box-shadow .15s}
+.cta-band a:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,99,63,.42)}
+
+footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer b{color:var(--sand)}
+
+@media(max-width:900px){
+  .country-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .country-grid{grid-template-columns:1fr}
+  .statrow{grid-template-columns:1fr}
+  .cta-band{padding:36px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+ <div class="wrap">
+  <div class="bar">
+   <div class="brand">Host<span>Brief</span></div>
+   <div class="tag">Global STR Index</div>
+  </div>
+  <div class="eyebrow">Free &middot; public data &middot; no signup</div>
+  <h1>What does <span class="it">your</span> Airbnb city actually earn?</h1>
+  <p class="lede">Real nightly rates, occupancy and annual revenue for 42 cities across 9 countries &mdash; so you can see exactly where your listing stands before you set a price.</p>
+  <div class="statrow">
+   <div class="stat"><div class="v">42</div><div class="l">Cities live</div></div>
+   <div class="stat"><div class="v">9</div><div class="l">Countries</div></div>
+   <div class="stat"><div class="v">Free</div><div class="l">No signup required</div></div>
+  </div>
+ </div>
+</div>
+
+<section>
+ <div class="wrap">
+  <div class="kick">Find your city</div>
+  <div class="h2">Browse all 42 pricing benchmarks</div>
+  <p class="sub">Pick your country, then your city, to see real comparable nightly rates, occupancy and annual revenue &mdash; ranked by area.</p>
+
+  <div class="search-wrap">
+   <input type="text" id="citySearch" class="search-box" placeholder="Search for your city or country&hellip;" autocomplete="off">
+  </div>
+
+  <div class="no-results" id="noResults">No cities match that search. Try a different city or country name.</div>
+
+  <div class="country-grid" id="countryGrid">
+    <div class="country-card">
+     <div class="country-name">United States</div>
+     <div class="city-list">
+      <a class="city-link" href="austin/">Austin</a>
+      <a class="city-link" href="dallas/">Dallas</a>
+      <a class="city-link" href="nashville/">Nashville</a>
+      <a class="city-link" href="new-orleans/">New Orleans</a>
+      <a class="city-link" href="chicago/">Chicago</a>
+      <a class="city-link" href="los-angeles/">Los Angeles</a>
+      <a class="city-link" href="new-york-city/">New York City</a>
+      <a class="city-link" href="san-diego/">San Diego</a>
+      <a class="city-link" href="denver/">Denver</a>
+      <a class="city-link" href="gatlinburg/">Gatlinburg & the Smokies</a>
+      <a class="city-link" href="outer-banks/">Outer Banks</a>
+      <a class="city-link" href="phoenix/">Phoenix</a>
+      <a class="city-link" href="miami/">Miami</a>
+      <a class="city-link" href="scottsdale/">Scottsdale</a>
+      <a class="city-link" href="seattle/">Seattle</a>
+      <a class="city-link" href="boston/">Boston</a>
+      <a class="city-link" href="houston/">Houston</a>
+      <a class="city-link" href="asheville/">Asheville</a>
+      <a class="city-link" href="charleston/">Charleston</a>
+      <a class="city-link" href="park-city/">Park City</a>
+     </div>
+    </div>
+    <div class="country-card">
+     <div class="country-name">United Kingdom</div>
+     <div class="city-list">
+      <a class="city-link" href="london/">London</a>
+      <a class="city-link" href="bristol/">Bristol</a>
+      <a class="city-link" href="manchester/">Manchester</a>
+      <a class="city-link" href="edinburgh/">Edinburgh</a>
+      <a class="city-link" href="liverpool/">Liverpool</a>
+      <a class="city-link" href="cornwall/">Cornwall</a>
+      <a class="city-link" href="lake-district/">Lake District</a>
+      <a class="city-link" href="cotswolds/">Cotswolds</a>
+     </div>
+    </div>
+    <div class="country-card">
+     <div class="country-name">Ireland</div>
+     <div class="city-list">
+      <a class="city-link" href="dublin/">Dublin</a>
+      <a class="city-link" href="cork/">Cork</a>
+     </div>
+    </div>
+    <div class="country-card">
+     <div class="country-name">Australia</div>
+     <div class="city-list">
+      <a class="city-link" href="sydney/">Sydney</a>
+      <a class="city-link" href="melbourne/">Melbourne</a>
+      <a class="city-link" href="brisbane/">Brisbane</a>
+      <a class="city-link" href="perth/">Perth</a>
+      <a class="city-link" href="byron-bay/">Byron Bay</a>
+     </div>
+    </div>
+    <div class="country-card">
+     <div class="country-name">New Zealand</div>
+     <div class="city-list">
+      <a class="city-link" href="auckland/">Auckland</a>
+      <a class="city-link" href="queenstown/">Queenstown</a>
+     </div>
+    </div>
+    <div class="country-card">
+     <div class="country-name">Canada</div>
+     <div class="city-list">
+      <a class="city-link" href="toronto/">Toronto</a>
+      <a class="city-link" href="vancouver/">Vancouver</a>
+     </div>
+    </div>
+    <div class="country-card">
+     <div class="country-name">South Africa</div>
+     <div class="city-list">
+      <a class="city-link" href="https://wayneblockchain.github.io/hostbrief-cape-town/">Cape Town</a>
+     </div>
+    </div>
+    <div class="country-card">
+     <div class="country-name">Portugal</div>
+     <div class="city-list">
+      <a class="city-link" href="lisbon/">Lisbon</a>
+     </div>
+    </div>
+    <div class="country-card">
+     <div class="country-name">Spain</div>
+     <div class="city-list">
+      <a class="city-link" href="barcelona/">Barcelona</a>
+     </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+   <div class="kick" style="color:var(--gold)">Don't see your city?</div>
+   <div class="h2">Want a personalised benchmark for your exact listing?</div>
+   <p class="sub">Even if your city isn't listed yet, I can run a manual comparison for your specific Airbnb. Just send me your listing link.</p>
+   <a href="mailto:waynehavenga71@gmail.com?subject=HostBrief%20benchmark%20request">Get my benchmark &#8594;</a>
+  </div>
+ </div>
+</section>
+
+<footer><div class="wrap">
+ <div>Data supplied by <b>HostBrief</b> &middot; global short-term rental intelligence</div>
+ <div>Figures are estimates from public STR market data &middot; updated 2025&ndash;2026</div>
+</div></footer>
+
+<script>
+const search = document.getElementById('citySearch');
+const cards = Array.from(document.querySelectorAll('.country-card'));
+const noResults = document.getElementById('noResults');
+
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase();
+  let anyVisible = false;
+
+  cards.forEach(card => {
+    const countryName = card.querySelector('.country-name').textContent.toLowerCase();
+    const links = Array.from(card.querySelectorAll('.city-link'));
+    let cardHasMatch = countryName.includes(q);
+
+    links.forEach(link => {
+      const matches = link.textContent.toLowerCase().includes(q) || countryName.includes(q);
+      link.classList.toggle('hidden', q !== '' && !matches);
+      if (matches) cardHasMatch = true;
+    });
+
+    card.classList.toggle('hidden', q !== '' && !cardHasMatch);
+    if (!card.classList.contains('hidden')) anyVisible = true;
+  });
+
+  noResults.style.display = (q !== '' && !anyVisible) ? 'block' : 'none';
+});
+</script>
+
+</body>
+</html>
