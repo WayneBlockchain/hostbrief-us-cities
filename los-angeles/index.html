@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -192,9 +192,9 @@ footer b{color:var(--sand)}
    f.addEventListener('submit',function(e){
     e.preventDefault();
     m.style.color='var(--gold)';m.textContent='Sending…';
-    fetch('https://formspree.io/f/mlgvyzgd',{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
-     .then(function(r){
-       if(r.ok){f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I’ll send your benchmark soon. ✓';}
+    var data={email:f.email.value,listing:f.listing.value,city:f.city.value};
+    fetch('https://hostbrief.app/api/city-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+     .then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};});}).then(function(res){var r=res.ok&&res.body.success?{ok:true}:{ok:false};if(r.ok){f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I’ll send your benchmark soon. ✓';}
        else{m.style.color='#ff8c66';m.textContent='Something went wrong — email me at waynehavenga71@gmail.com';}
      })
      .catch(function(){m.style.color='#ff8c66';m.textContent='Network issue — email me at waynehavenga71@gmail.com';});
