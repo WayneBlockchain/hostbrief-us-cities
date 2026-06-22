@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Cape Town Short-Term Rental Index â€” HostBrief Ã— Homespark</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a2027; --ocean:#0e3a44; --teal:#15616d; --sea:#2a9d8f;
+  --sand:#f6efe2; --paper:#fbf7ee; --coral:#e8633f; --gold:#e6b54a;
+  --line:rgba(10,32,39,.12); --muted:#5c6b6e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;line-height:1.5}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* top bar */
+.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;
+  border-bottom:1px solid rgba(246,239,226,.15);gap:20px}
+.brand-logo{display:flex;align-items:center;background:rgba(246,239,226,.95);padding:8px 18px;border-radius:12px}
+.brand-logo img{height:46px;width:auto;display:block}
+.bar .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,239,226,.75);text-align:right}
+.bar .tag b{color:var(--gold);font-weight:700}
+
+/* hero */
+.hero{background:var(--ocean);color:var(--sand);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 85% -10%,rgba(42,157,143,.35),transparent 60%),
+             radial-gradient(90% 70% at -10% 110%,rgba(232,99,63,.22),transparent 55%);}
+.hero::after{content:"";position:absolute;inset:0;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin:64px 0 22px;opacity:0;animation:rise .7s .05s forwards}
+h1{font-family:'Fraunces';font-weight:900;font-size:clamp(40px,7vw,82px);line-height:.96;
+  letter-spacing:-.02em;max-width:14ch}
+h1 .it{font-style:italic;font-weight:500;color:var(--sea)}
+.hero h1 .w{display:inline-block;opacity:0;animation:rise .8s forwards}
+.lede{font-size:clamp(16px,2vw,20px);color:rgba(246,239,226,.82);max-width:46ch;margin:26px 0 8px;
+  opacity:0;animation:rise .7s .55s forwards}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,239,226,.16);
+  border:1px solid rgba(246,239,226,.16);border-radius:14px;overflow:hidden;margin:46px 0 -44px;
+  opacity:0;animation:rise .7s .7s forwards}
+.stat{background:var(--ocean);padding:22px 20px}
+.stat .v{font-family:'Fraunces';font-weight:900;font-size:clamp(26px,3.4vw,38px);color:var(--sand);line-height:1}
+.stat .v small{font-size:.5em;font-weight:600;color:var(--gold)}
+.stat .l{font-size:12.5px;color:rgba(246,239,226,.62);margin-top:9px;letter-spacing:.02em}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* sections */
+section{padding:96px 0}
+.kick{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);font-weight:700}
+.h2{font-family:'Fraunces';font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.015em;
+  margin:14px 0 10px;line-height:1.02}
+.sub{color:var(--muted);max-width:54ch;font-size:16px}
+
+/* finder */
+.finder{background:var(--ink);color:var(--sand);border-radius:22px;padding:38px;
+  display:grid;grid-template-columns:320px 1fr;gap:38px;margin-top:36px}
+.finder .controls label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 9px}
+.finder select{width:100%;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.22);
+  background:var(--ocean);color:var(--sand);font-family:'Archivo';font-size:16px;font-weight:600;
+  margin-bottom:22px;cursor:pointer;appearance:none}
+.finder .note{font-size:12.5px;color:rgba(246,239,226,.5);line-height:1.55;margin-top:6px}
+.result{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(246,239,226,.14);
+  border-radius:14px;overflow:hidden;align-content:start}
+.cell{background:var(--ink);padding:24px}
+.cell .l{font-size:12px;color:rgba(246,239,226,.6);letter-spacing:.04em}
+.cell .v{font-family:'Fraunces';font-weight:900;font-size:34px;color:var(--sand);margin-top:8px;line-height:1}
+.cell .v small{font-size:.42em;font-weight:600;color:var(--gold);letter-spacing:.02em}
+.cell.hot .v{color:var(--sea)}
+.cell.span{grid-column:1/-1;background:linear-gradient(100deg,#10303a,#0a2027)}
+.empty{grid-column:1/-1;background:var(--ink);padding:40px;text-align:center;color:rgba(246,239,226,.55)}
+
+/* table */
+.tablewrap{margin-top:34px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:right;padding:15px 18px;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+thead th{background:var(--sand);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--teal);cursor:pointer;user-select:none;font-weight:700;position:relative}
+thead th:hover{color:var(--coral)}
+thead th.up::after{content:"â–²";font-size:8px;margin-left:6px}
+thead th.down::after{content:"â–¼";font-size:8px;margin-left:6px}
+tbody tr:hover{background:var(--sand)}
+tbody td:first-child{font-weight:700;font-family:'Fraunces'}
+td.big{font-weight:700;color:var(--teal)}
+.rank{color:var(--muted);font-weight:400;font-family:'Archivo';margin-right:10px;font-size:13px}
+
+/* method + cta */
+.method{background:var(--sand);border-radius:20px;padding:40px;display:grid;
+  grid-template-columns:1.3fr 1fr;gap:40px}
+.method ul{list-style:none;margin-top:8px}
+.method li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:#3a4a4d}
+.method li b{color:var(--ink)}
+.cta{text-align:center;padding:18px 0 0}
+.cta a{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;
+  padding:16px 34px;border-radius:999px;font-size:16px;transition:transform .15s,box-shadow .15s;
+  box-shadow:0 10px 26px rgba(232,99,63,.32)}
+.cta a:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,99,63,.42)}
+footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer b{color:var(--sand)}
+@media(max-width:760px){
+ .statrow{grid-template-columns:repeat(2,1fr)}
+ .finder{grid-template-columns:1fr;padding:26px}
+ .method{grid-template-columns:1fr;padding:28px}
+ th,td{padding:12px 11px;font-size:13.5px}
+ .occ-col{display:none}
+ .brand-logo img{height:36px}
+ .bar .tag{font-size:10.5px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+ <div class="wrap">
+  <div class="bar">
+   <div class="brand-logo">
+     <img src="homespark-logo.png" alt="Homespark Cleaning Solutions">
+   </div>
+   <div class="tag">Pricing benchmarks for <b>Homespark</b> clients<br>Cape Town Â· STR Index</div>
+  </div>
+  <div class="eyebrow">Free Â· public data Â· no signup</div>
+  <h1 id="h1"></h1>
+  <p class="lede">Real nightly rates, occupancy and earnings for 15,528 active Cape Town listings â€” so you can see exactly where yours stands before you set a price.</p>
+  <div class="statrow">
+   <div class="stat"><div class="v">R1,436</div><div class="l">Median nightly rate</div></div>
+   <div class="stat"><div class="v">42<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
+   <div class="stat"><div class="v">R68,592</div><div class="l">Median annual revenue</div></div>
+   <div class="stat"><div class="v">90<small>%</small></div><div class="l">Are entire homes</div></div>
+  </div>
+ </div>
+</div>
+
+<section>
+ <div class="wrap">
+  <div class="kick">The 30-second check</div>
+  <div class="h2">Find your spot</div>
+  <p class="sub">Pick your suburb and size. See what comparable places actually charge, how often they book, and what the top quarter of them pull in a year.</p>
+  <div class="finder">
+   <div class="controls">
+    <label>Suburb</label>
+    <select id="sub"></select>
+    <label>Bedrooms</label>
+    <select id="bed"></select>
+    <p class="note">Figures are medians for active <b>entire-home</b> listings in your area. Occupancy &amp; revenue are estimates from public booking data â€” directional, not your exact dashboard.</p>
+   </div>
+   <div class="result" id="result"></div>
+  </div>
+ </div>
+</section>
+
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="kick">The league table</div>
+  <div class="h2">Every suburb, ranked</div>
+  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings â€” occupancy is half the story.</p>
+  <div class="tablewrap">
+   <table id="tbl">
+    <thead><tr>
+     <th data-k="suburb">Suburb</th>
+     <th data-k="n">Listings</th>
+     <th data-k="median_price">Nightly</th>
+     <th data-k="median_occ" class="occ-col">Nights/yr</th>
+     <th data-k="median_rev" class="down">Median /yr</th>
+     <th data-k="rev_top25">Top 25% /yr</th>
+    </tr></thead>
+    <tbody id="tb"></tbody>
+   </table>
+  </div>
+ </div>
+</section>
+
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="method">
+   <div>
+    <div class="kick">Straight about the data</div>
+    <div class="h2" style="font-size:30px">No black box</div>
+    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers â€” and what they can and can't tell you.</p>
+   </div>
+   <ul>
+    <li><b>Source:</b> Inside Airbnb â€” public-domain listing data.</li>
+    <li><b>Snapshot:</b> September 2025. STR pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
+    <li><b>Revenue &amp; occupancy</b> are <b>estimates</b> from a review-based model, not hosts' real dashboards. Good for comparison, not accounting.</li>
+    <li><b>Suburbs</b> assigned by map location, so "Sea Point" means actually-in-Sea-Point.</li>
+    <li><b>Medians, not averages</b> â€” one R50k/night villa won't skew your area.</li>
+   </ul>
+  </div>
+  <div class="capture-panel" style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:8px">
+   <div class="kick" style="color:var(--gold)">Free Â· no catch</div>
+   <div class="h2" style="font-size:30px;color:var(--sand);margin:10px 0 8px">Want a deep-dive on your exact listing?</div>
+   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. Iâ€™ll send back a personalised benchmark â€” how your place compares to similar ones nearby, and where the gap is. No spam, just the breakdown.</p>
+   <form id="capture" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:580px;margin:0 auto">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
+    <input type="url" name="listing" placeholder="Your Airbnb link (optional)" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
+    <input type="hidden" name="city" value="Cape Town">
+    <input type="hidden" name="partner" value="Homespark">
+    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark â†’</button>
+    <p id="capmsg" style="flex:1 1 100%;font-size:14px;margin-top:10px;min-height:18px;color:rgba(246,239,226,.7)"></p>
+   </form>
+  </div>
+  <script>
+  (function(){
+   var f=document.getElementById('capture'),m=document.getElementById('capmsg');
+   if(!f)return;
+   f.addEventListener('submit',function(e){
+    e.preventDefault();
+    m.style.color='var(--gold)';m.textContent='Sendingâ€¦';
+    fetch('https://hostbrief.app/api/city-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:f.email.value,listing:f.listing.value,city:'cape-town'})})
+     .then(function(r){
+       if(r.ok){f.reset();m.style.color='var(--sea)';m.textContent='Thanks! Iâ€™ll send your benchmark soon. âœ“';}
+       else{m.style.color='#ff8c66';m.textContent='Something went wrong â€” email me at hello@hostbrief.app';}
+     })
+     .catch(function(){m.style.color='#ff8c66';m.textContent='Network issue â€” email me at hello@hostbrief.app';});
+   });
+  })();
+  </script>
+ </div>
+</section>
+
+<footer><div class="wrap">
+ <div>Data supplied by <b>HostBrief</b> Â· Cape Town short-term rental intelligence</div>
+ <div>Data: Inside Airbnb (public domain) Â· Sept 2025 Â· Figures are estimates</div>
+</div></footer>
+
+<script>
+const DATA={"overall":{"total_active":15528,"median_price":1436,"median_occ_nights":42,"median_rev":68592,"entire_share":90},"subs":[{"suburb":"Clifton","n":90,"median_price":5740,"median_occ":60,"median_rev":284160,"rev_top25":619315},{"suburb":"Camps Bay","n":515,"median_price":4693,"median_occ":54,"median_rev":262782,"rev_top25":546492},{"suburb":"Bakoven","n":299,"median_price":5544,"median_occ":48,"median_rev":231192,"rev_top25":517782},{"suburb":"Bantry Bay","n":146,"median_price":4529,"median_occ":42,"median_rev":217961,"rev_top25":536917},{"suburb":"Mouille Point","n":130,"median_price":1820,"median_occ":87,"median_rev":159844,"rev_top25":285366},{"suburb":"Green Point","n":697,"median_price":1698,"median_occ":66,"median_rev":118980,"rev_top25":246900},{"suburb":"Newlands","n":196,"median_price":2739,"median_occ":34,"median_rev":113310,"rev_top25":210858},{"suburb":"Tamboerskloof","n":288,"median_price":1959,"median_occ":49,"median_rev":113141,"rev_top25":242405},{"suburb":"De Waterkant","n":892,"median_price":1725,"median_occ":66,"median_rev":112677,"rev_top25":254322},{"suburb":"Hout Bay","n":413,"median_price":2531,"median_occ":40,"median_rev":108160,"rev_top25":234000},{"suburb":"Constantia","n":326,"median_price":2334,"median_occ":32,"median_rev":106197,"rev_top25":202818},{"suburb":"V&A Waterfront","n":51,"median_price":4363,"median_occ":28,"median_rev":104400,"rev_top25":342588},{"suburb":"Sea Point","n":1206,"median_price":1541,"median_occ":60,"median_rev":103188,"rev_top25":207408},{"suburb":"Kalk Bay","n":166,"median_price":1889,"median_occ":60,"median_rev":102225,"rev_top25":214560},{"suburb":"Bo-Kaap","n":117,"median_price":1440,"median_occ":66,"median_rev":83880,"rev_top25":189756},{"suburb":"Oranjezicht","n":161,"median_price":1600,"median_occ":42,"median_rev":80052,"rev_top25":172392},{"suburb":"Claremont","n":387,"median_price":1555,"median_occ":30,"median_rev":72000,"rev_top25":129681},{"suburb":"Vredehoek","n":271,"median_price":1200,"median_occ":54,"median_rev":68970,"rev_top25":129567},{"suburb":"City Centre","n":1495,"median_price":1232,"median_occ":54,"median_rev":67080,"rev_top25":168750},{"suburb":"Gardens","n":341,"median_price":1153,"median_occ":60,"median_rev":66960,"rev_top25":140000},{"suburb":"Milnerton","n":271,"median_price":1166,"median_occ":42,"median_rev":60216,"rev_top25":143385},{"suburb":"Fish Hoek","n":217,"median_price":1353,"median_occ":42,"median_rev":56790,"rev_top25":112104},{"suburb":"Observatory","n":184,"median_price":1089,"median_occ":48,"median_rev":52254,"rev_top25":87726},{"suburb":"Bloubergstrand","n":522,"median_price":1428,"median_occ":30,"median_rev":49260,"rev_top25":101970},{"suburb":"Table View","n":528,"median_price":1350,"median_occ":36,"median_rev":47490,"rev_top25":100170},{"suburb":"Woodstock","n":249,"median_price":989,"median_occ":36,"median_rev":41100,"rev_top25":76224},{"suburb":"Muizenberg","n":345,"median_price":1133,"median_occ":36,"median_rev":39240,"rev_top25":87696}],"cohort":{"Bakoven":{"1":{"n":87,"price":1800,"occ":54,"rev":95352,"rev_top25":171735},"2":{"n":41,"price":3000,"occ":72,"rev":216060,"rev_top25":546414},"3":{"n":76,"price":6397,"occ":49,"rev":358536,"rev_top25":610575},"4":{"n":91,"price":12022,"occ":30,"rev":360660,"rev_top25":713400}},"Bantry Bay":{"1":{"n":37,"price":2032,"occ":84,"rev":124236,"rev_top25":379350},"2":{"n":47,"price":4215,"occ":48,"rev":240360,"rev_top25":467020},"3":{"n":39,"price":8442,"occ":40,"rev":354564,"rev_top25":746700},"4":{"n":17,"price":14688,"occ":24,"rev":528000,"rev_top25":983180}},"Bloubergstrand":{"0":{"n":20,"price":853,"occ":42,"rev":32220,"rev_top25":96786},"1":{"n":199,"price":1060,"occ":36,"rev":39648,"rev_top25":82200},"2":{"n":200,"price":1562,"occ":30,"rev":47955,"rev_top25":93052},"3":{"n":70,"price":2741,"occ":22,"rev":56808,"rev_top25":162999},"4":{"n":33,"price":6346,"occ":28,"rev":180384,"rev_top25":429480}},"Bo-Kaap":{"0":{"n":11,"price":937,"occ":96,"rev":85248,"rev_top25":112777},"1":{"n":44,"price":1166,"occ":63,"rev":67230,"rev_top25":135105},"2":{"n":40,"price":1609,"occ":48,"rev":90552,"rev_top25":209400},"3":{"n":15,"price":2455,"occ":90,"rev":185760,"rev_top25":430612}},"Camps Bay":{"0":{"n":20,"price":2165,"occ":66,"rev":147138,"rev_top25":286818},"1":{"n":121,"price":2289,"occ":60,"rev":124800,"rev_top25":244920},"2":{"n":116,"price":3640,"occ":75,"rev":239424,"rev_top25":433687},"3":{"n":91,"price":6075,"occ":56,"rev":331630,"rev_top25":561678},"4":{"n":167,"price":12792,"occ":36,"rev":523248,"rev_top25":981510}},"City Centre":{"0":{"n":183,"price":1040,"occ":48,"rev":46200,"rev_top25":119262},"1":{"n":971,"price":1140,"occ":54,"rev":61560,"rev_top25":143304},"2":{"n":310,"price":2004,"occ":54,"rev":95970,"rev_top25":263962},"3":{"n":30,"price":3465,"occ":63,"rev":215388,"rev_top25":449544}},"Claremont":{"0":{"n":10,"price":574,"occ":48,"rev":24570,"rev_top25":78118},"1":{"n":144,"price":909,"occ":51,"rev":43965,"rev_top25":92137},"2":{"n":93,"price":1795,"occ":30,"rev":72000,"rev_top25":135000},"3":{"n":79,"price":3895,"occ":24,"rev":85500,"rev_top25":140518},"4":{"n":61,"price":5295,"occ":20,"rev":112820,"rev_top25":250000}},"Clifton":{"1":{"n":18,"price":2469,"occ":99,"rev":200925,"rev_top25":489357},"2":{"n":22,"price":5243,"occ":63,"rev":332238,"rev_top25":668137},"3":{"n":29,"price":7317,"occ":48,"rev":324000,"rev_top25":620004},"4":{"n":17,"price":13600,"occ":18,"rev":409644,"rev_top25":1121364}},"Constantia":{"1":{"n":124,"price":1169,"occ":54,"rev":54657,"rev_top25":138600},"2":{"n":52,"price":2231,"occ":45,"rev":95082,"rev_top25":171153},"3":{"n":49,"price":4850,"occ":24,"rev":120000,"rev_top25":189000},"4":{"n":93,"price":8807,"occ":20,"rev":209664,"rev_top25":349440}},"De Waterkant":{"0":{"n":53,"price":1095,"occ":48,"rev":54420,"rev_top25":114600},"1":{"n":430,"price":1392,"occ":72,"rev":95706,"rev_top25":213262},"2":{"n":314,"price":2363,"occ":60,"rev":129954,"rev_top25":275793},"3":{"n":79,"price":4018,"occ":72,"rev":246600,"rev_top25":538086},"4":{"n":16,"price":5129,"occ":63,"rev":366924,"rev_top25":444046}},"Fish Hoek":{"0":{"n":11,"price":774,"occ":84,"rev":48600,"rev_top25":82668},"1":{"n":76,"price":751,"occ":42,"rev":32760,"rev_top25":64500},"2":{"n":68,"price":1396,"occ":45,"rev":54324,"rev_top25":109917},"3":{"n":38,"price":2331,"occ":39,"rev":118752,"rev_top25":191715},"4":{"n":24,"price":3713,"occ":30,"rev":95400,"rev_top25":391558}},"Gardens":{"0":{"n":46,"price":854,"occ":78,"rev":62979,"rev_top25":92245},"1":{"n":178,"price":989,"occ":54,"rev":48702,"rev_top25":113010},"2":{"n":97,"price":1658,"occ":54,"rev":85602,"rev_top25":173016},"3":{"n":16,"price":4179,"occ":36,"rev":191478,"rev_top25":338136}},"Green Point":{"0":{"n":52,"price":1113,"occ":111,"rev":90879,"rev_top25":172282},"1":{"n":287,"price":1194,"occ":66,"rev":80784,"rev_top25":150765},"2":{"n":244,"price":2300,"occ":65,"rev":139893,"rev_top25":269178},"3":{"n":79,"price":3688,"occ":72,"rev":285912,"rev_top25":411439},"4":{"n":35,"price":6596,"occ":54,"rev":308988,"rev_top25":632009}},"Hout Bay":{"0":{"n":11,"price":1054,"occ":192,"rev":148608,"rev_top25":205096},"1":{"n":120,"price":1333,"occ":50,"rev":72780,"rev_top25":148207},"2":{"n":104,"price":2035,"occ":48,"rev":84576,"rev_top25":160580},"3":{"n":91,"price":4320,"occ":30,"rev":135000,"rev_top25":249192},"4":{"n":87,"price":6171,"occ":28,"rev":184224,"rev_top25":431376}},"Kalk Bay":{"1":{"n":48,"price":1103,"occ":48,"rev":53460,"rev_top25":99402},"2":{"n":68,"price":2259,"occ":68,"rev":114450,"rev_top25":217524},"3":{"n":28,"price":3460,"occ":54,"rev":203016,"rev_top25":305982},"4":{"n":15,"price":5100,"occ":36,"rev":225504,"rev_top25":373410}},"Milnerton":{"0":{"n":14,"price":760,"occ":30,"rev":22383,"rev_top25":25591},"1":{"n":106,"price":893,"occ":36,"rev":35568,"rev_top25":77827},"2":{"n":103,"price":1417,"occ":60,"rev":88374,"rev_top25":158574},"3":{"n":27,"price":2910,"occ":28,"rev":114976,"rev_top25":187455},"4":{"n":21,"price":5858,"occ":54,"rev":260688,"rev_top25":388848}},"Mouille Point":{"0":{"n":13,"price":1282,"occ":78,"rev":90870,"rev_top25":214500},"1":{"n":60,"price":1474,"occ":108,"rev":135870,"rev_top25":203274},"2":{"n":47,"price":2458,"occ":96,"rev":190200,"rev_top25":438774}},"Muizenberg":{"1":{"n":151,"price":876,"occ":36,"rev":32880,"rev_top25":59292},"2":{"n":98,"price":1284,"occ":38,"rev":50795,"rev_top25":101772},"3":{"n":64,"price":1777,"occ":24,"rev":55689,"rev_top25":109427},"4":{"n":24,"price":3181,"occ":31,"rev":122916,"rev_top25":212974}},"Newlands":{"1":{"n":70,"price":1085,"occ":69,"rev":82659,"rev_top25":147069},"2":{"n":30,"price":2656,"occ":41,"rev":100857,"rev_top25":215955},"3":{"n":43,"price":4950,"occ":30,"rev":140400,"rev_top25":239700},"4":{"n":49,"price":6500,"occ":20,"rev":170640,"rev_top25":294280}},"Observatory":{"1":{"n":90,"price":859,"occ":55,"rev":48222,"rev_top25":85425},"2":{"n":52,"price":1341,"occ":36,"rev":46370,"rev_top25":81525},"3":{"n":16,"price":1985,"occ":36,"rev":84140,"rev_top25":123624},"4":{"n":17,"price":2239,"occ":28,"rev":60396,"rev_top25":80604}},"Oranjezicht":{"0":{"n":11,"price":1015,"occ":60,"rev":49464,"rev_top25":151449},"1":{"n":79,"price":1086,"occ":56,"rev":51282,"rev_top25":111496},"2":{"n":26,"price":1990,"occ":60,"rev":116889,"rev_top25":195885},"3":{"n":23,"price":3900,"occ":24,"rev":90000,"rev_top25":192519},"4":{"n":22,"price":9021,"occ":18,"rev":185442,"rev_top25":476028}},"Sea Point":{"0":{"n":194,"price":1287,"occ":54,"rev":61221,"rev_top25":140359},"1":{"n":492,"price":1199,"occ":60,"rev":76389,"rev_top25":151623},"2":{"n":368,"price":2257,"occ":66,"rev":154020,"rev_top25":254994},"3":{"n":111,"price":4605,"occ":54,"rev":186714,"rev_top25":446439},"4":{"n":41,"price":7457,"occ":40,"rev":267500,"rev_top25":669552}},"Table View":{"0":{"n":20,"price":713,"occ":21,"rev":17340,"rev_top25":42450},"1":{"n":184,"price":867,"occ":36,"rev":30138,"rev_top25":59175},"2":{"n":211,"price":1569,"occ":40,"rev":56448,"rev_top25":109185},"3":{"n":84,"price":2508,"occ":31,"rev":76340,"rev_top25":141930},"4":{"n":29,"price":3950,"occ":36,"rev":137172,"rev_top25":260000}},"Tamboerskloof":{"0":{"n":15,"price":934,"occ":48,"rev":54488,"rev_top25":93006},"1":{"n":114,"price":1322,"occ":70,"rev":93528,"rev_top25":186853},"2":{"n":78,"price":2138,"occ":52,"rev":127569,"rev_top25":241263},"3":{"n":44,"price":4773,"occ":28,"rev":107379,"rev_top25":305509},"4":{"n":37,"price":8416,"occ":20,"rev":232914,"rev_top25":401280}},"V&A Waterfront":{"1":{"n":16,"price":3364,"occ":33,"rev":69585,"rev_top25":143496},"2":{"n":23,"price":4679,"occ":30,"rev":185880,"rev_top25":371988},"3":{"n":12,"price":10210,"occ":15,"rev":176574,"rev_top25":970114}},"Vredehoek":{"0":{"n":16,"price":894,"occ":57,"rev":62370,"rev_top25":138978},"1":{"n":122,"price":900,"occ":54,"rev":47260,"rev_top25":84000},"2":{"n":97,"price":1479,"occ":60,"rev":90048,"rev_top25":176094},"3":{"n":21,"price":2700,"occ":36,"rev":88740,"rev_top25":273984},"4":{"n":15,"price":5643,"occ":36,"rev":258372,"rev_top25":339432}},"Woodstock":{"0":{"n":14,"price":886,"occ":51,"rev":54237,"rev_top25":70935},"1":{"n":142,"price":856,"occ":36,"rev":27237,"rev_top25":62388},"2":{"n":73,"price":1500,"occ":36,"rev":49536,"rev_top25":93888},"3":{"n":20,"price":1985,"occ":42,"rev":77202,"rev_top25":178132}}}};
+const fmt=n=>n.toLocaleString('en-ZA');
+const bedLabel={0:'Studio',1:'1 bedroom',2:'2 bedrooms',3:'3 bedrooms',4:'4+ bedrooms'};
+
+/* hero headline word reveal */
+const words="What your Cape Town listing should earn.".split(" ");
+document.getElementById('h1').innerHTML=words.map((w,i)=>{
+  const it=(w==="should"||w==="earn.")?' it':'';
+  return `<span class="w${it}" style="animation-delay:${.15+i*.07}s">${w}&nbsp;</span>`;
+}).join("");
+document.querySelectorAll('#h1 .w').forEach(s=>{if(/should|earn/.test(s.textContent))s.classList.add('it');});
+
+/* finder */
+const subSel=document.getElementById('sub'), bedSel=document.getElementById('bed'), res=document.getElementById('result');
+Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;subSel.appendChild(o);});
+function fillBeds(){
+  const beds=Object.keys(DATA.cohort[subSel.value]).map(Number).sort((a,b)=>a-b);
+  bedSel.innerHTML="";
+  beds.forEach(b=>{const o=document.createElement('option');o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});
+}
+function render(){
+  const c=DATA.cohort[subSel.value]?.[bedSel.value];
+  if(!c){res.innerHTML='<div class="empty">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>';return;}
+  res.innerHTML=`
+   <div class="cell"><div class="l">Median nightly rate</div><div class="v">R${fmt(c.price)}</div></div>
+   <div class="cell"><div class="l">Typical nights booked / yr</div><div class="v">${c.occ}<small> nights</small></div></div>
+   <div class="cell"><div class="l">Median annual revenue</div><div class="v">R${fmt(c.rev)}</div></div>
+   <div class="cell hot"><div class="l">Top 25% earn</div><div class="v">R${fmt(c.rev_top25)}<small> /yr</small></div></div>
+   <div class="cell span"><div class="l">Based on</div><div class="v" style="font-size:22px">${c.n} comparable ${bedLabel[bedSel.value].toLowerCase()} listings</div></div>`;
+}
+subSel.addEventListener('change',()=>{fillBeds();render();});
+bedSel.addEventListener('change',render);
+subSel.value=Object.keys(DATA.cohort).sort()[0];fillBeds();render();
+
+/* table */
+let rows=[...DATA.subs], sortK='median_rev', dir=-1;
+const tb=document.getElementById('tb');
+function draw(){
+  rows.sort((a,b)=> typeof a[sortK]==='string'? a[sortK].localeCompare(b[sortK])*dir : (a[sortK]-b[sortK])*dir);
+  tb.innerHTML=rows.map((r,i)=>`<tr>
+    <td><span class="rank">${i+1}</span>${r.suburb}</td>
+    <td>${fmt(r.n)}</td>
+    <td>R${fmt(r.median_price)}</td>
+    <td class="occ-col">${r.median_occ}</td>
+    <td class="big">R${fmt(r.median_rev)}</td>
+    <td>R${fmt(r.rev_top25)}</td></tr>`).join("");
+}
+document.querySelectorAll('#tbl th').forEach(th=>th.addEventListener('click',()=>{
+  const k=th.dataset.k;
+  if(k===sortK)dir=-dir; else{sortK=k;dir=(k==='suburb')?1:-1;}
+  document.querySelectorAll('#tbl th').forEach(x=>x.classList.remove('up','down'));
+  th.classList.add(dir===1?'up':'down');
+  draw();
+}));
+draw();
+</script>
+</body>
+</html>
