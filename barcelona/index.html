@@ -72,6 +72,12 @@ footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 footer b{color:var(--sand)}
 @media(max-width:760px){.statrow{grid-template-columns:repeat(2,1fr)}.finder{grid-template-columns:1fr;padding:26px}.method{grid-template-columns:1fr;padding:28px}th,td{padding:12px 11px;font-size:13.5px}.occ-col{display:none}}
+@media(max-width:640px){
+  .result{grid-template-columns:1fr}
+  .cell{padding:18px 20px}
+  .cell .v{font-size:clamp(24px,7vw,32px)}
+  .cell .l{overflow-wrap:anywhere}
+}
 </style>
 </head>
 <body>
