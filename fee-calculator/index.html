@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Free Airbnb 15.5% fee calculator. Airbnb's new host-only service fee changes your pricing math -- see exactly how much to raise your nightly rate and cleaning fee to keep the same payout. Arithmetic only, no signup.">
+<meta name="keywords" content="airbnb 15.5% fee calculator, airbnb new fee how much to raise prices, airbnb host-only fee, airbnb 15.5 percent fee, airbnb repricing calculator">
+<meta property="og:title" content="Airbnb 15.5% Fee Calculator -- How Much to Raise Your Price">
+<meta property="og:description" content="Airbnb's new 15.5% host-only fee changes the math. Enter your current rate and cleaning fee and see exactly how far to raise them to keep the same payout. Free, no signup.">
+<meta property="og:type" content="website">
+<title>Airbnb 15.5% Fee Calculator: How Much to Raise Your Price | HostBrief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a2027; --ocean:#0e3a44; --teal:#15616d; --sea:#2a9d8f;
+  --sand:#f6efe2; --paper:#fbf7ee; --coral:#e8633f; --gold:#e6b54a;
+  --line:rgba(10,32,39,.12); --muted:#5c6b6e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;
+  border-bottom:1px solid rgba(246,239,226,.15)}
+.brand{font-family:'Fraunces';font-weight:900;font-size:21px;color:var(--sand);letter-spacing:-.01em}
+.brand span{color:var(--coral)}
+.bar .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,239,226,.6)}
+
+.hero{background:var(--ocean);color:var(--sand);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 85% -10%,rgba(42,157,143,.35),transparent 60%),
+             radial-gradient(90% 70% at -10% 110%,rgba(232,99,63,.22),transparent 55%);}
+.hero::after{content:"";position:absolute;inset:0;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin:64px 0 22px;opacity:0;animation:rise .7s .05s forwards}
+h1{font-family:'Fraunces';font-weight:900;font-size:clamp(36px,6.5vw,72px);line-height:.98;
+  letter-spacing:-.02em;max-width:16ch;opacity:0;animation:rise .8s .15s forwards}
+h1 .it{font-style:italic;font-weight:500;color:var(--sea)}
+.lede{font-size:clamp(16px,2vw,20px);color:rgba(246,239,226,.82);max-width:56ch;margin:26px 0 8px;
+  opacity:0;animation:rise .7s .55s forwards}
+.hero-caveat{margin:34px 0 64px;font-size:12.5px;line-height:1.5;color:rgba(246,239,226,.55);max-width:56ch}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+section{padding:88px 0}
+.kick{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);font-weight:700}
+.h2{font-family:'Fraunces';font-weight:900;font-size:clamp(26px,3.6vw,40px);letter-spacing:-.015em;
+  margin:14px 0 10px;line-height:1.04}
+.sub{color:var(--muted);max-width:60ch;font-size:16px}
+
+/* calculator input panel */
+.calc{background:var(--ink);color:var(--sand);border-radius:20px;padding:30px;
+  display:grid;grid-template-columns:.7fr 1fr 1fr;gap:22px;margin-top:34px;align-items:end}
+.calc label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 9px}
+.calc input,.calc select{width:100%;padding:14px 16px;border-radius:11px;
+  border:1px solid rgba(246,239,226,.22);background:var(--ocean);color:var(--sand);
+  font-family:'Archivo';font-size:16px;font-weight:600;appearance:none}
+.calc input:focus,.calc select:focus{outline:none;border-color:var(--sea);
+  box-shadow:0 0 0 3px rgba(42,157,143,.2)}
+.calc .field-note{grid-column:1/-1;font-size:12.5px;color:rgba(246,239,226,.5);
+  line-height:1.55;margin-top:2px}
+
+/* goal cards */
+.goals{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+.goal{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 30px}
+.goal.a{border-top:4px solid var(--sea)}
+.goal.b{border-top:4px solid var(--gold)}
+.goal-tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--teal)}
+.goal.b .goal-tag{color:#b0821a}
+.goal-q{font-family:'Fraunces';font-weight:900;font-size:21px;margin:8px 0 16px;color:var(--ink);line-height:1.15}
+.gr{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+  padding:13px 0;border-bottom:1px solid var(--line)}
+.gr span{color:var(--muted);font-size:14.5px}
+.gr b{font-family:'Fraunces';font-weight:900;font-size:27px;color:var(--ink);line-height:1}
+.gr b.mk{font-size:22px;color:var(--sea)}
+.goal.b .gr b.mk{color:#b0821a}
+.goal-foot{margin-top:16px;font-size:13.5px;color:var(--muted);line-height:1.55}
+.goal-foot b{color:var(--ink)}
+
+/* danger panel -- the shareable "wrong answer" moment */
+.danger{background:#fbe9e4;border:1px solid rgba(193,54,43,.28);border-radius:18px;
+  padding:32px 34px;margin-top:22px}
+.danger .kick{color:#c1362b}
+.danger h3{font-family:'Fraunces';font-weight:900;font-size:clamp(22px,3vw,28px);
+  color:#7a1d15;margin:8px 0 14px;line-height:1.12}
+.danger p{color:#5c2b24;font-size:15.5px;max-width:66ch;line-height:1.65}
+.danger .fig{font-family:'Fraunces';font-weight:900;color:#c1362b;white-space:nowrap}
+
+/* plain note panel */
+.note-panel{background:var(--sand);border-radius:16px;padding:24px 28px;margin-top:22px;
+  font-size:15px;color:#3a4a4d;line-height:1.6}
+.note-panel b{color:var(--ink)}
+
+/* honesty / method */
+.method{background:var(--sand);border-radius:20px;padding:40px;display:grid;
+  grid-template-columns:1.15fr 1fr;gap:40px}
+.method ul{list-style:none;margin-top:8px}
+.method li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:#3a4a4d;line-height:1.55}
+.method li b{color:var(--ink)}
+
+/* the bridge into the benchmarks */
+.bridge{text-align:center;margin-top:6px}
+.bridge .line{font-family:'Fraunces';font-weight:900;font-size:clamp(22px,3.4vw,32px);
+  color:var(--ink);max-width:24ch;margin:0 auto 8px;line-height:1.18}
+.bridge .line .floor{font-style:italic;font-weight:500;color:var(--sea)}
+.bridge .line .ceil{font-style:italic;font-weight:500;color:var(--coral)}
+.bridge .sub{margin:0 auto 26px}
+.cta a{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;
+  padding:16px 34px;border-radius:999px;font-size:16px;transition:transform .15s,box-shadow .15s;
+  box-shadow:0 10px 26px rgba(232,99,63,.32)}
+.cta a:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,99,63,.42)}
+.cta{text-align:center}
+
+footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer b{color:var(--sand)}
+footer a{color:rgba(246,239,226,.85);text-decoration:none}
+footer a:hover{color:var(--sand)}
+
+@media(max-width:760px){
+  .calc{grid-template-columns:1fr;padding:26px}
+  .goals{grid-template-columns:1fr}
+  .method{grid-template-columns:1fr;padding:28px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+ <div class="wrap">
+  <div class="bar">
+   <a href="https://hostbrief.app/" style="text-decoration:none;color:inherit"><div class="brand">Host<span>Brief</span></div></a>
+   <div class="tag">US hosts &middot; new host-only fee</div>
+  </div>
+  <div class="eyebrow">Free &middot; arithmetic only &middot; no signup</div>
+  <h1>Airbnb's new <span class="it">15.5%</span> fee: how much to raise your price</h1>
+  <p class="lede">Airbnb is moving US hosts to a single <b>host-only</b> service fee. This tool does one thing: the arithmetic. Enter your current numbers and see how far to raise your nightly rate and cleaning fee to hold your payout &mdash; nothing about occupancy, demand or revenue.</p>
+  <p class="hero-caveat">This is a calculator, not advice. It tells you the rate that keeps your take-home flat &mdash; not the "right" price for your listing. The rollout is host-by-host, so check your own Airbnb dashboard for your actual deadline.</p>
+ </div>
+</div>
+
+<section>
+ <div class="wrap">
+  <div class="kick">The 30-second math</div>
+  <div class="h2">Two goals hosts keep confusing</div>
+  <p class="sub">"Raise your price 15.5%" is the advice going around &mdash; and it's wrong, because the new fee is charged <b>on the new, higher price</b>. Enter your numbers once and see both honest answers side by side.</p>
+
+  <div class="calc">
+   <div>
+    <label for="ccy">Currency</label>
+    <select id="ccy">
+     <option value="USD">USD ($)</option>
+     <option value="GBP">GBP (&pound;)</option>
+     <option value="EUR">EUR (&euro;)</option>
+     <option value="AUD">AUD (A$)</option>
+     <option value="ZAR">ZAR (R)</option>
+    </select>
+   </div>
+   <div>
+    <label for="rate">Current nightly rate</label>
+    <input id="rate" type="number" inputmode="decimal" min="0" step="1" value="100" placeholder="e.g. 100">
+   </div>
+   <div>
+    <label for="clean">Current cleaning fee</label>
+    <input id="clean" type="number" inputmode="decimal" min="0" step="1" value="75" placeholder="e.g. 75">
+   </div>
+   <p class="field-note">Symbol only &mdash; no currency conversion. Enter the numbers exactly as they appear in your Airbnb pricing today.</p>
+  </div>
+
+  <div class="goals">
+   <div class="goal a">
+    <div class="goal-tag">Goal A &middot; Like-for-like</div>
+    <div class="goal-q">"Hold my actual old take-home"</div>
+    <div class="gr"><span>New nightly rate</span><b id="a-rate">&mdash;</b></div>
+    <div class="gr"><span>New cleaning fee</span><b id="a-clean">&mdash;</b></div>
+    <div class="gr"><span>Price increase</span><b class="mk">+14.8%</b></div>
+    <p class="goal-foot" id="a-foot">&mdash;</p>
+   </div>
+   <div class="goal b">
+    <div class="goal-tag">Goal B &middot; Full-rate protect</div>
+    <div class="goal-q">"Make my listed rate survive the fee whole"</div>
+    <div class="gr"><span>New nightly rate</span><b id="b-rate">&mdash;</b></div>
+    <div class="gr"><span>New cleaning fee</span><b id="b-clean">&mdash;</b></div>
+    <div class="gr"><span>Price increase</span><b class="mk">+18.3%</b></div>
+    <p class="goal-foot" id="b-foot">&mdash;</p>
+   </div>
+  </div>
+
+  <div class="danger">
+   <div class="kick">The trap everyone falls into</div>
+   <h3>"Just add 12.5%" leaves you short &mdash; every night</h3>
+   <p id="danger-body">&mdash;</p>
+  </div>
+
+  <div class="note-panel">
+   <b>Don't forget the cleaning fee and extras.</b> The 15.5% host-only fee applies to your <b>cleaning fee, extra-guest fees and other charges too</b> &mdash; not just the nightly rate. This calculator already raises the cleaning fee for you; apply the same increase to any other add-ons.
+  </div>
+ </div>
+</section>
+
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="method">
+   <div>
+    <div class="kick">Straight about what this is</div>
+    <div class="h2" style="font-size:30px">Arithmetic, not advice</div>
+    <p class="sub">This tool is deliberately narrow so you can trust it. Here's exactly what it does and doesn't tell you.</p>
+   </div>
+   <ul>
+    <li><b>It's pure arithmetic.</b> It claims nothing about occupancy, demand, revenue or bookings &mdash; only the rate that holds your payout under the new fee.</li>
+    <li><b>It is not the "right" price.</b> It's your <b>floor</b>: the number that keeps your take-home flat. Whether the market will pay it is a separate question.</li>
+    <li><b>Holding the guest's total flat is different</b> &mdash; and a much smaller change. Guests already paid roughly 14% on top under the old split fee, so a lot of that increase is just moving where the fee sits.</li>
+    <li><b>The rollout is host-by-host.</b> Check your own Airbnb dashboard for your actual switch-over date &mdash; don't assume a single deadline applies to you.</li>
+    <li><b>Every figure is rounded</b> to the nearest whole unit for readability.</li>
+   </ul>
+  </div>
+
+  <div style="margin-top:60px">
+   <div class="bridge">
+    <p class="line">The fee math gives you your <span class="floor">floor</span>.<br>Your local comps give you your <span class="ceil">ceiling</span>.</p>
+    <p class="sub" style="max-width:50ch">You now know the rate that protects your payout. The next question is what comparable listings near you actually charge &mdash; so you don't leave money on the table, or price yourself out.</p>
+    <div class="cta">
+     <a href="https://benchmarks.hostbrief.app/">See how your new rate compares to listings near you &#8594;</a>
+    </div>
+   </div>
+  </div>
+
+  <div class="capture-panel" style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:60px">
+   <div class="kick" style="color:var(--gold)">Free &middot; no catch</div>
+   <div class="h2" style="font-size:30px;color:var(--sand);margin:10px 0 8px">Want a price benchmark for your exact listing?</div>
+   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. I&rsquo;ll send back a personalised price benchmark &mdash; how your nightly rate compares to similar listings nearby, and whether you&rsquo;re priced above or below them. No spam, just the breakdown.</p>
+   <form id="capture" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:580px;margin:0 auto">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
+    <input type="url" name="listing" placeholder="Your Airbnb link (optional)" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
+    <input type="hidden" name="city" value="Fee Calculator">
+    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark &#8594;</button>
+    <p id="capmsg" style="flex:1 1 100%;font-size:14px;margin-top:10px;min-height:18px;color:rgba(246,239,226,.7)"></p>
+   </form>
+  </div>
+ </div>
+</section>
+
+<footer><div class="wrap">
+ <div>Built by <b>HostBrief</b> &middot; <a href="https://benchmarks.hostbrief.app/">free Airbnb pricing benchmarks</a></div>
+ <div>Arithmetic only &middot; verify your own fee &amp; deadline in your Airbnb dashboard</div>
+</div></footer>
+
+<script>
+(function(){
+  var CCY={USD:"$",GBP:"\u00a3",EUR:"\u20ac",AUD:"A$",ZAR:"R"};
+  var rateEl=document.getElementById('rate');
+  var cleanEl=document.getElementById('clean');
+  var ccyEl=document.getElementById('ccy');
+  var sym="$";
+  function money(n){return sym+Math.round(n).toLocaleString('en-US');}
+  function set(id,html){document.getElementById(id).innerHTML=html;}
+  function calc(){
+    sym=CCY[ccyEl.value]||"$";
+    var rate=parseFloat(rateEl.value);if(!(rate>0))rate=0;
+    var clean=parseFloat(cleanEl.value);if(!(clean>0))clean=0;
+
+    // Goal A -- hold the host's actual old take-home (they already paid the old 3%)
+    var oldPayout=rate*0.97;
+    var aRate=oldPayout/0.845;
+    var aClean=(clean*0.97)/0.845;
+    // Goal B -- make the full listed rate survive the fee whole
+    var bRate=rate/0.845;
+    var bClean=clean/0.845;
+    // The wrong "just add 12.5%" answer
+    var wrongRate=rate*1.125;
+    var wrongPayout=wrongRate*0.845;
+    var shortA=oldPayout-wrongPayout;
+    var shortB=rate-wrongPayout;
+
+    if(rate<=0){
+      ['a-rate','a-clean','b-rate','b-clean'].forEach(function(id){set(id,'&mdash;');});
+      set('a-foot','Enter your current nightly rate above.');
+      set('b-foot','Enter your current nightly rate above.');
+      set('danger-body','Enter your current nightly rate above to see why the popular "add 12.5%" advice leaves you short.');
+      return;
+    }
+
+    set('a-rate',money(aRate));
+    set('a-clean',money(aClean));
+    set('b-rate',money(bRate));
+    set('b-clean',money(bClean));
+    set('a-foot','Keeps <b>'+money(oldPayout)+'/night</b> &mdash; exactly what you kept before.');
+    set('b-foot','Keeps <b>'+money(rate)+'/night</b> &mdash; more than you kept before, since you used to lose the old 3%.');
+
+    set('danger-body',
+      'Take the common "just add 12.5%" tip and you\u2019d list <span class="fig">'+money(wrongRate)+
+      '</span> and keep <span class="fig">'+money(wrongPayout)+'/night</span> &mdash; that\u2019s <span class="fig">'+money(shortA)+
+      '</span> below your old take-home ('+money(oldPayout)+'), and <span class="fig">'+money(shortB)+
+      '</span> below your full listed rate ('+money(rate)+'). The 15.5% fee is charged on the new, higher price, so adding the headline fee straight back never nets to zero. It\u2019s short under <b>both</b> goals above.');
+  }
+  rateEl.addEventListener('input',calc);
+  cleanEl.addEventListener('input',calc);
+  ccyEl.addEventListener('change',calc);
+  calc();
+})();
+</script>
+
+</body>
+</html>
