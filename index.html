@@ -90,6 +90,16 @@ section{padding:96px 0}
   transition:transform .15s,box-shadow .15s}
 .cta-band a:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,99,63,.42)}
 
+/* fee-change banner */
+.fee-alert{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  margin:34px 0 -10px;padding:16px 22px;border-radius:14px;text-decoration:none;
+  background:rgba(230,181,74,.12);border:1px solid rgba(230,181,74,.4);
+  opacity:0;animation:rise .7s .85s forwards;transition:background .15s,border-color .15s}
+.fee-alert:hover{background:rgba(230,181,74,.2);border-color:rgba(230,181,74,.65)}
+.fee-alert .msg{color:var(--sand);font-size:15px;font-weight:500}
+.fee-alert .msg b{color:var(--gold);font-weight:700}
+.fee-alert .go{color:var(--gold);font-weight:700;font-size:14.5px;white-space:nowrap}
+
 footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 footer b{color:var(--sand)}
@@ -120,6 +130,10 @@ footer b{color:var(--sand)}
    <div class="stat"><div class="v">9 <small style="font-size:.45em;font-weight:600;color:var(--gold)">countries</small></div><div class="l">And growing</div></div>
    <div class="stat"><div class="v">Free</div><div class="l">No signup required</div></div>
   </div>
+  <a class="fee-alert" href="fee-calculator/">
+   <span class="msg"><b>US host?</b> Airbnb's new 15.5% fee changes your pricing math &mdash; free calculator shows how much to raise your rate.</span>
+   <span class="go">Open the 15.5% fee calculator &#8594;</span>
+  </a>
  </div>
 </div>
 
