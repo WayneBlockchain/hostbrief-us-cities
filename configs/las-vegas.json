@@ -1,0 +1,13 @@
+{
+  "slug": "las-vegas",
+  "display_name": "Las Vegas",
+  "tag_location": "Las Vegas, NV",
+  "country": "United States",
+  "currency_symbol": "$",
+  "currency_iso": "USD",
+  "geography_label": "Area",
+  "grouped_by_copy": "Listings are grouped by the areas Inside Airbnb publishes for this market.",
+  "snapshot_month": "June 2026",
+  "source_csv": "data/las-vegas-2026-06-27.listings.csv.gz",
+  "source_url": "https://data.insideairbnb.com/united-states/nv/clark-county-nv/2026-06-27/data/listings.csv.gz"
+}

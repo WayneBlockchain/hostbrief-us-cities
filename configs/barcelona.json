@@ -1,0 +1,13 @@
+{
+  "slug": "barcelona",
+  "display_name": "Barcelona",
+  "tag_location": "Barcelona, Spain",
+  "country": "Spain",
+  "currency_symbol": "€",
+  "currency_iso": "EUR",
+  "geography_label": "Area",
+  "grouped_by_copy": "Listings are grouped by the areas Inside Airbnb publishes for this market.",
+  "snapshot_month": "June 2026",
+  "source_csv": "data/barcelona-2026-06-24.listings.csv.gz",
+  "source_url": "https://data.insideairbnb.com/spain/catalonia/barcelona/2026-06-24/data/listings.csv.gz"
+}

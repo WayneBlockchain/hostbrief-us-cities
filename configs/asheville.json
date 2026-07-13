@@ -1,0 +1,13 @@
+{
+  "slug": "asheville",
+  "display_name": "Asheville",
+  "tag_location": "Asheville, NC",
+  "country": "United States",
+  "currency_symbol": "$",
+  "currency_iso": "USD",
+  "geography_label": "ZIP",
+  "grouped_by_copy": "Listings are grouped by ZIP code, exactly as Inside Airbnb publishes them.",
+  "snapshot_month": "June 2026",
+  "source_csv": "data/asheville-2026-06-25.listings.csv.gz",
+  "source_url": "https://data.insideairbnb.com/united-states/nc/asheville/2026-06-25/data/listings.csv.gz"
+}

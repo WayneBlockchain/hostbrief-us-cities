@@ -1,0 +1,13 @@
+{
+  "slug": "manchester",
+  "display_name": "Manchester",
+  "tag_location": "Greater Manchester",
+  "country": "United Kingdom",
+  "currency_symbol": "£",
+  "currency_iso": "GBP",
+  "geography_label": "Area",
+  "grouped_by_copy": "Listings are grouped by the areas Inside Airbnb publishes for this market.",
+  "snapshot_month": "June 2026",
+  "source_csv": "data/manchester-2026-06-28.listings.csv.gz",
+  "source_url": "https://data.insideairbnb.com/united-kingdom/england/greater-manchester/2026-06-28/data/listings.csv.gz"
+}

@@ -3,34 +3,48 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="How much do Airbnb hosts earn in Boston? See real nightly rates, occupancy and annual revenue by area — free, no signup.">
+<meta name="description" content="How much do Airbnb hosts earn in Boston? See real nightly rates, occupancy and annual revenue by area — free, no signup. Built from public Airbnb data.">
 <meta property="og:title" content="What Airbnb Hosts Earn in Boston — Free Pricing Benchmark">
 <meta property="og:description" content="See what comparable Airbnb listings actually earn in Boston — nightly rate, occupancy and annual revenue, by area. Free, no signup.">
 <meta property="og:type" content="website">
-<title>What Airbnb Hosts Earn in Boston (2025 Data) — Free Pricing Tool | HostBrief</title>
+<title>What Airbnb Hosts Earn in Boston (2026 Data) — Free Pricing Tool | HostBrief</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0a2027;--ocean:#0e3a44;--teal:#15616d;--sea:#2a9d8f;--sand:#f6efe2;--paper:#fbf7ee;--coral:#e8633f;--gold:#e6b54a;--line:rgba(10,32,39,.12);--muted:#5c6b6e;}
+:root{
+  --ink:#0a2027; --ocean:#0e3a44; --teal:#15616d; --sea:#2a9d8f;
+  --sand:#f6efe2; --paper:#fbf7ee; --coral:#e8633f; --gold:#e6b54a;
+  --line:rgba(10,32,39,.12); --muted:#5c6b6e;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;line-height:1.5}
+body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;line-height:1.5}
 .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
-.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid rgba(246,239,226,.15)}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;
+  border-bottom:1px solid rgba(246,239,226,.15)}
 .brand{font-family:'Fraunces';font-weight:900;font-size:21px;color:var(--sand);letter-spacing:-.01em}
 .brand span{color:var(--coral)}
 .bar .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,239,226,.6)}
 .hero{background:var(--ocean);color:var(--sand);position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 85% -10%,rgba(42,157,143,.35),transparent 60%),radial-gradient(90% 70% at -10% 110%,rgba(232,99,63,.22),transparent 55%);}
-.hero::after{content:"";position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 85% -10%,rgba(42,157,143,.35),transparent 60%),
+             radial-gradient(90% 70% at -10% 110%,rgba(232,99,63,.22),transparent 55%);}
+.hero::after{content:"";position:absolute;inset:0;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 .hero .wrap{position:relative;z-index:1}
-.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:64px 0 22px;opacity:0;animation:rise .7s .05s forwards}
-h1{font-family:'Fraunces';font-weight:900;font-size:clamp(40px,7vw,82px);line-height:.96;letter-spacing:-.02em;max-width:14ch}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin:64px 0 22px;opacity:0;animation:rise .7s .05s forwards}
+h1{font-family:'Fraunces';font-weight:900;font-size:clamp(40px,7vw,82px);line-height:.96;
+  letter-spacing:-.02em;max-width:14ch}
 h1 .it{font-style:italic;font-weight:500;color:var(--sea)}
 .hero h1 .w{display:inline-block;opacity:0;animation:rise .8s forwards}
-.lede{font-size:clamp(16px,2vw,20px);color:rgba(246,239,226,.82);max-width:48ch;margin:26px 0 8px;opacity:0;animation:rise .7s .55s forwards}
-.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,239,226,.16);border:1px solid rgba(246,239,226,.16);border-radius:14px;overflow:hidden;margin:46px 0 -44px;opacity:0;animation:rise .7s .7s forwards}
+.lede{font-size:clamp(16px,2vw,20px);color:rgba(246,239,226,.82);max-width:48ch;margin:26px 0 8px;
+  opacity:0;animation:rise .7s .55s forwards}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,239,226,.16);
+  border:1px solid rgba(246,239,226,.16);border-radius:14px;overflow:hidden;margin:46px 0 -44px;
+  opacity:0;animation:rise .7s .7s forwards}
 .stat{background:var(--ocean);padding:22px 20px}
 .stat .v{font-family:'Fraunces';font-weight:900;font-size:clamp(26px,3.4vw,38px);color:var(--sand);line-height:1}
 .stat .v small{font-size:.5em;font-weight:600;color:var(--gold)}
@@ -38,13 +52,19 @@ h1 .it{font-style:italic;font-weight:500;color:var(--sea)}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 section{padding:96px 0}
 .kick{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);font-weight:700}
-.h2{font-family:'Fraunces';font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.015em;margin:14px 0 10px;line-height:1.02}
+.h2{font-family:'Fraunces';font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.015em;
+  margin:14px 0 10px;line-height:1.02}
 .sub{color:var(--muted);max-width:56ch;font-size:16px}
-.finder{background:var(--ink);color:var(--sand);border-radius:22px;padding:38px;display:grid;grid-template-columns:320px 1fr;gap:38px;margin-top:36px}
-.finder .controls label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 9px}
-.finder select{width:100%;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.22);background:var(--ocean);color:var(--sand);font-family:'Archivo';font-size:16px;font-weight:600;margin-bottom:22px;cursor:pointer;appearance:none}
+.finder{background:var(--ink);color:var(--sand);border-radius:22px;padding:38px;
+  display:grid;grid-template-columns:320px 1fr;gap:38px;margin-top:36px}
+.finder .controls label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 9px}
+.finder select{width:100%;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.22);
+  background:var(--ocean);color:var(--sand);font-family:'Archivo';font-size:16px;font-weight:600;
+  margin-bottom:22px;cursor:pointer;appearance:none}
 .finder .note{font-size:12.5px;color:rgba(246,239,226,.5);line-height:1.55;margin-top:6px}
-.result{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(246,239,226,.14);border-radius:14px;overflow:hidden;align-content:start}
+.result{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(246,239,226,.14);
+  border-radius:14px;overflow:hidden;align-content:start}
 .cell{background:var(--ink);padding:24px}
 .cell .l{font-size:12px;color:rgba(246,239,226,.6);letter-spacing:.04em}
 .cell .v{font-family:'Fraunces';font-weight:900;font-size:34px;color:var(--sand);margin-top:8px;line-height:1}
@@ -56,22 +76,35 @@ section{padding:96px 0}
 table{width:100%;border-collapse:collapse;font-size:15px}
 th,td{text-align:right;padding:15px 18px;border-bottom:1px solid var(--line)}
 th:first-child,td:first-child{text-align:left}
-thead th{background:var(--sand);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);cursor:pointer;user-select:none;font-weight:700}
+thead th{background:var(--sand);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--teal);cursor:pointer;user-select:none;font-weight:700}
 thead th:hover{color:var(--coral)}
-thead th.up::after{content:"\25B2";font-size:8px;margin-left:6px}
-thead th.down::after{content:"\25BC";font-size:8px;margin-left:6px}
+thead th.up::after{content:"▲";font-size:8px;margin-left:6px}
+thead th.down::after{content:"▼";font-size:8px;margin-left:6px}
 tbody tr:hover{background:var(--sand)}
 tbody td:first-child{font-weight:700;font-family:'Fraunces'}
 td.big{font-weight:700;color:var(--teal)}
 .rank{color:var(--muted);font-weight:400;font-family:'Archivo';margin-right:10px;font-size:13px}
-.method{background:var(--sand);border-radius:20px;padding:40px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px}
+.method{background:var(--sand);border-radius:20px;padding:40px;display:grid;
+  grid-template-columns:1.3fr 1fr;gap:40px}
 .method ul{list-style:none;margin-top:8px}
 .method li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:#3a4a4d}
 .method li b{color:var(--ink)}
+.cta{text-align:center;padding:18px 0 0}
+.cta a{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;
+  padding:16px 34px;border-radius:999px;font-size:16px;transition:transform .15s,box-shadow .15s;
+  box-shadow:0 10px 26px rgba(232,99,63,.32)}
+.cta a:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,99,63,.42)}
 footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 footer b{color:var(--sand)}
-@media(max-width:760px){.statrow{grid-template-columns:repeat(2,1fr)}.finder{grid-template-columns:1fr;padding:26px}.method{grid-template-columns:1fr;padding:28px}th,td{padding:12px 11px;font-size:13.5px}.occ-col{display:none}}
+@media(max-width:760px){
+ .statrow{grid-template-columns:repeat(2,1fr)}
+ .finder{grid-template-columns:1fr;padding:26px}
+ .method{grid-template-columns:1fr;padding:28px}
+ th,td{padding:12px 11px;font-size:13.5px}
+ .occ-col{display:none}
+}
 @media(max-width:640px){
   .result{grid-template-columns:1fr}
   .cell{padding:18px 20px}
@@ -83,31 +116,34 @@ footer b{color:var(--sand)}
 <body>
 <div class="hero">
  <div class="wrap">
-  <div class="bar"><a href="https://hostbrief.app/" style="text-decoration:none;color:inherit"><div class="brand">Host<span>Brief</span></div></a><div class="tag">Boston, MA &middot; STR Index</div></div>
-  <div class="eyebrow">Free &middot; public data &middot; no signup</div>
-  <h1 id="h1"></h1>
-  <p class="lede">How much should you charge for your Boston Airbnb? See what comparable listings actually earn &mdash; real nightly rates, occupancy and annual revenue across 3,812 active Boston listings.</p>
-  <div class="statrow">
-   <div class="stat"><div class="v">$195</div><div class="l">Median nightly rate</div></div>
-   <div class="stat"><div class="v">192<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
-   <div class="stat"><div class="v">$37,440</div><div class="l">Median annual revenue</div></div>
-   <div class="stat"><div class="v">68<small>%</small></div><div class="l">Are entire homes</div></div>
+  <div class="bar">
+   <a href="https://hostbrief.app/" style="text-decoration:none;color:inherit"><div class="brand">Host<span>Brief</span></div></a>
+   <div class="tag">Boston, MA · STR Index</div>
   </div>
-  <p class="hb-hero-caveat" style="margin:64px 0 0;font-size:12.5px;line-height:1.5;color:rgba(246,239,226,.55);max-width:52ch;position:relative;z-index:1">Figures are market estimates from public data &mdash; directional, not your exact dashboard.</p>
+  <div class="eyebrow">Free · public data · no signup</div>
+  <h1 id="h1"></h1>
+  <p class="lede">How much should you charge for your Boston Airbnb? See what comparable listings actually earn — real nightly rates, occupancy and annual revenue across 2,742 active Boston listings, so you can price yours with confidence.</p>
+  <div class="statrow">
+   <div class="stat"><div class="v">$350</div><div class="l">Median nightly rate</div></div>
+   <div class="stat"><div class="v">126<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
+   <div class="stat"><div class="v">$43,589</div><div class="l">Median annual revenue</div></div>
+   <div class="stat"><div class="v">71<small>%</small></div><div class="l">Are entire homes</div></div>
+  </div>
+  <p class="hb-hero-caveat" style="margin:64px 0 0;font-size:12.5px;line-height:1.5;color:rgba(246,239,226,.55);max-width:52ch;position:relative;z-index:1">Figures are market estimates from public data — directional, not your exact dashboard.</p>
  </div>
 </div>
 <section>
  <div class="wrap">
   <div class="kick">The 30-second check</div>
   <div class="h2">Find your spot</div>
-  <p class="sub">Pick your area and property size. See what comparable places actually charge, how often they book, and what the top quarter of them pull in a year.</p>
+  <p class="sub">Pick your neighbourhood and size. See what comparable places actually charge, how often they book, and what the top quarter of them pull in a year.</p>
   <div class="finder">
    <div class="controls">
-    <label>Area</label>
+    <label>Neighbourhood</label>
     <select id="sub"></select>
     <label>Bedrooms</label>
     <select id="bed"></select>
-    <p class="note">Figures are medians for active <b>entire-home</b> listings in your area. Occupancy &amp; revenue are estimates from public booking data &mdash; directional, not your exact dashboard.</p>
+    <p class="note">Figures are medians for active <b>entire-home</b> listings in your neighbourhood. Occupancy &amp; revenue are estimates from public booking data — directional, not your exact dashboard.</p>
    </div>
    <div class="result" id="result"></div>
   </div>
@@ -116,12 +152,12 @@ footer b{color:var(--sand)}
 <section style="padding-top:0">
  <div class="wrap">
   <div class="kick">The league table</div>
-  <div class="h2">Every area, ranked</div>
-  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings &mdash; occupancy is half the story.</p>
+  <div class="h2">Every neighbourhood, ranked</div>
+  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings — occupancy is half the story.</p>
   <div class="tablewrap">
    <table id="tbl">
     <thead><tr>
-     <th data-k="suburb">Area</th>
+     <th data-k="suburb">Neighbourhood</th>
      <th data-k="n">Listings</th>
      <th data-k="median_price">Nightly</th>
      <th data-k="median_occ" class="occ-col">Nights/yr</th>
@@ -139,57 +175,100 @@ footer b{color:var(--sand)}
    <div>
     <div class="kick">Straight about the data</div>
     <div class="h2" style="font-size:30px">No black box</div>
-    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers &mdash; and what they can and can't tell you.</p>
+    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers — and what they can and can't tell you.</p>
    </div>
    <ul>
-    <li><b>Source:</b> Aggregated from public STR market data &mdash; cross-referenced for accuracy.</li>
-    <li><b>Snapshot:</b> 2025. Short-term rental pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
-    <li><b>Revenue &amp; occupancy</b> are <b>estimates</b> from review-based models, not hosts' real dashboards. Good for comparison, not accounting.</li>
-    <li>Areas mapped to recognisable local names from postcode and listing location data.</li>
-    <li><b>Medians, not averages</b> &mdash; one ultra-luxury outlier won't skew your area.</li>
+    <li><b>Source:</b> Inside Airbnb — public-domain listing data.</li>
+    <li><b>Snapshot:</b> June 2026. Short-term rental pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
+    <li><b>What we compute:</b> nightly price, listing counts and the area &amp; bedroom groupings — straight from Inside Airbnb's public listings.</li>
+    <li><b>Occupancy &amp; revenue</b> are <b>Inside Airbnb's own published estimates</b> (their <span style="white-space:nowrap">estimated_occupancy</span> and <span style="white-space:nowrap">estimated_revenue</span>, trailing 12 months) — not a HostBrief model, and not hosts' real dashboards. Good for comparison, not accounting.</li>
+    <li>Listings are grouped by the areas Inside Airbnb publishes for this market.</li>
+    <li><b>Medians, not averages</b> — one ultra-luxury outlier won't skew your area.</li>
    </ul>
   </div>
-  <div style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:8px">
-   <div class="kick" style="color:var(--gold)">Free &middot; no catch</div>
+  <div class="capture-panel" style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:8px">
+   <div class="kick" style="color:var(--gold)">Free · no catch</div>
    <div class="h2" style="font-size:30px;color:var(--sand);margin:10px 0 8px">Want a deep-dive on your exact listing?</div>
-   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. I'll send back a personalised price benchmark &mdash; how your nightly rate compares to similar listings nearby, and whether you're priced above or below them. No spam, just the breakdown.</p>
+   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. I’ll send back a personalised price benchmark — how your nightly rate compares to similar listings nearby, and whether you’re priced above or below them. No spam, just the breakdown.</p>
    <form id="capture" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:580px;margin:0 auto">
     <input type="email" name="email" required placeholder="you@email.com" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
     <input type="url" name="listing" placeholder="Your Airbnb link (optional)" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
     <input type="hidden" name="city" value="Boston">
-    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark &#8594;</button>
+    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark →</button>
     <p id="capmsg" style="flex:1 1 100%;font-size:14px;margin-top:10px;min-height:18px;color:rgba(246,239,226,.7)"></p>
    </form>
   </div>
   <script>
-  (function(){var f=document.getElementById('capture'),m=document.getElementById('capmsg');if(!f)return;f.addEventListener('submit',function(e){e.preventDefault();m.style.color='var(--gold)';m.textContent='Sending…';var data={email:f.email.value,listing:f.listing.value,city:f.city.value};
-    fetch('https://hostbrief.app/api/city-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};});}).then(function(res){var r=res.ok&&res.body.success?{ok:true}:{ok:false};if(r.ok){f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I’ll send your benchmark soon. ✓';}else{m.style.color='#ff8c66';m.textContent='Something went wrong — email me at waynehavenga71@gmail.com';}}).catch(function(){m.style.color='#ff8c66';m.textContent='Network issue — email me at waynehavenga71@gmail.com';});});})();
+  (function(){
+   var f=document.getElementById('capture'),m=document.getElementById('capmsg');
+   if(!f)return;
+   f.addEventListener('submit',function(e){
+    e.preventDefault();
+    m.style.color='var(--gold)';m.textContent='Sending…';
+    var data={email:f.email.value,listing:f.listing.value,city:f.city.value};
+    fetch('https://hostbrief.app/api/city-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+     .then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};});}).then(function(res){var r=res.ok&&res.body.success?{ok:true}:{ok:false};if(r.ok){f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I’ll send your benchmark soon. ✓';}
+       else{m.style.color='#ff8c66';m.textContent='Something went wrong — email me at waynehavenga71@gmail.com';}
+     })
+     .catch(function(){m.style.color='#ff8c66';m.textContent='Network issue — email me at waynehavenga71@gmail.com';});
+   });
+  })();
   </script>
  </div>
 </section>
 <footer><div class="wrap">
- <div>Data supplied by <b>HostBrief</b> &middot; Boston short-term rental intelligence</div>
- <div>Public STR data &middot; 2025 &middot; Figures are estimates</div>
+ <div>Built by <b>HostBrief</b> · Boston short-term rental intelligence</div>
+ <div>Data: Inside Airbnb (public domain) · June 2026 · Figures are estimates</div>
 </div></footer>
 <script>
-const DATA={"overall": {"total_active": 3812, "median_price": 195, "median_occ": 192, "median_rev": 37440, "entire_share": 68}, "subs": [{"suburb": "Back Bay / Beacon Hill", "n": 412, "median_price": 268, "median_occ": 198, "median_rev": 53064, "rev_top25": 99600}, {"suburb": "North End / Downtown", "n": 356, "median_price": 235, "median_occ": 204, "median_rev": 47940, "rev_top25": 90000}, {"suburb": "South End", "n": 312, "median_price": 218, "median_occ": 198, "median_rev": 43164, "rev_top25": 81000}, {"suburb": "Seaport / Fort Point", "n": 267, "median_price": 245, "median_occ": 192, "median_rev": 47040, "rev_top25": 88800}, {"suburb": "Cambridge / Harvard Square", "n": 445, "median_price": 198, "median_occ": 198, "median_rev": 39204, "rev_top25": 73800}, {"suburb": "Fenway / Kenmore", "n": 298, "median_price": 175, "median_occ": 204, "median_rev": 35700, "rev_top25": 66600}, {"suburb": "Allston / Brighton", "n": 356, "median_price": 145, "median_occ": 210, "median_rev": 30450, "rev_top25": 55800}, {"suburb": "Somerville", "n": 312, "median_price": 158, "median_occ": 198, "median_rev": 31284, "rev_top25": 58200}, {"suburb": "Dorchester / South Boston", "n": 312, "median_price": 138, "median_occ": 198, "median_rev": 27324, "rev_top25": 50400}, {"suburb": "Jamaica Plain / Roxbury", "n": 245, "median_price": 128, "median_occ": 192, "median_rev": 24576, "rev_top25": 45600}, {"suburb": "Charlestown / East Boston", "n": 198, "median_price": 165, "median_occ": 186, "median_rev": 30690, "rev_top25": 57000}], "cohort": {"Back Bay / Beacon Hill": {"0": {"n": 65, "price": 195, "occ": 216, "rev": 42120, "rev_top25": 78000}, "1": {"n": 198, "price": 245, "occ": 204, "rev": 49980, "rev_top25": 93600}, "2": {"n": 112, "price": 345, "occ": 192, "rev": 66240, "rev_top25": 126000}, "3": {"n": 37, "price": 525, "occ": 180, "rev": 94500, "rev_top25": 181200}}, "North End / Downtown": {"0": {"n": 55, "price": 168, "occ": 222, "rev": 37296, "rev_top25": 68400}, "1": {"n": 178, "price": 215, "occ": 210, "rev": 45150, "rev_top25": 85200}, "2": {"n": 98, "price": 298, "occ": 198, "rev": 59004, "rev_top25": 112200}, "3": {"n": 25, "price": 445, "occ": 186, "rev": 82770, "rev_top25": 159600}}, "South End": {"1": {"n": 165, "price": 195, "occ": 204, "rev": 39780, "rev_top25": 75000}, "2": {"n": 112, "price": 268, "occ": 192, "rev": 51456, "rev_top25": 97200}, "3": {"n": 35, "price": 398, "occ": 180, "rev": 71640, "rev_top25": 138000}}, "Seaport / Fort Point": {"1": {"n": 112, "price": 218, "occ": 198, "rev": 43164, "rev_top25": 81000}, "2": {"n": 112, "price": 295, "occ": 192, "rev": 56640, "rev_top25": 108000}, "3": {"n": 43, "price": 438, "occ": 180, "rev": 78840, "rev_top25": 151800}}, "Cambridge / Harvard Square": {"1": {"n": 178, "price": 175, "occ": 204, "rev": 35700, "rev_top25": 66600}, "2": {"n": 198, "price": 235, "occ": 198, "rev": 46530, "rev_top25": 87600}, "3": {"n": 69, "price": 348, "occ": 186, "rev": 64728, "rev_top25": 123000}}, "Fenway / Kenmore": {"0": {"n": 55, "price": 142, "occ": 222, "rev": 31524, "rev_top25": 57600}, "1": {"n": 178, "price": 168, "occ": 210, "rev": 35280, "rev_top25": 65400}, "2": {"n": 65, "price": 235, "occ": 198, "rev": 46530, "rev_top25": 88200}}, "Allston / Brighton": {"0": {"n": 78, "price": 118, "occ": 228, "rev": 26904, "rev_top25": 48600}, "1": {"n": 212, "price": 138, "occ": 216, "rev": 29808, "rev_top25": 54600}, "2": {"n": 66, "price": 188, "occ": 204, "rev": 38352, "rev_top25": 72000}}, "Somerville": {"1": {"n": 178, "price": 148, "occ": 204, "rev": 30192, "rev_top25": 56400}, "2": {"n": 112, "price": 198, "occ": 198, "rev": 39204, "rev_top25": 73800}, "3": {"n": 22, "price": 288, "occ": 186, "rev": 53568, "rev_top25": 102000}}, "Dorchester / South Boston": {"1": {"n": 165, "price": 122, "occ": 204, "rev": 24888, "rev_top25": 45600}, "2": {"n": 112, "price": 165, "occ": 198, "rev": 32670, "rev_top25": 61200}, "3": {"n": 35, "price": 238, "occ": 186, "rev": 44268, "rev_top25": 84600}}, "Jamaica Plain / Roxbury": {"1": {"n": 132, "price": 112, "occ": 198, "rev": 22176, "rev_top25": 40800}, "2": {"n": 88, "price": 152, "occ": 192, "rev": 29184, "rev_top25": 54600}, "3": {"n": 25, "price": 222, "occ": 180, "rev": 39960, "rev_top25": 76200}}, "Charlestown / East Boston": {"1": {"n": 98, "price": 145, "occ": 192, "rev": 27840, "rev_top25": 51600}, "2": {"n": 78, "price": 198, "occ": 186, "rev": 36828, "rev_top25": 69600}, "3": {"n": 22, "price": 295, "occ": 174, "rev": 51330, "rev_top25": 98400}}}};
+const DATA={"overall":{"total_active":2742,"median_price":350,"median_occ":126,"median_rev":43589,"entire_share":71},"subs":[{"suburb":"North End","n":72,"median_price":424,"median_occ":156,"median_rev":65186,"rev_top25":99259},{"suburb":"South Boston","n":68,"median_price":525,"median_occ":135,"median_rev":57440,"rev_top25":111292},{"suburb":"Brighton","n":106,"median_price":354,"median_occ":184,"median_rev":56704,"rev_top25":90683},{"suburb":"Downtown","n":195,"median_price":332,"median_occ":180,"median_rev":56684,"rev_top25":94208},{"suburb":"East Boston","n":118,"median_price":346,"median_occ":180,"median_rev":53587,"rev_top25":83171},{"suburb":"Dorchester","n":183,"median_price":406,"median_occ":102,"median_rev":43260,"rev_top25":66470},{"suburb":"Jamaica Plain","n":86,"median_price":328,"median_occ":135,"median_rev":42280,"rev_top25":64593},{"suburb":"South End","n":171,"median_price":344,"median_occ":120,"median_rev":41891,"rev_top25":64980},{"suburb":"Back Bay","n":164,"median_price":346,"median_occ":116,"median_rev":41563,"rev_top25":74069},{"suburb":"Mission Hill","n":38,"median_price":260,"median_occ":162,"median_rev":41374,"rev_top25":52870},{"suburb":"Fenway","n":137,"median_price":323,"median_occ":126,"median_rev":40623,"rev_top25":71910},{"suburb":"Allston","n":67,"median_price":354,"median_occ":126,"median_rev":40128,"rev_top25":69208},{"suburb":"Beacon Hill","n":114,"median_price":269,"median_occ":144,"median_rev":40012,"rev_top25":62356},{"suburb":"Charlestown","n":34,"median_price":424,"median_occ":108,"median_rev":36768,"rev_top25":69360},{"suburb":"Bay Village","n":29,"median_price":307,"median_occ":114,"median_rev":32764,"rev_top25":124656},{"suburb":"Roslindale","n":38,"median_price":334,"median_occ":60,"median_rev":32378,"rev_top25":51822},{"suburb":"Roxbury","n":115,"median_price":346,"median_occ":90,"median_rev":27630,"rev_top25":73107},{"suburb":"Mattapan","n":25,"median_price":478,"median_occ":54,"median_rev":27396,"rev_top25":40647},{"suburb":"West Roxbury","n":34,"median_price":397,"median_occ":110,"median_rev":24516,"rev_top25":65996},{"suburb":"Hyde Park","n":29,"median_price":293,"median_occ":66,"median_rev":14202,"rev_top25":33893}],"cohort":{"Allston":{"1":{"n":19,"price":271,"occ":116,"rev":34509,"rev_top25":57488},"2":{"n":24,"price":425,"occ":106,"rev":33825,"rev_top25":70900}},"Back Bay":{"1":{"n":72,"price":340,"occ":114,"rev":38550,"rev_top25":62764},"2":{"n":21,"price":372,"occ":120,"rev":42502,"rev_top25":118626}},"Bay Village":{"1":{"n":19,"price":264,"occ":108,"rev":25344,"rev_top25":45710}},"Beacon Hill":{"1":{"n":54,"price":256,"occ":141,"rev":41236,"rev_top25":60667},"2":{"n":22,"price":184,"occ":116,"rev":27478,"rev_top25":40928}},"Brighton":{"1":{"n":34,"price":250,"occ":228,"rev":51142,"rev_top25":71690},"2":{"n":43,"price":383,"occ":216,"rev":62966,"rev_top25":101720},"3":{"n":14,"price":455,"occ":118,"rev":47721,"rev_top25":91481}},"Charlestown":{"1":{"n":18,"price":388,"occ":98,"rev":20978,"rev_top25":45802}},"Dorchester":{"1":{"n":25,"price":217,"occ":138,"rev":26667,"rev_top25":51516},"2":{"n":43,"price":322,"occ":116,"rev":22134,"rev_top25":64800},"3":{"n":50,"price":474,"occ":102,"rev":47456,"rev_top25":60242},"4":{"n":57,"price":695,"occ":84,"rev":59130,"rev_top25":106848}},"Downtown":{"1":{"n":83,"price":291,"occ":150,"rev":43906,"rev_top25":59782},"2":{"n":55,"price":404,"occ":210,"rev":77775,"rev_top25":99870},"3":{"n":15,"price":661,"occ":255,"rev":112431,"rev_top25":207052},"4":{"n":15,"price":613,"occ":255,"rev":151680,"rev_top25":171870}},"East Boston":{"1":{"n":41,"price":263,"occ":180,"rev":40140,"rev_top25":55335},"2":{"n":36,"price":385,"occ":213,"rev":72459,"rev_top25":106472},"3":{"n":27,"price":469,"occ":114,"rev":58824,"rev_top25":73477}},"Fenway":{"1":{"n":74,"price":316,"occ":123,"rev":37118,"rev_top25":63054},"2":{"n":34,"price":413,"occ":90,"rev":54322,"rev_top25":91866}},"Hyde Park":{"2":{"n":10,"price":304,"occ":62,"rev":13617,"rev_top25":33450},"3":{"n":11,"price":377,"occ":58,"rev":13558,"rev_top25":36802}},"Jamaica Plain":{"1":{"n":26,"price":254,"occ":159,"rev":41301,"rev_top25":56759},"2":{"n":25,"price":327,"occ":130,"rev":44917,"rev_top25":64602},"3":{"n":14,"price":406,"occ":108,"rev":45706,"rev_top25":75762},"4":{"n":14,"price":622,"occ":94,"rev":62629,"rev_top25":82443}},"North End":{"1":{"n":29,"price":382,"occ":162,"rev":64050,"rev_top25":83308},"2":{"n":15,"price":439,"occ":72,"rev":30384,"rev_top25":65694},"3":{"n":17,"price":695,"occ":192,"rev":116663,"rev_top25":141081}},"Roslindale":{"2":{"n":15,"price":307,"occ":58,"rev":17010,"rev_top25":41696},"3":{"n":11,"price":417,"occ":84,"rev":35364,"rev_top25":62262}},"Roxbury":{"1":{"n":26,"price":304,"occ":90,"rev":24176,"rev_top25":33754},"2":{"n":35,"price":322,"occ":120,"rev":29652,"rev_top25":72269},"3":{"n":27,"price":428,"occ":84,"rev":34668,"rev_top25":86202},"4":{"n":15,"price":591,"occ":114,"rev":72774,"rev_top25":126226}},"South Boston":{"1":{"n":18,"price":287,"occ":114,"rev":34152,"rev_top25":55342},"2":{"n":24,"price":540,"occ":147,"rev":77127,"rev_top25":118834},"3":{"n":10,"price":714,"occ":174,"rev":104670,"rev_top25":161862},"4":{"n":11,"price":1175,"occ":114,"rev":106500,"rev_top25":152082}},"South End":{"1":{"n":47,"price":330,"occ":108,"rev":36474,"rev_top25":51784},"2":{"n":29,"price":453,"occ":168,"rev":53105,"rev_top25":95115}},"West Roxbury":{"2":{"n":10,"price":346,"occ":111,"rev":35698,"rev_top25":57637},"3":{"n":10,"price":456,"occ":174,"rev":55457,"rev_top25":95078}}}};
 const CCY="$";
-const LOCALE="en-US";
-const fmt=n=>CCY+n.toLocaleString(LOCALE);
-const bedLabel={0:"Studio",1:"1 bedroom",2:"2 bedrooms",3:"3 bedrooms",4:"4+ bedrooms"};
+const fmt=n=>CCY+n.toLocaleString('en-US');
+const bedLabel={0:'Studio',1:'1 bedroom',2:'2 bedrooms',3:'3 bedrooms',4:'4+ bedrooms'};
 const words="What your Boston listing should earn.".split(" ");
-document.getElementById("h1").innerHTML=words.map(w=>{const it=/should|earn/.test(w)?" it":"";return "<span class=\"w"+it+"\">"+w+"&nbsp;</span>";}).join("");
-document.querySelectorAll("#h1 .w").forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+"s");
-const subSel=document.getElementById("sub"),bedSel=document.getElementById("bed"),res=document.getElementById("result");
-Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement("option");o.value=s;o.textContent=s;subSel.appendChild(o);});
-function fillBeds(){const beds=Object.keys(DATA.cohort[subSel.value]).map(Number).sort((a,b)=>a-b);bedSel.innerHTML="";beds.forEach(b=>{const o=document.createElement("option");o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});}
-function render(){const c=DATA.cohort[subSel.value]?.[bedSel.value];if(!c){res.innerHTML="<div class=\"empty\">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>";return;}res.innerHTML="<div class=\"cell\"><div class=\"l\">Median nightly rate</div><div class=\"v\">"+fmt(c.price)+"</div></div>"+"<div class=\"cell\"><div class=\"l\">Typical nights booked / yr</div><div class=\"v\">"+c.occ+"<small> nights</small></div></div>"+"<div class=\"cell\"><div class=\"l\">Median annual revenue</div><div class=\"v\">"+fmt(c.rev)+"</div></div>"+"<div class=\"cell hot\"><div class=\"l\">Top 25% earn</div><div class=\"v\">"+fmt(c.rev_top25)+"<small> /yr</small></div></div>"+"<div class=\"cell span\"><div class=\"l\">Based on</div><div class=\"v\" style=\"font-size:22px\">"+c.n+" comparable "+bedLabel[bedSel.value].toLowerCase()+" listings</div></div>";}
-subSel.addEventListener("change",()=>{fillBeds();render();});bedSel.addEventListener("change",render);
+document.getElementById('h1').innerHTML=words.map(w=>{
+  const it=/should|earn/.test(w)?' it':'';
+  return `<span class="w${it}">${w}&nbsp;</span>`;
+}).join("");
+document.querySelectorAll('#h1 .w').forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+'s');
+const subSel=document.getElementById('sub'),bedSel=document.getElementById('bed'),res=document.getElementById('result');
+Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;subSel.appendChild(o);});
+function fillBeds(){
+  const beds=Object.keys(DATA.cohort[subSel.value]).map(Number).sort((a,b)=>a-b);
+  bedSel.innerHTML="";
+  beds.forEach(b=>{const o=document.createElement('option');o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});
+}
+function render(){
+  const c=DATA.cohort[subSel.value]?.[bedSel.value];
+  if(!c){res.innerHTML='<div class="empty">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>';return;}
+  res.innerHTML=`
+   <div class="cell"><div class="l">Median nightly rate</div><div class="v">${fmt(c.price)}</div></div>
+   <div class="cell"><div class="l">Typical nights booked / yr</div><div class="v">${c.occ}<small> nights</small></div></div>
+   <div class="cell"><div class="l">Median annual revenue</div><div class="v">${fmt(c.rev)}</div></div>
+   <div class="cell hot"><div class="l">Top 25% earn</div><div class="v">${fmt(c.rev_top25)}<small> /yr</small></div></div>
+   <div class="cell span"><div class="l">Based on</div><div class="v" style="font-size:22px">${c.n} comparable ${bedLabel[bedSel.value].toLowerCase()} listings</div></div>`;
+}
+subSel.addEventListener('change',()=>{fillBeds();render();});
+bedSel.addEventListener('change',render);
 subSel.value=Object.keys(DATA.cohort).sort()[0];fillBeds();render();
-let rows=[...DATA.subs],sortK="median_rev",dir=-1;
-const tb=document.getElementById("tb");
-function draw(){rows.sort((a,b)=>typeof a[sortK]==="string"?a[sortK].localeCompare(b[sortK])*dir:(a[sortK]-b[sortK])*dir);tb.innerHTML=rows.map((r,i)=>"<tr><td><span class=\"rank\">"+(i+1)+"</span>"+r.suburb+"</td><td>"+r.n.toLocaleString(LOCALE)+"</td><td>"+fmt(r.median_price)+"</td><td class=\"occ-col\">"+r.median_occ+"</td><td class=\"big\">"+fmt(r.median_rev)+"</td><td>"+fmt(r.rev_top25)+"</td></tr>").join("");}
-document.querySelectorAll("#tbl th").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.k;if(k===sortK)dir=-dir;else{sortK=k;dir=(k==="suburb")?1:-1;}document.querySelectorAll("#tbl th").forEach(x=>x.classList.remove("up","down"));th.classList.add(dir===1?"up":"down");draw();}));
+let rows=[...DATA.subs],sortK='median_rev',dir=-1;
+const tb=document.getElementById('tb');
+function draw(){
+  rows.sort((a,b)=> typeof a[sortK]==='string'? a[sortK].localeCompare(b[sortK])*dir : (a[sortK]-b[sortK])*dir);
+  tb.innerHTML=rows.map((r,i)=>`<tr>
+    <td><span class="rank">${i+1}</span>${r.suburb}</td>
+    <td>${r.n.toLocaleString('en-US')}</td>
+    <td>${fmt(r.median_price)}</td>
+    <td class="occ-col">${r.median_occ}</td>
+    <td class="big">${fmt(r.median_rev)}</td>
+    <td>${fmt(r.rev_top25)}</td></tr>`).join("");
+}
+document.querySelectorAll('#tbl th').forEach(th=>th.addEventListener('click',()=>{
+  const k=th.dataset.k;
+  if(k===sortK)dir=-dir;else{sortK=k;dir=(k==='suburb')?1:-1;}
+  document.querySelectorAll('#tbl th').forEach(x=>x.classList.remove('up','down'));
+  th.classList.add(dir===1?'up':'down');draw();
+}));
 draw();
 </script>
 </body>

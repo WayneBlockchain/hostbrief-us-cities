@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="How much do Airbnb hosts earn in Las Vegas? See real nightly rates, occupancy and annual revenue by area — free, no signup. Built from public Airbnb data.">
+<meta property="og:title" content="What Airbnb Hosts Earn in Las Vegas — Free Pricing Benchmark">
+<meta property="og:description" content="See what comparable Airbnb listings actually earn in Las Vegas — nightly rate, occupancy and annual revenue, by area. Free, no signup.">
+<meta property="og:type" content="website">
+<title>What Airbnb Hosts Earn in Las Vegas (2026 Data) — Free Pricing Tool | HostBrief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a2027; --ocean:#0e3a44; --teal:#15616d; --sea:#2a9d8f;
+  --sand:#f6efe2; --paper:#fbf7ee; --coral:#e8633f; --gold:#e6b54a;
+  --line:rgba(10,32,39,.12); --muted:#5c6b6e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;
+  border-bottom:1px solid rgba(246,239,226,.15)}
+.brand{font-family:'Fraunces';font-weight:900;font-size:21px;color:var(--sand);letter-spacing:-.01em}
+.brand span{color:var(--coral)}
+.bar .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,239,226,.6)}
+.hero{background:var(--ocean);color:var(--sand);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 85% -10%,rgba(42,157,143,.35),transparent 60%),
+             radial-gradient(90% 70% at -10% 110%,rgba(232,99,63,.22),transparent 55%);}
+.hero::after{content:"";position:absolute;inset:0;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin:64px 0 22px;opacity:0;animation:rise .7s .05s forwards}
+h1{font-family:'Fraunces';font-weight:900;font-size:clamp(40px,7vw,82px);line-height:.96;
+  letter-spacing:-.02em;max-width:14ch}
+h1 .it{font-style:italic;font-weight:500;color:var(--sea)}
+.hero h1 .w{display:inline-block;opacity:0;animation:rise .8s forwards}
+.lede{font-size:clamp(16px,2vw,20px);color:rgba(246,239,226,.82);max-width:48ch;margin:26px 0 8px;
+  opacity:0;animation:rise .7s .55s forwards}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,239,226,.16);
+  border:1px solid rgba(246,239,226,.16);border-radius:14px;overflow:hidden;margin:46px 0 -44px;
+  opacity:0;animation:rise .7s .7s forwards}
+.stat{background:var(--ocean);padding:22px 20px}
+.stat .v{font-family:'Fraunces';font-weight:900;font-size:clamp(26px,3.4vw,38px);color:var(--sand);line-height:1}
+.stat .v small{font-size:.5em;font-weight:600;color:var(--gold)}
+.stat .l{font-size:12.5px;color:rgba(246,239,226,.62);margin-top:9px;letter-spacing:.02em}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+section{padding:96px 0}
+.kick{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);font-weight:700}
+.h2{font-family:'Fraunces';font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.015em;
+  margin:14px 0 10px;line-height:1.02}
+.sub{color:var(--muted);max-width:56ch;font-size:16px}
+.finder{background:var(--ink);color:var(--sand);border-radius:22px;padding:38px;
+  display:grid;grid-template-columns:320px 1fr;gap:38px;margin-top:36px}
+.finder .controls label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 9px}
+.finder select{width:100%;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.22);
+  background:var(--ocean);color:var(--sand);font-family:'Archivo';font-size:16px;font-weight:600;
+  margin-bottom:22px;cursor:pointer;appearance:none}
+.finder .note{font-size:12.5px;color:rgba(246,239,226,.5);line-height:1.55;margin-top:6px}
+.result{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(246,239,226,.14);
+  border-radius:14px;overflow:hidden;align-content:start}
+.cell{background:var(--ink);padding:24px}
+.cell .l{font-size:12px;color:rgba(246,239,226,.6);letter-spacing:.04em}
+.cell .v{font-family:'Fraunces';font-weight:900;font-size:34px;color:var(--sand);margin-top:8px;line-height:1}
+.cell .v small{font-size:.42em;font-weight:600;color:var(--gold);letter-spacing:.02em}
+.cell.hot .v{color:var(--sea)}
+.cell.span{grid-column:1/-1;background:linear-gradient(100deg,#10303a,#0a2027)}
+.empty{grid-column:1/-1;background:var(--ink);padding:40px;text-align:center;color:rgba(246,239,226,.55)}
+.tablewrap{margin-top:34px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:right;padding:15px 18px;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+thead th{background:var(--sand);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--teal);cursor:pointer;user-select:none;font-weight:700}
+thead th:hover{color:var(--coral)}
+thead th.up::after{content:"▲";font-size:8px;margin-left:6px}
+thead th.down::after{content:"▼";font-size:8px;margin-left:6px}
+tbody tr:hover{background:var(--sand)}
+tbody td:first-child{font-weight:700;font-family:'Fraunces'}
+td.big{font-weight:700;color:var(--teal)}
+.rank{color:var(--muted);font-weight:400;font-family:'Archivo';margin-right:10px;font-size:13px}
+.method{background:var(--sand);border-radius:20px;padding:40px;display:grid;
+  grid-template-columns:1.3fr 1fr;gap:40px}
+.method ul{list-style:none;margin-top:8px}
+.method li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:#3a4a4d}
+.method li b{color:var(--ink)}
+.cta{text-align:center;padding:18px 0 0}
+.cta a{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;
+  padding:16px 34px;border-radius:999px;font-size:16px;transition:transform .15s,box-shadow .15s;
+  box-shadow:0 10px 26px rgba(232,99,63,.32)}
+.cta a:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,99,63,.42)}
+footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer b{color:var(--sand)}
+@media(max-width:760px){
+ .statrow{grid-template-columns:repeat(2,1fr)}
+ .finder{grid-template-columns:1fr;padding:26px}
+ .method{grid-template-columns:1fr;padding:28px}
+ th,td{padding:12px 11px;font-size:13.5px}
+ .occ-col{display:none}
+}
+@media(max-width:640px){
+  .result{grid-template-columns:1fr}
+  .cell{padding:18px 20px}
+  .cell .v{font-size:clamp(24px,7vw,32px)}
+  .cell .l{overflow-wrap:anywhere}
+}
+</style>
+</head>
+<body>
+<div class="hero">
+ <div class="wrap">
+  <div class="bar">
+   <a href="https://hostbrief.app/" style="text-decoration:none;color:inherit"><div class="brand">Host<span>Brief</span></div></a>
+   <div class="tag">Las Vegas, NV · STR Index</div>
+  </div>
+  <div class="eyebrow">Free · public data · no signup</div>
+  <h1 id="h1"></h1>
+  <p class="lede">How much should you charge for your Las Vegas Airbnb? See what comparable listings actually earn — real nightly rates, occupancy and annual revenue across 11,031 active Las Vegas listings, so you can price yours with confidence.</p>
+  <div class="statrow">
+   <div class="stat"><div class="v">$245</div><div class="l">Median nightly rate</div></div>
+   <div class="stat"><div class="v">96<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
+   <div class="stat"><div class="v">$21,762</div><div class="l">Median annual revenue</div></div>
+   <div class="stat"><div class="v">79<small>%</small></div><div class="l">Are entire homes</div></div>
+  </div>
+  <p class="hb-hero-caveat" style="margin:64px 0 0;font-size:12.5px;line-height:1.5;color:rgba(246,239,226,.55);max-width:52ch;position:relative;z-index:1">Figures are market estimates from public data — directional, not your exact dashboard.</p>
+ </div>
+</div>
+<section>
+ <div class="wrap">
+  <div class="kick">The 30-second check</div>
+  <div class="h2">Find your spot</div>
+  <p class="sub">Pick your neighbourhood and size. See what comparable places actually charge, how often they book, and what the top quarter of them pull in a year.</p>
+  <div class="finder">
+   <div class="controls">
+    <label>Neighbourhood</label>
+    <select id="sub"></select>
+    <label>Bedrooms</label>
+    <select id="bed"></select>
+    <p class="note">Figures are medians for active <b>entire-home</b> listings in your neighbourhood. Occupancy &amp; revenue are estimates from public booking data — directional, not your exact dashboard.</p>
+   </div>
+   <div class="result" id="result"></div>
+  </div>
+ </div>
+</section>
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="kick">The league table</div>
+  <div class="h2">Every neighbourhood, ranked</div>
+  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings — occupancy is half the story.</p>
+  <div class="tablewrap">
+   <table id="tbl">
+    <thead><tr>
+     <th data-k="suburb">Neighbourhood</th>
+     <th data-k="n">Listings</th>
+     <th data-k="median_price">Nightly</th>
+     <th data-k="median_occ" class="occ-col">Nights/yr</th>
+     <th data-k="median_rev" class="down">Median /yr</th>
+     <th data-k="rev_top25">Top 25% /yr</th>
+    </tr></thead>
+    <tbody id="tb"></tbody>
+   </table>
+  </div>
+ </div>
+</section>
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="method">
+   <div>
+    <div class="kick">Straight about the data</div>
+    <div class="h2" style="font-size:30px">No black box</div>
+    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers — and what they can and can't tell you.</p>
+   </div>
+   <ul>
+    <li><b>Source:</b> Inside Airbnb — public-domain listing data.</li>
+    <li><b>Snapshot:</b> June 2026. Short-term rental pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
+    <li><b>What we compute:</b> nightly price, listing counts and the area &amp; bedroom groupings — straight from Inside Airbnb's public listings.</li>
+    <li><b>Occupancy &amp; revenue</b> are <b>Inside Airbnb's own published estimates</b> (their <span style="white-space:nowrap">estimated_occupancy</span> and <span style="white-space:nowrap">estimated_revenue</span>, trailing 12 months) — not a HostBrief model, and not hosts' real dashboards. Good for comparison, not accounting.</li>
+    <li>Listings are grouped by the areas Inside Airbnb publishes for this market.</li>
+    <li><b>Medians, not averages</b> — one ultra-luxury outlier won't skew your area.</li>
+   </ul>
+  </div>
+  <div class="capture-panel" style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:8px">
+   <div class="kick" style="color:var(--gold)">Free · no catch</div>
+   <div class="h2" style="font-size:30px;color:var(--sand);margin:10px 0 8px">Want a deep-dive on your exact listing?</div>
+   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. I’ll send back a personalised price benchmark — how your nightly rate compares to similar listings nearby, and whether you’re priced above or below them. No spam, just the breakdown.</p>
+   <form id="capture" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:580px;margin:0 auto">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
+    <input type="url" name="listing" placeholder="Your Airbnb link (optional)" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
+    <input type="hidden" name="city" value="Las Vegas">
+    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark →</button>
+    <p id="capmsg" style="flex:1 1 100%;font-size:14px;margin-top:10px;min-height:18px;color:rgba(246,239,226,.7)"></p>
+   </form>
+  </div>
+  <script>
+  (function(){
+   var f=document.getElementById('capture'),m=document.getElementById('capmsg');
+   if(!f)return;
+   f.addEventListener('submit',function(e){
+    e.preventDefault();
+    m.style.color='var(--gold)';m.textContent='Sending…';
+    var data={email:f.email.value,listing:f.listing.value,city:f.city.value};
+    fetch('https://hostbrief.app/api/city-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+     .then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};});}).then(function(res){var r=res.ok&&res.body.success?{ok:true}:{ok:false};if(r.ok){f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I’ll send your benchmark soon. ✓';}
+       else{m.style.color='#ff8c66';m.textContent='Something went wrong — email me at waynehavenga71@gmail.com';}
+     })
+     .catch(function(){m.style.color='#ff8c66';m.textContent='Network issue — email me at waynehavenga71@gmail.com';});
+   });
+  })();
+  </script>
+ </div>
+</section>
+<footer><div class="wrap">
+ <div>Built by <b>HostBrief</b> · Las Vegas short-term rental intelligence</div>
+ <div>Data: Inside Airbnb (public domain) · June 2026 · Figures are estimates</div>
+</div></footer>
+<script>
+const DATA={"overall":{"total_active":11031,"median_price":245,"median_occ":96,"median_rev":21762,"entire_share":79},"subs":[{"suburb":"City of North Las Vegas","n":562,"median_price":315,"median_occ":144,"median_rev":42214,"rev_top25":68750},{"suburb":"City of Henderson","n":475,"median_price":288,"median_occ":120,"median_rev":30056,"rev_top25":58154},{"suburb":"Unincorporated Areas","n":5964,"median_price":242,"median_occ":90,"median_rev":20715,"rev_top25":41488},{"suburb":"City of Mesquite","n":159,"median_price":291,"median_occ":72,"median_rev":18696,"rev_top25":36961},{"suburb":"City of Las Vegas","n":985,"median_price":178,"median_occ":120,"median_rev":17851,"rev_top25":33930}],"cohort":{"City of Henderson":{"1":{"n":70,"price":97,"occ":120,"rev":12334,"rev_top25":20680},"2":{"n":62,"price":153,"occ":105,"rev":16096,"rev_top25":28149},"3":{"n":117,"price":302,"occ":120,"rev":32000,"rev_top25":53925},"4":{"n":213,"price":424,"occ":124,"rev":50250,"rev_top25":81270}},"City of Las Vegas":{"1":{"n":273,"price":99,"occ":120,"rev":11520,"rev_top25":19116},"2":{"n":183,"price":152,"occ":120,"rev":14503,"rev_top25":24622},"3":{"n":259,"price":280,"occ":114,"rev":22536,"rev_top25":45376},"4":{"n":234,"price":401,"occ":105,"rev":37772,"rev_top25":58798}},"City of Mesquite":{"2":{"n":54,"price":208,"occ":75,"rev":13502,"rev_top25":22734},"3":{"n":75,"price":363,"occ":66,"rev":20982,"rev_top25":37656},"4":{"n":25,"price":454,"occ":84,"rev":51080,"rev_top25":65550}},"City of North Las Vegas":{"1":{"n":53,"price":132,"occ":132,"rev":17424,"rev_top25":27120},"2":{"n":36,"price":203,"occ":135,"rev":24816,"rev_top25":37440},"3":{"n":164,"price":287,"occ":136,"rev":38499,"rev_top25":60952},"4":{"n":305,"price":371,"occ":168,"rev":56016,"rev_top25":81855}},"Unincorporated Areas":{"1":{"n":1765,"price":168,"occ":78,"rev":12906,"rev_top25":27607},"2":{"n":1190,"price":224,"occ":66,"rev":13815,"rev_top25":31850},"3":{"n":845,"price":289,"occ":114,"rev":30240,"rev_top25":48312},"4":{"n":1522,"price":427,"occ":102,"rev":42980,"rev_top25":70150}}}};
+const CCY="$";
+const fmt=n=>CCY+n.toLocaleString('en-US');
+const bedLabel={0:'Studio',1:'1 bedroom',2:'2 bedrooms',3:'3 bedrooms',4:'4+ bedrooms'};
+const words="What your Las Vegas listing should earn.".split(" ");
+document.getElementById('h1').innerHTML=words.map(w=>{
+  const it=/should|earn/.test(w)?' it':'';
+  return `<span class="w${it}">${w}&nbsp;</span>`;
+}).join("");
+document.querySelectorAll('#h1 .w').forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+'s');
+const subSel=document.getElementById('sub'),bedSel=document.getElementById('bed'),res=document.getElementById('result');
+Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;subSel.appendChild(o);});
+function fillBeds(){
+  const beds=Object.keys(DATA.cohort[subSel.value]).map(Number).sort((a,b)=>a-b);
+  bedSel.innerHTML="";
+  beds.forEach(b=>{const o=document.createElement('option');o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});
+}
+function render(){
+  const c=DATA.cohort[subSel.value]?.[bedSel.value];
+  if(!c){res.innerHTML='<div class="empty">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>';return;}
+  res.innerHTML=`
+   <div class="cell"><div class="l">Median nightly rate</div><div class="v">${fmt(c.price)}</div></div>
+   <div class="cell"><div class="l">Typical nights booked / yr</div><div class="v">${c.occ}<small> nights</small></div></div>
+   <div class="cell"><div class="l">Median annual revenue</div><div class="v">${fmt(c.rev)}</div></div>
+   <div class="cell hot"><div class="l">Top 25% earn</div><div class="v">${fmt(c.rev_top25)}<small> /yr</small></div></div>
+   <div class="cell span"><div class="l">Based on</div><div class="v" style="font-size:22px">${c.n} comparable ${bedLabel[bedSel.value].toLowerCase()} listings</div></div>`;
+}
+subSel.addEventListener('change',()=>{fillBeds();render();});
+bedSel.addEventListener('change',render);
+subSel.value=Object.keys(DATA.cohort).sort()[0];fillBeds();render();
+let rows=[...DATA.subs],sortK='median_rev',dir=-1;
+const tb=document.getElementById('tb');
+function draw(){
+  rows.sort((a,b)=> typeof a[sortK]==='string'? a[sortK].localeCompare(b[sortK])*dir : (a[sortK]-b[sortK])*dir);
+  tb.innerHTML=rows.map((r,i)=>`<tr>
+    <td><span class="rank">${i+1}</span>${r.suburb}</td>
+    <td>${r.n.toLocaleString('en-US')}</td>
+    <td>${fmt(r.median_price)}</td>
+    <td class="occ-col">${r.median_occ}</td>
+    <td class="big">${fmt(r.median_rev)}</td>
+    <td>${fmt(r.rev_top25)}</td></tr>`).join("");
+}
+document.querySelectorAll('#tbl th').forEach(th=>th.addEventListener('click',()=>{
+  const k=th.dataset.k;
+  if(k===sortK)dir=-dir;else{sortK=k;dir=(k==='suburb')?1:-1;}
+  document.querySelectorAll('#tbl th').forEach(x=>x.classList.remove('up','down'));
+  th.classList.add(dir===1?'up':'down');draw();
+}));
+draw();
+</script>
+</body>
+</html>

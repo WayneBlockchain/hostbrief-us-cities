@@ -3,34 +3,48 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="How much do Airbnb hosts earn in Seattle? See real nightly rates, occupancy and annual revenue by area — free, no signup.">
+<meta name="description" content="How much do Airbnb hosts earn in Seattle? See real nightly rates, occupancy and annual revenue by area — free, no signup. Built from public Airbnb data.">
 <meta property="og:title" content="What Airbnb Hosts Earn in Seattle — Free Pricing Benchmark">
 <meta property="og:description" content="See what comparable Airbnb listings actually earn in Seattle — nightly rate, occupancy and annual revenue, by area. Free, no signup.">
 <meta property="og:type" content="website">
-<title>What Airbnb Hosts Earn in Seattle (2025 Data) — Free Pricing Tool | HostBrief</title>
+<title>What Airbnb Hosts Earn in Seattle (2026 Data) — Free Pricing Tool | HostBrief</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0a2027;--ocean:#0e3a44;--teal:#15616d;--sea:#2a9d8f;--sand:#f6efe2;--paper:#fbf7ee;--coral:#e8633f;--gold:#e6b54a;--line:rgba(10,32,39,.12);--muted:#5c6b6e;}
+:root{
+  --ink:#0a2027; --ocean:#0e3a44; --teal:#15616d; --sea:#2a9d8f;
+  --sand:#f6efe2; --paper:#fbf7ee; --coral:#e8633f; --gold:#e6b54a;
+  --line:rgba(10,32,39,.12); --muted:#5c6b6e;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;line-height:1.5}
+body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;line-height:1.5}
 .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
-.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid rgba(246,239,226,.15)}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;
+  border-bottom:1px solid rgba(246,239,226,.15)}
 .brand{font-family:'Fraunces';font-weight:900;font-size:21px;color:var(--sand);letter-spacing:-.01em}
 .brand span{color:var(--coral)}
 .bar .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,239,226,.6)}
 .hero{background:var(--ocean);color:var(--sand);position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 85% -10%,rgba(42,157,143,.35),transparent 60%),radial-gradient(90% 70% at -10% 110%,rgba(232,99,63,.22),transparent 55%);}
-.hero::after{content:"";position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 85% -10%,rgba(42,157,143,.35),transparent 60%),
+             radial-gradient(90% 70% at -10% 110%,rgba(232,99,63,.22),transparent 55%);}
+.hero::after{content:"";position:absolute;inset:0;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 .hero .wrap{position:relative;z-index:1}
-.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:64px 0 22px;opacity:0;animation:rise .7s .05s forwards}
-h1{font-family:'Fraunces';font-weight:900;font-size:clamp(40px,7vw,82px);line-height:.96;letter-spacing:-.02em;max-width:14ch}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin:64px 0 22px;opacity:0;animation:rise .7s .05s forwards}
+h1{font-family:'Fraunces';font-weight:900;font-size:clamp(40px,7vw,82px);line-height:.96;
+  letter-spacing:-.02em;max-width:14ch}
 h1 .it{font-style:italic;font-weight:500;color:var(--sea)}
 .hero h1 .w{display:inline-block;opacity:0;animation:rise .8s forwards}
-.lede{font-size:clamp(16px,2vw,20px);color:rgba(246,239,226,.82);max-width:48ch;margin:26px 0 8px;opacity:0;animation:rise .7s .55s forwards}
-.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,239,226,.16);border:1px solid rgba(246,239,226,.16);border-radius:14px;overflow:hidden;margin:46px 0 -44px;opacity:0;animation:rise .7s .7s forwards}
+.lede{font-size:clamp(16px,2vw,20px);color:rgba(246,239,226,.82);max-width:48ch;margin:26px 0 8px;
+  opacity:0;animation:rise .7s .55s forwards}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,239,226,.16);
+  border:1px solid rgba(246,239,226,.16);border-radius:14px;overflow:hidden;margin:46px 0 -44px;
+  opacity:0;animation:rise .7s .7s forwards}
 .stat{background:var(--ocean);padding:22px 20px}
 .stat .v{font-family:'Fraunces';font-weight:900;font-size:clamp(26px,3.4vw,38px);color:var(--sand);line-height:1}
 .stat .v small{font-size:.5em;font-weight:600;color:var(--gold)}
@@ -38,13 +52,19 @@ h1 .it{font-style:italic;font-weight:500;color:var(--sea)}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 section{padding:96px 0}
 .kick{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);font-weight:700}
-.h2{font-family:'Fraunces';font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.015em;margin:14px 0 10px;line-height:1.02}
+.h2{font-family:'Fraunces';font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.015em;
+  margin:14px 0 10px;line-height:1.02}
 .sub{color:var(--muted);max-width:56ch;font-size:16px}
-.finder{background:var(--ink);color:var(--sand);border-radius:22px;padding:38px;display:grid;grid-template-columns:320px 1fr;gap:38px;margin-top:36px}
-.finder .controls label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 9px}
-.finder select{width:100%;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.22);background:var(--ocean);color:var(--sand);font-family:'Archivo';font-size:16px;font-weight:600;margin-bottom:22px;cursor:pointer;appearance:none}
+.finder{background:var(--ink);color:var(--sand);border-radius:22px;padding:38px;
+  display:grid;grid-template-columns:320px 1fr;gap:38px;margin-top:36px}
+.finder .controls label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 9px}
+.finder select{width:100%;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.22);
+  background:var(--ocean);color:var(--sand);font-family:'Archivo';font-size:16px;font-weight:600;
+  margin-bottom:22px;cursor:pointer;appearance:none}
 .finder .note{font-size:12.5px;color:rgba(246,239,226,.5);line-height:1.55;margin-top:6px}
-.result{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(246,239,226,.14);border-radius:14px;overflow:hidden;align-content:start}
+.result{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(246,239,226,.14);
+  border-radius:14px;overflow:hidden;align-content:start}
 .cell{background:var(--ink);padding:24px}
 .cell .l{font-size:12px;color:rgba(246,239,226,.6);letter-spacing:.04em}
 .cell .v{font-family:'Fraunces';font-weight:900;font-size:34px;color:var(--sand);margin-top:8px;line-height:1}
@@ -56,22 +76,35 @@ section{padding:96px 0}
 table{width:100%;border-collapse:collapse;font-size:15px}
 th,td{text-align:right;padding:15px 18px;border-bottom:1px solid var(--line)}
 th:first-child,td:first-child{text-align:left}
-thead th{background:var(--sand);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);cursor:pointer;user-select:none;font-weight:700}
+thead th{background:var(--sand);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--teal);cursor:pointer;user-select:none;font-weight:700}
 thead th:hover{color:var(--coral)}
-thead th.up::after{content:"\25B2";font-size:8px;margin-left:6px}
-thead th.down::after{content:"\25BC";font-size:8px;margin-left:6px}
+thead th.up::after{content:"▲";font-size:8px;margin-left:6px}
+thead th.down::after{content:"▼";font-size:8px;margin-left:6px}
 tbody tr:hover{background:var(--sand)}
 tbody td:first-child{font-weight:700;font-family:'Fraunces'}
 td.big{font-weight:700;color:var(--teal)}
 .rank{color:var(--muted);font-weight:400;font-family:'Archivo';margin-right:10px;font-size:13px}
-.method{background:var(--sand);border-radius:20px;padding:40px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px}
+.method{background:var(--sand);border-radius:20px;padding:40px;display:grid;
+  grid-template-columns:1.3fr 1fr;gap:40px}
 .method ul{list-style:none;margin-top:8px}
 .method li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:#3a4a4d}
 .method li b{color:var(--ink)}
+.cta{text-align:center;padding:18px 0 0}
+.cta a{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;
+  padding:16px 34px;border-radius:999px;font-size:16px;transition:transform .15s,box-shadow .15s;
+  box-shadow:0 10px 26px rgba(232,99,63,.32)}
+.cta a:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,99,63,.42)}
 footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 footer b{color:var(--sand)}
-@media(max-width:760px){.statrow{grid-template-columns:repeat(2,1fr)}.finder{grid-template-columns:1fr;padding:26px}.method{grid-template-columns:1fr;padding:28px}th,td{padding:12px 11px;font-size:13.5px}.occ-col{display:none}}
+@media(max-width:760px){
+ .statrow{grid-template-columns:repeat(2,1fr)}
+ .finder{grid-template-columns:1fr;padding:26px}
+ .method{grid-template-columns:1fr;padding:28px}
+ th,td{padding:12px 11px;font-size:13.5px}
+ .occ-col{display:none}
+}
 @media(max-width:640px){
   .result{grid-template-columns:1fr}
   .cell{padding:18px 20px}
@@ -83,31 +116,34 @@ footer b{color:var(--sand)}
 <body>
 <div class="hero">
  <div class="wrap">
-  <div class="bar"><a href="https://hostbrief.app/" style="text-decoration:none;color:inherit"><div class="brand">Host<span>Brief</span></div></a><div class="tag">Seattle, WA &middot; STR Index</div></div>
-  <div class="eyebrow">Free &middot; public data &middot; no signup</div>
-  <h1 id="h1"></h1>
-  <p class="lede">How much should you charge for your Seattle Airbnb? See what comparable listings actually earn &mdash; real nightly rates, occupancy and annual revenue across 5,234 active Seattle listings.</p>
-  <div class="statrow">
-   <div class="stat"><div class="v">$165</div><div class="l">Median nightly rate</div></div>
-   <div class="stat"><div class="v">198<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
-   <div class="stat"><div class="v">$32,670</div><div class="l">Median annual revenue</div></div>
-   <div class="stat"><div class="v">80<small>%</small></div><div class="l">Are entire homes</div></div>
+  <div class="bar">
+   <a href="https://hostbrief.app/" style="text-decoration:none;color:inherit"><div class="brand">Host<span>Brief</span></div></a>
+   <div class="tag">Seattle, WA · STR Index</div>
   </div>
-  <p class="hb-hero-caveat" style="margin:64px 0 0;font-size:12.5px;line-height:1.5;color:rgba(246,239,226,.55);max-width:52ch;position:relative;z-index:1">Figures are market estimates from public data &mdash; directional, not your exact dashboard.</p>
+  <div class="eyebrow">Free · public data · no signup</div>
+  <h1 id="h1"></h1>
+  <p class="lede">How much should you charge for your Seattle Airbnb? See what comparable listings actually earn — real nightly rates, occupancy and annual revenue across 5,667 active Seattle listings, so you can price yours with confidence.</p>
+  <div class="statrow">
+   <div class="stat"><div class="v">$314</div><div class="l">Median nightly rate</div></div>
+   <div class="stat"><div class="v">120<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
+   <div class="stat"><div class="v">$35,424</div><div class="l">Median annual revenue</div></div>
+   <div class="stat"><div class="v">85<small>%</small></div><div class="l">Are entire homes</div></div>
+  </div>
+  <p class="hb-hero-caveat" style="margin:64px 0 0;font-size:12.5px;line-height:1.5;color:rgba(246,239,226,.55);max-width:52ch;position:relative;z-index:1">Figures are market estimates from public data — directional, not your exact dashboard.</p>
  </div>
 </div>
 <section>
  <div class="wrap">
   <div class="kick">The 30-second check</div>
   <div class="h2">Find your spot</div>
-  <p class="sub">Pick your area and property size. See what comparable places actually charge, how often they book, and what the top quarter of them pull in a year.</p>
+  <p class="sub">Pick your neighbourhood and size. See what comparable places actually charge, how often they book, and what the top quarter of them pull in a year.</p>
   <div class="finder">
    <div class="controls">
-    <label>Area</label>
+    <label>Neighbourhood</label>
     <select id="sub"></select>
     <label>Bedrooms</label>
     <select id="bed"></select>
-    <p class="note">Figures are medians for active <b>entire-home</b> listings in your area. Occupancy &amp; revenue are estimates from public booking data &mdash; directional, not your exact dashboard.</p>
+    <p class="note">Figures are medians for active <b>entire-home</b> listings in your neighbourhood. Occupancy &amp; revenue are estimates from public booking data — directional, not your exact dashboard.</p>
    </div>
    <div class="result" id="result"></div>
   </div>
@@ -116,12 +152,12 @@ footer b{color:var(--sand)}
 <section style="padding-top:0">
  <div class="wrap">
   <div class="kick">The league table</div>
-  <div class="h2">Every area, ranked</div>
-  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings &mdash; occupancy is half the story.</p>
+  <div class="h2">Every neighbourhood, ranked</div>
+  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings — occupancy is half the story.</p>
   <div class="tablewrap">
    <table id="tbl">
     <thead><tr>
-     <th data-k="suburb">Area</th>
+     <th data-k="suburb">Neighbourhood</th>
      <th data-k="n">Listings</th>
      <th data-k="median_price">Nightly</th>
      <th data-k="median_occ" class="occ-col">Nights/yr</th>
@@ -139,57 +175,100 @@ footer b{color:var(--sand)}
    <div>
     <div class="kick">Straight about the data</div>
     <div class="h2" style="font-size:30px">No black box</div>
-    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers &mdash; and what they can and can't tell you.</p>
+    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers — and what they can and can't tell you.</p>
    </div>
    <ul>
-    <li><b>Source:</b> Aggregated from public STR market data &mdash; cross-referenced for accuracy.</li>
-    <li><b>Snapshot:</b> 2025. Short-term rental pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
-    <li><b>Revenue &amp; occupancy</b> are <b>estimates</b> from review-based models, not hosts' real dashboards. Good for comparison, not accounting.</li>
-    <li>Areas mapped to recognisable local names from postcode and listing location data.</li>
-    <li><b>Medians, not averages</b> &mdash; one ultra-luxury outlier won't skew your area.</li>
+    <li><b>Source:</b> Inside Airbnb — public-domain listing data.</li>
+    <li><b>Snapshot:</b> June 2026. Short-term rental pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
+    <li><b>What we compute:</b> nightly price, listing counts and the area &amp; bedroom groupings — straight from Inside Airbnb's public listings.</li>
+    <li><b>Occupancy &amp; revenue</b> are <b>Inside Airbnb's own published estimates</b> (their <span style="white-space:nowrap">estimated_occupancy</span> and <span style="white-space:nowrap">estimated_revenue</span>, trailing 12 months) — not a HostBrief model, and not hosts' real dashboards. Good for comparison, not accounting.</li>
+    <li>Listings are grouped by the areas Inside Airbnb publishes for this market.</li>
+    <li><b>Medians, not averages</b> — one ultra-luxury outlier won't skew your area.</li>
    </ul>
   </div>
-  <div style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:8px">
-   <div class="kick" style="color:var(--gold)">Free &middot; no catch</div>
+  <div class="capture-panel" style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:8px">
+   <div class="kick" style="color:var(--gold)">Free · no catch</div>
    <div class="h2" style="font-size:30px;color:var(--sand);margin:10px 0 8px">Want a deep-dive on your exact listing?</div>
-   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. I'll send back a personalised price benchmark &mdash; how your nightly rate compares to similar listings nearby, and whether you're priced above or below them. No spam, just the breakdown.</p>
+   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. I’ll send back a personalised price benchmark — how your nightly rate compares to similar listings nearby, and whether you’re priced above or below them. No spam, just the breakdown.</p>
    <form id="capture" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:580px;margin:0 auto">
     <input type="email" name="email" required placeholder="you@email.com" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
     <input type="url" name="listing" placeholder="Your Airbnb link (optional)" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
     <input type="hidden" name="city" value="Seattle">
-    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark &#8594;</button>
+    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark →</button>
     <p id="capmsg" style="flex:1 1 100%;font-size:14px;margin-top:10px;min-height:18px;color:rgba(246,239,226,.7)"></p>
    </form>
   </div>
   <script>
-  (function(){var f=document.getElementById('capture'),m=document.getElementById('capmsg');if(!f)return;f.addEventListener('submit',function(e){e.preventDefault();m.style.color='var(--gold)';m.textContent='Sending…';var data={email:f.email.value,listing:f.listing.value,city:f.city.value};
-    fetch('https://hostbrief.app/api/city-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};});}).then(function(res){var r=res.ok&&res.body.success?{ok:true}:{ok:false};if(r.ok){f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I’ll send your benchmark soon. ✓';}else{m.style.color='#ff8c66';m.textContent='Something went wrong — email me at waynehavenga71@gmail.com';}}).catch(function(){m.style.color='#ff8c66';m.textContent='Network issue — email me at waynehavenga71@gmail.com';});});})();
+  (function(){
+   var f=document.getElementById('capture'),m=document.getElementById('capmsg');
+   if(!f)return;
+   f.addEventListener('submit',function(e){
+    e.preventDefault();
+    m.style.color='var(--gold)';m.textContent='Sending…';
+    var data={email:f.email.value,listing:f.listing.value,city:f.city.value};
+    fetch('https://hostbrief.app/api/city-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+     .then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};});}).then(function(res){var r=res.ok&&res.body.success?{ok:true}:{ok:false};if(r.ok){f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I’ll send your benchmark soon. ✓';}
+       else{m.style.color='#ff8c66';m.textContent='Something went wrong — email me at waynehavenga71@gmail.com';}
+     })
+     .catch(function(){m.style.color='#ff8c66';m.textContent='Network issue — email me at waynehavenga71@gmail.com';});
+   });
+  })();
   </script>
  </div>
 </section>
 <footer><div class="wrap">
- <div>Data supplied by <b>HostBrief</b> &middot; Seattle short-term rental intelligence</div>
- <div>Public STR data &middot; 2025 &middot; Figures are estimates</div>
+ <div>Built by <b>HostBrief</b> · Seattle short-term rental intelligence</div>
+ <div>Data: Inside Airbnb (public domain) · June 2026 · Figures are estimates</div>
 </div></footer>
 <script>
-const DATA={"overall": {"total_active": 5234, "median_price": 165, "median_occ": 198, "median_rev": 32670, "entire_share": 80}, "subs": [{"suburb": "Capitol Hill", "n": 534, "median_price": 178, "median_occ": 216, "median_rev": 38448, "rev_top25": 70800}, {"suburb": "Belltown / Downtown", "n": 712, "median_price": 195, "median_occ": 210, "median_rev": 40950, "rev_top25": 76200}, {"suburb": "Fremont / Wallingford", "n": 423, "median_price": 168, "median_occ": 204, "median_rev": 34272, "rev_top25": 63600}, {"suburb": "Ballard", "n": 445, "median_price": 172, "median_occ": 204, "median_rev": 35088, "rev_top25": 64800}, {"suburb": "Queen Anne", "n": 356, "median_price": 188, "median_occ": 198, "median_rev": 37224, "rev_top25": 69600}, {"suburb": "Capitol Hill / First Hill", "n": 298, "median_price": 165, "median_occ": 198, "median_rev": 32670, "rev_top25": 60600}, {"suburb": "West Seattle", "n": 312, "median_price": 148, "median_occ": 192, "median_rev": 28416, "rev_top25": 52800}, {"suburb": "Capitol Hill / Madison Park", "n": 198, "median_price": 158, "median_occ": 186, "median_rev": 29388, "rev_top25": 54600}, {"suburb": "University District", "n": 267, "median_price": 132, "median_occ": 198, "median_rev": 26136, "rev_top25": 48600}, {"suburb": "Georgetown / SoDo", "n": 178, "median_price": 125, "median_occ": 192, "median_rev": 24000, "rev_top25": 44400}, {"suburb": "Rainier Valley / Beacon Hill", "n": 223, "median_price": 112, "median_occ": 192, "median_rev": 21504, "rev_top25": 39600}, {"suburb": "Northgate / Shoreline", "n": 198, "median_price": 118, "median_occ": 186, "median_rev": 21948, "rev_top25": 40800}], "cohort": {"Capitol Hill": {"0": {"n": 78, "price": 138, "occ": 228, "rev": 31464, "rev_top25": 57600}, "1": {"n": 245, "price": 168, "occ": 216, "rev": 36288, "rev_top25": 67200}, "2": {"n": 165, "price": 235, "occ": 204, "rev": 47940, "rev_top25": 90000}, "3": {"n": 46, "price": 358, "occ": 192, "rev": 68736, "rev_top25": 130800}}, "Belltown / Downtown": {"0": {"n": 112, "price": 155, "occ": 222, "rev": 34410, "rev_top25": 63000}, "1": {"n": 312, "price": 185, "occ": 210, "rev": 38850, "rev_top25": 72600}, "2": {"n": 225, "price": 258, "occ": 198, "rev": 51084, "rev_top25": 96000}, "3": {"n": 63, "price": 395, "occ": 186, "rev": 73470, "rev_top25": 139800}}, "Fremont / Wallingford": {"1": {"n": 178, "price": 145, "occ": 210, "rev": 30450, "rev_top25": 55800}, "2": {"n": 178, "price": 198, "occ": 204, "rev": 40392, "rev_top25": 75600}, "3": {"n": 67, "price": 285, "occ": 192, "rev": 54720, "rev_top25": 103200}}, "Ballard": {"1": {"n": 178, "price": 148, "occ": 210, "rev": 31080, "rev_top25": 57000}, "2": {"n": 198, "price": 202, "occ": 204, "rev": 41208, "rev_top25": 77400}, "3": {"n": 69, "price": 295, "occ": 192, "rev": 56640, "rev_top25": 107400}}, "Queen Anne": {"1": {"n": 145, "price": 162, "occ": 204, "rev": 33048, "rev_top25": 61200}, "2": {"n": 145, "price": 222, "occ": 198, "rev": 43956, "rev_top25": 82800}, "3": {"n": 66, "price": 328, "occ": 186, "rev": 61008, "rev_top25": 115800}}, "Capitol Hill / First Hill": {"1": {"n": 145, "price": 145, "occ": 204, "rev": 29580, "rev_top25": 54600}, "2": {"n": 112, "price": 198, "occ": 198, "rev": 39204, "rev_top25": 73800}, "3": {"n": 41, "price": 288, "occ": 186, "rev": 53568, "rev_top25": 102000}}, "West Seattle": {"1": {"n": 145, "price": 128, "occ": 198, "rev": 25344, "rev_top25": 46800}, "2": {"n": 132, "price": 175, "occ": 192, "rev": 33600, "rev_top25": 63600}, "3": {"n": 35, "price": 255, "occ": 180, "rev": 45900, "rev_top25": 87600}}, "Capitol Hill / Madison Park": {"1": {"n": 88, "price": 138, "occ": 192, "rev": 26496, "rev_top25": 48600}, "2": {"n": 88, "price": 188, "occ": 186, "rev": 34968, "rev_top25": 65400}, "3": {"n": 22, "price": 278, "occ": 174, "rev": 48372, "rev_top25": 92400}}, "University District": {"0": {"n": 65, "price": 105, "occ": 210, "rev": 22050, "rev_top25": 40200}, "1": {"n": 145, "price": 122, "occ": 198, "rev": 24156, "rev_top25": 44400}, "2": {"n": 57, "price": 168, "occ": 192, "rev": 32256, "rev_top25": 60600}}, "Georgetown / SoDo": {"1": {"n": 98, "price": 112, "occ": 198, "rev": 22176, "rev_top25": 40800}, "2": {"n": 65, "price": 152, "occ": 192, "rev": 29184, "rev_top25": 54600}, "3": {"n": 15, "price": 218, "occ": 180, "rev": 39240, "rev_top25": 74400}}, "Rainier Valley / Beacon Hill": {"1": {"n": 112, "price": 98, "occ": 198, "rev": 19404, "rev_top25": 35400}, "2": {"n": 88, "price": 132, "occ": 192, "rev": 25344, "rev_top25": 47400}, "3": {"n": 23, "price": 195, "occ": 180, "rev": 35100, "rev_top25": 66600}}, "Northgate / Shoreline": {"1": {"n": 98, "price": 102, "occ": 192, "rev": 19584, "rev_top25": 35400}, "2": {"n": 78, "price": 138, "occ": 186, "rev": 25668, "rev_top25": 48000}, "3": {"n": 22, "price": 202, "occ": 174, "rev": 35148, "rev_top25": 67200}}}};
+const DATA={"overall":{"total_active":5667,"median_price":314,"median_occ":120,"median_rev":35424,"entire_share":85},"subs":[{"suburb":"Pike-Market","n":62,"median_price":480,"median_occ":152,"median_rev":72064,"rev_top25":106447},{"suburb":"Belltown","n":279,"median_price":314,"median_occ":210,"median_rev":62730,"rev_top25":80198},{"suburb":"Lower Queen Anne","n":94,"median_price":387,"median_occ":183,"median_rev":61838,"rev_top25":88365},{"suburb":"West Queen Anne","n":90,"median_price":385,"median_occ":135,"median_rev":56110,"rev_top25":90647},{"suburb":"East Queen Anne","n":109,"median_price":358,"median_occ":144,"median_rev":53775,"rev_top25":90936},{"suburb":"Minor","n":176,"median_price":364,"median_occ":168,"median_rev":49856,"rev_top25":82048},{"suburb":"Central Business District","n":42,"median_price":387,"median_occ":147,"median_rev":49446,"rev_top25":72598},{"suburb":"Mid-Beacon Hill","n":46,"median_price":304,"median_occ":174,"median_rev":48259,"rev_top25":69754},{"suburb":"Adams","n":95,"median_price":365,"median_occ":132,"median_rev":47433,"rev_top25":77160},{"suburb":"Alki","n":89,"median_price":371,"median_occ":120,"median_rev":45823,"rev_top25":67536},{"suburb":"Broadway","n":230,"median_price":306,"median_occ":156,"median_rev":45035,"rev_top25":74407},{"suburb":"Eastlake","n":62,"median_price":380,"median_occ":126,"median_rev":42398,"rev_top25":63489},{"suburb":"First Hill","n":91,"median_price":301,"median_occ":144,"median_rev":41766,"rev_top25":62850},{"suburb":"Whittier Heights","n":60,"median_price":280,"median_occ":141,"median_rev":39550,"rev_top25":54823},{"suburb":"Montlake","n":27,"median_price":278,"median_occ":150,"median_rev":39398,"rev_top25":48506},{"suburb":"West Woodland","n":65,"median_price":330,"median_occ":126,"median_rev":38624,"rev_top25":58268},{"suburb":"Fremont","n":183,"median_price":317,"median_occ":132,"median_rev":38002,"rev_top25":63496},{"suburb":"Lawton Park","n":48,"median_price":329,"median_occ":120,"median_rev":37945,"rev_top25":58658},{"suburb":"North Queen Anne","n":93,"median_price":348,"median_occ":114,"median_rev":37924,"rev_top25":56077},{"suburb":"Fairmount Park","n":46,"median_price":318,"median_occ":117,"median_rev":36834,"rev_top25":61911},{"suburb":"North Admiral","n":96,"median_price":374,"median_occ":108,"median_rev":35782,"rev_top25":52917},{"suburb":"Atlantic","n":100,"median_price":391,"median_occ":120,"median_rev":35686,"rev_top25":59372},{"suburb":"Victory Heights","n":26,"median_price":312,"median_occ":93,"median_rev":35469,"rev_top25":50936},{"suburb":"Yesler Terrace","n":30,"median_price":181,"median_occ":201,"median_rev":34440,"rev_top25":47043},{"suburb":"Loyal Heights","n":61,"median_price":286,"median_occ":132,"median_rev":34260,"rev_top25":60818},{"suburb":"Stevens","n":99,"median_price":357,"median_occ":120,"median_rev":34104,"rev_top25":63031},{"suburb":"Sunset Hill","n":28,"median_price":300,"median_occ":69,"median_rev":33926,"rev_top25":51021},{"suburb":"Roosevelt","n":40,"median_price":293,"median_occ":114,"median_rev":33766,"rev_top25":53478},{"suburb":"North Delridge","n":34,"median_price":290,"median_occ":105,"median_rev":32781,"rev_top25":48508},{"suburb":"South Delridge","n":35,"median_price":282,"median_occ":132,"median_rev":32661,"rev_top25":44599},{"suburb":"Mann","n":68,"median_price":284,"median_occ":114,"median_rev":32512,"rev_top25":50402},{"suburb":"North Beacon Hill","n":130,"median_price":311,"median_occ":105,"median_rev":32100,"rev_top25":62114},{"suburb":"Southeast Magnolia","n":27,"median_price":325,"median_occ":102,"median_rev":32028,"rev_top25":56006},{"suburb":"Phinney Ridge","n":73,"median_price":304,"median_occ":96,"median_rev":31920,"rev_top25":45540},{"suburb":"South Beacon Hill","n":27,"median_price":275,"median_occ":126,"median_rev":30996,"rev_top25":66328},{"suburb":"North Beach/Blue Ridge","n":27,"median_price":317,"median_occ":78,"median_rev":30888,"rev_top25":38598},{"suburb":"Columbia City","n":72,"median_price":275,"median_occ":111,"median_rev":29126,"rev_top25":51410},{"suburb":"Arbor Heights","n":25,"median_price":344,"median_occ":72,"median_rev":28812,"rev_top25":42480},{"suburb":"Green Lake","n":99,"median_price":287,"median_occ":84,"median_rev":28662,"rev_top25":54924},{"suburb":"Riverview","n":25,"median_price":290,"median_occ":144,"median_rev":28552,"rev_top25":52542},{"suburb":"Madrona","n":35,"median_price":434,"median_occ":84,"median_rev":28490,"rev_top25":67818},{"suburb":"Leschi","n":39,"median_price":417,"median_occ":72,"median_rev":27654,"rev_top25":57556},{"suburb":"Gatewood","n":33,"median_price":268,"median_occ":114,"median_rev":27456,"rev_top25":40739},{"suburb":"Wallingford","n":183,"median_price":307,"median_occ":90,"median_rev":27320,"rev_top25":52712},{"suburb":"Ravenna","n":61,"median_price":262,"median_occ":102,"median_rev":27246,"rev_top25":46653},{"suburb":"Haller Lake","n":30,"median_price":298,"median_occ":108,"median_rev":27162,"rev_top25":38161},{"suburb":"Rainier Beach","n":45,"median_price":257,"median_occ":120,"median_rev":26729,"rev_top25":52416},{"suburb":"Genesee","n":49,"median_price":298,"median_occ":78,"median_rev":25000,"rev_top25":46008},{"suburb":"Brighton","n":46,"median_price":292,"median_occ":78,"median_rev":24972,"rev_top25":41921},{"suburb":"Maple Leaf","n":41,"median_price":249,"median_occ":126,"median_rev":24264,"rev_top25":40694},{"suburb":"Greenwood","n":97,"median_price":258,"median_occ":96,"median_rev":23139,"rev_top25":34935},{"suburb":"Crown Hill","n":27,"median_price":249,"median_occ":102,"median_rev":22600,"rev_top25":51098},{"suburb":"Mount Baker","n":48,"median_price":291,"median_occ":93,"median_rev":22524,"rev_top25":50512},{"suburb":"Matthews Beach","n":30,"median_price":313,"median_occ":99,"median_rev":21815,"rev_top25":40650},{"suburb":"Fauntleroy","n":31,"median_price":278,"median_occ":84,"median_rev":21795,"rev_top25":41200},{"suburb":"Seward Park","n":44,"median_price":279,"median_occ":57,"median_rev":21784,"rev_top25":37909},{"suburb":"Seaview","n":28,"median_price":255,"median_occ":96,"median_rev":19952,"rev_top25":44608},{"suburb":"Bryant","n":30,"median_price":265,"median_occ":108,"median_rev":19920,"rev_top25":45548},{"suburb":"University District","n":129,"median_price":200,"median_occ":96,"median_rev":13380,"rev_top25":35248}],"cohort":{"Adams":{"1":{"n":28,"price":266,"occ":111,"rev":31384,"rev_top25":47613},"2":{"n":28,"price":374,"occ":135,"rev":46648,"rev_top25":73814},"3":{"n":23,"price":478,"occ":138,"rev":73780,"rev_top25":86810}},"Alki":{"1":{"n":25,"price":250,"occ":150,"rev":35064,"rev_top25":50235},"2":{"n":33,"price":407,"occ":114,"rev":40500,"rev_top25":69403},"3":{"n":20,"price":533,"occ":114,"rev":63438,"rev_top25":94152}},"Atlantic":{"1":{"n":22,"price":212,"occ":165,"rev":29520,"rev_top25":45182},"2":{"n":31,"price":356,"occ":114,"rev":37992,"rev_top25":56780},"3":{"n":30,"price":455,"occ":114,"rev":53871,"rev_top25":72468},"4":{"n":14,"price":537,"occ":63,"rev":27804,"rev_top25":62258}},"Belltown":{"1":{"n":147,"price":303,"occ":180,"rev":52752,"rev_top25":74684},"2":{"n":74,"price":437,"occ":180,"rev":78950,"rev_top25":103960}},"Brighton":{"1":{"n":12,"price":221,"occ":183,"rev":31442,"rev_top25":46008},"2":{"n":13,"price":284,"occ":60,"rev":11949,"rev_top25":36120},"4":{"n":10,"price":475,"occ":48,"rev":23708,"rev_top25":45058}},"Broadway":{"1":{"n":95,"price":229,"occ":120,"rev":30408,"rev_top25":47005},"2":{"n":69,"price":370,"occ":162,"rev":57602,"rev_top25":93121},"3":{"n":24,"price":441,"occ":183,"rev":76520,"rev_top25":111503},"4":{"n":11,"price":640,"occ":120,"rev":76848,"rev_top25":82045}},"Bryant":{"1":{"n":11,"price":179,"occ":108,"rev":13739,"rev_top25":23469},"2":{"n":12,"price":375,"occ":116,"rev":44441,"rev_top25":69653}},"Central Business District":{"1":{"n":26,"price":311,"occ":159,"rev":52311,"rev_top25":71810},"2":{"n":13,"price":477,"occ":84,"rev":48094,"rev_top25":65284}},"Columbia City":{"1":{"n":32,"price":204,"occ":138,"rev":34473,"rev_top25":48346},"2":{"n":15,"price":325,"occ":108,"rev":18543,"rev_top25":45892},"3":{"n":10,"price":372,"occ":69,"rev":26321,"rev_top25":77251}},"Crown Hill":{"1":{"n":12,"price":235,"occ":120,"rev":24968,"rev_top25":39876},"2":{"n":10,"price":263,"occ":72,"rev":21624,"rev_top25":38534}},"Dunlap":{"4":{"n":11,"price":571,"occ":102,"rev":60340,"rev_top25":102595}},"East Queen Anne":{"1":{"n":31,"price":253,"occ":174,"rev":37650,"rev_top25":59848},"2":{"n":38,"price":352,"occ":123,"rev":41704,"rev_top25":76101},"3":{"n":19,"price":555,"occ":144,"rev":68558,"rev_top25":116187},"4":{"n":17,"price":851,"occ":144,"rev":114422,"rev_top25":210168}},"Eastlake":{"1":{"n":15,"price":163,"occ":174,"rev":24307,"rev_top25":42718},"2":{"n":23,"price":390,"occ":120,"rev":45599,"rev_top25":67830},"3":{"n":17,"price":492,"occ":114,"rev":57195,"rev_top25":124313}},"Fairmount Park":{"1":{"n":15,"price":228,"occ":84,"rev":21888,"rev_top25":32770},"2":{"n":18,"price":328,"occ":150,"rev":36834,"rev_top25":62335}},"Fauntleroy":{"1":{"n":21,"price":245,"occ":108,"rev":20130,"rev_top25":35028}},"First Hill":{"1":{"n":48,"price":272,"occ":138,"rev":32958,"rev_top25":51800},"2":{"n":33,"price":369,"occ":144,"rev":55023,"rev_top25":86346}},"Fremont":{"1":{"n":62,"price":234,"occ":132,"rev":31946,"rev_top25":51361},"2":{"n":65,"price":338,"occ":126,"rev":40095,"rev_top25":59925},"3":{"n":37,"price":478,"occ":120,"rev":60750,"rev_top25":84023},"4":{"n":10,"price":570,"occ":54,"rev":34914,"rev_top25":45742}},"Gatewood":{"1":{"n":17,"price":219,"occ":126,"rev":27456,"rev_top25":40194}},"Genesee":{"1":{"n":15,"price":209,"occ":72,"rev":13146,"rev_top25":33552},"2":{"n":14,"price":337,"occ":141,"rev":33318,"rev_top25":64612},"3":{"n":14,"price":335,"occ":75,"rev":24326,"rev_top25":53958}},"Green Lake":{"1":{"n":39,"price":227,"occ":102,"rev":16176,"rev_top25":51678},"2":{"n":28,"price":332,"occ":117,"rev":35326,"rev_top25":71041},"3":{"n":12,"price":438,"occ":99,"rev":33856,"rev_top25":53902},"4":{"n":12,"price":836,"occ":54,"rev":48183,"rev_top25":59344}},"Greenwood":{"1":{"n":34,"price":184,"occ":120,"rev":21474,"rev_top25":31172},"2":{"n":34,"price":312,"occ":78,"rev":23760,"rev_top25":40018},"3":{"n":11,"price":382,"occ":54,"rev":20655,"rev_top25":38265}},"Haller Lake":{"1":{"n":10,"price":146,"occ":138,"rev":16344,"rev_top25":23550}},"Lawton Park":{"1":{"n":14,"price":220,"occ":138,"rev":23455,"rev_top25":53181},"2":{"n":19,"price":336,"occ":120,"rev":54119,"rev_top25":59426}},"Leschi":{"2":{"n":14,"price":393,"occ":54,"rev":22612,"rev_top25":45812},"3":{"n":11,"price":404,"occ":108,"rev":39028,"rev_top25":62351}},"Lower Queen Anne":{"1":{"n":27,"price":246,"occ":222,"rev":44640,"rev_top25":65662},"2":{"n":32,"price":440,"occ":189,"rev":71370,"rev_top25":113388},"3":{"n":21,"price":596,"occ":168,"rev":82207,"rev_top25":123192}},"Loyal Heights":{"1":{"n":23,"price":238,"occ":132,"rev":25956,"rev_top25":49833},"2":{"n":16,"price":318,"occ":144,"rev":39752,"rev_top25":65793},"3":{"n":12,"price":447,"occ":120,"rev":50228,"rev_top25":66545}},"Madrona":{"1":{"n":13,"price":218,"occ":96,"rev":23070,"rev_top25":43689}},"Mann":{"1":{"n":26,"price":218,"occ":126,"rev":31108,"rev_top25":41020},"2":{"n":14,"price":396,"occ":126,"rev":41636,"rev_top25":65860},"3":{"n":16,"price":377,"occ":96,"rev":41652,"rev_top25":52787}},"Maple Leaf":{"1":{"n":14,"price":201,"occ":192,"rev":32836,"rev_top25":42378},"2":{"n":15,"price":283,"occ":126,"rev":32982,"rev_top25":51777}},"Matthews Beach":{"1":{"n":12,"price":231,"occ":87,"rev":15492,"rev_top25":40090}},"Mid-Beacon Hill":{"1":{"n":13,"price":191,"occ":138,"rev":12384,"rev_top25":48705},"2":{"n":12,"price":301,"occ":189,"rev":54878,"rev_top25":69947},"4":{"n":14,"price":593,"occ":168,"rev":57248,"rev_top25":134720}},"Minor":{"1":{"n":42,"price":221,"occ":195,"rev":38178,"rev_top25":47742},"2":{"n":64,"price":350,"occ":141,"rev":44353,"rev_top25":64249},"3":{"n":43,"price":441,"occ":180,"rev":82863,"rev_top25":104445},"4":{"n":19,"price":655,"occ":126,"rev":81966,"rev_top25":105360}},"Montlake":{"1":{"n":15,"price":212,"occ":180,"rev":33288,"rev_top25":43144}},"Mount Baker":{"1":{"n":22,"price":226,"occ":98,"rev":20931,"rev_top25":43168},"3":{"n":10,"price":436,"occ":105,"rev":36260,"rev_top25":78510}},"North Admiral":{"1":{"n":42,"price":254,"occ":120,"rev":34110,"rev_top25":49527},"2":{"n":25,"price":392,"occ":126,"rev":42315,"rev_top25":67635},"3":{"n":18,"price":445,"occ":66,"rev":33969,"rev_top25":51924}},"North Beach/Blue Ridge":{"1":{"n":10,"price":176,"occ":111,"rev":29478,"rev_top25":36130}},"North Beacon Hill":{"1":{"n":34,"price":238,"occ":81,"rev":20592,"rev_top25":37328},"2":{"n":47,"price":336,"occ":102,"rev":28280,"rev_top25":58641},"3":{"n":27,"price":512,"occ":102,"rev":58412,"rev_top25":112739}},"North Delridge":{"2":{"n":17,"price":282,"occ":144,"rev":37140,"rev_top25":60965}},"North Queen Anne":{"1":{"n":33,"price":231,"occ":120,"rev":28739,"rev_top25":46326},"2":{"n":16,"price":341,"occ":120,"rev":36936,"rev_top25":52291},"3":{"n":24,"price":420,"occ":117,"rev":44708,"rev_top25":78602},"4":{"n":15,"price":738,"occ":72,"rev":51840,"rev_top25":85641}},"Phinney Ridge":{"1":{"n":30,"price":239,"occ":108,"rev":24185,"rev_top25":34918},"2":{"n":26,"price":339,"occ":117,"rev":38890,"rev_top25":67869}},"Pike-Market":{"1":{"n":37,"price":427,"occ":150,"rev":61542,"rev_top25":76824},"2":{"n":25,"price":558,"occ":168,"rev":82080,"rev_top25":129540}},"Pioneer Square":{"1":{"n":12,"price":203,"occ":232,"rev":46767,"rev_top25":55418}},"Rainier Beach":{"1":{"n":16,"price":166,"occ":96,"rev":13060,"rev_top25":27191},"4":{"n":12,"price":560,"occ":90,"rev":59970,"rev_top25":91111}},"Ravenna":{"1":{"n":25,"price":215,"occ":102,"rev":20046,"rev_top25":32366},"2":{"n":19,"price":299,"occ":114,"rev":33119,"rev_top25":54540}},"Riverview":{"2":{"n":11,"price":272,"occ":168,"rev":26087,"rev_top25":38926}},"Roosevelt":{"1":{"n":14,"price":189,"occ":132,"rev":25686,"rev_top25":45755},"2":{"n":13,"price":302,"occ":114,"rev":35280,"rev_top25":66300}},"Seaview":{"1":{"n":10,"price":186,"occ":144,"rev":27783,"rev_top25":41936},"2":{"n":13,"price":298,"occ":66,"rev":16152,"rev_top25":20130}},"Seward Park":{"1":{"n":20,"price":229,"occ":84,"rev":20074,"rev_top25":34572}},"South Beacon Hill":{"2":{"n":11,"price":250,"occ":156,"rev":37714,"rev_top25":55401}},"South Delridge":{"2":{"n":10,"price":286,"occ":93,"rev":25632,"rev_top25":49963}},"South Lake Union":{"1":{"n":10,"price":334,"occ":105,"rev":41364,"rev_top25":80606}},"Stevens":{"1":{"n":33,"price":240,"occ":126,"rev":32604,"rev_top25":52889},"2":{"n":27,"price":371,"occ":120,"rev":42768,"rev_top25":72478},"3":{"n":19,"price":500,"occ":80,"rev":35820,"rev_top25":63360},"4":{"n":11,"price":747,"occ":18,"rev":17538,"rev_top25":59033}},"Sunset Hill":{"1":{"n":15,"price":276,"occ":144,"rev":41112,"rev_top25":60053}},"University District":{"1":{"n":50,"price":111,"occ":94,"rev":11451,"rev_top25":23981},"2":{"n":23,"price":270,"occ":72,"rev":24588,"rev_top25":46605},"3":{"n":14,"price":346,"occ":105,"rev":38763,"rev_top25":51010},"4":{"n":10,"price":608,"occ":63,"rev":35893,"rev_top25":67823}},"Wallingford":{"1":{"n":78,"price":234,"occ":102,"rev":22950,"rev_top25":45594},"2":{"n":45,"price":312,"occ":102,"rev":28296,"rev_top25":70308},"3":{"n":31,"price":428,"occ":84,"rev":34398,"rev_top25":61447},"4":{"n":18,"price":625,"occ":57,"rev":39569,"rev_top25":102345}},"West Queen Anne":{"1":{"n":26,"price":230,"occ":120,"rev":32174,"rev_top25":56783},"2":{"n":32,"price":400,"occ":156,"rev":56857,"rev_top25":92531},"3":{"n":11,"price":548,"occ":114,"rev":70023,"rev_top25":92770},"4":{"n":15,"price":827,"occ":90,"rev":115430,"rev_top25":141912}},"West Woodland":{"1":{"n":22,"price":218,"occ":159,"rev":30721,"rev_top25":50787},"2":{"n":25,"price":334,"occ":96,"rev":35372,"rev_top25":46073},"3":{"n":10,"price":413,"occ":90,"rev":56056,"rev_top25":75405}},"Whittier Heights":{"1":{"n":32,"price":224,"occ":117,"rev":28284,"rev_top25":45486},"2":{"n":16,"price":306,"occ":162,"rev":49640,"rev_top25":66412}},"Yesler Terrace":{"1":{"n":11,"price":173,"occ":180,"rev":27000,"rev_top25":39764}}}};
 const CCY="$";
-const LOCALE="en-US";
-const fmt=n=>CCY+n.toLocaleString(LOCALE);
-const bedLabel={0:"Studio",1:"1 bedroom",2:"2 bedrooms",3:"3 bedrooms",4:"4+ bedrooms"};
+const fmt=n=>CCY+n.toLocaleString('en-US');
+const bedLabel={0:'Studio',1:'1 bedroom',2:'2 bedrooms',3:'3 bedrooms',4:'4+ bedrooms'};
 const words="What your Seattle listing should earn.".split(" ");
-document.getElementById("h1").innerHTML=words.map(w=>{const it=/should|earn/.test(w)?" it":"";return "<span class=\"w"+it+"\">"+w+"&nbsp;</span>";}).join("");
-document.querySelectorAll("#h1 .w").forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+"s");
-const subSel=document.getElementById("sub"),bedSel=document.getElementById("bed"),res=document.getElementById("result");
-Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement("option");o.value=s;o.textContent=s;subSel.appendChild(o);});
-function fillBeds(){const beds=Object.keys(DATA.cohort[subSel.value]).map(Number).sort((a,b)=>a-b);bedSel.innerHTML="";beds.forEach(b=>{const o=document.createElement("option");o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});}
-function render(){const c=DATA.cohort[subSel.value]?.[bedSel.value];if(!c){res.innerHTML="<div class=\"empty\">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>";return;}res.innerHTML="<div class=\"cell\"><div class=\"l\">Median nightly rate</div><div class=\"v\">"+fmt(c.price)+"</div></div>"+"<div class=\"cell\"><div class=\"l\">Typical nights booked / yr</div><div class=\"v\">"+c.occ+"<small> nights</small></div></div>"+"<div class=\"cell\"><div class=\"l\">Median annual revenue</div><div class=\"v\">"+fmt(c.rev)+"</div></div>"+"<div class=\"cell hot\"><div class=\"l\">Top 25% earn</div><div class=\"v\">"+fmt(c.rev_top25)+"<small> /yr</small></div></div>"+"<div class=\"cell span\"><div class=\"l\">Based on</div><div class=\"v\" style=\"font-size:22px\">"+c.n+" comparable "+bedLabel[bedSel.value].toLowerCase()+" listings</div></div>";}
-subSel.addEventListener("change",()=>{fillBeds();render();});bedSel.addEventListener("change",render);
+document.getElementById('h1').innerHTML=words.map(w=>{
+  const it=/should|earn/.test(w)?' it':'';
+  return `<span class="w${it}">${w}&nbsp;</span>`;
+}).join("");
+document.querySelectorAll('#h1 .w').forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+'s');
+const subSel=document.getElementById('sub'),bedSel=document.getElementById('bed'),res=document.getElementById('result');
+Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;subSel.appendChild(o);});
+function fillBeds(){
+  const beds=Object.keys(DATA.cohort[subSel.value]).map(Number).sort((a,b)=>a-b);
+  bedSel.innerHTML="";
+  beds.forEach(b=>{const o=document.createElement('option');o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});
+}
+function render(){
+  const c=DATA.cohort[subSel.value]?.[bedSel.value];
+  if(!c){res.innerHTML='<div class="empty">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>';return;}
+  res.innerHTML=`
+   <div class="cell"><div class="l">Median nightly rate</div><div class="v">${fmt(c.price)}</div></div>
+   <div class="cell"><div class="l">Typical nights booked / yr</div><div class="v">${c.occ}<small> nights</small></div></div>
+   <div class="cell"><div class="l">Median annual revenue</div><div class="v">${fmt(c.rev)}</div></div>
+   <div class="cell hot"><div class="l">Top 25% earn</div><div class="v">${fmt(c.rev_top25)}<small> /yr</small></div></div>
+   <div class="cell span"><div class="l">Based on</div><div class="v" style="font-size:22px">${c.n} comparable ${bedLabel[bedSel.value].toLowerCase()} listings</div></div>`;
+}
+subSel.addEventListener('change',()=>{fillBeds();render();});
+bedSel.addEventListener('change',render);
 subSel.value=Object.keys(DATA.cohort).sort()[0];fillBeds();render();
-let rows=[...DATA.subs],sortK="median_rev",dir=-1;
-const tb=document.getElementById("tb");
-function draw(){rows.sort((a,b)=>typeof a[sortK]==="string"?a[sortK].localeCompare(b[sortK])*dir:(a[sortK]-b[sortK])*dir);tb.innerHTML=rows.map((r,i)=>"<tr><td><span class=\"rank\">"+(i+1)+"</span>"+r.suburb+"</td><td>"+r.n.toLocaleString(LOCALE)+"</td><td>"+fmt(r.median_price)+"</td><td class=\"occ-col\">"+r.median_occ+"</td><td class=\"big\">"+fmt(r.median_rev)+"</td><td>"+fmt(r.rev_top25)+"</td></tr>").join("");}
-document.querySelectorAll("#tbl th").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.k;if(k===sortK)dir=-dir;else{sortK=k;dir=(k==="suburb")?1:-1;}document.querySelectorAll("#tbl th").forEach(x=>x.classList.remove("up","down"));th.classList.add(dir===1?"up":"down");draw();}));
+let rows=[...DATA.subs],sortK='median_rev',dir=-1;
+const tb=document.getElementById('tb');
+function draw(){
+  rows.sort((a,b)=> typeof a[sortK]==='string'? a[sortK].localeCompare(b[sortK])*dir : (a[sortK]-b[sortK])*dir);
+  tb.innerHTML=rows.map((r,i)=>`<tr>
+    <td><span class="rank">${i+1}</span>${r.suburb}</td>
+    <td>${r.n.toLocaleString('en-US')}</td>
+    <td>${fmt(r.median_price)}</td>
+    <td class="occ-col">${r.median_occ}</td>
+    <td class="big">${fmt(r.median_rev)}</td>
+    <td>${fmt(r.rev_top25)}</td></tr>`).join("");
+}
+document.querySelectorAll('#tbl th').forEach(th=>th.addEventListener('click',()=>{
+  const k=th.dataset.k;
+  if(k===sortK)dir=-dir;else{sortK=k;dir=(k==='suburb')?1:-1;}
+  document.querySelectorAll('#tbl th').forEach(x=>x.classList.remove('up','down'));
+  th.classList.add(dir===1?'up':'down');draw();
+}));
 draw();
 </script>
 </body>

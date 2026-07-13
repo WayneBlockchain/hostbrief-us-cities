@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="How much do Airbnb hosts earn in San Francisco? See real nightly rates, occupancy and annual revenue by area — free, no signup. Built from public Airbnb data.">
+<meta property="og:title" content="What Airbnb Hosts Earn in San Francisco — Free Pricing Benchmark">
+<meta property="og:description" content="See what comparable Airbnb listings actually earn in San Francisco — nightly rate, occupancy and annual revenue, by area. Free, no signup.">
+<meta property="og:type" content="website">
+<title>What Airbnb Hosts Earn in San Francisco (2026 Data) — Free Pricing Tool | HostBrief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a2027; --ocean:#0e3a44; --teal:#15616d; --sea:#2a9d8f;
+  --sand:#f6efe2; --paper:#fbf7ee; --coral:#e8633f; --gold:#e6b54a;
+  --line:rgba(10,32,39,.12); --muted:#5c6b6e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;
+  border-bottom:1px solid rgba(246,239,226,.15)}
+.brand{font-family:'Fraunces';font-weight:900;font-size:21px;color:var(--sand);letter-spacing:-.01em}
+.brand span{color:var(--coral)}
+.bar .tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,239,226,.6)}
+.hero{background:var(--ocean);color:var(--sand);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 85% -10%,rgba(42,157,143,.35),transparent 60%),
+             radial-gradient(90% 70% at -10% 110%,rgba(232,99,63,.22),transparent 55%);}
+.hero::after{content:"";position:absolute;inset:0;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero .wrap{position:relative;z-index:1}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin:64px 0 22px;opacity:0;animation:rise .7s .05s forwards}
+h1{font-family:'Fraunces';font-weight:900;font-size:clamp(40px,7vw,82px);line-height:.96;
+  letter-spacing:-.02em;max-width:14ch}
+h1 .it{font-style:italic;font-weight:500;color:var(--sea)}
+.hero h1 .w{display:inline-block;opacity:0;animation:rise .8s forwards}
+.lede{font-size:clamp(16px,2vw,20px);color:rgba(246,239,226,.82);max-width:48ch;margin:26px 0 8px;
+  opacity:0;animation:rise .7s .55s forwards}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,239,226,.16);
+  border:1px solid rgba(246,239,226,.16);border-radius:14px;overflow:hidden;margin:46px 0 -44px;
+  opacity:0;animation:rise .7s .7s forwards}
+.stat{background:var(--ocean);padding:22px 20px}
+.stat .v{font-family:'Fraunces';font-weight:900;font-size:clamp(26px,3.4vw,38px);color:var(--sand);line-height:1}
+.stat .v small{font-size:.5em;font-weight:600;color:var(--gold)}
+.stat .l{font-size:12.5px;color:rgba(246,239,226,.62);margin-top:9px;letter-spacing:.02em}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+section{padding:96px 0}
+.kick{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);font-weight:700}
+.h2{font-family:'Fraunces';font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.015em;
+  margin:14px 0 10px;line-height:1.02}
+.sub{color:var(--muted);max-width:56ch;font-size:16px}
+.finder{background:var(--ink);color:var(--sand);border-radius:22px;padding:38px;
+  display:grid;grid-template-columns:320px 1fr;gap:38px;margin-top:36px}
+.finder .controls label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 9px}
+.finder select{width:100%;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.22);
+  background:var(--ocean);color:var(--sand);font-family:'Archivo';font-size:16px;font-weight:600;
+  margin-bottom:22px;cursor:pointer;appearance:none}
+.finder .note{font-size:12.5px;color:rgba(246,239,226,.5);line-height:1.55;margin-top:6px}
+.result{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(246,239,226,.14);
+  border-radius:14px;overflow:hidden;align-content:start}
+.cell{background:var(--ink);padding:24px}
+.cell .l{font-size:12px;color:rgba(246,239,226,.6);letter-spacing:.04em}
+.cell .v{font-family:'Fraunces';font-weight:900;font-size:34px;color:var(--sand);margin-top:8px;line-height:1}
+.cell .v small{font-size:.42em;font-weight:600;color:var(--gold);letter-spacing:.02em}
+.cell.hot .v{color:var(--sea)}
+.cell.span{grid-column:1/-1;background:linear-gradient(100deg,#10303a,#0a2027)}
+.empty{grid-column:1/-1;background:var(--ink);padding:40px;text-align:center;color:rgba(246,239,226,.55)}
+.tablewrap{margin-top:34px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:right;padding:15px 18px;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+thead th{background:var(--sand);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--teal);cursor:pointer;user-select:none;font-weight:700}
+thead th:hover{color:var(--coral)}
+thead th.up::after{content:"▲";font-size:8px;margin-left:6px}
+thead th.down::after{content:"▼";font-size:8px;margin-left:6px}
+tbody tr:hover{background:var(--sand)}
+tbody td:first-child{font-weight:700;font-family:'Fraunces'}
+td.big{font-weight:700;color:var(--teal)}
+.rank{color:var(--muted);font-weight:400;font-family:'Archivo';margin-right:10px;font-size:13px}
+.method{background:var(--sand);border-radius:20px;padding:40px;display:grid;
+  grid-template-columns:1.3fr 1fr;gap:40px}
+.method ul{list-style:none;margin-top:8px}
+.method li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:#3a4a4d}
+.method li b{color:var(--ink)}
+.cta{text-align:center;padding:18px 0 0}
+.cta a{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;
+  padding:16px 34px;border-radius:999px;font-size:16px;transition:transform .15s,box-shadow .15s;
+  box-shadow:0 10px 26px rgba(232,99,63,.32)}
+.cta a:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,99,63,.42)}
+footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer b{color:var(--sand)}
+@media(max-width:760px){
+ .statrow{grid-template-columns:repeat(2,1fr)}
+ .finder{grid-template-columns:1fr;padding:26px}
+ .method{grid-template-columns:1fr;padding:28px}
+ th,td{padding:12px 11px;font-size:13.5px}
+ .occ-col{display:none}
+}
+@media(max-width:640px){
+  .result{grid-template-columns:1fr}
+  .cell{padding:18px 20px}
+  .cell .v{font-size:clamp(24px,7vw,32px)}
+  .cell .l{overflow-wrap:anywhere}
+}
+</style>
+</head>
+<body>
+<div class="hero">
+ <div class="wrap">
+  <div class="bar">
+   <a href="https://hostbrief.app/" style="text-decoration:none;color:inherit"><div class="brand">Host<span>Brief</span></div></a>
+   <div class="tag">San Francisco, CA · STR Index</div>
+  </div>
+  <div class="eyebrow">Free · public data · no signup</div>
+  <h1 id="h1"></h1>
+  <p class="lede">How much should you charge for your San Francisco Airbnb? See what comparable listings actually earn — real nightly rates, occupancy and annual revenue across 4,482 active San Francisco listings, so you can price yours with confidence.</p>
+  <div class="statrow">
+   <div class="stat"><div class="v">$288</div><div class="l">Median nightly rate</div></div>
+   <div class="stat"><div class="v">165<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
+   <div class="stat"><div class="v">$42,391</div><div class="l">Median annual revenue</div></div>
+   <div class="stat"><div class="v">63<small>%</small></div><div class="l">Are entire homes</div></div>
+  </div>
+  <p class="hb-hero-caveat" style="margin:64px 0 0;font-size:12.5px;line-height:1.5;color:rgba(246,239,226,.55);max-width:52ch;position:relative;z-index:1">Figures are market estimates from public data — directional, not your exact dashboard.</p>
+ </div>
+</div>
+<section>
+ <div class="wrap">
+  <div class="kick">The 30-second check</div>
+  <div class="h2">Find your spot</div>
+  <p class="sub">Pick your neighbourhood and size. See what comparable places actually charge, how often they book, and what the top quarter of them pull in a year.</p>
+  <div class="finder">
+   <div class="controls">
+    <label>Neighbourhood</label>
+    <select id="sub"></select>
+    <label>Bedrooms</label>
+    <select id="bed"></select>
+    <p class="note">Figures are medians for active <b>entire-home</b> listings in your neighbourhood. Occupancy &amp; revenue are estimates from public booking data — directional, not your exact dashboard.</p>
+   </div>
+   <div class="result" id="result"></div>
+  </div>
+ </div>
+</section>
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="kick">The league table</div>
+  <div class="h2">Every neighbourhood, ranked</div>
+  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings — occupancy is half the story.</p>
+  <div class="tablewrap">
+   <table id="tbl">
+    <thead><tr>
+     <th data-k="suburb">Neighbourhood</th>
+     <th data-k="n">Listings</th>
+     <th data-k="median_price">Nightly</th>
+     <th data-k="median_occ" class="occ-col">Nights/yr</th>
+     <th data-k="median_rev" class="down">Median /yr</th>
+     <th data-k="rev_top25">Top 25% /yr</th>
+    </tr></thead>
+    <tbody id="tb"></tbody>
+   </table>
+  </div>
+ </div>
+</section>
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="method">
+   <div>
+    <div class="kick">Straight about the data</div>
+    <div class="h2" style="font-size:30px">No black box</div>
+    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers — and what they can and can't tell you.</p>
+   </div>
+   <ul>
+    <li><b>Source:</b> Inside Airbnb — public-domain listing data.</li>
+    <li><b>Snapshot:</b> June 2026. Short-term rental pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
+    <li><b>What we compute:</b> nightly price, listing counts and the area &amp; bedroom groupings — straight from Inside Airbnb's public listings.</li>
+    <li><b>Occupancy &amp; revenue</b> are <b>Inside Airbnb's own published estimates</b> (their <span style="white-space:nowrap">estimated_occupancy</span> and <span style="white-space:nowrap">estimated_revenue</span>, trailing 12 months) — not a HostBrief model, and not hosts' real dashboards. Good for comparison, not accounting.</li>
+    <li>Listings are grouped by the areas Inside Airbnb publishes for this market.</li>
+    <li><b>Medians, not averages</b> — one ultra-luxury outlier won't skew your area.</li>
+   </ul>
+  </div>
+  <div class="capture-panel" style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:8px">
+   <div class="kick" style="color:var(--gold)">Free · no catch</div>
+   <div class="h2" style="font-size:30px;color:var(--sand);margin:10px 0 8px">Want a deep-dive on your exact listing?</div>
+   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. I’ll send back a personalised price benchmark — how your nightly rate compares to similar listings nearby, and whether you’re priced above or below them. No spam, just the breakdown.</p>
+   <form id="capture" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:580px;margin:0 auto">
+    <input type="email" name="email" required placeholder="you@email.com" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
+    <input type="url" name="listing" placeholder="Your Airbnb link (optional)" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
+    <input type="hidden" name="city" value="San Francisco">
+    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark →</button>
+    <p id="capmsg" style="flex:1 1 100%;font-size:14px;margin-top:10px;min-height:18px;color:rgba(246,239,226,.7)"></p>
+   </form>
+  </div>
+  <script>
+  (function(){
+   var f=document.getElementById('capture'),m=document.getElementById('capmsg');
+   if(!f)return;
+   f.addEventListener('submit',function(e){
+    e.preventDefault();
+    m.style.color='var(--gold)';m.textContent='Sending…';
+    var data={email:f.email.value,listing:f.listing.value,city:f.city.value};
+    fetch('https://hostbrief.app/api/city-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+     .then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};});}).then(function(res){var r=res.ok&&res.body.success?{ok:true}:{ok:false};if(r.ok){f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I’ll send your benchmark soon. ✓';}
+       else{m.style.color='#ff8c66';m.textContent='Something went wrong — email me at waynehavenga71@gmail.com';}
+     })
+     .catch(function(){m.style.color='#ff8c66';m.textContent='Network issue — email me at waynehavenga71@gmail.com';});
+   });
+  })();
+  </script>
+ </div>
+</section>
+<footer><div class="wrap">
+ <div>Built by <b>HostBrief</b> · San Francisco short-term rental intelligence</div>
+ <div>Data: Inside Airbnb (public domain) · June 2026 · Figures are estimates</div>
+</div></footer>
+<script>
+const DATA={"overall":{"total_active":4482,"median_price":288,"median_occ":165,"median_rev":42391,"entire_share":63},"subs":[{"suburb":"Marina","n":77,"median_price":395,"median_occ":180,"median_rev":71023,"rev_top25":119909},{"suburb":"Parkside","n":71,"median_price":314,"median_occ":255,"median_rev":68595,"rev_top25":97346},{"suburb":"Ocean View","n":29,"median_price":282,"median_occ":240,"median_rev":61523,"rev_top25":78285},{"suburb":"Outer Sunset","n":142,"median_price":296,"median_occ":255,"median_rev":61009,"rev_top25":93330},{"suburb":"Outer Mission","n":59,"median_price":298,"median_occ":253,"median_rev":59670,"rev_top25":91208},{"suburb":"Castro/Upper Market","n":158,"median_price":310,"median_occ":192,"median_rev":58241,"rev_top25":92152},{"suburb":"Outer Richmond","n":99,"median_price":274,"median_occ":255,"median_rev":54292,"rev_top25":78690},{"suburb":"Inner Sunset","n":77,"median_price":357,"median_occ":176,"median_rev":51936,"rev_top25":83808},{"suburb":"Inner Richmond","n":94,"median_price":296,"median_occ":148,"median_rev":50490,"rev_top25":77154},{"suburb":"Excelsior","n":53,"median_price":250,"median_occ":220,"median_rev":49720,"rev_top25":70840},{"suburb":"Visitacion Valley","n":33,"median_price":254,"median_occ":240,"median_rev":49127,"rev_top25":76118},{"suburb":"Lakeshore","n":27,"median_price":308,"median_occ":176,"median_rev":48972,"rev_top25":78558},{"suburb":"Bayview","n":53,"median_price":296,"median_occ":187,"median_rev":48769,"rev_top25":74888},{"suburb":"Twin Peaks","n":28,"median_price":424,"median_occ":150,"median_rev":48378,"rev_top25":85022},{"suburb":"Noe Valley","n":110,"median_price":314,"median_occ":180,"median_rev":47652,"rev_top25":79211},{"suburb":"Potrero Hill","n":70,"median_price":264,"median_occ":198,"median_rev":46771,"rev_top25":86080},{"suburb":"West of Twin Peaks","n":48,"median_price":283,"median_occ":198,"median_rev":44104,"rev_top25":61626},{"suburb":"Bernal Heights","n":114,"median_price":279,"median_occ":176,"median_rev":42958,"rev_top25":71295},{"suburb":"Western Addition","n":157,"median_price":319,"median_occ":132,"median_rev":41845,"rev_top25":66743},{"suburb":"Haight Ashbury","n":95,"median_price":282,"median_occ":180,"median_rev":40375,"rev_top25":77422},{"suburb":"Pacific Heights","n":67,"median_price":428,"median_occ":120,"median_rev":38728,"rev_top25":76412},{"suburb":"Russian Hill","n":71,"median_price":367,"median_occ":120,"median_rev":38371,"rev_top25":74434},{"suburb":"Mission","n":172,"median_price":292,"median_occ":120,"median_rev":37762,"rev_top25":71622},{"suburb":"North Beach","n":59,"median_price":232,"median_occ":132,"median_rev":33431,"rev_top25":64782},{"suburb":"South of Market","n":156,"median_price":281,"median_occ":120,"median_rev":31786,"rev_top25":57570},{"suburb":"Nob Hill","n":82,"median_price":216,"median_occ":121,"median_rev":26952,"rev_top25":49303},{"suburb":"Downtown/Civic Center","n":187,"median_price":231,"median_occ":44,"median_rev":11837,"rev_top25":27228}],"cohort":{"Bayview":{"1":{"n":16,"price":190,"occ":170,"rev":30094,"rev_top25":50076},"2":{"n":16,"price":285,"occ":236,"rev":56104,"rev_top25":76213},"3":{"n":12,"price":457,"occ":226,"rev":89738,"rev_top25":120707}},"Bernal Heights":{"1":{"n":49,"price":244,"occ":220,"rev":46288,"rev_top25":63586},"2":{"n":30,"price":362,"occ":120,"rev":32648,"rev_top25":76415},"3":{"n":21,"price":474,"occ":154,"rev":50602,"rev_top25":90816}},"Castro/Upper Market":{"1":{"n":78,"price":248,"occ":240,"rev":44772,"rev_top25":75404},"2":{"n":42,"price":432,"occ":104,"rev":51372,"rev_top25":103316},"3":{"n":19,"price":822,"occ":198,"rev":165528,"rev_top25":234240},"4":{"n":10,"price":1162,"occ":121,"rev":106760,"rev_top25":229036}},"Downtown/Civic Center":{"1":{"n":75,"price":286,"occ":33,"rev":10989,"rev_top25":19016},"2":{"n":13,"price":414,"occ":60,"rev":14180,"rev_top25":39710}},"Excelsior":{"1":{"n":20,"price":191,"occ":204,"rev":37808,"rev_top25":50295},"2":{"n":23,"price":280,"occ":231,"rev":61761,"rev_top25":78488}},"Financial District":{"1":{"n":12,"price":333,"occ":120,"rev":24554,"rev_top25":34985}},"Glen Park":{"2":{"n":11,"price":343,"occ":110,"rev":45738,"rev_top25":61098}},"Haight Ashbury":{"1":{"n":38,"price":217,"occ":240,"rev":42456,"rev_top25":70358},"2":{"n":13,"price":275,"occ":176,"rev":31124,"rev_top25":45474},"3":{"n":16,"price":575,"occ":126,"rev":76985,"rev_top25":147897},"4":{"n":17,"price":1045,"occ":60,"rev":53208,"rev_top25":134200}},"Inner Richmond":{"1":{"n":35,"price":262,"occ":255,"rev":52250,"rev_top25":81154},"2":{"n":30,"price":257,"occ":120,"rev":35548,"rev_top25":66237},"3":{"n":15,"price":749,"occ":110,"rev":66660,"rev_top25":105328}},"Inner Sunset":{"1":{"n":36,"price":247,"occ":240,"rev":47370,"rev_top25":66985},"2":{"n":18,"price":456,"occ":164,"rev":44189,"rev_top25":93791},"4":{"n":13,"price":1484,"occ":44,"rev":52140,"rev_top25":253215}},"Marina":{"1":{"n":29,"price":301,"occ":180,"rev":49114,"rev_top25":93330},"2":{"n":27,"price":485,"occ":180,"rev":86318,"rev_top25":127755},"3":{"n":12,"price":618,"occ":126,"rev":108774,"rev_top25":166496}},"Mission":{"1":{"n":63,"price":206,"occ":154,"rev":30919,"rev_top25":53790},"2":{"n":51,"price":329,"occ":120,"rev":36366,"rev_top25":84702},"3":{"n":35,"price":600,"occ":120,"rev":47586,"rev_top25":120806},"4":{"n":13,"price":466,"occ":120,"rev":53954,"rev_top25":70600}},"Nob Hill":{"1":{"n":41,"price":202,"occ":124,"rev":26951,"rev_top25":36841},"2":{"n":17,"price":233,"occ":143,"rev":40739,"rev_top25":60137}},"Noe Valley":{"1":{"n":53,"price":230,"occ":209,"rev":42129,"rev_top25":67045},"2":{"n":31,"price":502,"occ":143,"rev":70637,"rev_top25":122298},"3":{"n":18,"price":669,"occ":110,"rev":58918,"rev_top25":137397}},"North Beach":{"1":{"n":27,"price":182,"occ":180,"rev":29371,"rev_top25":42654},"2":{"n":19,"price":668,"occ":154,"rev":53030,"rev_top25":95556}},"Ocean View":{"3":{"n":10,"price":312,"occ":187,"rev":63070,"rev_top25":71481}},"Outer Mission":{"1":{"n":18,"price":231,"occ":198,"rev":42552,"rev_top25":60150},"2":{"n":26,"price":308,"occ":254,"rev":73332,"rev_top25":93402},"3":{"n":11,"price":412,"occ":255,"rev":101268,"rev_top25":103912}},"Outer Richmond":{"1":{"n":48,"price":228,"occ":255,"rev":52500,"rev_top25":66259},"2":{"n":27,"price":308,"occ":198,"rev":46460,"rev_top25":96008},"3":{"n":18,"price":575,"occ":132,"rev":72176,"rev_top25":147610}},"Outer Sunset":{"1":{"n":54,"price":235,"occ":255,"rev":49725,"rev_top25":66858},"2":{"n":48,"price":339,"occ":255,"rev":69633,"rev_top25":105005},"3":{"n":27,"price":561,"occ":209,"rev":116619,"rev_top25":159730}},"Pacific Heights":{"1":{"n":28,"price":190,"occ":180,"rev":38460,"rev_top25":58401},"3":{"n":10,"price":1457,"occ":55,"rev":77101,"rev_top25":113506},"4":{"n":12,"price":1717,"occ":50,"rev":65285,"rev_top25":114804}},"Parkside":{"1":{"n":24,"price":236,"occ":255,"rev":51812,"rev_top25":66394},"2":{"n":23,"price":341,"occ":255,"rev":76245,"rev_top25":97474},"3":{"n":15,"price":434,"occ":255,"rev":106394,"rev_top25":134332}},"Potrero Hill":{"1":{"n":42,"price":249,"occ":240,"rev":43358,"rev_top25":66152},"2":{"n":20,"price":263,"occ":178,"rev":53574,"rev_top25":103041}},"Presidio Heights":{"1":{"n":10,"price":404,"occ":255,"rev":92556,"rev_top25":118607}},"Russian Hill":{"1":{"n":26,"price":242,"occ":104,"rev":24519,"rev_top25":44826},"2":{"n":27,"price":500,"occ":88,"rev":38371,"rev_top25":82555},"3":{"n":11,"price":756,"occ":120,"rev":78941,"rev_top25":114242}},"South of Market":{"1":{"n":84,"price":225,"occ":122,"rev":28572,"rev_top25":51247},"2":{"n":43,"price":313,"occ":120,"rev":31980,"rev_top25":62048}},"Twin Peaks":{"1":{"n":12,"price":211,"occ":150,"rev":32692,"rev_top25":49611},"2":{"n":11,"price":490,"occ":88,"rev":55264,"rev_top25":104699}},"Visitacion Valley":{"1":{"n":12,"price":193,"occ":218,"rev":37722,"rev_top25":54060},"2":{"n":12,"price":317,"occ":248,"rev":57056,"rev_top25":87596}},"West of Twin Peaks":{"1":{"n":23,"price":252,"occ":255,"rev":52148,"rev_top25":61379},"2":{"n":10,"price":366,"occ":182,"rev":60288,"rev_top25":85582}},"Western Addition":{"1":{"n":68,"price":233,"occ":157,"rev":37279,"rev_top25":61869},"2":{"n":33,"price":413,"occ":120,"rev":40272,"rev_top25":58434},"3":{"n":30,"price":694,"occ":115,"rev":53000,"rev_top25":85140},"4":{"n":11,"price":941,"occ":33,"rev":77462,"rev_top25":159678}}}};
+const CCY="$";
+const fmt=n=>CCY+n.toLocaleString('en-US');
+const bedLabel={0:'Studio',1:'1 bedroom',2:'2 bedrooms',3:'3 bedrooms',4:'4+ bedrooms'};
+const words="What your San Francisco listing should earn.".split(" ");
+document.getElementById('h1').innerHTML=words.map(w=>{
+  const it=/should|earn/.test(w)?' it':'';
+  return `<span class="w${it}">${w}&nbsp;</span>`;
+}).join("");
+document.querySelectorAll('#h1 .w').forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+'s');
+const subSel=document.getElementById('sub'),bedSel=document.getElementById('bed'),res=document.getElementById('result');
+Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;subSel.appendChild(o);});
+function fillBeds(){
+  const beds=Object.keys(DATA.cohort[subSel.value]).map(Number).sort((a,b)=>a-b);
+  bedSel.innerHTML="";
+  beds.forEach(b=>{const o=document.createElement('option');o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});
+}
+function render(){
+  const c=DATA.cohort[subSel.value]?.[bedSel.value];
+  if(!c){res.innerHTML='<div class="empty">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>';return;}
+  res.innerHTML=`
+   <div class="cell"><div class="l">Median nightly rate</div><div class="v">${fmt(c.price)}</div></div>
+   <div class="cell"><div class="l">Typical nights booked / yr</div><div class="v">${c.occ}<small> nights</small></div></div>
+   <div class="cell"><div class="l">Median annual revenue</div><div class="v">${fmt(c.rev)}</div></div>
+   <div class="cell hot"><div class="l">Top 25% earn</div><div class="v">${fmt(c.rev_top25)}<small> /yr</small></div></div>
+   <div class="cell span"><div class="l">Based on</div><div class="v" style="font-size:22px">${c.n} comparable ${bedLabel[bedSel.value].toLowerCase()} listings</div></div>`;
+}
+subSel.addEventListener('change',()=>{fillBeds();render();});
+bedSel.addEventListener('change',render);
+subSel.value=Object.keys(DATA.cohort).sort()[0];fillBeds();render();
+let rows=[...DATA.subs],sortK='median_rev',dir=-1;
+const tb=document.getElementById('tb');
+function draw(){
+  rows.sort((a,b)=> typeof a[sortK]==='string'? a[sortK].localeCompare(b[sortK])*dir : (a[sortK]-b[sortK])*dir);
+  tb.innerHTML=rows.map((r,i)=>`<tr>
+    <td><span class="rank">${i+1}</span>${r.suburb}</td>
+    <td>${r.n.toLocaleString('en-US')}</td>
+    <td>${fmt(r.median_price)}</td>
+    <td class="occ-col">${r.median_occ}</td>
+    <td class="big">${fmt(r.median_rev)}</td>
+    <td>${fmt(r.rev_top25)}</td></tr>`).join("");
+}
+document.querySelectorAll('#tbl th').forEach(th=>th.addEventListener('click',()=>{
+  const k=th.dataset.k;
+  if(k===sortK)dir=-dir;else{sortK=k;dir=(k==='suburb')?1:-1;}
+  document.querySelectorAll('#tbl th').forEach(x=>x.classList.remove('up','down'));
+  th.classList.add(dir===1?'up':'down');draw();
+}));
+draw();
+</script>
+</body>
+</html>
