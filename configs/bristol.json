@@ -1,0 +1,13 @@
+{
+  "slug": "bristol",
+  "display_name": "Bristol",
+  "tag_location": "Bristol",
+  "country": "United Kingdom",
+  "currency_symbol": "£",
+  "currency_iso": "GBP",
+  "geography_label": "Area",
+  "grouped_by_copy": "Listings are grouped by the areas Inside Airbnb publishes for this market.",
+  "snapshot_month": "June 2026",
+  "source_csv": "data/bristol-2026-06-29.listings.csv.gz",
+  "source_url": "https://data.insideairbnb.com/united-kingdom/england/bristol/2026-06-29/data/listings.csv.gz"
+}

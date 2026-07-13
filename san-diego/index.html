@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="How much do Airbnb hosts earn in San Diego? See real nightly rates, occupancy and annual revenue by neighbourhood — free, no signup.">
+<meta name="description" content="How much do Airbnb hosts earn in San Diego? See real nightly rates, occupancy and annual revenue by area — free, no signup. Built from public Airbnb data.">
 <meta property="og:title" content="What Airbnb Hosts Earn in San Diego — Free Pricing Benchmark">
-<meta property="og:description" content="See what comparable Airbnb listings actually earn in San Diego — nightly rate, occupancy and annual revenue, by neighbourhood. Free, no signup.">
+<meta property="og:description" content="See what comparable Airbnb listings actually earn in San Diego — nightly rate, occupancy and annual revenue, by area. Free, no signup.">
 <meta property="og:type" content="website">
-<title>What Airbnb Hosts Earn in San Diego (2025 Data) — Free Pricing Tool | HostBrief</title>
+<title>What Airbnb Hosts Earn in San Diego (2026 Data) — Free Pricing Tool | HostBrief</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -79,8 +79,8 @@ th:first-child,td:first-child{text-align:left}
 thead th{background:var(--sand);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--teal);cursor:pointer;user-select:none;font-weight:700}
 thead th:hover{color:var(--coral)}
-thead th.up::after{content:"\25B2";font-size:8px;margin-left:6px}
-thead th.down::after{content:"\25BC";font-size:8px;margin-left:6px}
+thead th.up::after{content:"▲";font-size:8px;margin-left:6px}
+thead th.down::after{content:"▼";font-size:8px;margin-left:6px}
 tbody tr:hover{background:var(--sand)}
 tbody td:first-child{font-weight:700;font-family:'Fraunces'}
 td.big{font-weight:700;color:var(--teal)}
@@ -90,15 +90,20 @@ td.big{font-weight:700;color:var(--teal)}
 .method ul{list-style:none;margin-top:8px}
 .method li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:#3a4a4d}
 .method li b{color:var(--ink)}
+.cta{text-align:center;padding:18px 0 0}
+.cta a{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;
+  padding:16px 34px;border-radius:999px;font-size:16px;transition:transform .15s,box-shadow .15s;
+  box-shadow:0 10px 26px rgba(232,99,63,.32)}
+.cta a:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,99,63,.42)}
 footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 footer b{color:var(--sand)}
 @media(max-width:760px){
-  .statrow{grid-template-columns:repeat(2,1fr)}
-  .finder{grid-template-columns:1fr;padding:26px}
-  .method{grid-template-columns:1fr;padding:28px}
-  th,td{padding:12px 11px;font-size:13.5px}
-  .occ-col{display:none}
+ .statrow{grid-template-columns:repeat(2,1fr)}
+ .finder{grid-template-columns:1fr;padding:26px}
+ .method{grid-template-columns:1fr;padding:28px}
+ th,td{padding:12px 11px;font-size:13.5px}
+ .occ-col{display:none}
 }
 @media(max-width:640px){
   .result{grid-template-columns:1fr}
@@ -113,18 +118,18 @@ footer b{color:var(--sand)}
  <div class="wrap">
   <div class="bar">
    <a href="https://hostbrief.app/" style="text-decoration:none;color:inherit"><div class="brand">Host<span>Brief</span></div></a>
-   <div class="tag">San Diego, CA &middot; STR Index</div>
+   <div class="tag">San Diego, CA · STR Index</div>
   </div>
-  <div class="eyebrow">Free &middot; public data &middot; no signup</div>
+  <div class="eyebrow">Free · public data · no signup</div>
   <h1 id="h1"></h1>
-  <p class="lede">How much should you charge for your San Diego Airbnb? See what comparable listings actually earn &mdash; real nightly rates, occupancy and annual revenue across 12,456 active San Diego listings, so you can price yours with confidence.</p>
+  <p class="lede">How much should you charge for your San Diego Airbnb? See what comparable listings actually earn — real nightly rates, occupancy and annual revenue across 9,600 active San Diego listings, so you can price yours with confidence.</p>
   <div class="statrow">
-   <div class="stat"><div class="v">$198</div><div class="l">Median nightly rate</div></div>
-   <div class="stat"><div class="v">102<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
-   <div class="stat"><div class="v">$22,356</div><div class="l">Median annual revenue</div></div>
-   <div class="stat"><div class="v">78<small>%</small></div><div class="l">Are entire homes</div></div>
+   <div class="stat"><div class="v">$389</div><div class="l">Median nightly rate</div></div>
+   <div class="stat"><div class="v">124<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
+   <div class="stat"><div class="v">$42,618</div><div class="l">Median annual revenue</div></div>
+   <div class="stat"><div class="v">88<small>%</small></div><div class="l">Are entire homes</div></div>
   </div>
-  <p class="hb-hero-caveat" style="margin:64px 0 0;font-size:12.5px;line-height:1.5;color:rgba(246,239,226,.55);max-width:52ch;position:relative;z-index:1">Figures are market estimates from public data &mdash; directional, not your exact dashboard.</p>
+  <p class="hb-hero-caveat" style="margin:64px 0 0;font-size:12.5px;line-height:1.5;color:rgba(246,239,226,.55);max-width:52ch;position:relative;z-index:1">Figures are market estimates from public data — directional, not your exact dashboard.</p>
  </div>
 </div>
 <section>
@@ -138,7 +143,7 @@ footer b{color:var(--sand)}
     <select id="sub"></select>
     <label>Bedrooms</label>
     <select id="bed"></select>
-    <p class="note">Figures are medians for active <b>entire-home</b> listings in your neighbourhood. Occupancy &amp; revenue are estimates from public booking data &mdash; directional, not your exact dashboard.</p>
+    <p class="note">Figures are medians for active <b>entire-home</b> listings in your neighbourhood. Occupancy &amp; revenue are estimates from public booking data — directional, not your exact dashboard.</p>
    </div>
    <div class="result" id="result"></div>
   </div>
@@ -148,7 +153,7 @@ footer b{color:var(--sand)}
  <div class="wrap">
   <div class="kick">The league table</div>
   <div class="h2">Every neighbourhood, ranked</div>
-  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings &mdash; occupancy is half the story.</p>
+  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings — occupancy is half the story.</p>
   <div class="tablewrap">
    <table id="tbl">
     <thead><tr>
@@ -170,25 +175,26 @@ footer b{color:var(--sand)}
    <div>
     <div class="kick">Straight about the data</div>
     <div class="h2" style="font-size:30px">No black box</div>
-    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers &mdash; and what they can and can't tell you.</p>
+    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers — and what they can and can't tell you.</p>
    </div>
    <ul>
-    <li><b>Source:</b> Inside Airbnb &mdash; public-domain listing data.</li>
-    <li><b>Snapshot:</b> September 2025. Short-term rental pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
-    <li><b>Revenue &amp; occupancy</b> are <b>estimates</b> from a review-based model, not hosts' real dashboards. Good for comparison, not accounting.</li>
-    <li>Neighbourhood boundaries sourced from city GIS data and remapped to recognisable names.</li>
-    <li><b>Medians, not averages</b> &mdash; one ultra-luxury outlier won't skew your area.</li>
+    <li><b>Source:</b> Inside Airbnb — public-domain listing data.</li>
+    <li><b>Snapshot:</b> June 2026. Short-term rental pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
+    <li><b>What we compute:</b> nightly price, listing counts and the area &amp; bedroom groupings — straight from Inside Airbnb's public listings.</li>
+    <li><b>Occupancy &amp; revenue</b> are <b>Inside Airbnb's own published estimates</b> (their <span style="white-space:nowrap">estimated_occupancy</span> and <span style="white-space:nowrap">estimated_revenue</span>, trailing 12 months) — not a HostBrief model, and not hosts' real dashboards. Good for comparison, not accounting.</li>
+    <li>Listings are grouped by the areas Inside Airbnb publishes for this market.</li>
+    <li><b>Medians, not averages</b> — one ultra-luxury outlier won't skew your area.</li>
    </ul>
   </div>
-  <div style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:8px">
-   <div class="kick" style="color:var(--gold)">Free &middot; no catch</div>
+  <div class="capture-panel" style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:8px">
+   <div class="kick" style="color:var(--gold)">Free · no catch</div>
    <div class="h2" style="font-size:30px;color:var(--sand);margin:10px 0 8px">Want a deep-dive on your exact listing?</div>
-   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. I'll send back a personalised price benchmark &mdash; how your nightly rate compares to similar listings nearby, and whether you're priced above or below them. No spam, just the breakdown.</p>
+   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. I’ll send back a personalised price benchmark — how your nightly rate compares to similar listings nearby, and whether you’re priced above or below them. No spam, just the breakdown.</p>
    <form id="capture" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:580px;margin:0 auto">
     <input type="email" name="email" required placeholder="you@email.com" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
     <input type="url" name="listing" placeholder="Your Airbnb link (optional)" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
     <input type="hidden" name="city" value="San Diego">
-    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark &#8594;</button>
+    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark →</button>
     <p id="capmsg" style="flex:1 1 100%;font-size:14px;margin-top:10px;min-height:18px;color:rgba(246,239,226,.7)"></p>
    </form>
   </div>
@@ -211,51 +217,57 @@ footer b{color:var(--sand)}
  </div>
 </section>
 <footer><div class="wrap">
- <div>Data supplied by <b>HostBrief</b> &middot; San Diego short-term rental intelligence</div>
- <div>Data: Inside Airbnb (public domain) &middot; September 2025 &middot; Figures are estimates</div>
+ <div>Built by <b>HostBrief</b> · San Diego short-term rental intelligence</div>
+ <div>Data: Inside Airbnb (public domain) · June 2026 · Figures are estimates</div>
 </div></footer>
 <script>
-const DATA={"overall": {"total_active": 12456, "median_price": 198, "median_occ": 102, "median_rev": 22356, "entire_share": 78}, "subs": [{"suburb": "Mission Beach / Pacific Beach", "n": 1456, "median_price": 285, "median_occ": 120, "median_rev": 38400, "rev_top25": 70200}, {"suburb": "La Jolla", "n": 892, "median_price": 365, "median_occ": 96, "median_rev": 38880, "rev_top25": 74400}, {"suburb": "Ocean Beach / Point Loma", "n": 678, "median_price": 248, "median_occ": 114, "median_rev": 31848, "rev_top25": 58800}, {"suburb": "Coronado / Downtown SD", "n": 534, "median_price": 298, "median_occ": 102, "median_rev": 33948, "rev_top25": 63600}, {"suburb": "North Park / Hillcrest", "n": 712, "median_price": 185, "median_occ": 114, "median_rev": 23370, "rev_top25": 42000}, {"suburb": "Gaslamp / East Village", "n": 456, "median_price": 195, "median_occ": 108, "median_rev": 23220, "rev_top25": 42000}, {"suburb": "Encinitas / Carlsbad", "n": 845, "median_price": 265, "median_occ": 84, "median_rev": 23436, "rev_top25": 43800}, {"suburb": "Chula Vista / Eastlake", "n": 534, "median_price": 148, "median_occ": 108, "median_rev": 17496, "rev_top25": 30600}, {"suburb": "Mission Valley / Mission Hills", "n": 398, "median_price": 162, "median_occ": 96, "median_rev": 17424, "rev_top25": 30600}, {"suburb": "Clairemont / Linda Vista", "n": 312, "median_price": 145, "median_occ": 102, "median_rev": 16416, "rev_top25": 28800}, {"suburb": "El Cajon / Santee", "n": 267, "median_price": 125, "median_occ": 96, "median_rev": 13392, "rev_top25": 23400}, {"suburb": "Kearny Mesa / Mira Mesa", "n": 245, "median_price": 118, "median_occ": 96, "median_rev": 12384, "rev_top25": 21600}], "cohort": {"Mission Beach / Pacific Beach": {"0": {"n": 145, "price": 195, "occ": 132, "rev": 28380, "rev_top25": 51600}, "1": {"n": 612, "price": 255, "occ": 120, "rev": 33120, "rev_top25": 61200}, "2": {"n": 498, "price": 345, "occ": 114, "rev": 43470, "rev_top25": 81600}, "3": {"n": 145, "price": 495, "occ": 108, "rev": 59940, "rev_top25": 114000}, "4": {"n": 56, "price": 895, "occ": 90, "rev": 89640, "rev_top25": 174000}}, "La Jolla": {"1": {"n": 198, "price": 245, "occ": 108, "rev": 29160, "rev_top25": 54000}, "2": {"n": 312, "price": 345, "occ": 96, "rev": 36480, "rev_top25": 68400}, "3": {"n": 245, "price": 495, "occ": 84, "rev": 46116, "rev_top25": 88200}, "4": {"n": 137, "price": 895, "occ": 72, "rev": 71640, "rev_top25": 138000}}, "Ocean Beach / Point Loma": {"0": {"n": 65, "price": 178, "occ": 126, "rev": 24948, "rev_top25": 45600}, "1": {"n": 278, "price": 228, "occ": 114, "rev": 28728, "rev_top25": 52800}, "2": {"n": 245, "price": 298, "occ": 108, "rev": 35568, "rev_top25": 66000}, "3": {"n": 90, "price": 445, "occ": 96, "rev": 47520, "rev_top25": 90000}}, "Coronado / Downtown SD": {"1": {"n": 145, "price": 225, "occ": 108, "rev": 27000, "rev_top25": 50400}, "2": {"n": 245, "price": 295, "occ": 102, "rev": 33354, "rev_top25": 62400}, "3": {"n": 112, "price": 448, "occ": 90, "rev": 44820, "rev_top25": 85200}, "4": {"n": 32, "price": 795, "occ": 78, "rev": 68796, "rev_top25": 132000}}, "North Park / Hillcrest": {"0": {"n": 78, "price": 138, "occ": 120, "rev": 18360, "rev_top25": 32400}, "1": {"n": 345, "price": 168, "occ": 114, "rev": 21168, "rev_top25": 37800}, "2": {"n": 225, "price": 228, "occ": 108, "rev": 27216, "rev_top25": 49200}, "3": {"n": 64, "price": 335, "occ": 96, "rev": 35760, "rev_top25": 66000}}, "Gaslamp / East Village": {"0": {"n": 65, "price": 148, "occ": 114, "rev": 18648, "rev_top25": 33600}, "1": {"n": 212, "price": 178, "occ": 108, "rev": 21168, "rev_top25": 38400}, "2": {"n": 145, "price": 248, "occ": 102, "rev": 27948, "rev_top25": 51600}, "3": {"n": 34, "price": 368, "occ": 90, "rev": 36720, "rev_top25": 69000}}, "Encinitas / Carlsbad": {"1": {"n": 245, "price": 195, "occ": 90, "rev": 19350, "rev_top25": 36000}, "2": {"n": 345, "price": 268, "occ": 84, "rev": 24864, "rev_top25": 46800}, "3": {"n": 178, "price": 395, "occ": 78, "rev": 34086, "rev_top25": 64800}, "4": {"n": 77, "price": 695, "occ": 66, "rev": 50820, "rev_top25": 97200}}, "Chula Vista / Eastlake": {"1": {"n": 245, "price": 128, "occ": 108, "rev": 15264, "rev_top25": 27000}, "2": {"n": 198, "price": 168, "occ": 102, "rev": 18936, "rev_top25": 33600}, "3": {"n": 91, "price": 245, "occ": 96, "rev": 26016, "rev_top25": 47400}}, "Mission Valley / Mission Hills": {"1": {"n": 188, "price": 145, "occ": 96, "rev": 15264, "rev_top25": 27000}, "2": {"n": 145, "price": 192, "occ": 90, "rev": 19080, "rev_top25": 34200}, "3": {"n": 65, "price": 278, "occ": 84, "rev": 25872, "rev_top25": 47400}}, "Clairemont / Linda Vista": {"1": {"n": 152, "price": 128, "occ": 102, "rev": 14352, "rev_top25": 25200}, "2": {"n": 112, "price": 168, "occ": 96, "rev": 17856, "rev_top25": 31800}, "3": {"n": 48, "price": 245, "occ": 90, "rev": 24330, "rev_top25": 44400}}, "El Cajon / Santee": {"1": {"n": 132, "price": 112, "occ": 96, "rev": 11904, "rev_top25": 20400}, "2": {"n": 98, "price": 148, "occ": 90, "rev": 14760, "rev_top25": 25800}, "3": {"n": 37, "price": 215, "occ": 84, "rev": 19908, "rev_top25": 36000}}, "Kearny Mesa / Mira Mesa": {"1": {"n": 118, "price": 105, "occ": 96, "rev": 11088, "rev_top25": 19200}, "2": {"n": 88, "price": 138, "occ": 90, "rev": 13716, "rev_top25": 24000}, "3": {"n": 39, "price": 198, "occ": 84, "rev": 18396, "rev_top25": 33000}}}};
+const DATA={"overall":{"total_active":9600,"median_price":389,"median_occ":124,"median_rev":42618,"entire_share":88},"subs":[{"suburb":"San Carlos","n":37,"median_price":637,"median_occ":128,"median_rev":68900,"rev_top25":123523},{"suburb":"La Jolla","n":664,"median_price":691,"median_occ":98,"median_rev":62709,"rev_top25":114565},{"suburb":"Del Mar Heights","n":49,"median_price":476,"median_occ":108,"median_rev":59712,"rev_top25":106528},{"suburb":"Southwest","n":27,"median_price":392,"median_occ":174,"median_rev":53730,"rev_top25":109980},{"suburb":"Mission Bay","n":1392,"median_price":636,"median_occ":84,"median_rev":52101,"rev_top25":90012},{"suburb":"Ocean Beach","n":516,"median_price":353,"median_occ":150,"median_rev":51368,"rev_top25":83478},{"suburb":"Lake Murray","n":31,"median_price":457,"median_occ":124,"median_rev":51300,"rev_top25":86642},{"suburb":"Wooded Area","n":51,"median_price":646,"median_occ":78,"median_rev":50736,"rev_top25":85611},{"suburb":"Serra Mesa","n":60,"median_price":494,"median_occ":120,"median_rev":50110,"rev_top25":88356},{"suburb":"Midtown","n":304,"median_price":342,"median_occ":159,"median_rev":49944,"rev_top25":79253},{"suburb":"Grant Hill","n":120,"median_price":340,"median_occ":156,"median_rev":49788,"rev_top25":75490},{"suburb":"Little Italy","n":130,"median_price":262,"median_occ":186,"median_rev":48155,"rev_top25":69806},{"suburb":"Pacific Beach","n":800,"median_price":482,"median_occ":114,"median_rev":47718,"rev_top25":88088},{"suburb":"Bay Ho","n":75,"median_price":425,"median_occ":124,"median_rev":46272,"rev_top25":81513},{"suburb":"Encanto","n":32,"median_price":390,"median_occ":147,"median_rev":45286,"rev_top25":84074},{"suburb":"Bay Park","n":141,"median_price":452,"median_occ":114,"median_rev":44880,"rev_top25":93057},{"suburb":"College Area","n":38,"median_price":339,"median_occ":159,"median_rev":44796,"rev_top25":82757},{"suburb":"Loma Portal","n":240,"median_price":344,"median_occ":153,"median_rev":43132,"rev_top25":79269},{"suburb":"Roseville","n":76,"median_price":454,"median_occ":120,"median_rev":42502,"rev_top25":83072},{"suburb":"Moreno Mission","n":42,"median_price":382,"median_occ":126,"median_rev":42494,"rev_top25":86812},{"suburb":"Paradise Hills","n":27,"median_price":356,"median_occ":126,"median_rev":42101,"rev_top25":63696},{"suburb":"Mira Mesa","n":86,"median_price":415,"median_occ":138,"median_rev":41347,"rev_top25":78237},{"suburb":"Darnall","n":27,"median_price":261,"median_occ":198,"median_rev":40800,"rev_top25":69024},{"suburb":"North Hills","n":407,"median_price":282,"median_occ":156,"median_rev":40500,"rev_top25":63437},{"suburb":"Linda Vista","n":65,"median_price":399,"median_occ":124,"median_rev":39744,"rev_top25":82164},{"suburb":"North Clairemont","n":61,"median_price":460,"median_occ":126,"median_rev":39291,"rev_top25":97500},{"suburb":"West University Heights","n":106,"median_price":269,"median_occ":159,"median_rev":37442,"rev_top25":56738},{"suburb":"Balboa Park","n":145,"median_price":260,"median_occ":156,"median_rev":37295,"rev_top25":60674},{"suburb":"Normal Heights","n":111,"median_price":273,"median_occ":162,"median_rev":36155,"rev_top25":67979},{"suburb":"University City","n":91,"median_price":342,"median_occ":126,"median_rev":35996,"rev_top25":62173},{"suburb":"Memorial","n":58,"median_price":294,"median_occ":129,"median_rev":35364,"rev_top25":56930},{"suburb":"Northwest","n":76,"median_price":282,"median_occ":124,"median_rev":35097,"rev_top25":63871},{"suburb":"South Park","n":75,"median_price":295,"median_occ":120,"median_rev":33778,"rev_top25":55184},{"suburb":"Old Town","n":141,"median_price":266,"median_occ":102,"median_rev":33120,"rev_top25":60216},{"suburb":"East Village","n":213,"median_price":226,"median_occ":126,"median_rev":32025,"rev_top25":55080},{"suburb":"City Heights West","n":91,"median_price":262,"median_occ":168,"median_rev":30056,"rev_top25":55095},{"suburb":"Kensington","n":39,"median_price":264,"median_occ":132,"median_rev":29784,"rev_top25":53642},{"suburb":"City Heights East","n":41,"median_price":275,"median_occ":108,"median_rev":29682,"rev_top25":54761},{"suburb":"Clairemont Mesa","n":94,"median_price":394,"median_occ":122,"median_rev":29584,"rev_top25":78958},{"suburb":"Gaslamp Quarter","n":112,"median_price":282,"median_occ":96,"median_rev":26796,"rev_top25":38216},{"suburb":"Carmel Valley","n":34,"median_price":442,"median_occ":70,"median_rev":25812,"rev_top25":78135},{"suburb":"Rolando","n":29,"median_price":284,"median_occ":102,"median_rev":23580,"rev_top25":42804},{"suburb":"Park West","n":197,"median_price":184,"median_occ":124,"median_rev":23232,"rev_top25":53621},{"suburb":"Cortez Hill","n":121,"median_price":184,"median_occ":124,"median_rev":23142,"rev_top25":33930},{"suburb":"Rancho Penasquitos","n":55,"median_price":408,"median_occ":72,"median_rev":19844,"rev_top25":48087},{"suburb":"Marina","n":40,"median_price":226,"median_occ":99,"median_rev":19167,"rev_top25":35279},{"suburb":"Core","n":56,"median_price":144,"median_occ":62,"median_rev":14336,"rev_top25":27164}],"cohort":{"Balboa Park":{"1":{"n":57,"price":206,"occ":156,"rev":33078,"rev_top25":47460},"2":{"n":38,"price":305,"occ":132,"rev":36177,"rev_top25":62330},"3":{"n":19,"price":454,"occ":174,"rev":82398,"rev_top25":104820},"4":{"n":13,"price":816,"occ":156,"rev":92448,"rev_top25":118326}},"Bario Logan":{"2":{"n":12,"price":297,"occ":141,"rev":52849,"rev_top25":66061}},"Bay Ho":{"1":{"n":15,"price":171,"occ":192,"rev":30674,"rev_top25":40822},"2":{"n":22,"price":307,"occ":198,"rev":62422,"rev_top25":77361},"3":{"n":17,"price":554,"occ":96,"rev":47519,"rev_top25":91652},"4":{"n":17,"price":762,"occ":78,"rev":79344,"rev_top25":135572}},"Bay Park":{"1":{"n":29,"price":206,"occ":124,"rev":28684,"rev_top25":42419},"2":{"n":27,"price":353,"occ":110,"rev":35688,"rev_top25":69004},"3":{"n":42,"price":581,"occ":105,"rev":66202,"rev_top25":98883},"4":{"n":32,"price":817,"occ":153,"rev":108648,"rev_top25":170143}},"Carmel Valley":{"2":{"n":11,"price":228,"occ":124,"rev":27361,"rev_top25":63916},"4":{"n":14,"price":949,"occ":84,"rev":71851,"rev_top25":124390}},"City Heights East":{"1":{"n":14,"price":214,"occ":85,"rev":21333,"rev_top25":31238},"2":{"n":13,"price":255,"occ":114,"rev":29483,"rev_top25":37989}},"City Heights West":{"1":{"n":34,"price":171,"occ":150,"rev":21154,"rev_top25":27345},"2":{"n":36,"price":280,"occ":186,"rev":44940,"rev_top25":57463},"3":{"n":10,"price":486,"occ":96,"rev":44905,"rev_top25":90237}},"Clairemont Mesa":{"1":{"n":21,"price":163,"occ":108,"rev":15512,"rev_top25":24924},"2":{"n":11,"price":250,"occ":124,"rev":29658,"rev_top25":47282},"3":{"n":32,"price":479,"occ":101,"rev":48663,"rev_top25":78510},"4":{"n":26,"price":650,"occ":174,"rev":85587,"rev_top25":157770}},"College Area":{"1":{"n":10,"price":179,"occ":138,"rev":19200,"rev_top25":39860},"4":{"n":14,"price":659,"occ":195,"rev":95470,"rev_top25":167674}},"Columbia":{"1":{"n":14,"price":206,"occ":174,"rev":25503,"rev_top25":52944}},"Core":{"1":{"n":18,"price":170,"occ":124,"rev":18156,"rev_top25":33561},"2":{"n":13,"price":833,"occ":62,"rev":9996,"rev_top25":21378}},"Cortez Hill":{"1":{"n":34,"price":212,"occ":125,"rev":21400,"rev_top25":30606},"2":{"n":29,"price":311,"occ":124,"rev":28329,"rev_top25":48516}},"Darnall":{"1":{"n":10,"price":144,"occ":204,"rev":22600,"rev_top25":40542}},"Del Mar Heights":{"1":{"n":15,"price":280,"occ":150,"rev":36150,"rev_top25":50384},"2":{"n":12,"price":464,"occ":141,"rev":62479,"rev_top25":74010},"4":{"n":13,"price":1281,"occ":88,"rev":131292,"rev_top25":147688}},"East Village":{"1":{"n":94,"price":210,"occ":135,"rev":28488,"rev_top25":52154},"2":{"n":47,"price":260,"occ":120,"rev":37403,"rev_top25":68476},"3":{"n":12,"price":561,"occ":165,"rev":72050,"rev_top25":138323}},"Encanto":{"4":{"n":15,"price":562,"occ":150,"rev":70353,"rev_top25":114046}},"Gaslamp Quarter":{"1":{"n":40,"price":262,"occ":124,"rev":23354,"rev_top25":40724},"2":{"n":39,"price":307,"occ":90,"rev":28764,"rev_top25":38435}},"Grant Hill":{"1":{"n":26,"price":205,"occ":180,"rev":32924,"rev_top25":60026},"2":{"n":49,"price":290,"occ":162,"rev":50378,"rev_top25":73313},"3":{"n":30,"price":442,"occ":117,"rev":50583,"rev_top25":88434},"4":{"n":13,"price":678,"occ":108,"rev":72468,"rev_top25":145988}},"Kearny Mesa":{"2":{"n":16,"price":528,"occ":156,"rev":78508,"rev_top25":104844}},"Kensington":{"1":{"n":14,"price":228,"occ":213,"rev":28764,"rev_top25":41742},"2":{"n":11,"price":288,"occ":168,"rev":37758,"rev_top25":50304}},"La Jolla":{"1":{"n":159,"price":360,"occ":144,"rev":51919,"rev_top25":79010},"2":{"n":163,"price":624,"occ":114,"rev":65772,"rev_top25":114644},"3":{"n":140,"price":880,"occ":69,"rev":59014,"rev_top25":131816},"4":{"n":174,"price":1509,"occ":60,"rev":101438,"rev_top25":165192}},"La Jolla Village":{"1":{"n":12,"price":147,"occ":85,"rev":15006,"rev_top25":32142}},"Lake Murray":{"4":{"n":14,"price":586,"occ":132,"rev":84210,"rev_top25":137362}},"Linda Vista":{"1":{"n":15,"price":151,"occ":78,"rev":15327,"rev_top25":29960},"3":{"n":25,"price":422,"occ":102,"rev":42942,"rev_top25":76628},"4":{"n":16,"price":719,"occ":162,"rev":96484,"rev_top25":134938}},"Little Italy":{"1":{"n":65,"price":241,"occ":180,"rev":44460,"rev_top25":58395},"2":{"n":38,"price":354,"occ":195,"rev":60120,"rev_top25":79774}},"Loma Portal":{"1":{"n":80,"price":239,"occ":186,"rev":34706,"rev_top25":57634},"2":{"n":73,"price":366,"occ":126,"rev":41112,"rev_top25":76755},"3":{"n":38,"price":511,"occ":120,"rev":74092,"rev_top25":107170},"4":{"n":27,"price":836,"occ":144,"rev":130416,"rev_top25":151199}},"Marina":{"1":{"n":14,"price":156,"occ":124,"rev":19167,"rev_top25":32743},"2":{"n":20,"price":278,"occ":62,"rev":17225,"rev_top25":41914}},"Memorial":{"1":{"n":12,"price":176,"occ":141,"rev":18946,"rev_top25":30456},"2":{"n":20,"price":238,"occ":128,"rev":32828,"rev_top25":53914},"3":{"n":14,"price":324,"occ":153,"rev":50772,"rev_top25":67325},"4":{"n":10,"price":649,"occ":78,"rev":55747,"rev_top25":62141}},"Midtown":{"1":{"n":106,"price":243,"occ":180,"rev":39452,"rev_top25":59256},"2":{"n":98,"price":361,"occ":150,"rev":52800,"rev_top25":80337},"3":{"n":33,"price":492,"occ":132,"rev":68911,"rev_top25":113925},"4":{"n":47,"price":823,"occ":114,"rev":87711,"rev_top25":152041}},"Mira Mesa":{"1":{"n":18,"price":158,"occ":144,"rev":24341,"rev_top25":35408},"2":{"n":11,"price":273,"occ":186,"rev":39279,"rev_top25":56414},"3":{"n":24,"price":416,"occ":138,"rev":57984,"rev_top25":85844},"4":{"n":32,"price":579,"occ":105,"rev":59949,"rev_top25":92442}},"Mission Bay":{"1":{"n":271,"price":339,"occ":132,"rev":41925,"rev_top25":66619},"2":{"n":416,"price":554,"occ":96,"rev":52917,"rev_top25":86445},"3":{"n":422,"price":814,"occ":78,"rev":64534,"rev_top25":111933},"4":{"n":218,"price":1352,"occ":48,"rev":60656,"rev_top25":114606}},"Moreno Mission":{"1":{"n":10,"price":173,"occ":124,"rev":15792,"rev_top25":30552},"4":{"n":10,"price":759,"occ":99,"rev":92367,"rev_top25":126950}},"Normal Heights":{"1":{"n":35,"price":200,"occ":132,"rev":25936,"rev_top25":37440},"2":{"n":42,"price":326,"occ":177,"rev":50526,"rev_top25":88485},"3":{"n":19,"price":438,"occ":162,"rev":63929,"rev_top25":104550}},"North Clairemont":{"1":{"n":11,"price":137,"occ":126,"rev":15420,"rev_top25":23828},"3":{"n":29,"price":543,"occ":72,"rev":50926,"rev_top25":97500},"4":{"n":10,"price":796,"occ":162,"rev":117093,"rev_top25":174681}},"North Hills":{"1":{"n":162,"price":200,"occ":147,"rev":27766,"rev_top25":46506},"2":{"n":145,"price":320,"occ":156,"rev":48924,"rev_top25":69950},"3":{"n":50,"price":476,"occ":165,"rev":72214,"rev_top25":106234},"4":{"n":17,"price":763,"occ":174,"rev":117376,"rev_top25":142434}},"Northwest":{"1":{"n":16,"price":159,"occ":192,"rev":23248,"rev_top25":35366},"2":{"n":17,"price":314,"occ":168,"rev":41940,"rev_top25":69657},"3":{"n":24,"price":380,"occ":162,"rev":62360,"rev_top25":99322},"4":{"n":12,"price":530,"occ":57,"rev":31227,"rev_top25":52222}},"Ocean Beach":{"1":{"n":185,"price":288,"occ":144,"rev":38664,"rev_top25":62348},"2":{"n":169,"price":436,"occ":150,"rev":63180,"rev_top25":89401},"3":{"n":63,"price":656,"occ":156,"rev":86318,"rev_top25":143036},"4":{"n":33,"price":975,"occ":108,"rev":117855,"rev_top25":166500}},"Old Town":{"1":{"n":51,"price":184,"occ":90,"rev":15365,"rev_top25":28866},"2":{"n":42,"price":366,"occ":138,"rev":46485,"rev_top25":64740},"3":{"n":15,"price":466,"occ":156,"rev":60697,"rev_top25":103400},"4":{"n":18,"price":878,"occ":63,"rev":87250,"rev_top25":113724}},"Pacific Beach":{"1":{"n":202,"price":304,"occ":126,"rev":36106,"rev_top25":61676},"2":{"n":273,"price":460,"occ":114,"rev":46158,"rev_top25":86546},"3":{"n":156,"price":658,"occ":120,"rev":69028,"rev_top25":107048},"4":{"n":124,"price":1132,"occ":66,"rev":69599,"rev_top25":160778}},"Paradise Hills":{"3":{"n":10,"price":363,"occ":102,"rev":32414,"rev_top25":46176},"4":{"n":10,"price":697,"occ":165,"rev":70625,"rev_top25":194831}},"Park West":{"1":{"n":74,"price":175,"occ":132,"rev":23232,"rev_top25":40599},"2":{"n":29,"price":368,"occ":174,"rev":54990,"rev_top25":79815},"3":{"n":20,"price":570,"occ":159,"rev":84488,"rev_top25":112876},"4":{"n":14,"price":640,"occ":147,"rev":94094,"rev_top25":108922}},"Rancho Penasquitos":{"1":{"n":18,"price":121,"occ":93,"rev":11914,"rev_top25":19395},"3":{"n":17,"price":552,"occ":72,"rev":39060,"rev_top25":67396},"4":{"n":13,"price":633,"occ":66,"rev":45576,"rev_top25":106861}},"Rolando":{"2":{"n":10,"price":249,"occ":71,"rev":16310,"rev_top25":24561}},"Roseville":{"1":{"n":18,"price":231,"occ":147,"rev":38680,"rev_top25":47987},"2":{"n":25,"price":425,"occ":138,"rev":60540,"rev_top25":82875},"3":{"n":15,"price":556,"occ":66,"rev":54164,"rev_top25":88278},"4":{"n":16,"price":1090,"occ":63,"rev":63674,"rev_top25":155046}},"San Carlos":{"4":{"n":19,"price":858,"occ":132,"rev":102916,"rev_top25":156928}},"Serra Mesa":{"1":{"n":12,"price":155,"occ":124,"rev":16336,"rev_top25":36868},"3":{"n":22,"price":504,"occ":132,"rev":75554,"rev_top25":88778},"4":{"n":20,"price":576,"occ":120,"rev":68054,"rev_top25":90796}},"South Park":{"1":{"n":31,"price":202,"occ":144,"rev":25776,"rev_top25":44636},"2":{"n":23,"price":359,"occ":102,"rev":34992,"rev_top25":41844},"3":{"n":12,"price":437,"occ":159,"rev":66440,"rev_top25":106170}},"Southwest":{"4":{"n":10,"price":622,"occ":201,"rev":128775,"rev_top25":169948}},"Talmadge":{"1":{"n":11,"price":131,"occ":186,"rev":24093,"rev_top25":33844}},"University City":{"1":{"n":25,"price":189,"occ":144,"rev":27868,"rev_top25":38430},"2":{"n":21,"price":326,"occ":84,"rev":25468,"rev_top25":37726},"3":{"n":23,"price":502,"occ":138,"rev":78624,"rev_top25":121056},"4":{"n":19,"price":628,"occ":84,"rev":46620,"rev_top25":89230}},"West University Heights":{"1":{"n":43,"price":210,"occ":162,"rev":32360,"rev_top25":45126},"2":{"n":30,"price":307,"occ":120,"rev":35995,"rev_top25":56732},"3":{"n":18,"price":435,"occ":120,"rev":51678,"rev_top25":100834}},"Wooded Area":{"3":{"n":14,"price":591,"occ":75,"rev":40476,"rev_top25":84542},"4":{"n":19,"price":1255,"occ":66,"rev":76824,"rev_top25":136476}}}};
 const CCY="$";
-const fmt=n=>CCY+n.toLocaleString("en-US");
-const bedLabel={0:"Studio",1:"1 bedroom",2:"2 bedrooms",3:"3 bedrooms",4:"4+ bedrooms"};
+const fmt=n=>CCY+n.toLocaleString('en-US');
+const bedLabel={0:'Studio',1:'1 bedroom',2:'2 bedrooms',3:'3 bedrooms',4:'4+ bedrooms'};
 const words="What your San Diego listing should earn.".split(" ");
-document.getElementById("h1").innerHTML=words.map(w=>{
-  const it=/should|earn/.test(w)?" it":"";
-  return "<span class=\"w"+it+"\">"+w+"&nbsp;</span>";
+document.getElementById('h1').innerHTML=words.map(w=>{
+  const it=/should|earn/.test(w)?' it':'';
+  return `<span class="w${it}">${w}&nbsp;</span>`;
 }).join("");
-document.querySelectorAll("#h1 .w").forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+"s");
-const subSel=document.getElementById("sub"),bedSel=document.getElementById("bed"),res=document.getElementById("result");
-Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement("option");o.value=s;o.textContent=s;subSel.appendChild(o);});
+document.querySelectorAll('#h1 .w').forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+'s');
+const subSel=document.getElementById('sub'),bedSel=document.getElementById('bed'),res=document.getElementById('result');
+Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;subSel.appendChild(o);});
 function fillBeds(){
   const beds=Object.keys(DATA.cohort[subSel.value]).map(Number).sort((a,b)=>a-b);
   bedSel.innerHTML="";
-  beds.forEach(b=>{const o=document.createElement("option");o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});
+  beds.forEach(b=>{const o=document.createElement('option');o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});
 }
 function render(){
   const c=DATA.cohort[subSel.value]?.[bedSel.value];
-  if(!c){res.innerHTML="<div class=\"empty\">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>";return;}
-  res.innerHTML=
-   "<div class=\"cell\"><div class=\"l\">Median nightly rate</div><div class=\"v\">"+fmt(c.price)+"</div></div>"+
-   "<div class=\"cell\"><div class=\"l\">Typical nights booked / yr</div><div class=\"v\">"+c.occ+"<small> nights</small></div></div>"+
-   "<div class=\"cell\"><div class=\"l\">Median annual revenue</div><div class=\"v\">"+fmt(c.rev)+"</div></div>"+
-   "<div class=\"cell hot\"><div class=\"l\">Top 25% earn</div><div class=\"v\">"+fmt(c.rev_top25)+"<small> /yr</small></div></div>"+
-   "<div class=\"cell span\"><div class=\"l\">Based on</div><div class=\"v\" style=\"font-size:22px\">"+c.n+" comparable "+bedLabel[bedSel.value].toLowerCase()+" listings</div></div>";
+  if(!c){res.innerHTML='<div class="empty">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>';return;}
+  res.innerHTML=`
+   <div class="cell"><div class="l">Median nightly rate</div><div class="v">${fmt(c.price)}</div></div>
+   <div class="cell"><div class="l">Typical nights booked / yr</div><div class="v">${c.occ}<small> nights</small></div></div>
+   <div class="cell"><div class="l">Median annual revenue</div><div class="v">${fmt(c.rev)}</div></div>
+   <div class="cell hot"><div class="l">Top 25% earn</div><div class="v">${fmt(c.rev_top25)}<small> /yr</small></div></div>
+   <div class="cell span"><div class="l">Based on</div><div class="v" style="font-size:22px">${c.n} comparable ${bedLabel[bedSel.value].toLowerCase()} listings</div></div>`;
 }
-subSel.addEventListener("change",()=>{fillBeds();render();});
-bedSel.addEventListener("change",render);
+subSel.addEventListener('change',()=>{fillBeds();render();});
+bedSel.addEventListener('change',render);
 subSel.value=Object.keys(DATA.cohort).sort()[0];fillBeds();render();
-let rows=[...DATA.subs],sortK="median_rev",dir=-1;
-const tb=document.getElementById("tb");
+let rows=[...DATA.subs],sortK='median_rev',dir=-1;
+const tb=document.getElementById('tb');
 function draw(){
-  rows.sort((a,b)=>typeof a[sortK]==="string"?a[sortK].localeCompare(b[sortK])*dir:(a[sortK]-b[sortK])*dir);
-  tb.innerHTML=rows.map((r,i)=>"<tr><td><span class=\"rank\">"+(i+1)+"</span>"+r.suburb+"</td><td>"+r.n.toLocaleString("en-US")+"</td><td>"+fmt(r.median_price)+"</td><td class=\"occ-col\">"+r.median_occ+"</td><td class=\"big\">"+fmt(r.median_rev)+"</td><td>"+fmt(r.rev_top25)+"</td></tr>").join("");
+  rows.sort((a,b)=> typeof a[sortK]==='string'? a[sortK].localeCompare(b[sortK])*dir : (a[sortK]-b[sortK])*dir);
+  tb.innerHTML=rows.map((r,i)=>`<tr>
+    <td><span class="rank">${i+1}</span>${r.suburb}</td>
+    <td>${r.n.toLocaleString('en-US')}</td>
+    <td>${fmt(r.median_price)}</td>
+    <td class="occ-col">${r.median_occ}</td>
+    <td class="big">${fmt(r.median_rev)}</td>
+    <td>${fmt(r.rev_top25)}</td></tr>`).join("");
 }
-document.querySelectorAll("#tbl th").forEach(th=>th.addEventListener("click",()=>{
+document.querySelectorAll('#tbl th').forEach(th=>th.addEventListener('click',()=>{
   const k=th.dataset.k;
-  if(k===sortK)dir=-dir;else{sortK=k;dir=(k==="suburb")?1:-1;}
-  document.querySelectorAll("#tbl th").forEach(x=>x.classList.remove("up","down"));
-  th.classList.add(dir===1?"up":"down");draw();
+  if(k===sortK)dir=-dir;else{sortK=k;dir=(k==='suburb')?1:-1;}
+  document.querySelectorAll('#tbl th').forEach(x=>x.classList.remove('up','down'));
+  th.classList.add(dir===1?'up':'down');draw();
 }));
 draw();
 </script>

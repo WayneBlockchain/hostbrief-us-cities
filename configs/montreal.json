@@ -1,0 +1,13 @@
+{
+  "slug": "montreal",
+  "display_name": "Montreal",
+  "tag_location": "Montreal, QC",
+  "country": "Canada",
+  "currency_symbol": "C$",
+  "currency_iso": "CAD",
+  "geography_label": "Area",
+  "grouped_by_copy": "Listings are grouped by the areas Inside Airbnb publishes for this market.",
+  "snapshot_month": "June 2026",
+  "source_csv": "data/montreal-2026-06-15.listings.csv.gz",
+  "source_url": "https://data.insideairbnb.com/canada/qc/montreal/2026-06-15/data/listings.csv.gz"
+}

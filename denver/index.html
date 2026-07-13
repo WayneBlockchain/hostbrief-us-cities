@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="How much do Airbnb hosts earn in Denver? See real nightly rates, occupancy and annual revenue by neighbourhood — free, no signup.">
+<meta name="description" content="How much do Airbnb hosts earn in Denver? See real nightly rates, occupancy and annual revenue by area — free, no signup. Built from public Airbnb data.">
 <meta property="og:title" content="What Airbnb Hosts Earn in Denver — Free Pricing Benchmark">
-<meta property="og:description" content="See what comparable Airbnb listings actually earn in Denver — nightly rate, occupancy and annual revenue, by neighbourhood. Free, no signup.">
+<meta property="og:description" content="See what comparable Airbnb listings actually earn in Denver — nightly rate, occupancy and annual revenue, by area. Free, no signup.">
 <meta property="og:type" content="website">
-<title>What Airbnb Hosts Earn in Denver (2025 Data) — Free Pricing Tool | HostBrief</title>
+<title>What Airbnb Hosts Earn in Denver (2026 Data) — Free Pricing Tool | HostBrief</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -79,8 +79,8 @@ th:first-child,td:first-child{text-align:left}
 thead th{background:var(--sand);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--teal);cursor:pointer;user-select:none;font-weight:700}
 thead th:hover{color:var(--coral)}
-thead th.up::after{content:"\25B2";font-size:8px;margin-left:6px}
-thead th.down::after{content:"\25BC";font-size:8px;margin-left:6px}
+thead th.up::after{content:"▲";font-size:8px;margin-left:6px}
+thead th.down::after{content:"▼";font-size:8px;margin-left:6px}
 tbody tr:hover{background:var(--sand)}
 tbody td:first-child{font-weight:700;font-family:'Fraunces'}
 td.big{font-weight:700;color:var(--teal)}
@@ -90,15 +90,20 @@ td.big{font-weight:700;color:var(--teal)}
 .method ul{list-style:none;margin-top:8px}
 .method li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:#3a4a4d}
 .method li b{color:var(--ink)}
+.cta{text-align:center;padding:18px 0 0}
+.cta a{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;
+  padding:16px 34px;border-radius:999px;font-size:16px;transition:transform .15s,box-shadow .15s;
+  box-shadow:0 10px 26px rgba(232,99,63,.32)}
+.cta a:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(232,99,63,.42)}
 footer{background:var(--ink);color:rgba(246,239,226,.6);padding:40px 0;font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 footer b{color:var(--sand)}
 @media(max-width:760px){
-  .statrow{grid-template-columns:repeat(2,1fr)}
-  .finder{grid-template-columns:1fr;padding:26px}
-  .method{grid-template-columns:1fr;padding:28px}
-  th,td{padding:12px 11px;font-size:13.5px}
-  .occ-col{display:none}
+ .statrow{grid-template-columns:repeat(2,1fr)}
+ .finder{grid-template-columns:1fr;padding:26px}
+ .method{grid-template-columns:1fr;padding:28px}
+ th,td{padding:12px 11px;font-size:13.5px}
+ .occ-col{display:none}
 }
 @media(max-width:640px){
   .result{grid-template-columns:1fr}
@@ -113,18 +118,18 @@ footer b{color:var(--sand)}
  <div class="wrap">
   <div class="bar">
    <a href="https://hostbrief.app/" style="text-decoration:none;color:inherit"><div class="brand">Host<span>Brief</span></div></a>
-   <div class="tag">Denver, CO &middot; STR Index</div>
+   <div class="tag">Denver, CO · STR Index</div>
   </div>
-  <div class="eyebrow">Free &middot; public data &middot; no signup</div>
+  <div class="eyebrow">Free · public data · no signup</div>
   <h1 id="h1"></h1>
-  <p class="lede">How much should you charge for your Denver Airbnb? See what comparable listings actually earn &mdash; real nightly rates, occupancy and annual revenue across 4,821 active Denver listings, so you can price yours with confidence.</p>
+  <p class="lede">How much should you charge for your Denver Airbnb? See what comparable listings actually earn — real nightly rates, occupancy and annual revenue across 3,574 active Denver listings, so you can price yours with confidence.</p>
   <div class="statrow">
-   <div class="stat"><div class="v">$148</div><div class="l">Median nightly rate</div></div>
-   <div class="stat"><div class="v">108<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
-   <div class="stat"><div class="v">$17,496</div><div class="l">Median annual revenue</div></div>
-   <div class="stat"><div class="v">76<small>%</small></div><div class="l">Are entire homes</div></div>
+   <div class="stat"><div class="v">$217</div><div class="l">Median nightly rate</div></div>
+   <div class="stat"><div class="v">147<small> nights</small></div><div class="l">Median nights booked / yr</div></div>
+   <div class="stat"><div class="v">$28,162</div><div class="l">Median annual revenue</div></div>
+   <div class="stat"><div class="v">87<small>%</small></div><div class="l">Are entire homes</div></div>
   </div>
-  <p class="hb-hero-caveat" style="margin:64px 0 0;font-size:12.5px;line-height:1.5;color:rgba(246,239,226,.55);max-width:52ch;position:relative;z-index:1">Figures are market estimates from public data &mdash; directional, not your exact dashboard.</p>
+  <p class="hb-hero-caveat" style="margin:64px 0 0;font-size:12.5px;line-height:1.5;color:rgba(246,239,226,.55);max-width:52ch;position:relative;z-index:1">Figures are market estimates from public data — directional, not your exact dashboard.</p>
  </div>
 </div>
 <section>
@@ -138,7 +143,7 @@ footer b{color:var(--sand)}
     <select id="sub"></select>
     <label>Bedrooms</label>
     <select id="bed"></select>
-    <p class="note">Figures are medians for active <b>entire-home</b> listings in your neighbourhood. Occupancy &amp; revenue are estimates from public booking data &mdash; directional, not your exact dashboard.</p>
+    <p class="note">Figures are medians for active <b>entire-home</b> listings in your neighbourhood. Occupancy &amp; revenue are estimates from public booking data — directional, not your exact dashboard.</p>
    </div>
    <div class="result" id="result"></div>
   </div>
@@ -148,7 +153,7 @@ footer b{color:var(--sand)}
  <div class="wrap">
   <div class="kick">The league table</div>
   <div class="h2">Every neighbourhood, ranked</div>
-  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings &mdash; occupancy is half the story.</p>
+  <p class="sub">Sorted by median annual revenue. Tap any column header to re-sort. High rate doesn't always mean high earnings — occupancy is half the story.</p>
   <div class="tablewrap">
    <table id="tbl">
     <thead><tr>
@@ -170,25 +175,26 @@ footer b{color:var(--sand)}
    <div>
     <div class="kick">Straight about the data</div>
     <div class="h2" style="font-size:30px">No black box</div>
-    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers &mdash; and what they can and can't tell you.</p>
+    <p class="sub">This index is built so a host can trust it. Here's exactly what's behind the numbers — and what they can and can't tell you.</p>
    </div>
    <ul>
-    <li><b>Source:</b> Inside Airbnb &mdash; public-domain listing data.</li>
-    <li><b>Snapshot:</b> September 2025. Short-term rental pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
-    <li><b>Revenue &amp; occupancy</b> are <b>estimates</b> from a review-based model, not hosts' real dashboards. Good for comparison, not accounting.</li>
-    <li>Neighbourhood boundaries sourced from city GIS data and remapped to recognisable names.</li>
-    <li><b>Medians, not averages</b> &mdash; one ultra-luxury outlier won't skew your area.</li>
+    <li><b>Source:</b> Inside Airbnb — public-domain listing data.</li>
+    <li><b>Snapshot:</b> June 2026. Short-term rental pricing shifts seasonally, so treat it as a recent baseline, not live.</li>
+    <li><b>What we compute:</b> nightly price, listing counts and the area &amp; bedroom groupings — straight from Inside Airbnb's public listings.</li>
+    <li><b>Occupancy &amp; revenue</b> are <b>Inside Airbnb's own published estimates</b> (their <span style="white-space:nowrap">estimated_occupancy</span> and <span style="white-space:nowrap">estimated_revenue</span>, trailing 12 months) — not a HostBrief model, and not hosts' real dashboards. Good for comparison, not accounting.</li>
+    <li>Listings are grouped by the areas Inside Airbnb publishes for this market.</li>
+    <li><b>Medians, not averages</b> — one ultra-luxury outlier won't skew your area.</li>
    </ul>
   </div>
-  <div style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:8px">
-   <div class="kick" style="color:var(--gold)">Free &middot; no catch</div>
+  <div class="capture-panel" style="background:linear-gradient(100deg,#10303a,#0a2027);border-radius:20px;padding:40px;text-align:center;color:var(--sand);margin-top:8px">
+   <div class="kick" style="color:var(--gold)">Free · no catch</div>
    <div class="h2" style="font-size:30px;color:var(--sand);margin:10px 0 8px">Want a deep-dive on your exact listing?</div>
-   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. I'll send back a personalised price benchmark &mdash; how your nightly rate compares to similar listings nearby, and whether you're priced above or below them. No spam, just the breakdown.</p>
+   <p class="sub" style="color:rgba(246,239,226,.82);max-width:52ch;margin:0 auto 24px">Leave your email and your Airbnb link. I’ll send back a personalised price benchmark — how your nightly rate compares to similar listings nearby, and whether you’re priced above or below them. No spam, just the breakdown.</p>
    <form id="capture" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:580px;margin:0 auto">
     <input type="email" name="email" required placeholder="you@email.com" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
     <input type="url" name="listing" placeholder="Your Airbnb link (optional)" style="flex:1 1 200px;padding:14px 16px;border-radius:11px;border:1px solid rgba(246,239,226,.25);background:rgba(255,255,255,.07);color:var(--sand);font-family:'Archivo';font-size:15px">
     <input type="hidden" name="city" value="Denver">
-    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark &#8594;</button>
+    <button type="submit" style="background:var(--coral);color:#fff;border:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:15px;cursor:pointer;font-family:'Archivo'">Send my benchmark →</button>
     <p id="capmsg" style="flex:1 1 100%;font-size:14px;margin-top:10px;min-height:18px;color:rgba(246,239,226,.7)"></p>
    </form>
   </div>
@@ -211,51 +217,57 @@ footer b{color:var(--sand)}
  </div>
 </section>
 <footer><div class="wrap">
- <div>Data supplied by <b>HostBrief</b> &middot; Denver short-term rental intelligence</div>
- <div>Data: Inside Airbnb (public domain) &middot; September 2025 &middot; Figures are estimates</div>
+ <div>Built by <b>HostBrief</b> · Denver short-term rental intelligence</div>
+ <div>Data: Inside Airbnb (public domain) · June 2026 · Figures are estimates</div>
 </div></footer>
 <script>
-const DATA={"overall": {"total_active": 4821, "median_price": 148, "median_occ": 108, "median_rev": 17496, "entire_share": 76}, "subs": [{"suburb": "RiNo / Five Points", "n": 312, "median_price": 185, "median_occ": 120, "median_rev": 24480, "rev_top25": 44400}, {"suburb": "Capitol Hill / Cheesman Park", "n": 287, "median_price": 162, "median_occ": 120, "median_rev": 21600, "rev_top25": 38400}, {"suburb": "LoDo / Auraria", "n": 245, "median_price": 175, "median_occ": 114, "median_rev": 22050, "rev_top25": 40200}, {"suburb": "Washington Park / South Denver", "n": 356, "median_price": 165, "median_occ": 108, "median_rev": 19440, "rev_top25": 34800}, {"suburb": "Highlands / Jefferson Park", "n": 298, "median_price": 158, "median_occ": 114, "median_rev": 19908, "rev_top25": 36000}, {"suburb": "City Park / Congress Park", "n": 267, "median_price": 145, "median_occ": 114, "median_rev": 18270, "rev_top25": 32400}, {"suburb": "Sloan Lake / Edgewater", "n": 198, "median_price": 148, "median_occ": 108, "median_rev": 17496, "rev_top25": 31200}, {"suburb": "Baker / South Broadway", "n": 223, "median_price": 138, "median_occ": 108, "median_rev": 16416, "rev_top25": 29400}, {"suburb": "Park Hill / Montbello", "n": 189, "median_price": 125, "median_occ": 108, "median_rev": 14904, "rev_top25": 26400}, {"suburb": "Stapleton / Central Park", "n": 245, "median_price": 138, "median_occ": 96, "median_rev": 14688, "rev_top25": 26400}, {"suburb": "Aurora / Gateway", "n": 312, "median_price": 115, "median_occ": 102, "median_rev": 12996, "rev_top25": 22800}, {"suburb": "Lakewood / Wheat Ridge", "n": 267, "median_price": 122, "median_occ": 96, "median_rev": 12936, "rev_top25": 22800}, {"suburb": "Englewood / Littleton", "n": 198, "median_price": 118, "median_occ": 96, "median_rev": 12528, "rev_top25": 21600}, {"suburb": "Commerce City / Brighton", "n": 112, "median_price": 98, "median_occ": 96, "median_rev": 10416, "rev_top25": 18000}], "cohort": {"RiNo / Five Points": {"0": {"n": 42, "price": 138, "occ": 132, "rev": 19116, "rev_top25": 34200}, "1": {"n": 145, "price": 168, "occ": 120, "rev": 22080, "rev_top25": 39600}, "2": {"n": 98, "price": 228, "occ": 114, "rev": 28728, "rev_top25": 52200}, "3": {"n": 27, "price": 345, "occ": 102, "rev": 38934, "rev_top25": 72000}}, "Capitol Hill / Cheesman Park": {"0": {"n": 55, "price": 118, "occ": 132, "rev": 16236, "rev_top25": 29400}, "1": {"n": 138, "price": 148, "occ": 120, "rev": 19440, "rev_top25": 34800}, "2": {"n": 72, "price": 198, "occ": 114, "rev": 24948, "rev_top25": 45000}, "3": {"n": 22, "price": 295, "occ": 102, "rev": 33354, "rev_top25": 61200}}, "LoDo / Auraria": {"0": {"n": 38, "price": 128, "occ": 126, "rev": 16884, "rev_top25": 30600}, "1": {"n": 112, "price": 158, "occ": 114, "rev": 19908, "rev_top25": 36000}, "2": {"n": 75, "price": 215, "occ": 108, "rev": 25704, "rev_top25": 46800}, "3": {"n": 20, "price": 318, "occ": 96, "rev": 33696, "rev_top25": 62400}}, "Washington Park / South Denver": {"1": {"n": 165, "price": 148, "occ": 108, "rev": 17496, "rev_top25": 31200}, "2": {"n": 135, "price": 198, "occ": 102, "rev": 22356, "rev_top25": 40200}, "3": {"n": 56, "price": 295, "occ": 96, "rev": 31680, "rev_top25": 57600}}, "Highlands / Jefferson Park": {"1": {"n": 138, "price": 142, "occ": 114, "rev": 17898, "rev_top25": 32400}, "2": {"n": 112, "price": 188, "occ": 108, "rev": 22464, "rev_top25": 40800}, "3": {"n": 48, "price": 278, "occ": 96, "rev": 29808, "rev_top25": 55200}}, "City Park / Congress Park": {"1": {"n": 128, "price": 128, "occ": 114, "rev": 16128, "rev_top25": 28800}, "2": {"n": 98, "price": 172, "occ": 108, "rev": 20448, "rev_top25": 36600}, "3": {"n": 41, "price": 255, "occ": 96, "rev": 27216, "rev_top25": 50400}}, "Sloan Lake / Edgewater": {"1": {"n": 95, "price": 132, "occ": 108, "rev": 15624, "rev_top25": 28200}, "2": {"n": 75, "price": 175, "occ": 102, "rev": 19710, "rev_top25": 35400}, "3": {"n": 28, "price": 258, "occ": 96, "rev": 27648, "rev_top25": 51000}}, "Baker / South Broadway": {"1": {"n": 108, "price": 122, "occ": 108, "rev": 14508, "rev_top25": 25800}, "2": {"n": 82, "price": 162, "occ": 102, "rev": 18252, "rev_top25": 32400}, "3": {"n": 33, "price": 238, "occ": 96, "rev": 25344, "rev_top25": 46800}}, "Park Hill / Montbello": {"1": {"n": 92, "price": 112, "occ": 108, "rev": 13392, "rev_top25": 23400}, "2": {"n": 68, "price": 148, "occ": 102, "rev": 16668, "rev_top25": 29400}, "3": {"n": 29, "price": 218, "occ": 96, "rev": 23328, "rev_top25": 42600}}, "Stapleton / Central Park": {"1": {"n": 112, "price": 122, "occ": 96, "rev": 12960, "rev_top25": 22800}, "2": {"n": 98, "price": 162, "occ": 90, "rev": 16200, "rev_top25": 29400}, "3": {"n": 35, "price": 238, "occ": 84, "rev": 22092, "rev_top25": 40200}}, "Aurora / Gateway": {"1": {"n": 148, "price": 102, "occ": 102, "rev": 11628, "rev_top25": 20400}, "2": {"n": 112, "price": 135, "occ": 96, "rev": 14256, "rev_top25": 25200}, "3": {"n": 52, "price": 195, "occ": 90, "rev": 19350, "rev_top25": 35400}}, "Lakewood / Wheat Ridge": {"1": {"n": 128, "price": 108, "occ": 96, "rev": 11520, "rev_top25": 20400}, "2": {"n": 98, "price": 142, "occ": 90, "rev": 14130, "rev_top25": 25200}, "3": {"n": 41, "price": 205, "occ": 84, "rev": 19026, "rev_top25": 34800}}, "Englewood / Littleton": {"1": {"n": 95, "price": 105, "occ": 96, "rev": 11088, "rev_top25": 19200}, "2": {"n": 72, "price": 138, "occ": 90, "rev": 13716, "rev_top25": 24000}, "3": {"n": 31, "price": 195, "occ": 84, "rev": 18144, "rev_top25": 33000}}, "Commerce City / Brighton": {"1": {"n": 55, "price": 88, "occ": 96, "rev": 9408, "rev_top25": 16200}, "2": {"n": 38, "price": 115, "occ": 90, "rev": 11430, "rev_top25": 19800}, "3": {"n": 19, "price": 162, "occ": 84, "rev": 15120, "rev_top25": 27000}}}};
+const DATA={"overall":{"total_active":3574,"median_price":217,"median_occ":147,"median_rev":28162,"entire_share":87},"subs":[{"suburb":"Jefferson Park","n":54,"median_price":341,"median_occ":130,"median_rev":47024,"rev_top25":64192},{"suburb":"Five Points","n":228,"median_price":260,"median_occ":175,"median_rev":45324,"rev_top25":75302},{"suburb":"Cole","n":52,"median_price":249,"median_occ":196,"median_rev":43096,"rev_top25":60067},{"suburb":"Whittier","n":63,"median_price":252,"median_occ":154,"median_rev":41013,"rev_top25":59260},{"suburb":"Sunnyside","n":89,"median_price":242,"median_occ":161,"median_rev":36934,"rev_top25":59388},{"suburb":"Platt Park","n":42,"median_price":210,"median_occ":192,"median_rev":34897,"rev_top25":51659},{"suburb":"Highland","n":220,"median_price":275,"median_occ":154,"median_rev":33682,"rev_top25":60641},{"suburb":"Sloan Lake","n":64,"median_price":203,"median_occ":168,"median_rev":33546,"rev_top25":52666},{"suburb":"North Park Hill","n":39,"median_price":186,"median_occ":175,"median_rev":31262,"rev_top25":47832},{"suburb":"West Colfax","n":119,"median_price":270,"median_occ":133,"median_rev":30903,"rev_top25":62250},{"suburb":"Union Station","n":116,"median_price":267,"median_occ":123,"median_rev":30118,"rev_top25":70339},{"suburb":"East Colfax","n":25,"median_price":190,"median_occ":180,"median_rev":29836,"rev_top25":56039},{"suburb":"West Highland","n":80,"median_price":217,"median_occ":147,"median_rev":29830,"rev_top25":49836},{"suburb":"Berkeley","n":107,"median_price":224,"median_occ":168,"median_rev":29768,"rev_top25":53444},{"suburb":"Clayton","n":32,"median_price":196,"median_occ":182,"median_rev":29573,"rev_top25":44752},{"suburb":"Lincoln Park","n":54,"median_price":224,"median_occ":174,"median_rev":29090,"rev_top25":47506},{"suburb":"Gateway - Green Valley Ranch","n":68,"median_price":224,"median_occ":119,"median_rev":28118,"rev_top25":43666},{"suburb":"South Park Hill","n":26,"median_price":220,"median_occ":126,"median_rev":28072,"rev_top25":40645},{"suburb":"Cherry Creek","n":38,"median_price":417,"median_occ":80,"median_rev":27448,"rev_top25":50067},{"suburb":"Congress Park","n":58,"median_price":197,"median_occ":136,"median_rev":27325,"rev_top25":39873},{"suburb":"Baker","n":63,"median_price":202,"median_occ":160,"median_rev":27286,"rev_top25":48284},{"suburb":"Skyland","n":27,"median_price":261,"median_occ":154,"median_rev":27035,"rev_top25":51285},{"suburb":"Washington Park West","n":47,"median_price":231,"median_occ":133,"median_rev":26880,"rev_top25":58856},{"suburb":"Stapleton","n":48,"median_price":241,"median_occ":94,"median_rev":26680,"rev_top25":41227},{"suburb":"Virginia Village","n":29,"median_price":231,"median_occ":154,"median_rev":26526,"rev_top25":50939},{"suburb":"City Park West","n":64,"median_price":220,"median_occ":174,"median_rev":26080,"rev_top25":65280},{"suburb":"Villa Park","n":27,"median_price":228,"median_occ":133,"median_rev":24733,"rev_top25":47150},{"suburb":"Speer","n":101,"median_price":148,"median_occ":180,"median_rev":23268,"rev_top25":43447},{"suburb":"Athmar Park","n":29,"median_price":245,"median_occ":116,"median_rev":22680,"rev_top25":36210},{"suburb":"Capitol Hill","n":72,"median_price":121,"median_occ":178,"median_rev":19256,"rev_top25":40900},{"suburb":"Civic Center","n":35,"median_price":243,"median_occ":63,"median_rev":19173,"rev_top25":28080},{"suburb":"Cheesman Park","n":68,"median_price":151,"median_occ":120,"median_rev":16730,"rev_top25":37289},{"suburb":"City Park","n":39,"median_price":100,"median_occ":116,"median_rev":11968,"rev_top25":26896},{"suburb":"Cbd","n":73,"median_price":109,"median_occ":116,"median_rev":10836,"rev_top25":26105},{"suburb":"Hale","n":60,"median_price":144,"median_occ":60,"median_rev":6564,"rev_top25":15816}],"cohort":{"Athmar Park":{"2":{"n":12,"price":203,"occ":174,"rev":25028,"rev_top25":35139}},"Baker":{"1":{"n":29,"price":132,"occ":174,"rev":26240,"rev_top25":33754},"2":{"n":20,"price":213,"occ":164,"rev":27682,"rev_top25":45448},"3":{"n":10,"price":370,"occ":136,"rev":53646,"rev_top25":66284}},"Berkeley":{"1":{"n":49,"price":173,"occ":174,"rev":26825,"rev_top25":39653},"2":{"n":40,"price":260,"occ":136,"rev":33846,"rev_top25":58126},"3":{"n":10,"price":404,"occ":150,"rev":46690,"rev_top25":70022}},"Capitol Hill":{"1":{"n":43,"price":96,"occ":180,"rev":15588,"rev_top25":33742},"2":{"n":13,"price":120,"occ":116,"rev":18698,"rev_top25":30580}},"Cbd":{"1":{"n":50,"price":106,"occ":132,"rev":14960,"rev_top25":24008},"2":{"n":13,"price":138,"occ":60,"rev":10744,"rev_top25":26105}},"Cheesman Park":{"1":{"n":34,"price":145,"occ":126,"rev":20093,"rev_top25":33184},"2":{"n":19,"price":122,"occ":231,"rev":16407,"rev_top25":30130}},"Cherry Creek":{"1":{"n":14,"price":357,"occ":65,"rev":16399,"rev_top25":28535},"2":{"n":16,"price":394,"occ":106,"rev":42884,"rev_top25":53858}},"City Park":{"1":{"n":23,"price":100,"occ":70,"rev":8893,"rev_top25":18268}},"City Park West":{"1":{"n":31,"price":102,"occ":140,"rev":17893,"rev_top25":26103},"2":{"n":14,"price":315,"occ":255,"rev":67789,"rev_top25":96821}},"Civic Center":{"1":{"n":30,"price":230,"occ":63,"rev":15692,"rev_top25":24594}},"Clayton":{"1":{"n":11,"price":174,"occ":196,"rev":34578,"rev_top25":38758},"2":{"n":16,"price":189,"occ":200,"rev":23639,"rev_top25":46670}},"Cole":{"1":{"n":19,"price":177,"occ":231,"rev":36995,"rev_top25":46074},"2":{"n":18,"price":280,"occ":196,"rev":45112,"rev_top25":66786}},"Congress Park":{"1":{"n":27,"price":170,"occ":189,"rev":29070,"rev_top25":39749},"2":{"n":18,"price":227,"occ":134,"rev":27325,"rev_top25":44893},"3":{"n":10,"price":346,"occ":72,"rev":22072,"rev_top25":53666}},"East Colfax":{"2":{"n":13,"price":171,"occ":180,"rev":26880,"rev_top25":48323}},"Five Points":{"1":{"n":81,"price":159,"occ":189,"rev":24948,"rev_top25":48314},"2":{"n":64,"price":319,"occ":178,"rev":56154,"rev_top25":79093},"3":{"n":42,"price":486,"occ":168,"rev":75584,"rev_top25":112422},"4":{"n":23,"price":803,"occ":147,"rev":84014,"rev_top25":120592}},"Gateway - Green Valley Ranch":{"2":{"n":18,"price":170,"occ":206,"rev":29649,"rev_top25":41585},"3":{"n":22,"price":229,"occ":118,"rev":26594,"rev_top25":42266},"4":{"n":23,"price":309,"occ":116,"rev":32393,"rev_top25":55356}},"Hale":{"1":{"n":46,"price":144,"occ":60,"rev":5281,"rev_top25":8736}},"Highland":{"1":{"n":98,"price":200,"occ":171,"rev":29404,"rev_top25":49000},"2":{"n":64,"price":273,"occ":133,"rev":44105,"rev_top25":60957},"3":{"n":25,"price":570,"occ":126,"rev":60639,"rev_top25":90552},"4":{"n":22,"price":811,"occ":186,"rev":119024,"rev_top25":201859}},"Jefferson Park":{"1":{"n":14,"price":179,"occ":255,"rev":38074,"rev_top25":58175},"2":{"n":22,"price":410,"occ":120,"rev":46509,"rev_top25":68422},"3":{"n":12,"price":527,"occ":118,"rev":58244,"rev_top25":68067}},"Lincoln Park":{"1":{"n":16,"price":132,"occ":192,"rev":24490,"rev_top25":41018},"2":{"n":14,"price":171,"occ":192,"rev":32698,"rev_top25":41457},"3":{"n":18,"price":350,"occ":137,"rev":41366,"rev_top25":81439}},"North Park Hill":{"1":{"n":17,"price":168,"occ":189,"rev":25663,"rev_top25":41063},"2":{"n":10,"price":184,"occ":146,"rev":20482,"rev_top25":33752}},"Northeast Park Hill":{"2":{"n":11,"price":140,"occ":77,"rev":13944,"rev_top25":18716}},"Platt Park":{"1":{"n":27,"price":223,"occ":203,"rev":35445,"rev_top25":56200}},"Skyland":{"1":{"n":10,"price":227,"occ":190,"rev":24894,"rev_top25":51810}},"Sloan Lake":{"1":{"n":28,"price":160,"occ":182,"rev":30278,"rev_top25":38379},"2":{"n":21,"price":196,"occ":168,"rev":28367,"rev_top25":57750},"3":{"n":10,"price":352,"occ":126,"rev":48277,"rev_top25":62607}},"Speer":{"1":{"n":52,"price":112,"occ":180,"rev":20302,"rev_top25":33212},"2":{"n":25,"price":152,"occ":174,"rev":25946,"rev_top25":50873}},"Stapleton":{"1":{"n":12,"price":166,"occ":119,"rev":18627,"rev_top25":29013},"2":{"n":10,"price":253,"occ":138,"rev":31236,"rev_top25":43562},"3":{"n":11,"price":277,"occ":62,"rev":16076,"rev_top25":37669},"4":{"n":13,"price":571,"occ":70,"rev":33297,"rev_top25":43254}},"Sunnyside":{"1":{"n":30,"price":186,"occ":178,"rev":34639,"rev_top25":49217},"2":{"n":33,"price":242,"occ":189,"rev":36934,"rev_top25":54320},"3":{"n":13,"price":297,"occ":126,"rev":38435,"rev_top25":68289},"4":{"n":11,"price":692,"occ":119,"rev":74456,"rev_top25":82962}},"Union Station":{"1":{"n":58,"price":188,"occ":120,"rev":22116,"rev_top25":36655},"2":{"n":45,"price":442,"occ":147,"rev":50925,"rev_top25":104048}},"University":{"1":{"n":11,"price":162,"occ":189,"rev":26834,"rev_top25":37992}},"Villa Park":{"1":{"n":10,"price":179,"occ":244,"rev":26962,"rev_top25":45685}},"Washington Park":{"1":{"n":10,"price":150,"occ":210,"rev":33518,"rev_top25":39525}},"Washington Park West":{"1":{"n":18,"price":123,"occ":168,"rev":20458,"rev_top25":44078},"2":{"n":12,"price":299,"occ":124,"rev":29017,"rev_top25":54515},"3":{"n":10,"price":463,"occ":57,"rev":27318,"rev_top25":67118}},"West Colfax":{"1":{"n":35,"price":178,"occ":147,"rev":27009,"rev_top25":44612},"2":{"n":45,"price":284,"occ":133,"rev":26918,"rev_top25":55090},"3":{"n":19,"price":455,"occ":105,"rev":45766,"rev_top25":71914},"4":{"n":15,"price":575,"occ":182,"rev":88773,"rev_top25":142004}},"West Highland":{"1":{"n":24,"price":167,"occ":232,"rev":27931,"rev_top25":44689},"2":{"n":31,"price":220,"occ":133,"rev":25044,"rev_top25":44111},"3":{"n":11,"price":457,"occ":84,"rev":39900,"rev_top25":48300}},"Whittier":{"1":{"n":28,"price":211,"occ":184,"rev":28586,"rev_top25":52702},"2":{"n":11,"price":291,"occ":133,"rev":49432,"rev_top25":66782},"3":{"n":13,"price":394,"occ":98,"rev":42380,"rev_top25":52800}}}};
 const CCY="$";
-const fmt=n=>CCY+n.toLocaleString("en-US");
-const bedLabel={0:"Studio",1:"1 bedroom",2:"2 bedrooms",3:"3 bedrooms",4:"4+ bedrooms"};
+const fmt=n=>CCY+n.toLocaleString('en-US');
+const bedLabel={0:'Studio',1:'1 bedroom',2:'2 bedrooms',3:'3 bedrooms',4:'4+ bedrooms'};
 const words="What your Denver listing should earn.".split(" ");
-document.getElementById("h1").innerHTML=words.map(w=>{
-  const it=/should|earn/.test(w)?" it":"";
-  return "<span class=\"w"+it+"\">"+w+"&nbsp;</span>";
+document.getElementById('h1').innerHTML=words.map(w=>{
+  const it=/should|earn/.test(w)?' it':'';
+  return `<span class="w${it}">${w}&nbsp;</span>`;
 }).join("");
-document.querySelectorAll("#h1 .w").forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+"s");
-const subSel=document.getElementById("sub"),bedSel=document.getElementById("bed"),res=document.getElementById("result");
-Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement("option");o.value=s;o.textContent=s;subSel.appendChild(o);});
+document.querySelectorAll('#h1 .w').forEach((s,i)=>s.style.animationDelay=(.15+i*.07)+'s');
+const subSel=document.getElementById('sub'),bedSel=document.getElementById('bed'),res=document.getElementById('result');
+Object.keys(DATA.cohort).sort().forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;subSel.appendChild(o);});
 function fillBeds(){
   const beds=Object.keys(DATA.cohort[subSel.value]).map(Number).sort((a,b)=>a-b);
   bedSel.innerHTML="";
-  beds.forEach(b=>{const o=document.createElement("option");o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});
+  beds.forEach(b=>{const o=document.createElement('option');o.value=b;o.textContent=bedLabel[b];bedSel.appendChild(o);});
 }
 function render(){
   const c=DATA.cohort[subSel.value]?.[bedSel.value];
-  if(!c){res.innerHTML="<div class=\"empty\">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>";return;}
-  res.innerHTML=
-   "<div class=\"cell\"><div class=\"l\">Median nightly rate</div><div class=\"v\">"+fmt(c.price)+"</div></div>"+
-   "<div class=\"cell\"><div class=\"l\">Typical nights booked / yr</div><div class=\"v\">"+c.occ+"<small> nights</small></div></div>"+
-   "<div class=\"cell\"><div class=\"l\">Median annual revenue</div><div class=\"v\">"+fmt(c.rev)+"</div></div>"+
-   "<div class=\"cell hot\"><div class=\"l\">Top 25% earn</div><div class=\"v\">"+fmt(c.rev_top25)+"<small> /yr</small></div></div>"+
-   "<div class=\"cell span\"><div class=\"l\">Based on</div><div class=\"v\" style=\"font-size:22px\">"+c.n+" comparable "+bedLabel[bedSel.value].toLowerCase()+" listings</div></div>";
+  if(!c){res.innerHTML='<div class="empty">Not enough listings in this exact combo to publish a reliable median. Try another size.</div>';return;}
+  res.innerHTML=`
+   <div class="cell"><div class="l">Median nightly rate</div><div class="v">${fmt(c.price)}</div></div>
+   <div class="cell"><div class="l">Typical nights booked / yr</div><div class="v">${c.occ}<small> nights</small></div></div>
+   <div class="cell"><div class="l">Median annual revenue</div><div class="v">${fmt(c.rev)}</div></div>
+   <div class="cell hot"><div class="l">Top 25% earn</div><div class="v">${fmt(c.rev_top25)}<small> /yr</small></div></div>
+   <div class="cell span"><div class="l">Based on</div><div class="v" style="font-size:22px">${c.n} comparable ${bedLabel[bedSel.value].toLowerCase()} listings</div></div>`;
 }
-subSel.addEventListener("change",()=>{fillBeds();render();});
-bedSel.addEventListener("change",render);
+subSel.addEventListener('change',()=>{fillBeds();render();});
+bedSel.addEventListener('change',render);
 subSel.value=Object.keys(DATA.cohort).sort()[0];fillBeds();render();
-let rows=[...DATA.subs],sortK="median_rev",dir=-1;
-const tb=document.getElementById("tb");
+let rows=[...DATA.subs],sortK='median_rev',dir=-1;
+const tb=document.getElementById('tb');
 function draw(){
-  rows.sort((a,b)=>typeof a[sortK]==="string"?a[sortK].localeCompare(b[sortK])*dir:(a[sortK]-b[sortK])*dir);
-  tb.innerHTML=rows.map((r,i)=>"<tr><td><span class=\"rank\">"+(i+1)+"</span>"+r.suburb+"</td><td>"+r.n.toLocaleString("en-US")+"</td><td>"+fmt(r.median_price)+"</td><td class=\"occ-col\">"+r.median_occ+"</td><td class=\"big\">"+fmt(r.median_rev)+"</td><td>"+fmt(r.rev_top25)+"</td></tr>").join("");
+  rows.sort((a,b)=> typeof a[sortK]==='string'? a[sortK].localeCompare(b[sortK])*dir : (a[sortK]-b[sortK])*dir);
+  tb.innerHTML=rows.map((r,i)=>`<tr>
+    <td><span class="rank">${i+1}</span>${r.suburb}</td>
+    <td>${r.n.toLocaleString('en-US')}</td>
+    <td>${fmt(r.median_price)}</td>
+    <td class="occ-col">${r.median_occ}</td>
+    <td class="big">${fmt(r.median_rev)}</td>
+    <td>${fmt(r.rev_top25)}</td></tr>`).join("");
 }
-document.querySelectorAll("#tbl th").forEach(th=>th.addEventListener("click",()=>{
+document.querySelectorAll('#tbl th').forEach(th=>th.addEventListener('click',()=>{
   const k=th.dataset.k;
-  if(k===sortK)dir=-dir;else{sortK=k;dir=(k==="suburb")?1:-1;}
-  document.querySelectorAll("#tbl th").forEach(x=>x.classList.remove("up","down"));
-  th.classList.add(dir===1?"up":"down");draw();
+  if(k===sortK)dir=-dir;else{sortK=k;dir=(k==='suburb')?1:-1;}
+  document.querySelectorAll('#tbl th').forEach(x=>x.classList.remove('up','down'));
+  th.classList.add(dir===1?'up':'down');draw();
 }));
 draw();
 </script>

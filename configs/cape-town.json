@@ -1,0 +1,13 @@
+{
+  "slug": "cape-town",
+  "display_name": "Cape Town",
+  "tag_location": "Cape Town",
+  "country": "South Africa",
+  "currency_symbol": "R",
+  "currency_iso": "ZAR",
+  "geography_label": "Area",
+  "grouped_by_copy": "Listings are grouped by the areas Inside Airbnb publishes for this market.",
+  "snapshot_month": "June 2026",
+  "source_csv": "data/cape-town-2026-06-29.listings.csv.gz",
+  "source_url": "https://data.insideairbnb.com/south-africa/wc/cape-town/2026-06-29/data/listings.csv.gz"
+}

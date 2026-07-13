@@ -1,0 +1,13 @@
+{
+  "slug": "edinburgh",
+  "display_name": "Edinburgh",
+  "tag_location": "Edinburgh",
+  "country": "United Kingdom",
+  "currency_symbol": "£",
+  "currency_iso": "GBP",
+  "geography_label": "Area",
+  "grouped_by_copy": "Listings are grouped by the areas Inside Airbnb publishes for this market.",
+  "snapshot_month": "June 2026",
+  "source_csv": "data/edinburgh-2026-06-23.listings.csv.gz",
+  "source_url": "https://data.insideairbnb.com/united-kingdom/scotland/edinburgh/2026-06-23/data/listings.csv.gz"
+}
