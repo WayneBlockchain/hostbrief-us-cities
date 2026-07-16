@@ -271,7 +271,7 @@ footer a:hover{color:var(--sand)}
    <p class="line">Want this every morning?</p>
    <p class="sub" style="max-width:54ch;margin:0 auto 26px">HostBrief sends one daily brief showing how your nightly price compares to similar listings nearby &mdash; so you spot a comp undercutting you the day it happens, not a month later.</p>
    <div class="cta">
-    <a href="https://hostbrief.app/" target="_blank" rel="noopener noreferrer">See how it works &#8594;</a>
+    <a id="cta-product" href="https://hostbrief.app/" target="_blank" rel="noopener noreferrer">See how it works &#8594;</a>
    </div>
   </div>
  </div>
@@ -388,6 +388,31 @@ footer a:hover{color:var(--sand)}
   [rateEl,costEl,feeEl,occEl,stayEl].forEach(function(el){el.addEventListener('input',calc);});
   ccyEl.addEventListener('change',calc);
   calc();
+
+  // Analytics. Fires once per settled calculation, never per keystroke: the timer
+  // waits for typing to stop and the signature check drops repeats of the same inputs.
+  // The R/O/S gate mirrors calc()'s own -- only fire when the cards actually render.
+  // Metadata only -- rates, costs and occupancy never leave the page.
+  var lastSig='',phTimer;
+  function track(){
+    if(!(num(rateEl)>0&&num(occEl)>0&&Math.round(num(stayEl))>0))return;
+    var sig=[rateEl.value,costEl.value,feeEl.value,occEl.value,stayEl.value,ccyEl.value].join('|');
+    if(sig===lastSig)return;
+    lastSig=sig;
+    if(window.posthog){
+      window.posthog.capture('minimum_stay_calculation_completed',{currency:ccyEl.value});
+    }
+  }
+  function queueTrack(){clearTimeout(phTimer);phTimer=setTimeout(track,1200);}
+  [rateEl,costEl,feeEl,occEl,stayEl].forEach(function(el){el.addEventListener('input',queueTrack);});
+  ccyEl.addEventListener('change',queueTrack);
+
+  var ctaEl=document.getElementById('cta-product');
+  if(ctaEl)ctaEl.addEventListener('click',function(){
+    if(window.posthog){
+      window.posthog.capture('tool_cta_clicked',{tool:'minimum-stay',destination:'hostbrief.app'});
+    }
+  });
 })();
 </script>
 
@@ -400,7 +425,7 @@ footer a:hover{color:var(--sand)}
   m.style.color='var(--gold)';m.textContent='Sending\u2026';
   var data={email:f.email.value,listing:f.listing.value,city:f.city.value};
   fetch('https://hostbrief.app/api/city-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
-   .then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};});}).then(function(res){var r=res.ok&&res.body.success?{ok:true}:{ok:false};if(r.ok){f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I\u2019ll send your benchmark soon. \u2713';}
+   .then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};});}).then(function(res){var r=res.ok&&res.body.success?{ok:true}:{ok:false};if(r.ok){if(window.posthog){window.posthog.capture('benchmark_capture_submitted',{source_page:(location.pathname.replace(/index\.html$/,'').replace(/^\/+|\/+$/g,'').split('/').pop()||'home'),has_listing_url:!!(f.listing&&f.listing.value.trim())});}f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I\u2019ll send your benchmark soon. \u2713';}
      else{m.style.color='#ff8c66';m.textContent='Something went wrong \u2014 email me at waynehavenga71@gmail.com';}
    })
    .catch(function(){m.style.color='#ff8c66';m.textContent='Network issue \u2014 email me at waynehavenga71@gmail.com';});
