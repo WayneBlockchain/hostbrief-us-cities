@@ -313,7 +313,7 @@ footer b{color:var(--sand)}
   m.style.color='var(--gold)';m.textContent='Sending…';
   var data={email:f.email.value,listing:f.listing.value,city:f.city.value};
   fetch('https://hostbrief.app/api/city-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
-   .then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};});}).then(function(res){var r=res.ok&&res.body.success?{ok:true}:{ok:false};if(r.ok){f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I’ll send your benchmark soon. ✓';}
+   .then(function(r){return r.json().then(function(j){return {ok:r.ok,body:j};});}).then(function(res){var r=res.ok&&res.body.success?{ok:true}:{ok:false};if(r.ok){if(window.posthog){window.posthog.capture('benchmark_capture_submitted',{source_page:(location.pathname.replace(/index\.html$/,'').replace(/^\/+|\/+$/g,'').split('/').pop()||'home'),has_listing_url:!!(f.listing&&f.listing.value.trim())});}f.reset();m.style.color='var(--sea)';m.textContent='Thanks! I’ll send your benchmark soon. ✓';}
      else{m.style.color='#ff8c66';m.textContent='Something went wrong — email me at waynehavenga71@gmail.com';}
    })
    .catch(function(){m.style.color='#ff8c66';m.textContent='Network issue — email me at waynehavenga71@gmail.com';});
