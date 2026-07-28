@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://benchmarks.hostbrief.app/sitemap.xml
