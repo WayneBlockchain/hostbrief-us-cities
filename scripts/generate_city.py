@@ -29,6 +29,7 @@ Usage:
 """
 import argparse
 import csv
+import datetime
 import gzip
 import json
 import os
@@ -251,13 +252,20 @@ def render_page(template, config, data):
 
 # ---------------------------------------------------------------- hub + sitemap
 def update_sitemap(path, slug, base="https://benchmarks.hostbrief.app"):
-    """Insert the city's <url> in alphabetical order if it is missing."""
+    """Insert the city's <url> in alphabetical order if it is missing.
+
+    The entry is born with today's <lastmod> because the page it describes is
+    being written right now and has no commit yet. Once it is committed,
+    scripts/add_sitemap_lastmod.py takes over and refreshes the date from git.
+    """
     text = open(path, "r", encoding="utf-8", newline="").read()
     loc = "{}/{}/".format(base, slug)
     if loc in text:
         return False
-    line = ('  <url><loc>{}</loc><changefreq>weekly</changefreq>'
-            '<priority>0.8</priority></url>\n').format(loc)
+    line = ('  <url><loc>{}</loc><lastmod>{}</lastmod>'
+            '<changefreq>weekly</changefreq>'
+            '<priority>0.8</priority></url>\n').format(
+                loc, datetime.date.today().isoformat())
     lines = text.splitlines(keepends=True)
     urls = [i for i, ln in enumerate(lines)
             if "/loc>" in ln and "benchmarks.hostbrief.app/" in ln
